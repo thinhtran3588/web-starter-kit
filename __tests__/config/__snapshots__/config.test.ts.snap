@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/Index renders successfully 1`] = `
+Object {
+  "dateFormat": "DD/MM/YYYY",
+  "regex": Object {
+    "email": /\\^\\[a-z\\]\\[a-z0-9_\\.\\]\\{5,40\\}@\\[a-z0-9\\]\\{2,\\}\\(\\.\\[a-z0-9\\]\\{2,4\\}\\)\\{1,2\\}\\$/,
+    "password": /\\^\\(\\?=\\.\\*\\[A-Za-z\\]\\)\\(\\?=\\.\\*\\\\d\\)\\(\\?=\\.\\*\\[@\\$!%\\*#\\?&\\]\\)\\[A-Za-z\\\\d@\\$!%\\*#\\?&\\]\\{6,\\}\\$/,
+    "phone": /\\^\\[0-9\\]\\{8,\\}\\$/,
+  },
+  "signInOptions": Array [
+    "email",
+    "phone",
+    "facebook",
+    "google",
+  ],
+}
+`;

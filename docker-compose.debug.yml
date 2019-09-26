@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  web:
+    environment:
+      - NODE_ENV=development
+    build: .
+    command: yarn dev
+    volumes:
+      - ./dev-storage:/node_app/storage
+      - ./dist:/node_app/dist
+    ports:
+      - "3000:3000"
+      - "9229:9229"

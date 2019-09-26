@@ -1,0 +1,79 @@
+{
+  "author": {
+    "email": "quangthinhtran3588@gmail.com",
+    "name": "Thinh Tran"
+  },
+  "bugs": {
+    "url": "https://github.com/thinhtran3588/web-starter-kit/issues"
+  },
+  "dependencies": {
+    "i18next": "^17.0.16",
+    "isomorphic-unfetch": "^3.0.0",
+    "lodash": "^4.17.15",
+    "next": "^9.0.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "yup": "^0.27.0"
+  },
+  "description": "",
+  "devDependencies": {
+    "@testing-library/react": "^9.1.4",
+    "@types/jest": "^24.0.15",
+    "@types/lodash": "^4.14.138",
+    "@types/next": "^8.0.6",
+    "@types/node": "^12.7.2",
+    "@types/react": "^16.9.3",
+    "@types/styled-jsx": "^2.2.8",
+    "@types/yup": "^0.26.23",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.2.0",
+    "@zeit/next-bundle-analyzer": "^0.1.2",
+    "@zeit/next-typescript": "^1.1.1",
+    "babel-jest": "^24.8.0",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "coveralls": "^3.0.6",
+    "cross-env": "^6.0.0",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-no-null": "^1.0.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "jest": "^24.9.0",
+    "now": "^16.2.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "homepage": "https://github.com/thinhtran3588/web-starter-kit#readme",
+  "keywords": [],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "web-starter-kit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinhtran3588/web-starter-kit.git"
+  },
+  "scripts": {
+    "analyze": "cross-env BUNDLE_ANALYZE=both next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
+    "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+    "build": "next build",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "dev": "next",
+    "lint": "eslint '{src,__tests__}/**/**.{ts,tsx}' && prettier --check '{src,__{tests,mocks}__}/**/*.{ts,tsx}'",
+    "lint-fix": "prettier --write '{src,__{tests,mocks}__}/**/*.{ts,tsx}' && eslint '{src,__tests__}/**/**.{ts,tsx}' --fix",
+    "prettier": "prettier --write '{src,__{tests,mocks}__}/**/*.{ts,tsx}'",
+    "start": "next start",
+    "test": "jest --detectOpenHandles --verbose",
+    "validate": "yarn lint && yarn build && yarn test"
+  },
+  "version": "1.0.0"
+}

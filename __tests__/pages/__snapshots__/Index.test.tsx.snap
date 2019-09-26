@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/Index renders successfully 1`] = `
+<body>
+  <div>
+    <div>
+      <div
+        class="jsx-1497064902"
+      >
+        <a
+          class="jsx-1497064902"
+          href="/"
+        >
+          Home
+        </a>
+        <a
+          class="jsx-1497064902"
+          href="/about"
+        >
+          About
+        </a>
+      </div>
+      <h1>
+        Home
+      </h1>
+    </div>
+  </div>
+</body>
+`;

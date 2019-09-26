@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+.DS_Store
+
+# credential files
+environments/production
+production.zip
