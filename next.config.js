@@ -1,7 +1,8 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import withBundleAnalyzer from '@zeit/next-bundle-analyzer';
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable @typescript-eslint/no-var-requires */
+const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 
-export default withBundleAnalyzer({
+module.exports = withBundleAnalyzer({
   analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
   analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
   bundleAnalyzerConfig: {

@@ -57,6 +57,9 @@
   "license": "MIT",
   "main": "index.js",
   "name": "web-starter-kit",
+  "pre-commit": [
+    "validate"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thinhtran3588/web-starter-kit.git"
