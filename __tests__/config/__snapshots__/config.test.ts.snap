@@ -14,5 +14,6 @@ Object {
     "facebook",
     "google",
   ],
+  "siteName": "Web Starter Kit",
 }
 `;

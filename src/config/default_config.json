@@ -1,4 +1,5 @@
 {
+  "siteName": "Web Starter Kit",
   "dateFormat": "DD/MM/YYYY",
   "signInOptions": ["email", "phone", "facebook", "google"]
 }
