@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.4.3",
+    "@material-ui/styles": "^4.4.3",
+    "classnames": "^2.2.6",
     "i18next": "^17.0.16",
     "isomorphic-unfetch": "^3.0.0",
     "lodash": "^4.17.15",
@@ -19,6 +21,7 @@
   "description": "",
   "devDependencies": {
     "@testing-library/react": "^9.1.4",
+    "@types/classnames": "^2.2.9",
     "@types/jest": "^24.0.15",
     "@types/lodash": "^4.14.138",
     "@types/next": "^8.0.6",

@@ -1,8 +1,7 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import NextHead from 'next/head';
 import { config } from '@app/config';
-import Header from './Header';
+import Header from '../Header';
 
 interface Props {
   children?: React.ReactNode;
@@ -17,7 +16,6 @@ export const Layout = ({ children, title = config.siteName, description = '' }: 
       <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no' />
       <meta name='Description' content={description}></meta>
     </NextHead>
-    <CssBaseline />
     <Header />
     {children}
   </>
