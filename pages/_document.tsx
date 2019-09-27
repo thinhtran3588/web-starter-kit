@@ -12,7 +12,7 @@ class Document extends NextDocument {
   // eslint-disable-next-line class-methods-use-this
   public render(): JSX.Element {
     return (
-      <Html>
+      <Html lang='en'>
         <Head />
         <body>
           <Main />
