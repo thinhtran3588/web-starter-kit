@@ -3,23 +3,21 @@
 exports[`components/Layout renders successfully 1`] = `
 <body>
   <div>
-    <div>
-      <div
+    <div
+      class="jsx-1497064902"
+    >
+      <a
         class="jsx-1497064902"
+        href="/"
       >
-        <a
-          class="jsx-1497064902"
-          href="/"
-        >
-          Home
-        </a>
-        <a
-          class="jsx-1497064902"
-          href="/about"
-        >
-          About
-        </a>
-      </div>
+        Home
+      </a>
+      <a
+        class="jsx-1497064902"
+        href="/about"
+      >
+        About
+      </a>
     </div>
   </div>
 </body>
@@ -28,23 +26,21 @@ exports[`components/Layout renders successfully 1`] = `
 exports[`components/Layout renders successfully with title 1`] = `
 <body>
   <div>
-    <div>
-      <div
+    <div
+      class="jsx-1497064902"
+    >
+      <a
         class="jsx-1497064902"
+        href="/"
       >
-        <a
-          class="jsx-1497064902"
-          href="/"
-        >
-          Home
-        </a>
-        <a
-          class="jsx-1497064902"
-          href="/about"
-        >
-          About
-        </a>
-      </div>
+        Home
+      </a>
+      <a
+        class="jsx-1497064902"
+        href="/about"
+      >
+        About
+      </a>
     </div>
   </div>
 </body>

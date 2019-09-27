@@ -3,27 +3,39 @@
 exports[`pages/Index renders successfully 1`] = `
 <body>
   <div>
-    <div>
-      <div
+    <div
+      class="jsx-1497064902"
+    >
+      <a
         class="jsx-1497064902"
+        href="/"
       >
-        <a
-          class="jsx-1497064902"
-          href="/"
-        >
-          Home
-        </a>
-        <a
-          class="jsx-1497064902"
-          href="/about"
-        >
-          About
-        </a>
-      </div>
-      <h1>
         Home
-      </h1>
+      </a>
+      <a
+        class="jsx-1497064902"
+        href="/about"
+      >
+        About
+      </a>
     </div>
+    <h1>
+      Home
+    </h1>
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-label"
+      >
+        Hello World
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
   </div>
 </body>
 `;
