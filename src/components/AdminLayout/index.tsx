@@ -1,7 +1,7 @@
 import React from 'react';
 import NextHead from 'next/head';
 import { config } from '@app/config';
-import Header from '../Header';
+import { Header } from '@app/components/Header';
 
 interface Props {
   children?: React.ReactNode;
@@ -9,7 +9,7 @@ interface Props {
   description?: string;
 }
 
-export const Layout = ({ children, title = config.siteName, description = '' }: Props): JSX.Element => (
+export const AdminLayout = ({ children, title = config.siteName, description = '' }: Props): JSX.Element => (
   <>
     <NextHead>
       <title>{title}</title>

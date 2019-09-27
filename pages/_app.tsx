@@ -1,9 +1,8 @@
 import React from 'react';
 import App from 'next/app';
-import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import theme from '@app/core/theme';
+import { theme } from '@app/core/theme';
 
 export default class MyApp extends App {
   // eslint-disable-next-line class-methods-use-this
@@ -19,9 +18,6 @@ export default class MyApp extends App {
 
     return (
       <React.Fragment>
-        <Head>
-          <title>My page</title>
-        </Head>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />

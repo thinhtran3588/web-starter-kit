@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Header = (): JSX.Element => (
+export const Header = (): JSX.Element => (
   <div>
     <Link href='/'>
       <a>Home</a>
@@ -21,5 +21,3 @@ const Header = (): JSX.Element => (
     </style>
   </div>
 );
-
-export default Header;

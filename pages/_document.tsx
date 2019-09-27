@@ -1,39 +1,13 @@
-// import React from 'react';
-// import NextDocument, { Html, Head, Main, NextScript, DocumentInitialProps, DocumentContext } from 'next/document';
-
-// class Document extends NextDocument {
-//   static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
-//     const initialProps = await NextDocument.getInitialProps(ctx);
-//     return {
-//       ...initialProps,
-//     };
-//   }
-
-//   // eslint-disable-next-line class-methods-use-this
-//   public render(): JSX.Element {
-//     return (
-//       <Html lang='en'>
-//         <Head />
-//         <body>
-//           <Main />
-//           <NextScript />
-//         </body>
-//       </Html>
-//     );
-//   }
-// }
-
-// export default Document;
 import React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/styles';
-import theme from '@app/core/theme';
+import { theme } from '@app/core/theme';
 
 class MyDocument extends Document {
   // eslint-disable-next-line class-methods-use-this
   render(): JSX.Element {
     return (
-      <html lang='en'>
+      <Html lang='en'>
         <Head>
           <meta charSet='utf-8' />
           <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no' />
@@ -45,7 +19,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
