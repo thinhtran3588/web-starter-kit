@@ -7,11 +7,13 @@ describe('components/Layout', () => {
 
   it('renders successfully', async () => {
     const { baseElement } = render(<AdminLayout />);
+
     expect(baseElement).toMatchSnapshot();
   });
 
   it('renders successfully with title', async () => {
     const { baseElement } = render(<AdminLayout title='Title' />);
+
     expect(baseElement).toMatchSnapshot();
   });
 });

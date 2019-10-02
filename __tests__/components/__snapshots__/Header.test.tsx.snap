@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`pages/Index renders successfully 1`] = `
+exports[`components/Header renders successfully 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-5 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-1 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
       >
         <img
           alt="Logo"
-          class="makeStyles-logo-7"
+          class="makeStyles-logo-3"
           src="/static/images/logo.svg"
         />
         <div
-          class="makeStyles-flexGrow-6"
+          class="makeStyles-flexGrow-2"
         />
         <button
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
@@ -74,36 +74,6 @@ exports[`pages/Index renders successfully 1`] = `
         </button>
       </div>
     </header>
-    <main
-      class="makeStyles-content-4"
-    >
-      <h1
-        class="makeStyles-header-1"
-      >
-        Home
-      </h1>
-      <footer
-        class="makeStyles-footer-103"
-      >
-        <p
-          class="MuiTypography-root MuiTypography-body1"
-        >
-          ©
-           
-          <a
-            href="/"
-          >
-            Thinh Tran
-          </a>
-           2019
-        </p>
-        <span
-          class="MuiTypography-root MuiTypography-caption"
-        >
-          Created with love!
-        </span>
-      </footer>
-    </main>
   </div>
 </body>
 `;

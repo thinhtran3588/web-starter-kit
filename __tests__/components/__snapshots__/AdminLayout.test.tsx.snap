@@ -2,42 +2,12 @@
 
 exports[`components/Layout renders successfully 1`] = `
 <body>
-  <div>
-    <div>
-      <a
-        class="makeStyles-link-1"
-        href="/"
-      >
-        Home
-      </a>
-      <a
-        class="makeStyles-link-1"
-        href="/about"
-      >
-        About
-      </a>
-    </div>
-  </div>
+  <div />
 </body>
 `;
 
 exports[`components/Layout renders successfully with title 1`] = `
 <body>
-  <div>
-    <div>
-      <a
-        class="makeStyles-link-2"
-        href="/"
-      >
-        Home
-      </a>
-      <a
-        class="makeStyles-link-2"
-        href="/about"
-      >
-        About
-      </a>
-    </div>
-  </div>
+  <div />
 </body>
 `;

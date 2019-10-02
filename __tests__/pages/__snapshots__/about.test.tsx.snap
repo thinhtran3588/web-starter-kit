@@ -3,39 +3,107 @@
 exports[`pages/About renders successfully 1`] = `
 <body>
   <div>
-    <div>
-      <a
-        class="makeStyles-link-2"
-        href="/"
+    <header
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-5 MuiAppBar-colorPrimary mui-fixed"
+    >
+      <div
+        class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
       >
-        Home
-      </a>
-      <a
-        class="makeStyles-link-2"
-        href="/about"
+        <img
+          alt="Logo"
+          class="makeStyles-logo-7"
+          src="/static/images/logo.svg"
+        />
+        <div
+          class="makeStyles-flexGrow-6"
+        />
+        <button
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <span
+              class="MuiBadge-root"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"
+                />
+              </svg>
+              <span
+                class="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorPrimary MuiBadge-dot"
+              />
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M21 3.01H3c-1.1 0-2 .9-2 2V9h2V4.99h18v14.03H3V15H1v4.01c0 1.1.9 1.98 2 1.98h18c1.1 0 2-.88 2-1.98v-14c0-1.11-.9-2-2-2zM11 16l4-4-4-4v3H1v2h10v3z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </header>
+    <main
+      class="makeStyles-content-4"
+    >
+      <h1
+        class="makeStyles-header-1"
       >
         About
-      </a>
-    </div>
-    <h1
-      class="makeStyles-header-1"
-    >
-      About
-    </h1>
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        class="MuiButton-label"
+      </h1>
+      <footer
+        class="makeStyles-footer-103"
       >
-        Hello World
-      </span>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </button>
+        <p
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          ©
+           
+          <a
+            href="/"
+          >
+            Thinh Tran
+          </a>
+           2019
+        </p>
+        <span
+          class="MuiTypography-root MuiTypography-caption"
+        >
+          Created with love!
+        </span>
+      </footer>
+    </main>
   </div>
 </body>
 `;

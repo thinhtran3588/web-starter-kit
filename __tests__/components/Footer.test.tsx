@@ -1,12 +1,13 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Header } from '@app/components/Header';
+import { Footer } from '@app/components/Footer';
 
 describe('components/Header', () => {
   beforeEach(() => {});
 
   it('renders successfully', async () => {
-    const { baseElement } = render(<Header />);
+    const { baseElement } = render(<Footer />);
+
     expect(baseElement).toMatchSnapshot();
   });
 });
