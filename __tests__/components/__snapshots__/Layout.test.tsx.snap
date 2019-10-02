@@ -3,17 +3,15 @@
 exports[`components/Layout renders successfully 1`] = `
 <body>
   <div>
-    <div
-      class="jsx-1497064902"
-    >
+    <div>
       <a
-        class="jsx-1497064902"
+        class="makeStyles-link-1"
         href="/"
       >
         Home
       </a>
       <a
-        class="jsx-1497064902"
+        class="makeStyles-link-1"
         href="/about"
       >
         About
@@ -26,17 +24,15 @@ exports[`components/Layout renders successfully 1`] = `
 exports[`components/Layout renders successfully with title 1`] = `
 <body>
   <div>
-    <div
-      class="jsx-1497064902"
-    >
+    <div>
       <a
-        class="jsx-1497064902"
+        class="makeStyles-link-2"
         href="/"
       >
         Home
       </a>
       <a
-        class="jsx-1497064902"
+        class="makeStyles-link-2"
         href="/about"
       >
         About
