@@ -4,18 +4,18 @@ exports[`components/Layout renders successfully 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-4 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-2 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
       >
         <img
           alt="Logo"
-          class="jsx-1743545705 logo"
+          class="makeStyles-logo-4"
           src="/static/images/logo.svg"
         />
         <div
-          class="jsx-1743545705 makeStyles-flexGrow-5"
+          class="makeStyles-flexGrow-3"
         />
         <button
           aria-label="notification"
@@ -37,7 +37,7 @@ exports[`components/Layout renders successfully 1`] = `
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"
+                  d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
                 />
               </svg>
               <span
@@ -74,13 +74,39 @@ exports[`components/Layout renders successfully 1`] = `
             class="MuiTouchRipple-root"
           />
         </button>
+        <button
+          aria-label="menu"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          data-testid="menu-icon"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
       </div>
     </header>
     <main
-      class="makeStyles-content-3"
+      class="makeStyles-content-1"
     >
       <footer
-        class="makeStyles-footer-102"
+        class="makeStyles-footer-99"
       >
         <p
           class="MuiTypography-root MuiTypography-body1"
@@ -109,18 +135,18 @@ exports[`components/Layout renders successfully with title 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-146 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-141 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
       >
         <img
           alt="Logo"
-          class="jsx-1743545705 logo"
+          class="makeStyles-logo-143"
           src="/static/images/logo.svg"
         />
         <div
-          class="jsx-1743545705 makeStyles-flexGrow-147"
+          class="makeStyles-flexGrow-142"
         />
         <button
           aria-label="notification"
@@ -142,7 +168,7 @@ exports[`components/Layout renders successfully with title 1`] = `
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"
+                  d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
                 />
               </svg>
               <span
@@ -179,13 +205,39 @@ exports[`components/Layout renders successfully with title 1`] = `
             class="MuiTouchRipple-root"
           />
         </button>
+        <button
+          aria-label="menu"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          data-testid="menu-icon"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
       </div>
     </header>
     <main
-      class="makeStyles-content-145"
+      class="makeStyles-content-140"
     >
       <footer
-        class="makeStyles-footer-244"
+        class="makeStyles-footer-238"
       >
         <p
           class="MuiTypography-root MuiTypography-body1"

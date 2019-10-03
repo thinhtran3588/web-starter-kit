@@ -1,32 +1,38 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Layout } from '@app/components/Layout';
-import { createMuiTheme } from '@material-ui/core';
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import { Layout } from '@app/components';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 
 describe('components/Layout', () => {
+  const theme = createMuiTheme({
+    props: {
+      MuiWithWidth: {
+        initialWidth: 'xs',
+      },
+    },
+  });
   beforeEach(() => {});
-
   it('renders successfully', async () => {
-    const { baseElement } = render(<Layout />);
+    const { baseElement } = render(
+      <MuiThemeProvider theme={theme}>
+        <Layout />
+      </MuiThemeProvider>,
+    );
 
     expect(baseElement).toMatchSnapshot();
   });
 
   it('renders successfully with title', async () => {
-    const { baseElement } = render(<Layout title='Title' />);
+    const { baseElement } = render(
+      <MuiThemeProvider theme={theme}>
+        <Layout title='Title' />
+      </MuiThemeProvider>,
+    );
 
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('opens sidebar when click Menu icon', async () => {
-    const theme = createMuiTheme({
-      props: {
-        MuiWithWidth: {
-          initialWidth: 'xs',
-        },
-      },
-    });
+  it('opens sidebar when clicking Menu icon', async () => {
     const { getByTestId } = render(
       <MuiThemeProvider theme={theme}>
         <Layout title='Title' />
@@ -38,14 +44,7 @@ describe('components/Layout', () => {
     expect(getByTestId('sidebar').getAttribute('aria-hidden')).not.toBe('true');
   });
 
-  it('closes sidebar when click a page link', async () => {
-    const theme = createMuiTheme({
-      props: {
-        MuiWithWidth: {
-          initialWidth: 'xs',
-        },
-      },
-    });
+  it('closes sidebar when clicking sidebar backdrop', async () => {
     const { getByTestId } = render(
       <MuiThemeProvider theme={theme}>
         <Layout title='Title' />

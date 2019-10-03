@@ -1,8 +1,8 @@
 import React from 'react';
 import App from 'next/app';
-import ThemeProvider from '@material-ui/styles/ThemeProvider';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { theme } from '@app/core/theme';
+import { ThemeProvider } from '@material-ui/styles';
+import { CssBaseline } from '@material-ui/core';
+import { theme } from '@app/core';
 
 export default class MyApp extends App {
   // eslint-disable-next-line class-methods-use-this

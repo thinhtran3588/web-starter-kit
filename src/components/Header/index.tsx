@@ -1,37 +1,23 @@
 import React from 'react';
 import Link from 'next/link';
 import { AppBar, Toolbar, Hidden, Badge, IconButton } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
-import InputIcon from '@material-ui/icons/Input';
+import { Menu as MenuIcon, Notifications as NotificationsIcon, Input as InputIcon } from '@material-ui/icons';
+import { NavItem } from '@app/core';
 import { useStyles } from './styles';
 
 interface Props {
+  navItems: NavItem[];
   onSidebarOpen: () => void;
 }
 
-interface MenuItem {
-  link: string;
-  text: string;
-}
-
-export const Header = ({ onSidebarOpen }: Props): JSX.Element => {
+export const Header = ({ onSidebarOpen, navItems }: Props): JSX.Element => {
   const classes = useStyles();
-  const menuItems: MenuItem[] = [
-    {
-      link: '/',
-      text: 'Home',
-    },
-    {
-      link: '/about',
-      text: 'About',
-    },
-  ];
+
   const notifications = [{}, {}];
 
-  const renderMenuItem = (menuItem: MenuItem): JSX.Element => (
-    <Link href={menuItem.link} key={menuItem.link}>
-      <a className={classes.menuItem}>{menuItem.text}</a>
+  const renderNavItem = (navItem: NavItem): JSX.Element => (
+    <Link href={navItem.link} key={navItem.link}>
+      <a className={classes.menuItem}>{navItem.text}</a>
     </Link>
   );
 
@@ -39,11 +25,11 @@ export const Header = ({ onSidebarOpen }: Props): JSX.Element => {
     <AppBar className={classes.appBar}>
       <Toolbar>
         <Link href='/'>
-          <img className={'logo'} alt='Logo' src='/static/images/logo.svg' />
+          <img className={classes.logo} alt='Logo' src='/static/images/logo.svg' />
         </Link>
         <div className={classes.flexGrow} />
         <Hidden smDown>
-          <div>{menuItems.map(renderMenuItem)}</div>
+          <div>{navItems.map(renderNavItem)}</div>
         </Hidden>
         <IconButton color='inherit' aria-label='notification'>
           <Badge badgeContent={notifications.length} color='primary' variant='dot'>
@@ -59,11 +45,6 @@ export const Header = ({ onSidebarOpen }: Props): JSX.Element => {
           </IconButton>
         </Hidden>
       </Toolbar>
-      <style jsx>{`
-        .logo {
-          height: 50px;
-        }
-      `}</style>
     </AppBar>
   );
 };

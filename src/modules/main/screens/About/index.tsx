@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '@app/components/Layout';
+import { Layout } from '@app/components';
 import { useStyles } from './styles';
 
 export const About = (): JSX.Element => {

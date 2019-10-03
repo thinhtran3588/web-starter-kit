@@ -29,54 +29,7 @@ exports[`components/Sidebar renders successfully 1`] = `
     >
       <ul
         class="MuiList-root makeStyles-list-2 MuiList-padding"
-      >
-        <li
-          class="MuiListItem-root makeStyles-item-4"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-text makeStyles-button-5"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label"
-            >
-              <a
-                class="makeStyles-link-6"
-                href="/"
-              >
-                Home
-              </a>
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-        </li>
-        <li
-          class="MuiListItem-root makeStyles-item-4"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-text makeStyles-button-5"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label"
-            >
-              <a
-                class="makeStyles-link-6"
-                href="/about"
-              >
-                About
-              </a>
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-        </li>
-      </ul>
+      />
     </div>
     <div
       data-test="sentinelEnd"

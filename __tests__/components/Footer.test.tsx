@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Footer } from '@app/components/Footer';
+import { Footer } from '@app/components';
 
 describe('components/Header', () => {
   beforeEach(() => {});

@@ -5,8 +5,11 @@ export const useStyles = makeStyles((theme) => ({
     marginTop: 56,
     height: 'calc(100% - 56px)',
     [theme.breakpoints.up('sm')]: {
-      paddingTop: 64,
+      marginTop: 64,
       height: 'calc(100% - 64px)',
+    },
+    [theme.breakpoints.up('md')]: {
+      marginLeft: 240,
     },
   },
 }));

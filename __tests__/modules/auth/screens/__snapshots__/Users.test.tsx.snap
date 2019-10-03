@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`pages/Index renders successfully 1`] = `
+exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
 <body>
   <div>
     <header
@@ -74,18 +74,103 @@ exports[`pages/Index renders successfully 1`] = `
             class="MuiTouchRipple-root"
           />
         </button>
+        <button
+          aria-label="menu"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          data-testid="menu-icon"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
       </div>
     </header>
+    <div
+      class="MuiDrawer-root MuiDrawer-docked"
+      data-testid="sidebar"
+    >
+      <div
+        class="MuiPaper-root MuiPaper-elevation0 MuiDrawer-paper makeStyles-drawer-83 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft"
+      >
+        <ul
+          class="MuiList-root makeStyles-list-84 MuiList-padding"
+        >
+          <li
+            class="MuiListItem-root makeStyles-item-85"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-text makeStyles-button-86"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                <a
+                  class="makeStyles-link-87"
+                  href="/admin/users"
+                >
+                  Users
+                </a>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </li>
+          <li
+            class="MuiListItem-root makeStyles-item-85"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-text makeStyles-button-86"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                <a
+                  class="makeStyles-link-87"
+                  href="/admin/roles"
+                >
+                  Roles
+                </a>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
     <main
       class="makeStyles-content-2"
     >
       <h1
         class="makeStyles-header-1"
       >
-        Home
+        Users
       </h1>
       <footer
-        class="makeStyles-footer-100"
+        class="makeStyles-footer-143"
       >
         <p
           class="MuiTypography-root MuiTypography-body1"

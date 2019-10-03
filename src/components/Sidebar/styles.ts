@@ -3,15 +3,14 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 export const useStyles = makeStyles((theme) => ({
   drawer: {
     width: 240,
-    [theme.breakpoints.up('lg')]: {
+    marginTop: 56,
+    height: 'calc(100% - 56px)',
+    [theme.breakpoints.up('sm')]: {
       marginTop: 64,
       height: 'calc(100% - 64px)',
     },
   },
   list: {},
-  divider: {
-    margin: theme.spacing(2, 0),
-  },
   item: {
     display: 'flex',
     paddingTop: 0,
