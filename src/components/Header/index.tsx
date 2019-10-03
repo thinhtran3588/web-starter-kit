@@ -39,27 +39,31 @@ export const Header = ({ onSidebarOpen }: Props): JSX.Element => {
     <AppBar className={classes.appBar}>
       <Toolbar>
         <Link href='/'>
-          <img className={classes.logo} alt='Logo' src='/static/images/logo.svg' />
+          <img className={'logo'} alt='Logo' src='/static/images/logo.svg' />
         </Link>
         <div className={classes.flexGrow} />
         <Hidden smDown>
           <div>{menuItems.map(renderMenuItem)}</div>
         </Hidden>
-        <IconButton color='inherit'>
+        <IconButton color='inherit' aria-label='notification'>
           <Badge badgeContent={notifications.length} color='primary' variant='dot'>
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <IconButton color='inherit'>
+        <IconButton color='inherit' aria-label='logout'>
           <InputIcon />
         </IconButton>
         <Hidden mdUp>
-          <span>abc</span>
-          <IconButton color='inherit' onClick={onSidebarOpen} data-testid='menu-icon'>
+          <IconButton color='inherit' onClick={onSidebarOpen} data-testid='menu-icon' aria-label='menu'>
             <MenuIcon />
           </IconButton>
         </Hidden>
       </Toolbar>
+      <style jsx>{`
+        .logo {
+          height: 50px;
+        }
+      `}</style>
     </AppBar>
   );
 };

@@ -11,13 +11,14 @@ exports[`components/Layout renders successfully 1`] = `
       >
         <img
           alt="Logo"
-          class="makeStyles-logo-6"
+          class="jsx-1743545705 logo"
           src="/static/images/logo.svg"
         />
         <div
-          class="makeStyles-flexGrow-5"
+          class="jsx-1743545705 makeStyles-flexGrow-5"
         />
         <button
+          aria-label="notification"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
           tabindex="0"
           type="button"
@@ -49,6 +50,7 @@ exports[`components/Layout renders successfully 1`] = `
           />
         </button>
         <button
+          aria-label="logout"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
           tabindex="0"
           type="button"
@@ -114,13 +116,14 @@ exports[`components/Layout renders successfully with title 1`] = `
       >
         <img
           alt="Logo"
-          class="makeStyles-logo-148"
+          class="jsx-1743545705 logo"
           src="/static/images/logo.svg"
         />
         <div
-          class="makeStyles-flexGrow-147"
+          class="jsx-1743545705 makeStyles-flexGrow-147"
         />
         <button
+          aria-label="notification"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
           tabindex="0"
           type="button"
@@ -152,6 +155,7 @@ exports[`components/Layout renders successfully with title 1`] = `
           />
         </button>
         <button
+          aria-label="logout"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
           tabindex="0"
           type="button"

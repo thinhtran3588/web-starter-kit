@@ -1,6 +1,6 @@
 import React from 'react';
 import App from 'next/app';
-import { ThemeProvider } from '@material-ui/styles';
+import ThemeProvider from '@material-ui/styles/ThemeProvider';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { theme } from '@app/core/theme';
 

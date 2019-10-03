@@ -34,7 +34,7 @@ exports[`components/Sidebar renders successfully 1`] = `
           class="MuiListItem-root makeStyles-item-4"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root makeStyles-button-5 MuiButton-text"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-text makeStyles-button-5"
             tabindex="0"
             type="button"
           >
@@ -57,7 +57,7 @@ exports[`components/Sidebar renders successfully 1`] = `
           class="MuiListItem-root makeStyles-item-4"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root makeStyles-button-5 MuiButton-text"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-text makeStyles-button-5"
             tabindex="0"
             type="button"
           >

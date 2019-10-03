@@ -11,13 +11,14 @@ exports[`components/Header renders successfully 1`] = `
       >
         <img
           alt="Logo"
-          class="makeStyles-logo-3"
+          class="jsx-1743545705 logo"
           src="/static/images/logo.svg"
         />
         <div
-          class="makeStyles-flexGrow-2"
+          class="jsx-1743545705 makeStyles-flexGrow-2"
         />
         <button
+          aria-label="notification"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
           tabindex="0"
           type="button"
@@ -49,6 +50,7 @@ exports[`components/Header renders successfully 1`] = `
           />
         </button>
         <button
+          aria-label="logout"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
           tabindex="0"
           type="button"
