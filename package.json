@@ -81,6 +81,7 @@
     "build": "next build",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "dev": "next",
+    "job": "ts-node job.ts",
     "lint": "eslint '{src,__tests__}/**/**.{ts,tsx}' && prettier --check '{src,__{tests,mocks}__}/**/*.{ts,tsx}'",
     "lint-fix": "prettier --write '{src,__{tests,mocks}__}/**/*.{ts,tsx}' && eslint '{src,__tests__}/**/**.{ts,tsx}' --fix",
     "prettier": "prettier --write '{src,__{tests,mocks}__}/**/*.{ts,tsx}'",
