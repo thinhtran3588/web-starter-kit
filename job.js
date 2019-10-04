@@ -1,29 +1,16 @@
-// tslint:disable:max-line-length
-// tslint:disable:no-console
-import fs from 'fs';
-import path from 'path';
-
-interface CopyFileTask {
-  src: string;
-  des: string;
-}
-
-interface ReplaceStringTask {
-  src: string;
-  replaces: {
-    old: RegExp | string;
-    new: string;
-  }[];
-}
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/no-var-requires */
+const fs = require('fs');
+const path = require('path');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const log = (...args: any[]): void => {
+const log = (...args) => {
   global.console.log(...args);
 };
 
-export const updateConfig = (environment = 'default'): void => {
+const updateConfig = (environment = 'default') => {
   const envFolder = `environments/${environment}`;
-  const copyTasks: CopyFileTask[] = [
+  const copyTasks = [
     {
       src: path.resolve(__dirname, `${envFolder}/override_config.json`),
       des: path.resolve(__dirname, `src/config/override_config.json`),
@@ -38,7 +25,7 @@ export const updateConfig = (environment = 'default'): void => {
   });
 };
 
-const run = (): void => {
+const run = () => {
   const command = process.argv[2];
   switch (command) {
     default:
