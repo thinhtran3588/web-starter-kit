@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import About from '../../pages/about';
 
-describe('pages/About', () => {
+describe('pages/about', () => {
   beforeEach(() => {});
 
   it('renders successfully', async () => {

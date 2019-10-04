@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`pages/Index renders successfully 1`] = `
+exports[`pages/index renders successfully 1`] = `
 <body>
   <div>
     <header
