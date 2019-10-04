@@ -88,5 +88,5 @@
     "test": "jest --detectOpenHandles --verbose",
     "validate": "yarn lint && yarn build && yarn test"
   },
-  "version": "1.0.0"
+  "version": "0.1.0"
 }
