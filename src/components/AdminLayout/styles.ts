@@ -16,5 +16,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   main: {
     flexGrow: 1,
+    backgroundColor: '#fafafa',
+    padding: theme.spacing(2),
   },
 }));

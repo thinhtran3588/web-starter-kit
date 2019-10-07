@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/AdminFooter renders successfully 1`] = `
+<body>
+  <div>
+    <footer
+      class="makeStyles-root-1"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-body1"
+      >
+        ©
+         
+        <a
+          href="/"
+        >
+          Thinh Tran
+        </a>
+         2019
+      </p>
+      <span
+        class="MuiTypography-root MuiTypography-caption"
+      >
+        Created with love!
+      </span>
+    </footer>
+  </div>
+</body>
+`;

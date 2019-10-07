@@ -5,7 +5,7 @@ import { useMediaQuery, Theme } from '@material-ui/core';
 import { config } from '@app/config';
 import { Header } from '@app/components/Header';
 import { Sidebar } from '@app/components/Sidebar';
-import { Footer } from '@app/components/Footer';
+import { AdminFooter } from '@app/components/AdminFooter';
 import { SidebarMenu } from '@app/components/SidebarMenu';
 import { NavItem } from '@app/core';
 import { useStyles } from './styles';
@@ -86,7 +86,7 @@ export const AdminLayout = ({ children, title = config.siteName, description = '
       </Sidebar>
       <div className={classes.container}>
         <main className={classes.main}>{children}</main>
-        <Footer />
+        <AdminFooter />
       </div>
     </>
   );
