@@ -7,4 +7,5 @@ export interface NavItem {
   children?: NavItem[];
   color?: string;
   bgColor?: string;
+  expanded?: true;
 }

@@ -94,10 +94,11 @@ const renderMenuItems = (navItems: NavItem[]): JSX.Element => {
 export const SidebarMenu = (props: Props): JSX.Element => {
   const { navItems } = props;
   const classes = useStyles();
+  const defaultExpanded = navItems.filter((m) => m.expanded).map((m) => m.id);
   return (
     <TreeView
       className={classes.root}
-      defaultExpanded={['auth']}
+      defaultExpanded={defaultExpanded}
       defaultCollapseIcon={<ArrowDropDownIcon />}
       defaultExpandIcon={<ArrowRightIcon />}
       defaultEndIcon={

@@ -36,6 +36,7 @@ export const AdminLayout = ({ children, title = config.siteName, description = '
           icon: 'Group',
         },
       ],
+      expanded: true,
     },
     {
       id: 'publicWebsite',
@@ -49,6 +50,7 @@ export const AdminLayout = ({ children, title = config.siteName, description = '
           icon: 'MenuBook',
         },
       ],
+      expanded: true,
     },
   ];
   const classes = useStyles();
@@ -83,7 +85,7 @@ export const AdminLayout = ({ children, title = config.siteName, description = '
         <SidebarMenu navItems={navItems} />
       </Sidebar>
       <main className={classes.content}>
-        {children}
+        <div className={classes.mainContent}>{children}</div>
         <Footer />
       </main>
     </>

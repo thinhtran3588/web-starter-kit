@@ -4,18 +4,18 @@ exports[`components/AdminLayout renders successfully 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-2 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-3 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
       >
         <img
           alt="Logo"
-          class="makeStyles-logo-4"
+          class="makeStyles-logo-5"
           src="/static/images/logo.svg"
         />
         <div
-          class="makeStyles-flexGrow-3"
+          class="makeStyles-flexGrow-4"
         />
         <button
           aria-label="notification"
@@ -105,8 +105,11 @@ exports[`components/AdminLayout renders successfully 1`] = `
     <main
       class="makeStyles-content-1"
     >
+      <div
+        class="makeStyles-mainContent-2"
+      />
       <footer
-        class="makeStyles-footer-98"
+        class="makeStyles-footer-99"
       >
         <p
           class="MuiTypography-root MuiTypography-body1"
@@ -135,18 +138,18 @@ exports[`components/AdminLayout renders successfully with title 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-140 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-142 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
       >
         <img
           alt="Logo"
-          class="makeStyles-logo-142"
+          class="makeStyles-logo-144"
           src="/static/images/logo.svg"
         />
         <div
-          class="makeStyles-flexGrow-141"
+          class="makeStyles-flexGrow-143"
         />
         <button
           aria-label="notification"
@@ -234,10 +237,13 @@ exports[`components/AdminLayout renders successfully with title 1`] = `
       </div>
     </header>
     <main
-      class="makeStyles-content-139"
+      class="makeStyles-content-140"
     >
+      <div
+        class="makeStyles-mainContent-141"
+      />
       <footer
-        class="makeStyles-footer-236"
+        class="makeStyles-footer-238"
       >
         <p
           class="MuiTypography-root MuiTypography-body1"
