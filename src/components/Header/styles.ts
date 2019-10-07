@@ -15,6 +15,12 @@ export const useStyles = makeStyles(() => ({
     fontWeight: 'bold',
     fontSize: '1.2em',
     textDecoration: 'none',
-    padding: '1.2em',
+  },
+  menuItemIcon: {},
+  menuItemText: {
+    marginLeft: 10,
+  },
+  menuItemButton: {
+    padding: 20,
   },
 }));

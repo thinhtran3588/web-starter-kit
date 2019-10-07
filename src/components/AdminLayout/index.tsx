@@ -6,6 +6,7 @@ import { config } from '@app/config';
 import { Header } from '@app/components/Header';
 import { Sidebar } from '@app/components/Sidebar';
 import { Footer } from '@app/components/Footer';
+import { SidebarMenu } from '@app/components/SidebarMenu';
 import { NavItem } from '@app/core';
 import { useStyles } from './styles';
 
@@ -18,12 +19,36 @@ interface Props {
 export const AdminLayout = ({ children, title = config.siteName, description = '' }: Props): JSX.Element => {
   const navItems: NavItem[] = [
     {
-      link: '/admin/users',
-      text: 'Users',
+      id: 'auth',
+      text: 'Auth',
+      icon: 'Security',
+      children: [
+        {
+          id: 'users',
+          text: 'Users',
+          link: '/admin/users',
+          icon: 'Person',
+        },
+        {
+          id: 'roles',
+          text: 'Roles',
+          link: '/admin/roles',
+          icon: 'Group',
+        },
+      ],
     },
     {
-      link: '/admin/roles',
-      text: 'Roles',
+      id: 'publicWebsite',
+      text: 'Public Website',
+      icon: 'Language',
+      children: [
+        {
+          id: 'blogs',
+          text: 'Blogs',
+          link: '/admin/blogs',
+          icon: 'MenuBook',
+        },
+      ],
     },
   ];
   const classes = useStyles();
@@ -54,8 +79,9 @@ export const AdminLayout = ({ children, title = config.siteName, description = '
         onClose={handleSidebarClose}
         open={isDesktop ? true : openSidebar}
         variant={isDesktop ? 'persistent' : 'temporary'}
-        navItems={navItems}
-      />
+      >
+        <SidebarMenu navItems={navItems} />
+      </Sidebar>
       <main className={classes.content}>
         {children}
         <Footer />

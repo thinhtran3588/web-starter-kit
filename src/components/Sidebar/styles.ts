@@ -10,22 +10,4 @@ export const useStyles = makeStyles((theme) => ({
       height: 'calc(100% - 64px)',
     },
   },
-  list: {},
-  item: {
-    display: 'flex',
-    paddingTop: 0,
-    paddingBottom: 0,
-  },
-  button: {
-    padding: '10px 8px',
-    justifyContent: 'flex-start',
-    textTransform: 'none',
-    letterSpacing: 0,
-    width: '100%',
-    fontWeight: theme.typography.fontWeightBold,
-  },
-  link: {
-    textDecoration: 'none',
-    color: theme.palette.primary.main,
-  },
 }));

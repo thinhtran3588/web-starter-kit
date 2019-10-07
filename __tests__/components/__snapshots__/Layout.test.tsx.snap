@@ -106,7 +106,7 @@ exports[`components/Layout renders successfully 1`] = `
       class="makeStyles-content-1"
     >
       <footer
-        class="makeStyles-footer-99"
+        class="makeStyles-footer-98"
       >
         <p
           class="MuiTypography-root MuiTypography-body1"
@@ -135,18 +135,18 @@ exports[`components/Layout renders successfully with title 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-141 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-140 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
       >
         <img
           alt="Logo"
-          class="makeStyles-logo-143"
+          class="makeStyles-logo-142"
           src="/static/images/logo.svg"
         />
         <div
-          class="makeStyles-flexGrow-142"
+          class="makeStyles-flexGrow-141"
         />
         <button
           aria-label="notification"
@@ -234,10 +234,10 @@ exports[`components/Layout renders successfully with title 1`] = `
       </div>
     </header>
     <main
-      class="makeStyles-content-140"
+      class="makeStyles-content-139"
     >
       <footer
-        class="makeStyles-footer-238"
+        class="makeStyles-footer-236"
       >
         <p
           class="MuiTypography-root MuiTypography-body1"

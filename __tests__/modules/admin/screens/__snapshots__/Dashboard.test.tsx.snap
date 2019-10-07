@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
+exports[`@app/modules/admin/screens/Dashboard renders successfully 1`] = `
 <body>
   <div>
     <header
@@ -354,7 +354,7 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
       <h1
         class="makeStyles-header-1"
       >
-        Users
+        Dashboard
       </h1>
       <footer
         class="makeStyles-footer-152"

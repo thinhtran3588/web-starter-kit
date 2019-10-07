@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/Icon renders default successfully 1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`components/Icon renders successfully 1`] = `
+<body>
+  <div>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root"
+      focusable="false"
+      role="presentation"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+      />
+    </svg>
+  </div>
+</body>
+`;

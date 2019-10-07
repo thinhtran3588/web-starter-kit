@@ -9,12 +9,18 @@ describe('components/Header', () => {
   it('renders successfully', async () => {
     const navItems: NavItem[] = [
       {
+        id: 'home',
         link: '/',
         text: 'Home',
       },
       {
+        id: 'about',
         link: '/about',
         text: 'About',
+      },
+      {
+        id: 'noLink',
+        text: 'No Link',
       },
     ];
 

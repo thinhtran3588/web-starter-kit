@@ -4,6 +4,7 @@ import { config } from '@app/config';
 import { Header } from '@app/components/Header';
 import { Sidebar } from '@app/components/Sidebar';
 import { Footer } from '@app/components/Footer';
+import { SidebarMenu } from '@app/components/SidebarMenu';
 import { NavItem } from '@app/core';
 import { useStyles } from './styles';
 
@@ -16,12 +17,22 @@ interface Props {
 export const Layout = ({ children, title = config.siteName, description = '' }: Props): JSX.Element => {
   const navItems: NavItem[] = [
     {
+      id: 'home',
       link: '/',
       text: 'Home',
+      icon: 'Home',
     },
     {
+      id: 'blogs',
+      link: '/blogs',
+      text: 'Blogs',
+      icon: 'MenuBook',
+    },
+    {
+      id: 'about',
       link: '/about',
       text: 'About',
+      icon: 'Info',
     },
   ];
 
@@ -45,7 +56,9 @@ export const Layout = ({ children, title = config.siteName, description = '' }: 
         <meta name='Description' content={description}></meta>
       </NextHead>
       <Header onSidebarOpen={handleSidebarOpen} navItems={navItems} />
-      <Sidebar onClose={handleSidebarClose} open={openSidebar} variant={'temporary'} navItems={navItems} />
+      <Sidebar onClose={handleSidebarClose} open={openSidebar} variant={'temporary'}>
+        <SidebarMenu navItems={navItems} />
+      </Sidebar>
       <main className={classes.content}>
         {children}
         <Footer />

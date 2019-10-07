@@ -26,11 +26,7 @@ exports[`components/Sidebar renders successfully 1`] = `
       class="MuiPaper-root MuiPaper-elevation16 MuiDrawer-paper makeStyles-drawer-1 MuiDrawer-paperAnchorLeft"
       role="document"
       tabindex="-1"
-    >
-      <ul
-        class="MuiList-root makeStyles-list-2 MuiList-padding"
-      />
-    </div>
+    />
     <div
       data-test="sentinelEnd"
       tabindex="0"

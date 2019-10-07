@@ -7,7 +7,7 @@ describe('components/Sidebar', () => {
 
   it('renders successfully', async () => {
     const onClose = jest.fn();
-    const { baseElement } = render(<Sidebar onClose={onClose} open={true} variant='temporary' navItems={[]} />);
+    const { baseElement } = render(<Sidebar onClose={onClose} open={true} variant='temporary' />);
 
     expect(baseElement).toMatchSnapshot();
   });

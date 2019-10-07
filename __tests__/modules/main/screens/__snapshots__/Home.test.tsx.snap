@@ -111,7 +111,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
         Home
       </h1>
       <footer
-        class="makeStyles-footer-100"
+        class="makeStyles-footer-99"
       >
         <p
           class="MuiTypography-root MuiTypography-body1"
