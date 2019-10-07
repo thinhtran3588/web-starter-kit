@@ -23,7 +23,7 @@ exports[`components/Sidebar renders successfully 1`] = `
       tabindex="0"
     />
     <div
-      class="MuiPaper-root MuiPaper-elevation16 MuiDrawer-paper makeStyles-drawer-1 MuiDrawer-paperAnchorLeft"
+      class="MuiPaper-root MuiPaper-elevation16 MuiDrawer-paper makeStyles-root-1 MuiDrawer-paperAnchorLeft"
       role="document"
       tabindex="-1"
     />

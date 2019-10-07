@@ -101,13 +101,7 @@ export const SidebarMenu = (props: Props): JSX.Element => {
       defaultExpanded={defaultExpanded}
       defaultCollapseIcon={<ArrowDropDownIcon />}
       defaultExpandIcon={<ArrowRightIcon />}
-      defaultEndIcon={
-        <div
-          style={{
-            width: 24,
-          }}
-        />
-      }
+      defaultEndIcon={<div className={classes.defaultEndIcon} />}
     >
       {renderMenuItems(navItems)}
     </TreeView>

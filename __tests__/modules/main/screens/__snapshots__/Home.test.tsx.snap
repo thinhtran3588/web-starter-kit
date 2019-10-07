@@ -4,18 +4,18 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-3 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-4 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
       >
         <img
           alt="Logo"
-          class="makeStyles-logo-5"
+          class="makeStyles-logo-6"
           src="/static/images/logo.svg"
         />
         <div
-          class="makeStyles-flexGrow-4"
+          class="makeStyles-flexGrow-5"
         />
         <button
           aria-label="notification"
@@ -102,16 +102,20 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
         </button>
       </div>
     </header>
-    <main
-      class="makeStyles-content-2"
+    <div
+      class="makeStyles-container-2"
     >
-      <h1
-        class="makeStyles-header-1"
+      <main
+        class="makeStyles-main-3"
       >
-        Home
-      </h1>
+        <h1
+          class="makeStyles-header-1"
+        >
+          Home
+        </h1>
+      </main>
       <footer
-        class="makeStyles-footer-99"
+        class="makeStyles-root-100"
       >
         <p
           class="MuiTypography-root MuiTypography-body1"
@@ -131,7 +135,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
           Created with love!
         </span>
       </footer>
-    </main>
+    </div>
   </div>
 </body>
 `;

@@ -1,7 +1,7 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
 export const useStyles = makeStyles(() => ({
-  appBar: {
+  root: {
     boxShadow: 'none',
   },
   flexGrow: {

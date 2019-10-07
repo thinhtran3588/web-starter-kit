@@ -4,7 +4,7 @@ exports[`components/Header renders successfully 1`] = `
 <body>
   <div>
     <footer
-      class="makeStyles-footer-1"
+      class="makeStyles-root-1"
     >
       <p
         class="MuiTypography-root MuiTypography-body1"

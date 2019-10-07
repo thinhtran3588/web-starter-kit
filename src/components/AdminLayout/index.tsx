@@ -84,10 +84,10 @@ export const AdminLayout = ({ children, title = config.siteName, description = '
       >
         <SidebarMenu navItems={navItems} />
       </Sidebar>
-      <main className={classes.content}>
-        <div className={classes.mainContent}>{children}</div>
+      <div className={classes.container}>
+        <main className={classes.main}>{children}</main>
         <Footer />
-      </main>
+      </div>
     </>
   );
 };

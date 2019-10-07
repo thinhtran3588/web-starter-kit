@@ -4,7 +4,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-4 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-4 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -107,7 +107,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
       data-testid="sidebar"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation0 MuiDrawer-paper makeStyles-drawer-87 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft"
+        class="MuiPaper-root MuiPaper-elevation0 MuiDrawer-paper makeStyles-root-87 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft"
       >
         <ul
           class="MuiTreeView-root makeStyles-root-100"
@@ -190,7 +190,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
                         class="MuiTreeItem-iconContainer"
                       >
                         <div
-                          style="width: 24px;"
+                          class="makeStyles-defaultEndIcon-111"
                         />
                       </div>
                       <div
@@ -242,7 +242,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
                         class="MuiTreeItem-iconContainer"
                       >
                         <div
-                          style="width: 24px;"
+                          class="makeStyles-defaultEndIcon-111"
                         />
                       </div>
                       <div
@@ -363,7 +363,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
                         class="MuiTreeItem-iconContainer"
                       >
                         <div
-                          style="width: 24px;"
+                          class="makeStyles-defaultEndIcon-111"
                         />
                       </div>
                       <div
@@ -413,20 +413,20 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
         </ul>
       </div>
     </div>
-    <main
-      class="makeStyles-content-2"
+    <div
+      class="makeStyles-container-2"
     >
-      <div
-        class="makeStyles-mainContent-3"
+      <main
+        class="makeStyles-main-3"
       >
         <h1
           class="makeStyles-header-1"
         >
           Roles
         </h1>
-      </div>
+      </main>
       <footer
-        class="makeStyles-footer-153"
+        class="makeStyles-root-154"
       >
         <p
           class="MuiTypography-root MuiTypography-body1"
@@ -446,7 +446,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
           Created with love!
         </span>
       </footer>
-    </main>
+    </div>
   </div>
 </body>
 `;

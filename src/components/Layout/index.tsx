@@ -59,10 +59,10 @@ export const Layout = ({ children, title = config.siteName, description = '' }: 
       <Sidebar onClose={handleSidebarClose} open={openSidebar} variant={'temporary'}>
         <SidebarMenu navItems={navItems} />
       </Sidebar>
-      <main className={classes.content}>
-        {children}
+      <div className={classes.container}>
+        <main className={classes.main}>{children}</main>
         <Footer />
-      </main>
+      </div>
     </>
   );
 };

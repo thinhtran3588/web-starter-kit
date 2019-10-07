@@ -16,7 +16,7 @@ export const Sidebar = ({ onClose, open, variant, children }: Props): JSX.Elemen
     <Drawer
       anchor='left'
       classes={{
-        paper: classes.drawer,
+        paper: classes.root,
       }}
       onClose={onClose}
       open={open}

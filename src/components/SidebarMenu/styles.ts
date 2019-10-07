@@ -61,5 +61,8 @@ export const useStyles = makeStyles((theme: Theme) =>
     link: {
       textDecoration: 'none',
     },
+    defaultEndIcon: {
+      width: 24,
+    },
   }),
 );

@@ -1,7 +1,7 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
 export const useStyles = makeStyles((theme) => ({
-  content: {
+  container: {
     marginTop: 56,
     height: 'calc(100vh - 56px)',
     [theme.breakpoints.up('sm')]: {
@@ -14,7 +14,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
   },
-  mainContent: {
+  main: {
     flexGrow: 1,
   },
 }));

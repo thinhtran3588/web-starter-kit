@@ -7,7 +7,7 @@ export const Footer = (): JSX.Element => {
   const classes = useStyles();
 
   return (
-    <footer className={classes.footer}>
+    <footer className={classes.root}>
       <Typography variant='body1'>
         &copy;{' '}
         <Link href='/'>

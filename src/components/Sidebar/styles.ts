@@ -1,7 +1,7 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
 export const useStyles = makeStyles((theme) => ({
-  drawer: {
+  root: {
     width: 240,
     marginTop: 56,
     height: 'calc(100% - 56px)',

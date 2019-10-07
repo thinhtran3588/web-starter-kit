@@ -37,7 +37,7 @@ export const Header = ({ onSidebarOpen, navItems }: Props): JSX.Element => {
   };
 
   return (
-    <AppBar className={classes.appBar}>
+    <AppBar className={classes.root}>
       <Toolbar>
         <Link href='/'>
           <img className={classes.logo} alt='Logo' src='/static/images/logo.svg' />
