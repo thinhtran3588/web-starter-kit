@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/FormHeader renders successfully 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiPaper-root MuiPaper-elevation2 makeStyles-root-1 MuiPaper-rounded"
+    >
+      <nav
+        aria-label="breadcrumb"
+        class="MuiTypography-root MuiBreadcrumbs-root makeStyles-breadcrumb-2 MuiTypography-body1 MuiTypography-colorTextSecondary"
+      >
+        <ol
+          class="MuiBreadcrumbs-ol"
+        >
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              href="/admin/users"
+            >
+              Auth
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="PrivateBreadcrumbSeparator-root-66 MuiBreadcrumbs-separator"
+          >
+            /
+          </li>
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextPrimary"
+            >
+              Users
+            </p>
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="makeStyles-commands-3"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary makeStyles-button-4"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Create
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;

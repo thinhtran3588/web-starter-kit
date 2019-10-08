@@ -1,13 +1,13 @@
 import React from 'react';
-import { AdminLayout, FormHeader } from '@app/components';
+import { render } from '@testing-library/react';
+import { FormHeader } from '@app/components';
 
-export const Users = (): JSX.Element => {
-  const createUser = async (): Promise<void> => {
-    // eslint-disable-next-line no-console
-    console.log('createUser');
-  };
-  return (
-    <AdminLayout title='Users' description='Users'>
+describe('components/FormHeader', () => {
+  beforeEach(() => {});
+
+  it('renders successfully', async () => {
+    const createUser = jest.fn();
+    const { baseElement } = render(
       <FormHeader
         breadcrumbLinks={[
           {
@@ -25,7 +25,9 @@ export const Users = (): JSX.Element => {
             color: 'primary',
           },
         ]}
-      />
-    </AdminLayout>
-  );
-};
+      />,
+    );
+
+    expect(baseElement).toMatchSnapshot();
+  });
+});

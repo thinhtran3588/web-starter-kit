@@ -1,12 +1,31 @@
 import React from 'react';
-import { AdminLayout } from '@app/components';
-import { useStyles } from './styles';
+import { AdminLayout, FormHeader } from '@app/components';
 
 export const Roles = (): JSX.Element => {
-  const classes = useStyles();
+  const createRole = async (): Promise<void> => {
+    // eslint-disable-next-line no-console
+    console.log('createRole');
+  };
   return (
     <AdminLayout title='Roles' description='Roles'>
-      <h1 className={classes.header}>Roles</h1>
+      <FormHeader
+        breadcrumbLinks={[
+          {
+            text: 'Auth',
+            link: '/admin/users',
+          },
+          {
+            text: 'Roles',
+          },
+        ]}
+        commandButtons={[
+          {
+            text: 'Create',
+            onClick: createRole,
+            color: 'primary',
+          },
+        ]}
+      />
     </AdminLayout>
   );
 };

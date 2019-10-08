@@ -6,3 +6,4 @@ export * from './Icon';
 export * from './Layout';
 export * from './Sidebar';
 export * from './SidebarMenu';
+export * from './FormHeader';

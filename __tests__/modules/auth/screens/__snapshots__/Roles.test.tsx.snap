@@ -4,18 +4,18 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-4 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-3 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
       >
         <img
           alt="Logo"
-          class="makeStyles-logo-6"
+          class="makeStyles-logo-5"
           src="/static/images/logo.svg"
         />
         <div
-          class="makeStyles-flexGrow-5"
+          class="makeStyles-flexGrow-4"
         />
         <button
           aria-label="notification"
@@ -107,20 +107,20 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
       data-testid="sidebar"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation0 MuiDrawer-paper makeStyles-root-87 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft"
+        class="MuiPaper-root MuiPaper-elevation0 MuiDrawer-paper makeStyles-root-86 MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft"
       >
         <ul
-          class="MuiTreeView-root makeStyles-root-100"
+          class="MuiTreeView-root makeStyles-root-99"
           role="tree"
         >
           <li
             aria-expanded="true"
-            class="MuiTreeItem-root makeStyles-rootItem-101 Mui-expanded makeStyles-expanded-104"
+            class="MuiTreeItem-root makeStyles-rootItem-100 Mui-expanded makeStyles-expanded-103"
             role="treeitem"
             tabindex="-1"
           >
             <div
-              class="MuiTreeItem-content makeStyles-content-102"
+              class="MuiTreeItem-content makeStyles-content-101"
             >
               <div
                 class="MuiTreeItem-iconContainer"
@@ -138,18 +138,18 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
                 </svg>
               </div>
               <div
-                class="MuiTypography-root MuiTreeItem-label makeStyles-label-105 MuiTypography-body1"
+                class="MuiTypography-root MuiTreeItem-label makeStyles-label-104 MuiTypography-body1"
               >
                 <div
-                  class="makeStyles-labelRoot-106"
+                  class="makeStyles-labelRoot-105"
                   style="color: rgb(26, 115, 232);"
                 >
                   <span
-                    class="makeStyles-labelIconContainer-107"
+                    class="makeStyles-labelIconContainer-106"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root makeStyles-labelIcon-108"
+                      class="MuiSvgIcon-root makeStyles-labelIcon-107"
                       focusable="false"
                       role="presentation"
                       viewBox="0 0 24 24"
@@ -160,7 +160,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
                     </svg>
                   </span>
                   <p
-                    class="MuiTypography-root makeStyles-labelText-109 MuiTypography-body2"
+                    class="MuiTypography-root makeStyles-labelText-108 MuiTypography-body2"
                   >
                     Auth
                   </p>
@@ -168,7 +168,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
               </div>
             </div>
             <ul
-              class="MuiCollapse-container MuiTreeItem-group makeStyles-group-103 MuiCollapse-entered"
+              class="MuiCollapse-container MuiTreeItem-group makeStyles-group-102 MuiCollapse-entered"
               role="group"
               style="min-height: 0px;"
             >
@@ -179,38 +179,38 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
                   class="MuiCollapse-wrapperInner"
                 >
                   <li
-                    class="MuiTreeItem-root makeStyles-rootItem-101"
+                    class="MuiTreeItem-root makeStyles-rootItem-100"
                     role="treeitem"
                     tabindex="-1"
                   >
                     <div
-                      class="MuiTreeItem-content makeStyles-content-102"
+                      class="MuiTreeItem-content makeStyles-content-101"
                     >
                       <div
                         class="MuiTreeItem-iconContainer"
                       >
                         <div
-                          class="makeStyles-defaultEndIcon-111"
+                          class="makeStyles-defaultEndIcon-110"
                         />
                       </div>
                       <div
-                        class="MuiTypography-root MuiTreeItem-label makeStyles-label-105 MuiTypography-body1"
+                        class="MuiTypography-root MuiTreeItem-label makeStyles-label-104 MuiTypography-body1"
                       >
                         <a
-                          class="makeStyles-link-110 makeStyles-labelRoot-106"
+                          class="makeStyles-link-109 makeStyles-labelRoot-105"
                           href="/admin/users"
                           title="Users"
                         >
                           <div
-                            class="makeStyles-labelRoot-106"
+                            class="makeStyles-labelRoot-105"
                             style="color: rgb(26, 115, 232);"
                           >
                             <span
-                              class="makeStyles-labelIconContainer-107"
+                              class="makeStyles-labelIconContainer-106"
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root makeStyles-labelIcon-108"
+                                class="MuiSvgIcon-root makeStyles-labelIcon-107"
                                 focusable="false"
                                 role="presentation"
                                 viewBox="0 0 24 24"
@@ -221,7 +221,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
                               </svg>
                             </span>
                             <p
-                              class="MuiTypography-root makeStyles-labelText-109 MuiTypography-body2"
+                              class="MuiTypography-root makeStyles-labelText-108 MuiTypography-body2"
                             >
                               Users
                             </p>
@@ -231,38 +231,38 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
                     </div>
                   </li>
                   <li
-                    class="MuiTreeItem-root makeStyles-rootItem-101"
+                    class="MuiTreeItem-root makeStyles-rootItem-100"
                     role="treeitem"
                     tabindex="-1"
                   >
                     <div
-                      class="MuiTreeItem-content makeStyles-content-102"
+                      class="MuiTreeItem-content makeStyles-content-101"
                     >
                       <div
                         class="MuiTreeItem-iconContainer"
                       >
                         <div
-                          class="makeStyles-defaultEndIcon-111"
+                          class="makeStyles-defaultEndIcon-110"
                         />
                       </div>
                       <div
-                        class="MuiTypography-root MuiTreeItem-label makeStyles-label-105 MuiTypography-body1"
+                        class="MuiTypography-root MuiTreeItem-label makeStyles-label-104 MuiTypography-body1"
                       >
                         <a
-                          class="makeStyles-link-110 makeStyles-labelRoot-106"
+                          class="makeStyles-link-109 makeStyles-labelRoot-105"
                           href="/admin/roles"
                           title="Roles"
                         >
                           <div
-                            class="makeStyles-labelRoot-106"
+                            class="makeStyles-labelRoot-105"
                             style="color: rgb(26, 115, 232);"
                           >
                             <span
-                              class="makeStyles-labelIconContainer-107"
+                              class="makeStyles-labelIconContainer-106"
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root makeStyles-labelIcon-108"
+                                class="MuiSvgIcon-root makeStyles-labelIcon-107"
                                 focusable="false"
                                 role="presentation"
                                 viewBox="0 0 24 24"
@@ -273,7 +273,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
                               </svg>
                             </span>
                             <p
-                              class="MuiTypography-root makeStyles-labelText-109 MuiTypography-body2"
+                              class="MuiTypography-root makeStyles-labelText-108 MuiTypography-body2"
                             >
                               Roles
                             </p>
@@ -288,12 +288,12 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
           </li>
           <li
             aria-expanded="true"
-            class="MuiTreeItem-root makeStyles-rootItem-101 Mui-expanded makeStyles-expanded-104"
+            class="MuiTreeItem-root makeStyles-rootItem-100 Mui-expanded makeStyles-expanded-103"
             role="treeitem"
             tabindex="-1"
           >
             <div
-              class="MuiTreeItem-content makeStyles-content-102"
+              class="MuiTreeItem-content makeStyles-content-101"
             >
               <div
                 class="MuiTreeItem-iconContainer"
@@ -311,18 +311,18 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
                 </svg>
               </div>
               <div
-                class="MuiTypography-root MuiTreeItem-label makeStyles-label-105 MuiTypography-body1"
+                class="MuiTypography-root MuiTreeItem-label makeStyles-label-104 MuiTypography-body1"
               >
                 <div
-                  class="makeStyles-labelRoot-106"
+                  class="makeStyles-labelRoot-105"
                   style="color: rgb(26, 115, 232);"
                 >
                   <span
-                    class="makeStyles-labelIconContainer-107"
+                    class="makeStyles-labelIconContainer-106"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root makeStyles-labelIcon-108"
+                      class="MuiSvgIcon-root makeStyles-labelIcon-107"
                       focusable="false"
                       role="presentation"
                       viewBox="0 0 24 24"
@@ -333,7 +333,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
                     </svg>
                   </span>
                   <p
-                    class="MuiTypography-root makeStyles-labelText-109 MuiTypography-body2"
+                    class="MuiTypography-root makeStyles-labelText-108 MuiTypography-body2"
                   >
                     Public Website
                   </p>
@@ -341,7 +341,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
               </div>
             </div>
             <ul
-              class="MuiCollapse-container MuiTreeItem-group makeStyles-group-103 MuiCollapse-entered"
+              class="MuiCollapse-container MuiTreeItem-group makeStyles-group-102 MuiCollapse-entered"
               role="group"
               style="min-height: 0px;"
             >
@@ -352,38 +352,38 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
                   class="MuiCollapse-wrapperInner"
                 >
                   <li
-                    class="MuiTreeItem-root makeStyles-rootItem-101"
+                    class="MuiTreeItem-root makeStyles-rootItem-100"
                     role="treeitem"
                     tabindex="-1"
                   >
                     <div
-                      class="MuiTreeItem-content makeStyles-content-102"
+                      class="MuiTreeItem-content makeStyles-content-101"
                     >
                       <div
                         class="MuiTreeItem-iconContainer"
                       >
                         <div
-                          class="makeStyles-defaultEndIcon-111"
+                          class="makeStyles-defaultEndIcon-110"
                         />
                       </div>
                       <div
-                        class="MuiTypography-root MuiTreeItem-label makeStyles-label-105 MuiTypography-body1"
+                        class="MuiTypography-root MuiTreeItem-label makeStyles-label-104 MuiTypography-body1"
                       >
                         <a
-                          class="makeStyles-link-110 makeStyles-labelRoot-106"
+                          class="makeStyles-link-109 makeStyles-labelRoot-105"
                           href="/admin/blogs"
                           title="Blogs"
                         >
                           <div
-                            class="makeStyles-labelRoot-106"
+                            class="makeStyles-labelRoot-105"
                             style="color: rgb(26, 115, 232);"
                           >
                             <span
-                              class="makeStyles-labelIconContainer-107"
+                              class="makeStyles-labelIconContainer-106"
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root makeStyles-labelIcon-108"
+                                class="MuiSvgIcon-root makeStyles-labelIcon-107"
                                 focusable="false"
                                 role="presentation"
                                 viewBox="0 0 24 24"
@@ -397,7 +397,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
                               </svg>
                             </span>
                             <p
-                              class="MuiTypography-root makeStyles-labelText-109 MuiTypography-body2"
+                              class="MuiTypography-root makeStyles-labelText-108 MuiTypography-body2"
                             >
                               Blogs
                             </p>
@@ -414,19 +414,69 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
       </div>
     </div>
     <div
-      class="makeStyles-container-2"
+      class="makeStyles-container-1"
     >
       <main
-        class="makeStyles-main-3"
+        class="makeStyles-main-2"
       >
-        <h1
-          class="makeStyles-header-1"
+        <div
+          class="MuiPaper-root MuiPaper-elevation2 makeStyles-root-153 MuiPaper-rounded"
         >
-          Roles
-        </h1>
+          <nav
+            aria-label="breadcrumb"
+            class="MuiTypography-root MuiBreadcrumbs-root makeStyles-breadcrumb-154 MuiTypography-body1 MuiTypography-colorTextSecondary"
+          >
+            <ol
+              class="MuiBreadcrumbs-ol"
+            >
+              <li
+                class="MuiBreadcrumbs-li"
+              >
+                <a
+                  href="/admin/users"
+                >
+                  Auth
+                </a>
+              </li>
+              <li
+                aria-hidden="true"
+                class="PrivateBreadcrumbSeparator-root-161 MuiBreadcrumbs-separator"
+              >
+                /
+              </li>
+              <li
+                class="MuiBreadcrumbs-li"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextPrimary"
+                >
+                  Roles
+                </p>
+              </li>
+            </ol>
+          </nav>
+          <div
+            class="makeStyles-commands-155"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary makeStyles-button-156"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Create
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
       </main>
       <footer
-        class="makeStyles-root-154"
+        class="makeStyles-root-190"
       >
         <p
           class="MuiTypography-root MuiTypography-body1"
