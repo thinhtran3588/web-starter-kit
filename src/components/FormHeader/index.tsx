@@ -24,7 +24,7 @@ export const FormHeader = (props: Props): JSX.Element => {
   const classes = useStyles();
 
   return (
-    <Paper elevation={2} className={classes.root} {...other}>
+    <Paper elevation={3} className={classes.root} {...other}>
       <Breadcrumbs aria-label='breadcrumb' className={classes.breadcrumb}>
         {!!breadcrumbLinks &&
           breadcrumbLinks.map((breadcrumbLink) =>

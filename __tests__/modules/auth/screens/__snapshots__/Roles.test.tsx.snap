@@ -420,7 +420,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
         class="makeStyles-main-2"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation2 makeStyles-root-153 MuiPaper-rounded"
+          class="MuiPaper-root MuiPaper-elevation3 makeStyles-root-153 MuiPaper-rounded"
         >
           <nav
             aria-label="breadcrumb"
