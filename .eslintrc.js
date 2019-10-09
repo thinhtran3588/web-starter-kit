@@ -41,6 +41,7 @@ module.exports = {
     }], // let prettier do its job,
     '@typescript-eslint/no-explicit-any': ['error'],
     'no-null/no-null': ['error'],
+    'react/prop-types': 'off',
   },
   settings: {
     react: {
