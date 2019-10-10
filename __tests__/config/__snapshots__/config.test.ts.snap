@@ -3,11 +3,17 @@
 exports[`pages/Index renders successfully 1`] = `
 Object {
   "dateFormat": "DD/MM/YYYY",
+  "debounceDelay": 300,
   "regex": Object {
     "email": /\\^\\[a-z\\]\\[a-z0-9_\\.\\]\\{5,40\\}@\\[a-z0-9\\]\\{2,\\}\\(\\.\\[a-z0-9\\]\\{2,4\\}\\)\\{1,2\\}\\$/,
     "password": /\\^\\(\\?=\\.\\*\\[A-Za-z\\]\\)\\(\\?=\\.\\*\\\\d\\)\\(\\?=\\.\\*\\[@\\$!%\\*#\\?&\\]\\)\\[A-Za-z\\\\d@\\$!%\\*#\\?&\\]\\{6,\\}\\$/,
     "phone": /\\^\\[0-9\\]\\{8,\\}\\$/,
   },
+  "rowsPerPageOptions": Array [
+    10,
+    20,
+    50,
+  ],
   "signInOptions": Array [
     "email",
     "phone",

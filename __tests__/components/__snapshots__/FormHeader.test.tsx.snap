@@ -4,7 +4,7 @@ exports[`components/FormHeader renders successfully 1`] = `
 <body>
   <div>
     <div
-      class="MuiPaper-root MuiPaper-elevation3 makeStyles-root-1 MuiPaper-rounded"
+      class="MuiPaper-root MuiPaper-elevation1 makeStyles-root-1 MuiPaper-rounded"
     >
       <nav
         aria-label="breadcrumb"

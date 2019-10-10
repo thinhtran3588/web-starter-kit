@@ -6,13 +6,12 @@ export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      height: 250,
-      minWidth: 290,
     },
     input: {
       display: 'flex',
       padding: 0,
       height: 'auto',
+      paddingBottom: 1,
     },
     valueContainer: {
       display: 'flex',
@@ -44,7 +43,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     paper: {
       position: 'absolute',
-      zIndex: 1,
+      zIndex: 9999,
       marginTop: theme.spacing(1),
       left: 0,
       right: 0,

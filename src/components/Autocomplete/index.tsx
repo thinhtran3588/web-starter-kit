@@ -2,7 +2,6 @@ import React, { CSSProperties, HTMLAttributes } from 'react';
 import classNames from 'classnames';
 import Select from 'react-select';
 import Typography from '@material-ui/core/Typography';
-import NoSsr from '@material-ui/core/NoSsr';
 import TextField, { BaseTextFieldProps } from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Chip from '@material-ui/core/Chip';
@@ -18,120 +17,13 @@ import { SingleValueProps } from 'react-select/src/components/SingleValue';
 import { ValueType } from 'react-select/src/types';
 import { Omit } from '@material-ui/types';
 import { useTheme } from '@material-ui/core';
+import { PickerDataItem, FieldValueType } from '@app/core';
 import { useStyles } from './styles';
 
 interface OptionType {
   label: string;
   value: string;
 }
-
-const suggestions: OptionType[] = [
-  {
-    label: 'Afghanistan',
-  },
-  {
-    label: 'Aland Islands',
-  },
-  {
-    label: 'Albania',
-  },
-  {
-    label: 'Algeria',
-  },
-  {
-    label: 'American Samoa',
-  },
-  {
-    label: 'Andorra',
-  },
-  {
-    label: 'Angola',
-  },
-  {
-    label: 'Anguilla',
-  },
-  {
-    label: 'Antarctica',
-  },
-  {
-    label: 'Antigua and Barbuda',
-  },
-  {
-    label: 'Argentina',
-  },
-  {
-    label: 'Armenia',
-  },
-  {
-    label: 'Aruba',
-  },
-  {
-    label: 'Australia',
-  },
-  {
-    label: 'Austria',
-  },
-  {
-    label: 'Azerbaijan',
-  },
-  {
-    label: 'Bahamas',
-  },
-  {
-    label: 'Bahrain',
-  },
-  {
-    label: 'Bangladesh',
-  },
-  {
-    label: 'Barbados',
-  },
-  {
-    label: 'Belarus',
-  },
-  {
-    label: 'Belgium',
-  },
-  {
-    label: 'Belize',
-  },
-  {
-    label: 'Benin',
-  },
-  {
-    label: 'Bermuda',
-  },
-  {
-    label: 'Bhutan',
-  },
-  {
-    label: 'Bolivia, Plurinational State of',
-  },
-  {
-    label: 'Bonaire, Sint Eustatius and Saba',
-  },
-  {
-    label: 'Bosnia and Herzegovina',
-  },
-  {
-    label: 'Botswana',
-  },
-  {
-    label: 'Bouvet Island',
-  },
-  {
-    label: 'Brazil',
-  },
-  {
-    label: 'British Indian Ocean Territory',
-  },
-  {
-    label: 'Brunei Darussalam',
-  },
-].map((suggestion) => ({
-  value: suggestion.label,
-  label: suggestion.label,
-}));
 
 const NoOptionsMessage = (props: NoticeProps<OptionType>): JSX.Element => {
   return (
@@ -244,18 +136,43 @@ const components = {
   ValueContainer,
 };
 
-export const Autocomplete = (): JSX.Element => {
+interface Props<T extends FieldValueType> {
+  id?: string;
+  label: string;
+  value: T;
+  onChange?: (value: T) => void;
+  pickerDataSources?: PickerDataItem<T>[];
+}
+
+export const Autocomplete: <T extends FieldValueType>(props: Props<T>) => JSX.Element = (props) => {
+  const { id, label, value, onChange, pickerDataSources } = props;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let inputValue: ValueType<OptionType>;
+  let options: OptionType[] = [];
+  if (pickerDataSources) {
+    options = pickerDataSources.map((m) => ({
+      value: m.value ? m.value.toString() : '',
+      label: m.label,
+    }));
+    inputValue = options.find((m) => (value ? value.toString() : '') === m.value);
+  }
   const classes = useStyles();
   const theme = useTheme();
-  const [single, setSingle] = React.useState<ValueType<OptionType>>(undefined);
-  const [multi, setMulti] = React.useState<ValueType<OptionType>>(undefined);
 
-  const handleChangeSingle = (value: ValueType<OptionType>): void => {
-    setSingle(value);
-  };
-
-  const handleChangeMulti = (value: ValueType<OptionType>): void => {
-    setMulti(value);
+  const handleChangeSingle = (newValue: ValueType<OptionType>): void => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let chosenValue: FieldValueType;
+    if (newValue && pickerDataSources) {
+      if (!Array.isArray(newValue)) {
+        const chosenItem = pickerDataSources.find(
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (m) => (m.value ? m.value.toString() : undefined) === (newValue as any).value,
+        );
+        chosenValue = chosenItem ? chosenItem.value : undefined;
+      }
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onChange && onChange(chosenValue as any);
   };
 
   const selectStyles = {
@@ -270,44 +187,23 @@ export const Autocomplete = (): JSX.Element => {
 
   return (
     <div className={classes.root}>
-      <NoSsr>
-        <Select
-          classes={classes}
-          styles={selectStyles}
-          inputId='react-select-single'
-          TextFieldProps={{
-            label: 'Country',
-            InputLabelProps: {
-              htmlFor: 'react-select-single',
-              shrink: true,
-            },
-          }}
-          placeholder='Search a country (start with a)'
-          options={suggestions}
-          components={components}
-          value={single}
-          onChange={handleChangeSingle}
-        />
-        <div className={classes.divider} />
-        <Select
-          classes={classes}
-          styles={selectStyles}
-          inputId='react-select-multiple'
-          TextFieldProps={{
-            label: 'Countries',
-            InputLabelProps: {
-              htmlFor: 'react-select-multiple',
-              shrink: true,
-            },
-          }}
-          placeholder='Select multiple countries'
-          options={suggestions}
-          components={components}
-          value={multi}
-          onChange={handleChangeMulti}
-          isMulti
-        />
-      </NoSsr>
+      <Select
+        classes={classes}
+        styles={selectStyles}
+        inputId={id}
+        TextFieldProps={{
+          label,
+          InputLabelProps: {
+            htmlFor: id,
+            shrink: true,
+          },
+        }}
+        placeholder=''
+        options={options}
+        components={components}
+        value={inputValue}
+        onChange={handleChangeSingle}
+      />
     </div>
   );
 };

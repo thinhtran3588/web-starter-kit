@@ -10,7 +10,7 @@ const regexConfig = {
   },
 };
 
-export const config = {
+export const config = Object.freeze({
   ...merge(defaultConfig, overrideConfig),
   ...regexConfig,
-};
+});

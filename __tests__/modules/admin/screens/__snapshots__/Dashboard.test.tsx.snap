@@ -411,6 +411,27 @@ exports[`@app/modules/admin/screens/Dashboard renders successfully 1`] = `
             </ul>
           </li>
         </ul>
+        <footer
+          class="makeStyles-root-154"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            ©
+             
+            <a
+              href="/"
+            >
+              Thinh Tran
+            </a>
+             2019
+          </p>
+          <span
+            class="MuiTypography-root MuiTypography-caption"
+          >
+            Created with love!
+          </span>
+        </footer>
       </div>
     </div>
     <div
@@ -425,27 +446,6 @@ exports[`@app/modules/admin/screens/Dashboard renders successfully 1`] = `
           Dashboard
         </h1>
       </main>
-      <footer
-        class="makeStyles-root-154"
-      >
-        <p
-          class="MuiTypography-root MuiTypography-body1"
-        >
-          ©
-           
-          <a
-            href="/"
-          >
-            Thinh Tran
-          </a>
-           2019
-        </p>
-        <span
-          class="MuiTypography-root MuiTypography-caption"
-        >
-          Created with love!
-        </span>
-      </footer>
     </div>
   </div>
 </body>

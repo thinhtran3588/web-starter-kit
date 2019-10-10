@@ -1,13 +1,15 @@
 import React from 'react';
 import { Grid, TextField } from '@material-ui/core';
 import classNames from 'classnames';
+import { PickerDataItem, FieldType, FieldValueType } from '@app/core';
 import { useStyles } from './styles';
+import { Autocomplete } from '../Autocomplete';
 
-interface Props<T> {
+interface Props<T extends FieldValueType> {
   id?: string;
   label: string;
   value: T;
-  onChange?: (text: string) => void;
+  onChange?: (value: FieldValueType) => void;
   className?: string;
 
   xs?: boolean | 'auto' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | undefined;
@@ -28,8 +30,8 @@ interface Props<T> {
   // tooltipText?: string;
   // onBlur?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
   isPassword?: boolean;
-  type?: 'text' | 'picker' | 'datepicker';
-  // pickerDataSources?: PickerDataItem<T>[];
+  type?: FieldType;
+  pickerDataSources?: PickerDataItem<T>[];
   // placeHolderTextColor?: string;
   // hasPassword?: boolean;
   // datePickerFromYear?: number;
@@ -37,10 +39,21 @@ interface Props<T> {
   // inputTextColor?: string;
 }
 
-type Field = <T>(props: Props<T>) => JSX.Element;
+type Field = <T extends FieldValueType>(props: Props<T>) => JSX.Element;
 
 export const Field: Field = (props) => {
-  const { label, value, type = 'text', id, onChange, className, isPassword, layout = 'default', ...other } = props;
+  const {
+    label,
+    value,
+    type = 'text',
+    id,
+    onChange,
+    className,
+    isPassword,
+    layout = 'default',
+    pickerDataSources,
+    ...other
+  } = props;
   let { xs, sm, md, lg } = props;
   switch (layout) {
     case 'default':
@@ -53,8 +66,12 @@ export const Field: Field = (props) => {
       break;
   }
   const classes = useStyles();
-  const onValueChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    onChange && onChange(event.target.value);
+
+  const onValueChange = (newValue: string | number | undefined): void => {
+    onChange && onChange(newValue);
+  };
+  const onTextValueChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    onValueChange(event.target.value);
   };
 
   return (
@@ -65,33 +82,22 @@ export const Field: Field = (props) => {
           label={label}
           className={classNames(classes.textField, className)}
           value={value}
-          onChange={onValueChange}
+          onChange={onTextValueChange}
           margin='dense'
           fullWidth
           type={isPassword ? 'password' : ''}
           {...other}
         />
       )}
-      {
-        // type === 'picker' && (
-        // <Select
-        //   classes={classes}
-        //   styles={selectStyles}
-        //   inputId={id}
-        //   TextFieldProps={{
-        //     label,
-        //     InputLabelProps: {
-        //       htmlFor: id,
-        //       shrink: true,
-        //     },
-        //   }}
-        //   placeholder='Search a country (start with a)'
-        //   options={pickerDataSources}
-        //   components={components}
-        //   value={single}
-        //   onChange={handleChangeSingle}
-        // />
-      }
+      {type === 'picker' && (
+        <Autocomplete
+          id={id}
+          label={label}
+          value={value}
+          onChange={onValueChange}
+          pickerDataSources={pickerDataSources}
+        />
+      )}
     </Grid>
   );
 };

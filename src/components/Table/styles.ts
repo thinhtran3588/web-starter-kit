@@ -1,23 +1,11 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles({
   root: {
-    display: 'flex',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    padding: theme.spacing(1),
-    [theme.breakpoints.down('xs')]: {
-      flexDirection: 'column',
-    },
+    width: '100%',
   },
-  breadcrumb: {
+  tableWrapper: {
     flexGrow: 1,
-    [theme.breakpoints.down('xs')]: {
-      marginBottom: theme.spacing(1),
-    },
+    overflow: 'auto',
   },
-  commands: {},
-  button: {
-    marginLeft: theme.spacing(1),
-  },
-}));
+});

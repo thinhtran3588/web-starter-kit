@@ -411,6 +411,27 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
             </ul>
           </li>
         </ul>
+        <footer
+          class="makeStyles-root-153"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            ©
+             
+            <a
+              href="/"
+            >
+              Thinh Tran
+            </a>
+             2019
+          </p>
+          <span
+            class="MuiTypography-root MuiTypography-caption"
+          >
+            Created with love!
+          </span>
+        </footer>
       </div>
     </div>
     <div
@@ -420,11 +441,11 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
         class="makeStyles-main-2"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation3 makeStyles-root-153 MuiPaper-rounded"
+          class="MuiPaper-root MuiPaper-elevation1 makeStyles-root-154 MuiPaper-rounded"
         >
           <nav
             aria-label="breadcrumb"
-            class="MuiTypography-root MuiBreadcrumbs-root makeStyles-breadcrumb-154 MuiTypography-body1 MuiTypography-colorTextSecondary"
+            class="MuiTypography-root MuiBreadcrumbs-root makeStyles-breadcrumb-155 MuiTypography-body1 MuiTypography-colorTextSecondary"
           >
             <ol
               class="MuiBreadcrumbs-ol"
@@ -440,7 +461,7 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
               </li>
               <li
                 aria-hidden="true"
-                class="PrivateBreadcrumbSeparator-root-161 MuiBreadcrumbs-separator"
+                class="PrivateBreadcrumbSeparator-root-162 MuiBreadcrumbs-separator"
               >
                 /
               </li>
@@ -456,10 +477,10 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
             </ol>
           </nav>
           <div
-            class="makeStyles-commands-155"
+            class="makeStyles-commands-156"
           >
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary makeStyles-button-156"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary makeStyles-button-157"
               tabindex="0"
               type="button"
             >
@@ -475,27 +496,6 @@ exports[`@app/modules/auth/screens/Roles renders successfully 1`] = `
           </div>
         </div>
       </main>
-      <footer
-        class="makeStyles-root-190"
-      >
-        <p
-          class="MuiTypography-root MuiTypography-body1"
-        >
-          ©
-           
-          <a
-            href="/"
-          >
-            Thinh Tran
-          </a>
-           2019
-        </p>
-        <span
-          class="MuiTypography-root MuiTypography-caption"
-        >
-          Created with love!
-        </span>
-      </footer>
     </div>
   </div>
 </body>

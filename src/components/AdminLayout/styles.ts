@@ -18,5 +18,7 @@ export const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: '#fafafa',
     padding: theme.spacing(1),
+    display: 'flex',
+    flexDirection: 'column',
   },
 }));

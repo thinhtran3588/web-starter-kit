@@ -83,10 +83,10 @@ export const AdminLayout = ({ children, title = config.siteName, description = '
         variant={isDesktop ? 'persistent' : 'temporary'}
       >
         <SidebarMenu navItems={navItems} />
+        <AdminFooter />
       </Sidebar>
       <div className={classes.container}>
         <main className={classes.main}>{children}</main>
-        <AdminFooter />
       </div>
     </>
   );

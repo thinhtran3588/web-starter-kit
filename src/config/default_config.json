@@ -1,5 +1,7 @@
 {
   "siteName": "Web Starter Kit",
   "dateFormat": "DD/MM/YYYY",
-  "signInOptions": ["email", "phone", "facebook", "google"]
+  "signInOptions": ["email", "phone", "facebook", "google"],
+  "debounceDelay": 300,
+  "rowsPerPageOptions": [10, 20, 50]
 }
