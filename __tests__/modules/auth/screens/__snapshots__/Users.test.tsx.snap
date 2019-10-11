@@ -9,11 +9,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
       >
-        <img
-          alt="Logo"
-          class="makeStyles-logo-5"
-          src="/static/images/logo.svg"
-        />
+        <a
+          href="/"
+          title="Home"
+        >
+          <img
+            alt="Logo"
+            class="makeStyles-logo-5"
+            src="/static/images/logo.svg"
+          />
+        </a>
         <div
           class="makeStyles-flexGrow-4"
         />
@@ -417,8 +422,7 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
-            ©
-             
+            © 
             <a
               href="/"
             >
@@ -529,98 +533,13 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
             </div>
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-            >
-              <div
-                class="makeStyles-root-353"
-              >
-                <div
-                  class=" css-2b097c-container"
-                >
-                  <div
-                    class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
-                  >
-                    <label
-                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"
-                      data-shrink="true"
-                      for="provider"
-                    >
-                      Provider
-                    </label>
-                    <div
-                      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
-                    >
-                      <div
-                        aria-invalid="false"
-                        class="MuiInputBase-input MuiInput-input makeStyles-input-354"
-                        type="text"
-                      >
-                        <div
-                          class="makeStyles-valueContainer-355"
-                        >
-                          <p
-                            class="MuiTypography-root makeStyles-placeholder-360 MuiTypography-body1 MuiTypography-colorTextSecondary"
-                          />
-                          <div
-                            class="css-11v825g-Input"
-                          >
-                            <div
-                              class=""
-                              style="display: inline-block;"
-                            >
-                              <input
-                                aria-autocomplete="list"
-                                autocapitalize="none"
-                                autocomplete="off"
-                                autocorrect="off"
-                                id="provider"
-                                spellcheck="false"
-                                style="box-sizing: content-box; width: 2px; border: 0px; font-size: inherit; opacity: 1; outline: 0; padding: 0px;"
-                                tabindex="0"
-                                type="text"
-                                value=""
-                              />
-                              <div
-                                style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: inherit; letter-spacing: normal; text-transform: none;"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class=" css-1g48xl4-IndicatorsContainer"
-                        >
-                          <span
-                            class=" css-1okebmr-indicatorSeparator"
-                          />
-                          <div
-                            aria-hidden="true"
-                            class=" css-tlfecz-indicatorContainer"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="css-tj5bde-Svg"
-                              focusable="false"
-                              height="20"
-                              viewBox="0 0 20 20"
-                              width="20"
-                            >
-                              <path
-                                d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            />
           </div>
           <div
-            class="makeStyles-root-363 makeStyles-formTable-192"
+            class="makeStyles-root-353 makeStyles-formTable-192"
           >
             <div
-              class="makeStyles-tableWrapper-364"
+              class="makeStyles-tableWrapper-354"
               style="max-height: calc(100vh - 265px); min-height: 318px;"
             >
               <table
@@ -635,37 +554,30 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                     <th
                       class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
-                      style="min-width: 170px;"
+                      style="min-width: 200px;"
                     >
-                      Name
+                      Full Name
                     </th>
                     <th
                       class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
-                      style="min-width: 100px;"
+                      style="min-width: 150px;"
                     >
-                      ISO Code
+                      Email
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-head MuiTableCell-stickyHeader"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
-                      style="min-width: 170px;"
+                      style="min-width: 150px;"
                     >
-                      Population
+                      Phone No
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-head MuiTableCell-stickyHeader"
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
-                      style="min-width: 170px;"
+                      style="min-width: 150px;"
                     >
-                      Size (km²)
-                    </th>
-                    <th
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-head MuiTableCell-stickyHeader"
-                      scope="col"
-                      style="min-width: 170px;"
-                    >
-                      Density
+                      DoB
                     </th>
                   </tr>
                 </thead>
@@ -679,29 +591,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      India
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      IN
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      417,135,400
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      4,171,354
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      100.00
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -710,29 +609,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      China
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      CN
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      1,403,500,365
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      9,596,961
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      146.24
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -741,29 +627,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      Italy
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      IT
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      60,483,973
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      301,340
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      200.72
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -772,29 +645,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      United States
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      US
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      327,167,434
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      9,833,520
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      33.27
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -803,29 +663,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      Canada
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      CA
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      37,602,103
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      9,984,670
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      3.77
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -834,29 +681,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      Australia
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      AU
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      25,475,400
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      7,692,024
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      3.31
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -865,29 +699,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      Germany
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      DE
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      83,019,200
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      357,578
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      232.17
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -896,29 +717,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      Ireland
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      IE
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      4,857,000
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      70,273
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      69.12
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -927,29 +735,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      Mexico
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      MX
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      126,577,691
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      1,972,550
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      64.17
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -958,29 +753,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      Japan
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      JP
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      126,317,000
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      377,973
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      334.20
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -989,29 +771,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      France
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      FR
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      67,022,000
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      640,679
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      104.61
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -1020,29 +789,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      United Kingdom
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      GB
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      67,545,757
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      242,495
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      278.54
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -1051,29 +807,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      Russia
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      RU
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      146,793,744
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      17,098,246
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      8.59
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -1082,29 +825,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      Nigeria
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      NG
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      200,962,417
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      923,768
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      217.55
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                   <tr
                     class="MuiTableRow-root MuiTableRow-hover"
@@ -1113,29 +843,16 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      Brazil
-                    </td>
+                    />
                     <td
                       class="MuiTableCell-root MuiTableCell-body"
-                    >
-                      BR
-                    </td>
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      210,147,125
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-body"
+                    />
                     <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      8,515,767
-                    </td>
-                    <td
-                      class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-body"
-                    >
-                      24.68
-                    </td>
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-body"
+                    />
                   </tr>
                 </tbody>
               </table>

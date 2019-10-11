@@ -1,9 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
 import { AppBar, Toolbar, Hidden, Badge, Button, IconButton } from '@material-ui/core';
-import { Menu as MenuIcon, Notifications as NotificationsIcon, Input as InputIcon } from '@material-ui/icons';
 import { NavItem } from '@app/core';
-import { Icon } from '@app/components/Icon';
+import { Icon, Link } from '@app/components';
 import { useStyles } from './styles';
 
 interface Props {
@@ -39,7 +37,7 @@ export const Header = ({ onSidebarOpen, navItems }: Props): JSX.Element => {
   return (
     <AppBar className={classes.root}>
       <Toolbar>
-        <Link href='/'>
+        <Link href='/' title='Home'>
           <img className={classes.logo} alt='Logo' src='/static/images/logo.svg' />
         </Link>
         <div className={classes.flexGrow} />
@@ -48,15 +46,15 @@ export const Header = ({ onSidebarOpen, navItems }: Props): JSX.Element => {
         </Hidden>
         <IconButton color='inherit' aria-label='notification'>
           <Badge badgeContent={notifications.length} color='primary' variant='dot'>
-            <NotificationsIcon />
+            <Icon name='Notifications' />
           </Badge>
         </IconButton>
         <IconButton color='inherit' aria-label='logout'>
-          <InputIcon />
+          <Icon name='Input' />
         </IconButton>
         <Hidden mdUp>
           <IconButton color='inherit' onClick={onSidebarOpen} data-testid='menu-icon' aria-label='menu'>
-            <MenuIcon />
+            <Icon name='Menu' />
           </IconButton>
         </Hidden>
       </Toolbar>

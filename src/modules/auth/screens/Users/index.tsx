@@ -4,46 +4,31 @@ import { AdminLayout, FormHeader, FormSearch } from '@app/components';
 import { OffsetPagination, Filter, FieldInfo, PickerDataItem, TableColumn, FieldValueType } from '@app/core';
 import { config } from '@app/config';
 
-interface UsersFilter {
-  filter: string;
-  provider: string;
-}
-
 interface Props {
   providers: PickerDataItem<string>[];
 }
 
 const columns: TableColumn[] = [
   {
-    id: 'name',
-    label: 'Name',
-    minWidth: 170,
+    id: 'fullName',
+    label: 'Full Name',
+    minWidth: 200,
   },
   {
-    id: 'code',
-    label: 'ISO\u00a0Code',
-    minWidth: 100,
+    id: 'email',
+    label: 'Email',
+    minWidth: 150,
   },
   {
-    id: 'population',
-    label: 'Population',
-    minWidth: 170,
-    align: 'right',
-    format: (value: number) => value.toLocaleString(),
+    id: 'phoneNo',
+    label: 'Phone No',
+    minWidth: 150,
   },
   {
-    id: 'size',
-    label: 'Size\u00a0(km\u00b2)',
-    minWidth: 170,
-    align: 'right',
-    format: (value: number) => value.toLocaleString(),
-  },
-  {
-    id: 'density',
-    label: 'Density',
-    minWidth: 170,
-    align: 'right',
-    format: (value: number) => value.toFixed(2),
+    id: 'dob',
+    label: 'DoB',
+    minWidth: 150,
+    align: 'center',
   },
 ];
 

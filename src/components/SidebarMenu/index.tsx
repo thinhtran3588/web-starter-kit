@@ -1,13 +1,10 @@
 import React from 'react';
-import Link from 'next/link';
-import TreeView from '@material-ui/lab/TreeView';
-import TreeItem, { TreeItemProps } from '@material-ui/lab/TreeItem';
-import Typography from '@material-ui/core/Typography';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import clsx from 'clsx';
+import { TreeView, TreeItem } from '@material-ui/lab';
+import { TreeItemProps } from '@material-ui/lab/TreeItem';
+import { Typography } from '@material-ui/core';
 import { NavItem } from '@app/core';
-import classNames from 'classnames';
-import { Icon } from '../Icon';
+import { Icon, Link } from '@app/components';
 import { useStyles } from './styles';
 
 interface Props {
@@ -46,10 +43,8 @@ const StyledTreeItem = (props: StyledTreeItemProps): JSX.Element => {
     <TreeItem
       label={
         link ? (
-          <Link href={link}>
-            <a href={link} className={classNames(classes.link, classes.labelRoot)} title={labelText}>
-              {Item}
-            </a>
+          <Link href={link} className={clsx(classes.link, classes.labelRoot)} title={labelText}>
+            {Item}
           </Link>
         ) : (
           Item
@@ -99,8 +94,8 @@ export const SidebarMenu = (props: Props): JSX.Element => {
     <TreeView
       className={classes.root}
       defaultExpanded={defaultExpanded}
-      defaultCollapseIcon={<ArrowDropDownIcon />}
-      defaultExpandIcon={<ArrowRightIcon />}
+      defaultCollapseIcon={<Icon name='ArrowDropDown' />}
+      defaultExpandIcon={<Icon name='ArrowRight' />}
       defaultEndIcon={<div className={classes.defaultEndIcon} />}
     >
       {renderMenuItems(navItems)}

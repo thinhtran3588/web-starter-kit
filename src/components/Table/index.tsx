@@ -1,11 +1,6 @@
 import React from 'react';
-import MuiTable from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
-import TableRow from '@material-ui/core/TableRow';
-import classNames from 'classnames';
+import clsx from 'clsx';
+import { Table as MuiTable, TableBody, TableCell, TableHead, TablePagination, TableRow } from '@material-ui/core';
 import { OffsetPagination, TableColumn, FieldValueType } from '@app/core';
 import { config } from '@app/config';
 import { useStyles } from './styles';
@@ -53,7 +48,7 @@ export const Table = (props: Props): JSX.Element => {
   };
 
   return (
-    <div className={classNames(classes.root, className)}>
+    <div className={clsx(classes.root, className)}>
       <div
         className={classes.tableWrapper}
         style={{

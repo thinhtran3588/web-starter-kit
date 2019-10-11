@@ -9,11 +9,16 @@ exports[`components/Header renders successfully 1`] = `
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
       >
-        <img
-          alt="Logo"
-          class="makeStyles-logo-3"
-          src="/static/images/logo.svg"
-        />
+        <a
+          href="/"
+          title="Home"
+        >
+          <img
+            alt="Logo"
+            class="makeStyles-logo-3"
+            src="/static/images/logo.svg"
+          />
+        </a>
         <div
           class="makeStyles-flexGrow-2"
         />

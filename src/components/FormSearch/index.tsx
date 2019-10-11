@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import produce from 'immer';
 import { Paper, useTheme, useMediaQuery } from '@material-ui/core';
-import { Table } from '@app/components/Table';
-import { FormFilter } from '@app/components/FormFilter';
 import { OffsetPagination, FieldInfo, Filter, FieldValueType, TableColumn } from '@app/core';
 import { config } from '@app/config';
+import { Table, FormFilter } from '@app/components';
 import { useStyles } from './styles';
 
 interface Props<T> {
@@ -82,7 +81,7 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
   }, [filter, pagination]);
 
   return (
-    <Paper className={classNames(classes.root, externalClasses.formSearchRoot)}>
+    <Paper className={clsx(classes.root, externalClasses.formSearchRoot)}>
       <FormFilter filterFields={filterFields} filter={filter} handleChange={handleChange} />
       <Table
         columns={columns}

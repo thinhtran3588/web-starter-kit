@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import NextHead from 'next/head';
 import { config } from '@app/config';
-import { Header } from '@app/components/Header';
-import { Sidebar } from '@app/components/Sidebar';
-import { Footer } from '@app/components/Footer';
-import { SidebarMenu } from '@app/components/SidebarMenu';
+import { Header, Sidebar, Footer, SidebarMenu } from '@app/components';
 import { NavItem } from '@app/core';
 import { useStyles } from './styles';
 

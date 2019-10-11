@@ -12,6 +12,7 @@
     "@material-ui/lab": "^4.0.0-alpha.28",
     "@material-ui/styles": "^4.5.0",
     "classnames": "^2.2.6",
+    "clsx": "^1.0.4",
     "i18next": "^17.0.18",
     "immer": "^4.0.1",
     "isomorphic-unfetch": "^3.0.0",

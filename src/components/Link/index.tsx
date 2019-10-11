@@ -2,12 +2,13 @@ import React from 'react';
 import NextLink from 'next/link';
 
 interface Props {
-  href: string;
-  className?: string;
   children?: React.ReactNode;
+  href: string;
+  title?: string;
+  className?: string;
 }
 export const Link = (props: Props): JSX.Element => {
-  const { href, children, ...other } = props;
+  const { children, href, ...other } = props;
   return (
     <NextLink href={href}>
       <a href={href} {...other}>

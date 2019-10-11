@@ -3,10 +3,7 @@ import NextHead from 'next/head';
 import { useTheme } from '@material-ui/styles';
 import { useMediaQuery, Theme } from '@material-ui/core';
 import { config } from '@app/config';
-import { Header } from '@app/components/Header';
-import { Sidebar } from '@app/components/Sidebar';
-import { AdminFooter } from '@app/components/AdminFooter';
-import { SidebarMenu } from '@app/components/SidebarMenu';
+import { AdminFooter, SidebarMenu, Sidebar, Header } from '@app/components';
 import { NavItem } from '@app/core';
 import { useStyles } from './styles';
 

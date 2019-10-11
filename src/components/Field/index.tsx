@@ -1,9 +1,12 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { Grid, TextField } from '@material-ui/core';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { PickerDataItem, FieldType, FieldValueType } from '@app/core';
+// import { Autocomplete } from '@app/components';
 import { useStyles } from './styles';
-import { Autocomplete } from '../Autocomplete';
+
+const Autocomplete = dynamic(() => import('@app/components/Autocomplete'));
 
 interface Props<T extends FieldValueType> {
   id?: string;
@@ -80,7 +83,7 @@ export const Field: Field = (props) => {
         <TextField
           id={id}
           label={label}
-          className={classNames(classes.textField, className)}
+          className={clsx(classes.textField, className)}
           value={value}
           onChange={onTextValueChange}
           margin='dense'

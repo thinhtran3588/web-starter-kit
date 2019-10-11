@@ -1,4 +1,4 @@
-import merge from 'lodash/fp/merge';
+// import merge from 'lodash/fp/merge';
 import defaultConfig from './default_config.json';
 import overrideConfig from './override_config.json';
 
@@ -11,6 +11,7 @@ const regexConfig = {
 };
 
 export const config = Object.freeze({
-  ...merge(defaultConfig, overrideConfig),
+  ...defaultConfig,
+  ...overrideConfig,
   ...regexConfig,
 });

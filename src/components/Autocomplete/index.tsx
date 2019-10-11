@@ -1,12 +1,8 @@
 import React, { CSSProperties, HTMLAttributes } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
+import { useTheme, Typography, TextField, MenuItem, Paper, Chip } from '@material-ui/core';
+import { BaseTextFieldProps } from '@material-ui/core/TextField';
 import Select from 'react-select';
-import Typography from '@material-ui/core/Typography';
-import TextField, { BaseTextFieldProps } from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
-import Chip from '@material-ui/core/Chip';
-import MenuItem from '@material-ui/core/MenuItem';
-import CancelIcon from '@material-ui/icons/Cancel';
 import { ValueContainerProps } from 'react-select/src/components/containers';
 import { ControlProps } from 'react-select/src/components/Control';
 import { MenuProps, NoticeProps } from 'react-select/src/components/Menu';
@@ -16,8 +12,8 @@ import { PlaceholderProps } from 'react-select/src/components/Placeholder';
 import { SingleValueProps } from 'react-select/src/components/SingleValue';
 import { ValueType } from 'react-select/src/types';
 import { Omit } from '@material-ui/types';
-import { useTheme } from '@material-ui/core';
 import { PickerDataItem, FieldValueType } from '@app/core';
+import { Icon } from '@app/components';
 import { useStyles } from './styles';
 
 interface OptionType {
@@ -108,11 +104,11 @@ const MultiValue = (props: MultiValueProps<OptionType>): JSX.Element => {
     <Chip
       tabIndex={-1}
       label={props.children}
-      className={classNames(props.selectProps.classes.chip, {
+      className={clsx(props.selectProps.classes.chip, {
         [props.selectProps.classes.chipFocused]: props.isFocused,
       })}
       onDelete={props.removeProps.onClick}
-      deleteIcon={<CancelIcon {...props.removeProps} />}
+      deleteIcon={<Icon name='Cancel' {...props.removeProps} />}
     />
   );
 };
@@ -144,7 +140,7 @@ interface Props<T extends FieldValueType> {
   pickerDataSources?: PickerDataItem<T>[];
 }
 
-export const Autocomplete: <T extends FieldValueType>(props: Props<T>) => JSX.Element = (props) => {
+const Autocomplete: <T extends FieldValueType>(props: Props<T>) => JSX.Element = (props) => {
   const { id, label, value, onChange, pickerDataSources } = props;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let inputValue: ValueType<OptionType>;
@@ -207,3 +203,5 @@ export const Autocomplete: <T extends FieldValueType>(props: Props<T>) => JSX.El
     </div>
   );
 };
+
+export default Autocomplete;

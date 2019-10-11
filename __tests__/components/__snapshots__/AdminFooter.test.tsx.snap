@@ -9,8 +9,7 @@ exports[`components/AdminFooter renders successfully 1`] = `
       <p
         class="MuiTypography-root MuiTypography-body1"
       >
-        ©
-         
+        © 
         <a
           href="/"
         >
