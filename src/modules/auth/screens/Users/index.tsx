@@ -1,36 +1,21 @@
 import React from 'react';
 import debounce from 'lodash/fp/debounce';
+import { WithTranslation } from 'react-i18next';
 import { AdminLayout, FormHeader, FormSearch } from '@app/components';
-import { OffsetPagination, Filter, FieldInfo, PickerDataItem, TableColumn, FieldValueType } from '@app/core';
+import {
+  OffsetPagination,
+  Filter,
+  FieldInfo,
+  PickerDataItem,
+  TableColumn,
+  FieldValueType,
+  withTranslation,
+} from '@app/core';
 import { config } from '@app/config';
 
-interface Props {
+interface Props extends WithTranslation {
   providers: PickerDataItem<string>[];
 }
-
-const columns: TableColumn[] = [
-  {
-    id: 'fullName',
-    label: 'Full Name',
-    minWidth: 200,
-  },
-  {
-    id: 'email',
-    label: 'Email',
-    minWidth: 150,
-  },
-  {
-    id: 'phoneNo',
-    label: 'Phone No',
-    minWidth: 150,
-  },
-  {
-    id: 'dob',
-    label: 'DoB',
-    minWidth: 150,
-    align: 'center',
-  },
-];
 
 const createData = (name: string, code: string, population: number, size: number): { [id: string]: FieldValueType } => {
   const density = population / size;
@@ -61,30 +46,63 @@ const rows = [
   createData('Brazil', 'BR', 210147125, 8515767),
 ];
 
-const Users = (props: Props): JSX.Element => {
-  const { providers } = props;
+const BaseUsers = (props: Props): JSX.Element => {
+  const { t } = props;
+  const providers = [
+    {
+      value: '',
+      label: t('all'),
+    },
+    ...props.providers,
+  ];
 
   const filterFields: FieldInfo[] = [
     {
       name: 'filter',
-      text: 'Filter',
+      text: t('filter'),
     },
     {
       name: 'provider',
-      text: 'Provider',
+      text: t('provider'),
       type: 'picker',
       pickerDataSources: providers,
     },
   ];
 
+  const columns: TableColumn[] = [
+    {
+      id: 'fullName',
+      label: t('fullName'),
+      minWidth: 200,
+    },
+    {
+      id: 'email',
+      label: t('email'),
+      minWidth: 150,
+    },
+    {
+      id: 'phoneNo',
+      label: t('phoneNo'),
+      minWidth: 150,
+    },
+    {
+      id: 'provider',
+      label: t('provider'),
+      minWidth: 150,
+    },
+    {
+      id: 'registeredAt',
+      label: t('registeredAt'),
+      minWidth: 150,
+    },
+  ];
+
   const createUser = async (): Promise<void> => {
-    // eslint-disable-next-line no-console
-    console.log('createUser');
+    // TODO: implementation
   };
 
-  const search = async (filter: Filter, pagination: OffsetPagination): Promise<void> => {
-    // eslint-disable-next-line no-console
-    console.log(filter, pagination);
+  const search = async (_filter: Filter, _pagination: OffsetPagination): Promise<void> => {
+    // TODO: implementation
   };
   const onFilterChange = debounce(config.debounceDelay, search);
 
@@ -123,12 +141,8 @@ const Users = (props: Props): JSX.Element => {
   );
 };
 
-Users.getInitialProps = async () => {
+BaseUsers.getInitialProps = async () => {
   const providers = [
-    {
-      value: '',
-      label: 'All',
-    },
     {
       value: 'EMAIL',
       label: 'Email',
@@ -148,7 +162,8 @@ Users.getInitialProps = async () => {
   ];
   return {
     providers,
+    namespacesRequired: ['common', 'admin_users'],
   };
 };
 
-export { Users };
+export const Users = withTranslation('admin_users')(BaseUsers);

@@ -2,8 +2,21 @@
 
 exports[`pages/Index renders successfully 1`] = `
 Object {
+  "author": "Thinh Tran",
+  "copyRightYear": 2019,
   "dateFormat": "DD/MM/YYYY",
   "debounceDelay": 300,
+  "defaultLanguage": "en",
+  "languages": Array [
+    Object {
+      "code": "en",
+      "name": "English",
+    },
+    Object {
+      "code": "vi",
+      "name": "Tiếng Việt",
+    },
+  ],
   "regex": Object {
     "email": /\\^\\[a-z\\]\\[a-z0-9_\\.\\]\\{5,40\\}@\\[a-z0-9\\]\\{2,\\}\\(\\.\\[a-z0-9\\]\\{2,4\\}\\)\\{1,2\\}\\$/,
     "password": /\\^\\(\\?=\\.\\*\\[A-Za-z\\]\\)\\(\\?=\\.\\*\\\\d\\)\\(\\?=\\.\\*\\[@\\$!%\\*#\\?&\\]\\)\\[A-Za-z\\\\d@\\$!%\\*#\\?&\\]\\{6,\\}\\$/,

@@ -1,18 +1,26 @@
 import React from 'react';
 import { Link } from '@app/components';
+import { withTranslation } from '@app/core';
+import { WithTranslation } from 'react-i18next';
 import { Typography } from '@material-ui/core';
+import { config } from '@app/config';
 import { useStyles } from './styles';
 
-export const Footer = (): JSX.Element => {
+type Props = WithTranslation;
+
+export const BaseFooter = (props: Props): JSX.Element => {
+  const { t } = props;
   const classes = useStyles();
 
   return (
     <footer className={classes.root}>
       <Typography variant='body1'>
-        &copy; <Link href='/'>Thinh Tran</Link>
-        &nbsp;2019
+        &copy; <Link href='/'>{config.author}</Link>
+        &nbsp;{config.copyRightYear}
       </Typography>
-      <Typography variant='caption'>Created with love!</Typography>
+      <Typography variant='caption'>{t('footer.createdWithLove')}</Typography>
     </footer>
   );
 };
+
+export const Footer = withTranslation('common')(BaseFooter);

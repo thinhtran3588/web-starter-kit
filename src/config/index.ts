@@ -1,6 +1,6 @@
 // import merge from 'lodash/fp/merge';
-import defaultConfig from './default_config.json';
-import overrideConfig from './override_config.json';
+import defaultConfig from './default_config';
+import overrideConfig from './override_config';
 
 const regexConfig = {
   regex: {

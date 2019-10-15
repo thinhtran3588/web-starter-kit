@@ -1,0 +1,9 @@
+{
+  "all": "All",
+  "filter": "Filter",
+  "provider": "Provider",
+  "fullName": "Full name",
+  "email": "Email",
+  "phoneNo": "Phone No",
+  "registeredAt": "Created At"
+}

@@ -1,6 +1,7 @@
 import React from 'react';
-import NextLink from 'next/link';
+import { nextI18next } from '@app/core';
 
+const { Link: NextLink } = nextI18next;
 interface Props {
   children?: React.ReactNode;
   href: string;

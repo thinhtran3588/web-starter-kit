@@ -2,9 +2,9 @@ import React from 'react';
 import App from 'next/app';
 import { ThemeProvider } from '@material-ui/styles';
 import { CssBaseline } from '@material-ui/core';
-import { theme } from '@app/core';
+import { theme, appWithTranslation } from '@app/core';
 
-export default class MyApp extends App {
+class MyApp extends App {
   // eslint-disable-next-line class-methods-use-this
   componentDidMount(): void {
     // Remove the server-side injected CSS.
@@ -27,3 +27,4 @@ export default class MyApp extends App {
     );
   }
 }
+export default appWithTranslation(MyApp);

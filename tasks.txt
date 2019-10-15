@@ -1,5 +1,4 @@
-- export export
-- i18n
+- (done) i18n - check for serverless update
 - theme
 - graphql
 - formik

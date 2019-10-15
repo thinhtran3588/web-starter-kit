@@ -10,17 +10,22 @@ exports[`components/Header renders successfully 1`] = `
         class="MuiTypography-root MuiTypography-body1"
       >
         © 
-        <a
+        <next-link
           href="/"
         >
-          Thinh Tran
-        </a>
-         2019
+          <a
+            href="/"
+          >
+            Thinh Tran
+          </a>
+        </next-link>
+         
+        2019
       </p>
       <span
         class="MuiTypography-root MuiTypography-caption"
       >
-        Created with love!
+        common.footer.createdWithLove
       </span>
     </footer>
   </div>

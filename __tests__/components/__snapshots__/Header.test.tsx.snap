@@ -9,19 +9,44 @@ exports[`components/Header renders successfully 1`] = `
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
       >
-        <a
+        <next-link
           href="/"
-          title="Home"
         >
-          <img
-            alt="Logo"
-            class="makeStyles-logo-3"
-            src="/static/images/logo.svg"
-          />
-        </a>
+          <a
+            href="/"
+            title="Home"
+          >
+            <img
+              alt="Logo"
+              class="makeStyles-logo-3"
+              src="/static/images/logo.svg"
+            />
+          </a>
+        </next-link>
         <div
           class="makeStyles-flexGrow-2"
         />
+        <div>
+          <button
+            aria-label="notification"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <div
+                class="MuiAvatar-root makeStyles-icon-49 MuiAvatar-colorDefault"
+              >
+                EN
+              </div>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
         <button
           aria-label="notification"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
@@ -81,6 +106,56 @@ exports[`components/Header renders successfully 1`] = `
         </button>
       </div>
     </header>
+  </div>
+  <div
+    aria-hidden="true"
+    id="simple-menu"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+  >
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
+      role="document"
+      style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
+      tabindex="-1"
+    >
+      <ul
+        class="MuiList-root MuiMenu-list MuiList-padding"
+        role="menu"
+        tabindex="-1"
+      >
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          role="menuitem"
+          tabindex="0"
+        >
+          English
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          role="menuitem"
+          tabindex="-1"
+        >
+          Tiếng Việt
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+      </ul>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
   </div>
 </body>
 `;

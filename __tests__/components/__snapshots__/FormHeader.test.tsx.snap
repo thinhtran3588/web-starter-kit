@@ -16,11 +16,15 @@ exports[`components/FormHeader renders successfully 1`] = `
           <li
             class="MuiBreadcrumbs-li"
           >
-            <a
+            <next-link
               href="/admin/users"
             >
-              Auth
-            </a>
+              <a
+                href="/admin/users"
+              >
+                Auth
+              </a>
+            </next-link>
           </li>
           <li
             aria-hidden="true"
