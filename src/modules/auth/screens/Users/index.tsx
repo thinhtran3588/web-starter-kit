@@ -97,6 +97,7 @@ const BaseUsers = (props: Props): JSX.Element => {
       label: t('isActive'),
       minWidth: 90,
       align: 'center',
+      format: (value) => (value ? t('active') : t('inactive')),
     },
     {
       field: 'lastLoggedInAt',
