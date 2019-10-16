@@ -49,16 +49,4 @@ describe('@app/modules/auth/screens/Users', () => {
     );
     expect(baseElement).toMatchSnapshot();
   });
-
-  it('navigates to Add Role page when clicking Create button', async () => {
-    // const {} = render(
-    //   <MuiThemeProvider theme={theme}>
-    //     <Users loginTypes={loginTypes} roles={roles} />
-    //   </MuiThemeProvider>,
-    // );
-
-    // fireEvent.click(getByText('Create'));
-    // TODO: update test case
-    expect(true).toBe(true);
-  });
 });
