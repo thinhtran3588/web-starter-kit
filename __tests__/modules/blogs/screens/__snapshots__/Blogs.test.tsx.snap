@@ -4,7 +4,7 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-4 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-3 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -18,13 +18,13 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
           >
             <img
               alt="Logo"
-              class="makeStyles-logo-6"
+              class="makeStyles-logo-5"
               src="/static/images/logo.svg"
             />
           </a>
         </next-link>
         <div
-          class="makeStyles-flexGrow-5"
+          class="makeStyles-flexGrow-4"
         />
         <div>
           <button
@@ -37,7 +37,7 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-52 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-51 MuiAvatar-colorDefault"
               >
                 EN
               </div>
@@ -133,19 +133,510 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
       </div>
     </header>
     <div
-      class="makeStyles-container-2"
+      class="makeStyles-container-1"
     >
       <main
-        class="makeStyles-main-3"
+        class="makeStyles-main-2"
       >
-        <h1
-          class="makeStyles-header-1"
+        <div
+          class="MuiGrid-root MuiGrid-container"
         >
-          Blogs
-        </h1>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+          />
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
+          >
+            <div
+              class="makeStyles-categoriesContainer-210"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+                  >
+                    <div
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+                    >
+                      <div
+                        class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-211 MuiPaper-rounded"
+                      >
+                        <div>
+                          <h2
+                            class="makeStyles-categoriesTitle-212"
+                          >
+                            // This impressive paella
+                          </h2>
+                          <p
+                            class="makeStyles-categoriesDescription-213"
+                          >
+                            Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui
+                          </p>
+                        </div>
+                        <div
+                          class="makeStyles-categoriesButtonContainer-214"
+                        >
+                          <button
+                            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                            tabindex="0"
+                            type="button"
+                          >
+                            <span
+                              class="MuiButton-label"
+                            >
+                              Explore
+                            </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+                    >
+                      <div
+                        class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card2-215 MuiPaper-rounded"
+                      >
+                        <div>
+                          <h2
+                            class="makeStyles-categoriesTitle-212"
+                          >
+                            // This impressive paella
+                          </h2>
+                          <p
+                            class="makeStyles-categoriesDescription-213"
+                          >
+                            Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui
+                          </p>
+                        </div>
+                        <div
+                          class="makeStyles-categoriesButtonContainer-214"
+                        >
+                          <button
+                            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                            tabindex="0"
+                            type="button"
+                          >
+                            <span
+                              class="MuiButton-label"
+                            >
+                              Explore
+                            </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+                >
+                  <div
+                    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card3-216 MuiPaper-rounded"
+                  >
+                    <div>
+                      <h2
+                        class="makeStyles-categoriesTitle-212"
+                      >
+                        // This impressive paella
+                      </h2>
+                      <p
+                        class="makeStyles-categoriesDescription-213"
+                      >
+                        Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui
+                      </p>
+                    </div>
+                    <div
+                      class="makeStyles-categoriesButtonContainer-214"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label"
+                        >
+                          Explore
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+                >
+                  <div
+                    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card4-217 MuiPaper-rounded"
+                  >
+                    <div>
+                      <h2
+                        class="makeStyles-categoriesTitle-212"
+                      >
+                        // This impressive paella
+                      </h2>
+                      <p
+                        class="makeStyles-categoriesDescription-213"
+                      >
+                        Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui
+                      </p>
+                    </div>
+                    <div
+                      class="makeStyles-categoriesButtonContainer-214"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label"
+                        >
+                          Explore
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="makeStyles-blogsListContainer-247"
+            >
+              <div
+                class="MuiGrid-root makeStyles-grid-249 MuiGrid-container"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                >
+                  <div
+                    class="makeStyles-blogImage-250"
+                  />
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-bloginContentContainer-251 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+                >
+                  <div>
+                    <h2
+                      class="makeStyles-blogTitle-252"
+                    >
+                      Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+                    </h2>
+                    <p
+                      class="makeStyles-blogDescription-253"
+                    >
+                      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+                    </p>
+                  </div>
+                  <div
+                    class="makeStyles-blogItemFooter-255"
+                  >
+                    <div>
+                      Author: 
+                      <span
+                        class="makeStyles-boldText-254"
+                      >
+                        Lorem ipsum
+                      </span>
+                       | Category:
+                       
+                      <span
+                        class="makeStyles-boldText-254"
+                      >
+                        Vivamus suscipit
+                      </span>
+                    </div>
+                    <div>
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label"
+                        >
+                          See more
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-grid-249 MuiGrid-container"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                >
+                  <div
+                    class="makeStyles-blogImage-250"
+                  />
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-bloginContentContainer-251 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+                >
+                  <div>
+                    <h2
+                      class="makeStyles-blogTitle-252"
+                    >
+                      Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+                    </h2>
+                    <p
+                      class="makeStyles-blogDescription-253"
+                    >
+                      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+                    </p>
+                  </div>
+                  <div
+                    class="makeStyles-blogItemFooter-255"
+                  >
+                    <div>
+                      Author: 
+                      <span
+                        class="makeStyles-boldText-254"
+                      >
+                        Lorem ipsum
+                      </span>
+                       | Category:
+                       
+                      <span
+                        class="makeStyles-boldText-254"
+                      >
+                        Vivamus suscipit
+                      </span>
+                    </div>
+                    <div>
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label"
+                        >
+                          See more
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-grid-249 MuiGrid-container"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                >
+                  <div
+                    class="makeStyles-blogImage-250"
+                  />
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-bloginContentContainer-251 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+                >
+                  <div>
+                    <h2
+                      class="makeStyles-blogTitle-252"
+                    >
+                      Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+                    </h2>
+                    <p
+                      class="makeStyles-blogDescription-253"
+                    >
+                      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+                    </p>
+                  </div>
+                  <div
+                    class="makeStyles-blogItemFooter-255"
+                  >
+                    <div>
+                      Author: 
+                      <span
+                        class="makeStyles-boldText-254"
+                      >
+                        Lorem ipsum
+                      </span>
+                       | Category:
+                       
+                      <span
+                        class="makeStyles-boldText-254"
+                      >
+                        Vivamus suscipit
+                      </span>
+                    </div>
+                    <div>
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label"
+                        >
+                          See more
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-grid-249 MuiGrid-container"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                >
+                  <div
+                    class="makeStyles-blogImage-250"
+                  />
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-bloginContentContainer-251 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+                >
+                  <div>
+                    <h2
+                      class="makeStyles-blogTitle-252"
+                    >
+                      Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+                    </h2>
+                    <p
+                      class="makeStyles-blogDescription-253"
+                    >
+                      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+                    </p>
+                  </div>
+                  <div
+                    class="makeStyles-blogItemFooter-255"
+                  >
+                    <div>
+                      Author: 
+                      <span
+                        class="makeStyles-boldText-254"
+                      >
+                        Lorem ipsum
+                      </span>
+                       | Category:
+                       
+                      <span
+                        class="makeStyles-boldText-254"
+                      >
+                        Vivamus suscipit
+                      </span>
+                    </div>
+                    <div>
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label"
+                        >
+                          See more
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-grid-249 MuiGrid-container"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                >
+                  <div
+                    class="makeStyles-blogImage-250"
+                  />
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-bloginContentContainer-251 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+                >
+                  <div>
+                    <h2
+                      class="makeStyles-blogTitle-252"
+                    >
+                      Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+                    </h2>
+                    <p
+                      class="makeStyles-blogDescription-253"
+                    >
+                      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+                    </p>
+                  </div>
+                  <div
+                    class="makeStyles-blogItemFooter-255"
+                  >
+                    <div>
+                      Author: 
+                      <span
+                        class="makeStyles-boldText-254"
+                      >
+                        Lorem ipsum
+                      </span>
+                       | Category:
+                       
+                      <span
+                        class="makeStyles-boldText-254"
+                      >
+                        Vivamus suscipit
+                      </span>
+                    </div>
+                    <div>
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label"
+                        >
+                          See more
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+          />
+        </div>
       </main>
       <footer
-        class="makeStyles-root-108"
+        class="makeStyles-root-256"
       >
         <p
           class="MuiTypography-root MuiTypography-body1"
