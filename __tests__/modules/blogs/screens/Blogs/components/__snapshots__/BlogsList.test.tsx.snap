@@ -1,0 +1,322 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@app/modules/blogs/screens/Blogs/components/BlogsList renders successfully 1`] = `
+<body>
+  <div>
+    <div
+      class="makeStyles-blogsListContainer-1"
+    >
+      <div
+        class="MuiGrid-root makeStyles-grid-3 MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+        >
+          <div
+            class="makeStyles-blogImage-4"
+          />
+        </div>
+        <div
+          class="MuiGrid-root makeStyles-bloginContentContainer-5 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+        >
+          <div>
+            <h2
+              class="makeStyles-blogTitle-6"
+            >
+              Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+            </h2>
+            <p
+              class="makeStyles-blogDescription-7"
+            >
+              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+            </p>
+          </div>
+          <div
+            class="makeStyles-blogItemFooter-9"
+          >
+            <div>
+              Author: 
+              <span
+                class="makeStyles-boldText-8"
+              >
+                Lorem ipsum
+              </span>
+               | Category:
+               
+              <span
+                class="makeStyles-boldText-8"
+              >
+                Vivamus suscipit
+              </span>
+            </div>
+            <div>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  See more
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root makeStyles-grid-3 MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+        >
+          <div
+            class="makeStyles-blogImage-4"
+          />
+        </div>
+        <div
+          class="MuiGrid-root makeStyles-bloginContentContainer-5 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+        >
+          <div>
+            <h2
+              class="makeStyles-blogTitle-6"
+            >
+              Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+            </h2>
+            <p
+              class="makeStyles-blogDescription-7"
+            >
+              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+            </p>
+          </div>
+          <div
+            class="makeStyles-blogItemFooter-9"
+          >
+            <div>
+              Author: 
+              <span
+                class="makeStyles-boldText-8"
+              >
+                Lorem ipsum
+              </span>
+               | Category:
+               
+              <span
+                class="makeStyles-boldText-8"
+              >
+                Vivamus suscipit
+              </span>
+            </div>
+            <div>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  See more
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root makeStyles-grid-3 MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+        >
+          <div
+            class="makeStyles-blogImage-4"
+          />
+        </div>
+        <div
+          class="MuiGrid-root makeStyles-bloginContentContainer-5 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+        >
+          <div>
+            <h2
+              class="makeStyles-blogTitle-6"
+            >
+              Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+            </h2>
+            <p
+              class="makeStyles-blogDescription-7"
+            >
+              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+            </p>
+          </div>
+          <div
+            class="makeStyles-blogItemFooter-9"
+          >
+            <div>
+              Author: 
+              <span
+                class="makeStyles-boldText-8"
+              >
+                Lorem ipsum
+              </span>
+               | Category:
+               
+              <span
+                class="makeStyles-boldText-8"
+              >
+                Vivamus suscipit
+              </span>
+            </div>
+            <div>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  See more
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root makeStyles-grid-3 MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+        >
+          <div
+            class="makeStyles-blogImage-4"
+          />
+        </div>
+        <div
+          class="MuiGrid-root makeStyles-bloginContentContainer-5 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+        >
+          <div>
+            <h2
+              class="makeStyles-blogTitle-6"
+            >
+              Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+            </h2>
+            <p
+              class="makeStyles-blogDescription-7"
+            >
+              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+            </p>
+          </div>
+          <div
+            class="makeStyles-blogItemFooter-9"
+          >
+            <div>
+              Author: 
+              <span
+                class="makeStyles-boldText-8"
+              >
+                Lorem ipsum
+              </span>
+               | Category:
+               
+              <span
+                class="makeStyles-boldText-8"
+              >
+                Vivamus suscipit
+              </span>
+            </div>
+            <div>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  See more
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root makeStyles-grid-3 MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+        >
+          <div
+            class="makeStyles-blogImage-4"
+          />
+        </div>
+        <div
+          class="MuiGrid-root makeStyles-bloginContentContainer-5 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+        >
+          <div>
+            <h2
+              class="makeStyles-blogTitle-6"
+            >
+              Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+            </h2>
+            <p
+              class="makeStyles-blogDescription-7"
+            >
+              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+            </p>
+          </div>
+          <div
+            class="makeStyles-blogItemFooter-9"
+          >
+            <div>
+              Author: 
+              <span
+                class="makeStyles-boldText-8"
+              >
+                Lorem ipsum
+              </span>
+               | Category:
+               
+              <span
+                class="makeStyles-boldText-8"
+              >
+                Vivamus suscipit
+              </span>
+            </div>
+            <div>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  See more
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
