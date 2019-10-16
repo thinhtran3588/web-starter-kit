@@ -1,10 +1,15 @@
 {
+  "active": "Active",
   "all": "All",
   "email": "Email",
   "filter": "Filter",
   "fullName": "Full name",
+  "inactive": "Inactive",
+  "isActive": "Active Status",
+  "lastLoggedInAt": "Last Logged In At",
   "loginType": "Login Type",
   "phoneNo": "Phone No",
   "registeredAt": "Created At",
-  "role": "Role"
+  "role": "Role",
+  "username": "Username"
 }

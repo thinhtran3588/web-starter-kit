@@ -601,56 +601,56 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                     class="MuiTableRow-root MuiTableRow-head"
                   >
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 100px;"
                     >
                       admin_users.username
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 200px;"
                     >
                       admin_users.fullName
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 120px;"
                     >
                       admin_users.email
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 90px;"
                     >
                       admin_users.phoneNo
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 90px;"
                     >
                       admin_users.loginType
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 90px;"
                     >
                       admin_users.isActive
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 90px;"
                     >
                       admin_users.lastLoggedInAt
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
+                      class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 90px;"
                     >

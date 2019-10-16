@@ -1,10 +1,15 @@
 {
+  "active": "Hoạt động",
   "all": "Tất cả",
+  "email": "Email",
   "filter": "Tìm kiếm",
   "fullName": "Tên đầy đủ",
-  "email": "Email",
+  "inactive": "Ngừng hoạt động",
+  "isActive": "Trạng thái hoạt động",
+  "lastLoggedInAt": "Đăng nhập lần cuối lúc",
   "loginType": "Loại đăng nhập",
   "phoneNo": "Số điện thoại",
   "registeredAt": "Đăng kí lúc",
-  "role": "Chức vụ"
+  "role": "Chức vụ",
+  "username": "Tên đăng nhập"
 }

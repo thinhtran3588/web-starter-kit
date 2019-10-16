@@ -24,10 +24,8 @@ export const Header = ({ onSidebarOpen, navItems }: Props): JSX.Element => {
   const renderLinkNavItem = (navItem: NavItem): JSX.Element => {
     if (navItem.link) {
       return (
-        <Link href={navItem.link} key={`${navItem.link}${navItem.text}`}>
-          <a href={navItem.link} className={classes.menuItem}>
-            {renderNavItem(navItem)}
-          </a>
+        <Link href={navItem.link} key={`${navItem.link}${navItem.text}`} className={classes.menuItem}>
+          {renderNavItem(navItem)}
         </Link>
       );
     }
