@@ -1,0 +1,452 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@app/modules/main/screens/Home renders successfully 1`] = `
+<body>
+  <div>
+    <header
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-3 MuiAppBar-colorPrimary mui-fixed"
+    >
+      <div
+        class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+      >
+        <next-link
+          href="/"
+        >
+          <a
+            href="/"
+            title="Home"
+          >
+            <img
+              alt="Logo"
+              class="makeStyles-logo-5"
+              src="/static/images/logo.svg"
+            />
+          </a>
+        </next-link>
+        <div
+          class="makeStyles-flexGrow-4"
+        />
+        <div>
+          <button
+            aria-label="notification"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <div
+                class="MuiAvatar-root makeStyles-icon-51 MuiAvatar-colorDefault"
+              >
+                EN
+              </div>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <button
+          aria-label="notification"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <span
+              class="MuiBadge-root"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
+                />
+              </svg>
+              <span
+                class="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorPrimary MuiBadge-dot"
+              />
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          aria-label="logout"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M21 3.01H3c-1.1 0-2 .9-2 2V9h2V4.99h18v14.03H3V15H1v4.01c0 1.1.9 1.98 2 1.98h18c1.1 0 2-.88 2-1.98v-14c0-1.11-.9-2-2-2zM11 16l4-4-4-4v3H1v2h10v3z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          aria-label="menu"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          data-testid="menu-icon"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </header>
+    <div
+      class="makeStyles-container-1"
+    >
+      <main
+        class="makeStyles-main-2"
+      >
+        <div
+          class="makeStyles-coverImage-107"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+            />
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-4"
+            >
+              <h2
+                class="makeStyles-title-108"
+              >
+                Praesent sapien massa, convallis a pellentesque nec
+              </h2>
+              <p
+                class="makeStyles-paragraph-109"
+              >
+                Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Pellentesque in ipsum id orci porta dapibus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Nulla quis lorem ut libero malesuada feugiat.
+              </p>
+              <div
+                class="makeStyles-introButtonContainer-110"
+              >
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    Explore
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+            />
+          </div>
+        </div>
+        <div>
+          <div
+            class="MuiGrid-root MuiGrid-container"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+            />
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
+            >
+              <div
+                class="makeStyles-featuresContainer-242"
+              >
+                <h3
+                  class="makeStyles-featuresTitle-243"
+                >
+                  Praesent sapien massa, convallis a pellentesque nec
+                </h3>
+              </div>
+              <div
+                class="makeStyles-featuresContent-244"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+                  >
+                    <div
+                      class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
+                    >
+                      <div
+                        class="MuiCardMedia-root makeStyles-media-245"
+                        style="background-image: url(/static/images/intro1.jpg);"
+                        title="Paella dish"
+                      />
+                      <div
+                        class="MuiCardContent-root"
+                      >
+                        <p
+                          class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+                        >
+                          This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+                  >
+                    <div
+                      class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
+                    >
+                      <div
+                        class="MuiCardMedia-root makeStyles-media-245"
+                        style="background-image: url(/static/images/intro2.jpg);"
+                        title="Paella dish"
+                      />
+                      <div
+                        class="MuiCardContent-root"
+                      >
+                        <p
+                          class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+                        >
+                          This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+                  >
+                    <div
+                      class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
+                    >
+                      <div
+                        class="MuiCardMedia-root makeStyles-media-245"
+                        style="background-image: url(/static/images/intro3.jpg);"
+                        title="Paella dish"
+                      />
+                      <div
+                        class="MuiCardContent-root"
+                      >
+                        <p
+                          class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+                        >
+                          This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+            />
+          </div>
+        </div>
+        <div>
+          <div
+            class="MuiGrid-root MuiGrid-container"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+            />
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
+            >
+              <div
+                class="makeStyles-quoteContainer-281"
+              >
+                <h4
+                  class="makeStyles-quote-282"
+                >
+                  "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula"
+                </h4>
+                <div
+                  class="makeStyles-signatureContainer-283"
+                >
+                  <div
+                    class="makeStyles-signatureName-284"
+                  >
+                    Lionel Messi
+                  </div>
+                  <div
+                    class="makeStyles-signatureJob-285"
+                  >
+                    Greatest footballer of all time
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+            />
+          </div>
+          <div
+            class="makeStyles-coverImage2-286"
+          />
+        </div>
+        <div>
+          <div
+            class="MuiGrid-root MuiGrid-container"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+            />
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
+            >
+              <div
+                class="makeStyles-helpContainer-287"
+              >
+                <div>
+                  <div
+                    class="makeStyles-helpIconContainer-288"
+                  >
+                    <img
+                      class="makeStyles-helpIcon-289"
+                      src="/static/images/faq.png"
+                    />
+                  </div>
+                  <h4
+                    class="makeStyles-helpTitle-290"
+                  >
+                    Need help?
+                  </h4>
+                </div>
+                <div
+                  class="makeStyles-helpInfo-291"
+                >
+                  Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae
+                </div>
+                <div
+                  class="makeStyles-helpContact-292"
+                >
+                  support@mindxtech.com
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+            />
+          </div>
+        </div>
+      </main>
+      <footer
+        class="makeStyles-root-293"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          © 
+          <next-link
+            href="/"
+          >
+            <a
+              href="/"
+            >
+              Thinh Tran
+            </a>
+          </next-link>
+           
+          2019
+        </p>
+        <span
+          class="MuiTypography-root MuiTypography-caption"
+        >
+          common.footer.createdWithLove
+        </span>
+      </footer>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    id="simple-menu"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+  >
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
+      role="document"
+      style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
+      tabindex="-1"
+    >
+      <ul
+        class="MuiList-root MuiMenu-list MuiList-padding"
+        role="menu"
+        tabindex="-1"
+      >
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          role="menuitem"
+          tabindex="0"
+        >
+          English
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          role="menuitem"
+          tabindex="-1"
+        >
+          Tiếng Việt
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+      </ul>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
+`;
