@@ -49,15 +49,17 @@ export const Table = (props: Props): JSX.Element => {
     } else {
       key = column.field.join('_');
       for (let i = 0; i < column.field.length; i += 1) {
-        if (value[column.field[i]]) {
-          value = row[column.field[i]];
+        if (value[column.field[i]] !== undefined) {
+          value = value[column.field[i]];
         }
       }
     }
+    value = value === undefined ? '' : value;
 
     return (
       <TableCell key={key} align={column.align}>
-        <span>{column.format && typeof value === 'number' ? column.format(value) : value}</span>
+        {!!column.customRender && column.customRender(row)}
+        {!column.customRender && <>{column.format ? column.format(value) : value.toString()}</>}
       </TableCell>
     );
   };
@@ -77,7 +79,7 @@ export const Table = (props: Props): JSX.Element => {
               {columns.map((column) => (
                 <TableCell
                   key={Array.isArray(column.field) ? column.field.join('_') : column.field}
-                  align={column.align}
+                  align='center'
                   style={{
                     minWidth: column.minWidth,
                   }}
@@ -88,9 +90,9 @@ export const Table = (props: Props): JSX.Element => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => {
+            {rows.map((row, index) => {
               return (
-                <TableRow hover role='checkbox' tabIndex={-1} key={row.code}>
+                <TableRow hover tabIndex={-1} key={index}>
                   {columns.map((column) => renderCell(row, column))}
                 </TableRow>
               );

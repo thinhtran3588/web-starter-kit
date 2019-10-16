@@ -12,6 +12,8 @@ import {
   FilterWithOffsetPagination,
   OffsetPaginationResult,
   SearchRecord,
+  formatWithLookup,
+  formatDateTime,
 } from '@app/core';
 import { config } from '@app/config';
 
@@ -88,21 +90,27 @@ const BaseUsers = (props: Props): JSX.Element => {
       field: ['loginDetail', 'loginType'],
       label: t('loginType'),
       minWidth: 90,
+      format: formatWithLookup(props.loginTypes),
     },
     {
       field: 'isActive',
       label: t('isActive'),
       minWidth: 90,
+      align: 'center',
     },
     {
       field: 'lastLoggedInAt',
       label: t('lastLoggedInAt'),
       minWidth: 90,
+      align: 'center',
+      format: formatDateTime,
     },
     {
       field: 'registeredAt',
       label: t('registeredAt'),
       minWidth: 90,
+      align: 'center',
+      format: formatDateTime,
     },
   ];
 
