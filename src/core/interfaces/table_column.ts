@@ -1,5 +1,5 @@
 export interface TableColumn {
-  id: string;
+  field: string | string[];
   label: string;
   minWidth?: number;
   align?: 'right' | 'center';

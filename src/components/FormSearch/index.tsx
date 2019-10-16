@@ -2,7 +2,14 @@ import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import produce from 'immer';
 import { Paper, useTheme, useMediaQuery } from '@material-ui/core';
-import { OffsetPagination, FieldInfo, Filter, FieldValueType, TableColumn } from '@app/core';
+import {
+  OffsetPagination,
+  FieldInfo,
+  Filter,
+  FieldValueType,
+  TableColumn,
+  FilterWithOffsetPagination,
+} from '@app/core';
 import { config } from '@app/config';
 import { Table, FormFilter } from '@app/components';
 import { useStyles } from './styles';
@@ -11,11 +18,20 @@ interface Props<T> {
   children?: React.ReactNode;
   defaultFilter?: Filter;
   filterFields?: FieldInfo[];
-  onFilterChange?: (filter: Filter, pagination: OffsetPagination) => void;
+  onFilterChange?: (filter: FilterWithOffsetPagination, useDebounce: boolean) => void;
   columns: TableColumn[];
   rows: { [id: string]: FieldValueType }[];
   count: number;
   classes?: { [className: string]: string };
+}
+
+interface State {
+  filter: Filter;
+  useDebounce: boolean;
+  pagination: {
+    pageIndex: number;
+    itemsPerPage: number;
+  };
 }
 
 export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
@@ -56,38 +72,49 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
   }, [isSx, isSm, isMd]);
 
   // handle filter, pagination change
-  const [filter, setFilter] = useState<Filter>(defaultFilter);
-  const [pagination, setPagination] = useState<OffsetPagination>({
-    type: 'OFFSET',
-    pageIndex: 0,
-    itemsPerPage: config.rowsPerPageOptions[0],
+  const [state, setState] = useState<State>({
+    filter: defaultFilter || {},
+    useDebounce: false,
+    pagination: {
+      pageIndex: 0,
+      itemsPerPage: config.rowsPerPageOptions[0],
+    },
   });
 
-  const handleChange = (fieldName: string) => (value: FieldValueType) =>
-    setFilter(
-      produce((draft: Filter) => {
-        draft[fieldName] = value;
+  const handleChange = (fieldName: string) => (value: FieldValueType, useDebounce: boolean) =>
+    setState(
+      produce((draft: State) => {
+        draft.filter[fieldName] = value;
+        draft.useDebounce = useDebounce === true;
       }),
     );
   const handlePaginationChange = (newPagination: OffsetPagination): void =>
-    setPagination(
-      produce((draft: OffsetPagination) => {
-        draft.pageIndex = newPagination.pageIndex;
-        draft.itemsPerPage = newPagination.itemsPerPage;
+    setState(
+      produce((draft: State) => {
+        draft.pagination.pageIndex = newPagination.pageIndex;
+        draft.pagination.itemsPerPage = newPagination.itemsPerPage;
+        draft.useDebounce = false;
       }),
     );
   useEffect(() => {
-    onFilterChange && onFilterChange(filter, pagination);
-  }, [filter, pagination]);
+    onFilterChange &&
+      onFilterChange(
+        {
+          ...state.filter,
+          ...state.pagination,
+        },
+        state.useDebounce,
+      );
+  }, [state]);
 
   return (
     <Paper className={clsx(classes.root, externalClasses.formSearchRoot)}>
-      <FormFilter filterFields={filterFields} filter={filter} handleChange={handleChange} />
+      <FormFilter filterFields={filterFields} filter={state.filter} handleChange={handleChange} />
       <Table
         columns={columns}
         rows={rows}
-        pageIndex={pagination.pageIndex}
-        itemsPerPage={pagination.itemsPerPage}
+        pageIndex={state.pagination.pageIndex}
+        itemsPerPage={state.pagination.itemsPerPage}
         count={count}
         onPaginationChange={handlePaginationChange}
         className={classes.formTable}

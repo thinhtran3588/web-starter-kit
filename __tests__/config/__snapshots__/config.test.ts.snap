@@ -2,6 +2,7 @@
 
 exports[`pages/Index renders successfully 1`] = `
 Object {
+  "apiEndpoint": "http://localhost:3001",
   "author": "Thinh Tran",
   "copyRightYear": 2019,
   "dateFormat": "DD/MM/YYYY",

@@ -580,6 +580,9 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
             />
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            />
           </div>
           <div
             class="makeStyles-root-361 makeStyles-formTable-200"
@@ -600,6 +603,13 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                     <th
                       class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
+                      style="min-width: 100px;"
+                    >
+                      admin_users.username
+                    </th>
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
+                      scope="col"
                       style="min-width: 200px;"
                     >
                       admin_users.fullName
@@ -607,28 +617,42 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                     <th
                       class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
-                      style="min-width: 150px;"
+                      style="min-width: 120px;"
                     >
                       admin_users.email
                     </th>
                     <th
                       class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
-                      style="min-width: 150px;"
+                      style="min-width: 90px;"
                     >
                       admin_users.phoneNo
                     </th>
                     <th
                       class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
-                      style="min-width: 150px;"
+                      style="min-width: 90px;"
                     >
-                      admin_users.provider
+                      admin_users.loginType
                     </th>
                     <th
                       class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
-                      style="min-width: 150px;"
+                      style="min-width: 90px;"
+                    >
+                      admin_users.isActive
+                    </th>
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
+                      scope="col"
+                      style="min-width: 90px;"
+                    >
+                      admin_users.lastLoggedInAt
+                    </th>
+                    <th
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
+                      scope="col"
+                      style="min-width: 90px;"
                     >
                       admin_users.registeredAt
                     </th>
@@ -636,323 +660,7 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                 </thead>
                 <tbody
                   class="MuiTableBody-root"
-                >
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                  <tr
-                    class="MuiTableRow-root MuiTableRow-hover"
-                    role="checkbox"
-                    tabindex="-1"
-                  >
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                    <td
-                      class="MuiTableCell-root MuiTableCell-body"
-                    />
-                  </tr>
-                </tbody>
+                />
               </table>
             </div>
             <div
@@ -999,7 +707,7 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                 <p
                   class="MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit"
                 >
-                  1-10 of 15
+                  0-0 of 0
                 </p>
                 <div
                   class="MuiTablePagination-actions"
@@ -1029,8 +737,9 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   </button>
                   <button
                     aria-label="next page"
-                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
-                    tabindex="0"
+                    class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit Mui-disabled Mui-disabled"
+                    disabled=""
+                    tabindex="-1"
                     type="button"
                   >
                     <span
@@ -1048,9 +757,6 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                         />
                       </svg>
                     </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
                   </button>
                 </div>
               </div>

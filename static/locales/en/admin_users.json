@@ -1,9 +1,10 @@
 {
   "all": "All",
-  "filter": "Filter",
-  "provider": "Provider",
-  "fullName": "Full name",
   "email": "Email",
+  "filter": "Filter",
+  "fullName": "Full name",
+  "loginType": "Login Type",
   "phoneNo": "Phone No",
-  "registeredAt": "Created At"
+  "registeredAt": "Created At",
+  "role": "Role"
 }

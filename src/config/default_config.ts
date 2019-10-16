@@ -1,4 +1,5 @@
 export default {
+  apiEndpoint: 'http://localhost:3001',
   author: 'Thinh Tran',
   copyRightYear: 2019,
   dateFormat: 'DD/MM/YYYY',

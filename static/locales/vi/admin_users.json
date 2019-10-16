@@ -1,9 +1,10 @@
 {
   "all": "Tất cả",
   "filter": "Tìm kiếm",
-  "provider": "Nguồn",
   "fullName": "Tên đầy đủ",
   "email": "Email",
+  "loginType": "Loại đăng nhập",
   "phoneNo": "Số điện thoại",
-  "registeredAt": "Đăng kí lúc"
+  "registeredAt": "Đăng kí lúc",
+  "role": "Chức vụ"
 }

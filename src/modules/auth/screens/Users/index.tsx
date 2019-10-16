@@ -1,59 +1,47 @@
-import React from 'react';
-import debounce from 'lodash/fp/debounce';
+import React, { useState } from 'react';
 import { WithTranslation } from 'react-i18next';
+import debounce from 'lodash/fp/debounce';
 import { AdminLayout, FormHeader, FormSearch } from '@app/components';
 import {
-  OffsetPagination,
-  Filter,
   FieldInfo,
   PickerDataItem,
   TableColumn,
-  FieldValueType,
   withTranslation,
+  apolloClient,
+  gql,
+  FilterWithOffsetPagination,
+  OffsetPaginationResult,
+  SearchRecord,
 } from '@app/core';
 import { config } from '@app/config';
 
 interface Props extends WithTranslation {
-  providers: PickerDataItem<string>[];
+  loginTypes: PickerDataItem<string>[];
+  roles: PickerDataItem<string>[];
 }
 
-const createData = (name: string, code: string, population: number, size: number): { [id: string]: FieldValueType } => {
-  const density = population / size;
-  return {
-    name,
-    code,
-    population,
-    size,
-    density,
+interface SearchResult {
+  users: {
+    data: SearchRecord[];
+    pagination: OffsetPaginationResult;
   };
-};
-
-const rows = [
-  createData('India', 'IN', 417135400, 4171354),
-  createData('China', 'CN', 1403500365, 9596961),
-  createData('Italy', 'IT', 60483973, 301340),
-  createData('United States', 'US', 327167434, 9833520),
-  createData('Canada', 'CA', 37602103, 9984670),
-  createData('Australia', 'AU', 25475400, 7692024),
-  createData('Germany', 'DE', 83019200, 357578),
-  createData('Ireland', 'IE', 4857000, 70273),
-  createData('Mexico', 'MX', 126577691, 1972550),
-  createData('Japan', 'JP', 126317000, 377973),
-  createData('France', 'FR', 67022000, 640679),
-  createData('United Kingdom', 'GB', 67545757, 242495),
-  createData('Russia', 'RU', 146793744, 17098246),
-  createData('Nigeria', 'NG', 200962417, 923768),
-  createData('Brazil', 'BR', 210147125, 8515767),
-];
+}
 
 const BaseUsers = (props: Props): JSX.Element => {
   const { t } = props;
-  const providers = [
+  const loginTypes = [
     {
       value: '',
       label: t('all'),
     },
-    ...props.providers,
+    ...props.loginTypes,
+  ];
+  const roles = [
+    {
+      value: '',
+      label: t('all'),
+    },
+    ...props.roles,
   ];
 
   const filterFields: FieldInfo[] = [
@@ -62,38 +50,59 @@ const BaseUsers = (props: Props): JSX.Element => {
       text: t('filter'),
     },
     {
-      name: 'provider',
-      text: t('provider'),
+      name: 'loginType',
+      text: t('loginType'),
       type: 'picker',
-      pickerDataSources: providers,
+      pickerDataSources: loginTypes,
+    },
+    {
+      name: 'role',
+      text: t('role'),
+      type: 'picker',
+      pickerDataSources: roles,
     },
   ];
 
   const columns: TableColumn[] = [
     {
-      id: 'fullName',
+      field: 'username',
+      label: t('username'),
+      minWidth: 100,
+    },
+    {
+      field: 'fullName',
       label: t('fullName'),
       minWidth: 200,
     },
     {
-      id: 'email',
+      field: 'email',
       label: t('email'),
-      minWidth: 150,
+      minWidth: 120,
     },
     {
-      id: 'phoneNo',
+      field: 'phoneNo',
       label: t('phoneNo'),
-      minWidth: 150,
+      minWidth: 90,
     },
     {
-      id: 'provider',
-      label: t('provider'),
-      minWidth: 150,
+      field: ['loginDetail', 'loginType'],
+      label: t('loginType'),
+      minWidth: 90,
     },
     {
-      id: 'registeredAt',
+      field: 'isActive',
+      label: t('isActive'),
+      minWidth: 90,
+    },
+    {
+      field: 'lastLoggedInAt',
+      label: t('lastLoggedInAt'),
+      minWidth: 90,
+    },
+    {
+      field: 'registeredAt',
       label: t('registeredAt'),
-      minWidth: 150,
+      minWidth: 90,
     },
   ];
 
@@ -101,10 +110,63 @@ const BaseUsers = (props: Props): JSX.Element => {
     // TODO: implementation
   };
 
-  const search = async (_filter: Filter, _pagination: OffsetPagination): Promise<void> => {
-    // TODO: implementation
+  const [searchResult, setSearchResult] = useState<SearchResult>({
+    users: {
+      data: [],
+      pagination: {
+        total: 0,
+      },
+    },
+  });
+  const search = async (filter: FilterWithOffsetPagination): Promise<void> => {
+    const GET_USERS_QUERY = gql`
+      query getUsers($filter: String, $role: String, $loginType: String, $pageIndex: Int!, $itemsPerPage: Int!) {
+        users(filter: $filter, role: $role, loginType: $loginType, pageIndex: $pageIndex, itemsPerPage: $itemsPerPage) {
+          data {
+            id
+            email
+            username
+            fullName
+            loginDetail {
+              ... on FacebookLogin {
+                loginType
+              }
+              ... on GoogleLogin {
+                loginType
+              }
+              ... on EmailLogin {
+                loginType
+              }
+              ... on PhoneNoLogin {
+                loginType
+              }
+            }
+            isActive
+            registeredAt
+            lastLoggedInAt
+          }
+          pagination {
+            type
+            total
+          }
+        }
+      }
+    `;
+    const result = await apolloClient.query<SearchResult>({
+      query: GET_USERS_QUERY,
+      variables: filter,
+    });
+    setSearchResult(result.data);
   };
-  const onFilterChange = debounce(config.debounceDelay, search);
+  const searchDebounce = debounce(config.debounceDelay, search);
+
+  const onFilterChange = (filter: FilterWithOffsetPagination, useDebounce: boolean): void => {
+    if (useDebounce) {
+      searchDebounce(filter);
+    } else {
+      search(filter);
+    }
+  };
 
   return (
     <AdminLayout title='Users' description='Users'>
@@ -131,18 +193,19 @@ const BaseUsers = (props: Props): JSX.Element => {
         onFilterChange={onFilterChange}
         defaultFilter={{
           filter: '',
-          provider: '',
+          loginType: loginTypes[0].value,
+          role: roles[0].value,
         }}
         columns={columns}
-        rows={rows}
-        count={rows.length}
+        rows={searchResult.users.data}
+        count={searchResult.users.pagination.total}
       />
     </AdminLayout>
   );
 };
 
 BaseUsers.getInitialProps = async () => {
-  const providers = [
+  const loginTypes = [
     {
       value: 'EMAIL',
       label: 'Email',
@@ -160,8 +223,19 @@ BaseUsers.getInitialProps = async () => {
       label: 'Google',
     },
   ];
+  const roles = [
+    {
+      value: '0',
+      label: 'Admin',
+    },
+    {
+      value: '1',
+      label: 'Normal User',
+    },
+  ];
   return {
-    providers,
+    loginTypes,
+    roles,
     namespacesRequired: ['common', 'admin_users'],
   };
 };

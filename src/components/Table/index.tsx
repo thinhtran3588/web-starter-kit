@@ -5,14 +5,6 @@ import { OffsetPagination, TableColumn, FieldValueType } from '@app/core';
 import { config } from '@app/config';
 import { useStyles } from './styles';
 
-interface Column {
-  id: 'name' | 'code' | 'population' | 'size' | 'density';
-  label: string;
-  minWidth?: number;
-  align?: 'right' | 'center';
-  format?: (value: number) => string;
-}
-
 interface Props {
   columns: TableColumn[];
   rows: { [id: string]: FieldValueType }[];
@@ -47,6 +39,29 @@ export const Table = (props: Props): JSX.Element => {
       });
   };
 
+  const renderCell = (row: { [id: string]: FieldValueType }, column: TableColumn): JSX.Element => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let value: any = row;
+    let key = '';
+    if (!Array.isArray(column.field)) {
+      key = column.field;
+      value = row[column.field];
+    } else {
+      key = column.field.join('_');
+      for (let i = 0; i < column.field.length; i += 1) {
+        if (value[column.field[i]]) {
+          value = row[column.field[i]];
+        }
+      }
+    }
+
+    return (
+      <TableCell key={key} align={column.align}>
+        <span>{column.format && typeof value === 'number' ? column.format(value) : value}</span>
+      </TableCell>
+    );
+  };
+
   return (
     <div className={clsx(classes.root, className)}>
       <div
@@ -61,7 +76,7 @@ export const Table = (props: Props): JSX.Element => {
             <TableRow>
               {columns.map((column) => (
                 <TableCell
-                  key={column.id}
+                  key={Array.isArray(column.field) ? column.field.join('_') : column.field}
                   align={column.align}
                   style={{
                     minWidth: column.minWidth,
@@ -76,14 +91,7 @@ export const Table = (props: Props): JSX.Element => {
             {rows.map((row) => {
               return (
                 <TableRow hover role='checkbox' tabIndex={-1} key={row.code}>
-                  {columns.map((column) => {
-                    const value = row[column.id];
-                    return (
-                      <TableCell key={column.id} align={column.align}>
-                        {column.format && typeof value === 'number' ? column.format(value) : value}
-                      </TableCell>
-                    );
-                  })}
+                  {columns.map((column) => renderCell(row, column))}
                 </TableRow>
               );
             })}

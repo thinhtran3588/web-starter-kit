@@ -7,7 +7,7 @@ interface Props {
   filter: Filter;
   filterFields?: FieldInfo[];
   children?: React.ReactNode;
-  handleChange?: (fieldName: string) => (value: FieldValueType) => void;
+  handleChange?: (fieldName: string) => (value: FieldValueType, useDebounce: boolean) => void;
 }
 
 export const FormFilter = (props: Props): JSX.Element => {
@@ -23,7 +23,7 @@ export const FormFilter = (props: Props): JSX.Element => {
             value={filter ? filter[field.name] : undefined}
             type={field.type || 'text'}
             label={field.text}
-            onChange={handleChange ? handleChange(field.name) : undefined}
+            onValueChange={handleChange ? handleChange(field.name) : undefined}
             pickerDataSources={field.pickerDataSources}
           />
         ))}

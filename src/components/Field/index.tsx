@@ -12,7 +12,7 @@ interface Props<T extends FieldValueType> {
   id?: string;
   label: string;
   value: T;
-  onChange?: (value: FieldValueType) => void;
+  onValueChange?: (value: FieldValueType, useDebounce: boolean) => void;
   className?: string;
 
   xs?: boolean | 'auto' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | undefined;
@@ -50,7 +50,7 @@ export const Field: Field = (props) => {
     value,
     type = 'text',
     id,
-    onChange,
+    onValueChange: onChange,
     className,
     isPassword,
     layout = 'default',
@@ -70,11 +70,11 @@ export const Field: Field = (props) => {
   }
   const classes = useStyles();
 
-  const onValueChange = (newValue: string | number | undefined): void => {
-    onChange && onChange(newValue);
+  const onValueChange = (newValue: string | number | undefined, useDebounce?: boolean): void => {
+    onChange && onChange(newValue, useDebounce === true);
   };
   const onTextValueChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    onValueChange(event.target.value);
+    onValueChange(event.target.value, true);
   };
 
   return (
