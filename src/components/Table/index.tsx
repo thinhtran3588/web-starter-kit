@@ -18,7 +18,17 @@ interface Props {
 }
 
 export const Table = (props: Props): JSX.Element => {
-  const { columns, rows, className, bodyMaxHeight, bodyMinHeight, onPaginationChange, pageIndex, itemsPerPage } = props;
+  const {
+    columns,
+    rows,
+    className,
+    bodyMaxHeight,
+    bodyMinHeight,
+    onPaginationChange,
+    pageIndex,
+    itemsPerPage,
+    count,
+  } = props;
   const classes = useStyles();
 
   const handleChangePage = (_event: unknown, newPageIndex: number): void => {
@@ -103,7 +113,7 @@ export const Table = (props: Props): JSX.Element => {
       <TablePagination
         rowsPerPageOptions={config.rowsPerPageOptions}
         component='div'
-        count={rows.length}
+        count={count}
         rowsPerPage={itemsPerPage}
         page={pageIndex}
         backIconButtonProps={{
