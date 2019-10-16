@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@app/modules/main/screens/Home/components/Help renders successfully 1`] = `
+<body>
+  <div>
+    <div>
+      <div
+        class="MuiGrid-root MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+        />
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
+        >
+          <div
+            class="makeStyles-helpContainer-1"
+          >
+            <div>
+              <div
+                class="makeStyles-helpIconContainer-2"
+              >
+                <img
+                  class="makeStyles-helpIcon-3"
+                  src="/static/images/faq.png"
+                />
+              </div>
+              <h4
+                class="makeStyles-helpTitle-4"
+              >
+                Need help?
+              </h4>
+            </div>
+            <div
+              class="makeStyles-helpInfo-5"
+            >
+              Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae
+            </div>
+            <div
+              class="makeStyles-helpContact-6"
+            >
+              support@mindxtech.com
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;

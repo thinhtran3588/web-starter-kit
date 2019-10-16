@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@app/modules/main/screens/Home/components/Features renders successfully 1`] = `
+<body>
+  <div>
+    <div>
+      <div
+        class="MuiGrid-root MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+        />
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
+        >
+          <div
+            class="makeStyles-featuresContainer-1"
+          >
+            <h3
+              class="makeStyles-featuresTitle-2"
+            >
+              Praesent sapien massa, convallis a pellentesque nec
+            </h3>
+          </div>
+          <div
+            class="makeStyles-featuresContent-3"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+              >
+                <div
+                  class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
+                >
+                  <div
+                    class="MuiCardMedia-root makeStyles-media-4"
+                    style="background-image: url(/static/images/intro1.jpg);"
+                    title="Paella dish"
+                  />
+                  <div
+                    class="MuiCardContent-root"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+                    >
+                      This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+              >
+                <div
+                  class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
+                >
+                  <div
+                    class="MuiCardMedia-root makeStyles-media-4"
+                    style="background-image: url(/static/images/intro2.jpg);"
+                    title="Paella dish"
+                  />
+                  <div
+                    class="MuiCardContent-root"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+                    >
+                      This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+              >
+                <div
+                  class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
+                >
+                  <div
+                    class="MuiCardMedia-root makeStyles-media-4"
+                    style="background-image: url(/static/images/intro3.jpg);"
+                    title="Paella dish"
+                  />
+                  <div
+                    class="MuiCardContent-root"
+                  >
+                    <p
+                      class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+                    >
+                      This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
