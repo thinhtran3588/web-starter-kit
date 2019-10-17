@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { WithTranslation } from 'react-i18next';
 import debounce from 'lodash/fp/debounce';
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
 import { AdminLayout, FormHeader, FormSearch } from '@app/components';
 import {
   FieldInfo,
   PickerDataItem,
   TableColumn,
   withTranslation,
-  apolloClient,
-  gql,
   FilterWithOffsetPagination,
   OffsetPaginationResult,
   SearchRecord,
@@ -16,6 +16,7 @@ import {
   formatDateTime,
 } from '@app/core';
 import { config } from '@app/config';
+import { withApollo } from '@app/hoc/withApollo';
 
 interface Props extends WithTranslation {
   loginTypes: PickerDataItem<string>[];
@@ -29,8 +30,43 @@ interface SearchResult {
   };
 }
 
+const GET_USERS_QUERY = gql`
+  query getUsers($filter: String, $role: String, $loginType: String, $pageIndex: Int!, $itemsPerPage: Int!) {
+    users(filter: $filter, role: $role, loginType: $loginType, pageIndex: $pageIndex, itemsPerPage: $itemsPerPage) {
+      data {
+        id
+        email
+        username
+        fullName
+        loginDetail {
+          ... on FacebookLogin {
+            loginType
+          }
+          ... on GoogleLogin {
+            loginType
+          }
+          ... on EmailLogin {
+            loginType
+          }
+          ... on PhoneNoLogin {
+            loginType
+          }
+        }
+        isActive
+        registeredAt
+        lastLoggedInAt
+      }
+      pagination {
+        type
+        total
+      }
+    }
+  }
+`;
+
 const BaseUsers = (props: Props): JSX.Element => {
-  const { t } = props;
+  // const { t } = props;
+  const t = (key: string): string => key;
   const loginTypes = [
     {
       value: '',
@@ -119,63 +155,23 @@ const BaseUsers = (props: Props): JSX.Element => {
     // TODO: implementation
   };
 
-  const [searchResult, setSearchResult] = useState<SearchResult>({
-    users: {
-      data: [],
-      pagination: {
-        total: 0,
-      },
-    },
+  const [filter, setFilter] = useState<FilterWithOffsetPagination>({
+    pageIndex: 0,
+    itemsPerPage: config.rowsPerPageOptions[0],
   });
-  const search = async (filter: FilterWithOffsetPagination): Promise<void> => {
-    const GET_USERS_QUERY = gql`
-      query getUsers($filter: String, $role: String, $loginType: String, $pageIndex: Int!, $itemsPerPage: Int!) {
-        users(filter: $filter, role: $role, loginType: $loginType, pageIndex: $pageIndex, itemsPerPage: $itemsPerPage) {
-          data {
-            id
-            email
-            username
-            fullName
-            loginDetail {
-              ... on FacebookLogin {
-                loginType
-              }
-              ... on GoogleLogin {
-                loginType
-              }
-              ... on EmailLogin {
-                loginType
-              }
-              ... on PhoneNoLogin {
-                loginType
-              }
-            }
-            isActive
-            registeredAt
-            lastLoggedInAt
-          }
-          pagination {
-            type
-            total
-          }
-        }
-      }
-    `;
-    const result = await apolloClient.query<SearchResult>({
-      query: GET_USERS_QUERY,
-      variables: filter,
-    });
-    setSearchResult(result.data);
-  };
-  const searchDebounce = debounce(config.debounceDelay, search);
+  const setFilterDebounce = debounce(config.debounceDelay, setFilter);
 
-  const onFilterChange = (filter: FilterWithOffsetPagination, useDebounce: boolean): void => {
+  const onFilterChange = (newFilter: FilterWithOffsetPagination, useDebounce: boolean): void => {
     if (useDebounce) {
-      searchDebounce(filter);
+      setFilterDebounce(newFilter);
     } else {
-      search(filter);
+      setFilter(newFilter);
     }
   };
+
+  const { data } = useQuery<SearchResult>(GET_USERS_QUERY, {
+    variables: filter,
+  });
 
   return (
     <AdminLayout title='Users' description='Users'>
@@ -206,8 +202,8 @@ const BaseUsers = (props: Props): JSX.Element => {
           role: roles[0].value,
         }}
         columns={columns}
-        rows={searchResult.users.data}
-        count={searchResult.users.pagination.total}
+        rows={data ? data.users.data : []}
+        count={data ? data.users.pagination.total : 0}
       />
     </AdminLayout>
   );
@@ -249,4 +245,4 @@ BaseUsers.getInitialProps = async () => {
   };
 };
 
-export const Users = withTranslation('admin_users')(BaseUsers);
+export const Users = withTranslation('admin_users')(withApollo(BaseUsers));

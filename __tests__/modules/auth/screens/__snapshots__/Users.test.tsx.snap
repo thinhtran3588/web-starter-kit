@@ -562,7 +562,7 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                   data-shrink="false"
                   for="filter"
                 >
-                  admin_users.filter
+                  filter
                 </label>
                 <div
                   class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl MuiInputBase-marginDense"
@@ -605,56 +605,56 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                       scope="col"
                       style="min-width: 100px;"
                     >
-                      admin_users.username
+                      username
                     </th>
                     <th
                       class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 200px;"
                     >
-                      admin_users.fullName
+                      fullName
                     </th>
                     <th
                       class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 120px;"
                     >
-                      admin_users.email
+                      email
                     </th>
                     <th
                       class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 90px;"
                     >
-                      admin_users.phoneNo
+                      phoneNo
                     </th>
                     <th
                       class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 90px;"
                     >
-                      admin_users.loginType
+                      loginType
                     </th>
                     <th
                       class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 90px;"
                     >
-                      admin_users.isActive
+                      isActive
                     </th>
                     <th
                       class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 90px;"
                     >
-                      admin_users.lastLoggedInAt
+                      lastLoggedInAt
                     </th>
                     <th
                       class="MuiTableCell-root MuiTableCell-alignCenter MuiTableCell-head MuiTableCell-stickyHeader"
                       scope="col"
                       style="min-width: 90px;"
                     >
-                      admin_users.registeredAt
+                      registeredAt
                     </th>
                   </tr>
                 </thead>
