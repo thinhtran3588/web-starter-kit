@@ -1,12 +1,12 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
-export const useStyles = makeStyles(() => ({
+export const useStyles = makeStyles((theme) => ({
   categoriesContainer: {
-    marginTop: 60,
+    marginTop: theme.spacing(8),
   },
   card: {
-    padding: 24,
-    height: 200,
+    padding: theme.spacing(3),
+    height: theme.spacing(25),
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -16,8 +16,8 @@ export const useStyles = makeStyles(() => ({
     backgroundRepeat: 'no-repeate',
   },
   categoriesTitle: {
-    margin: 0,
-    fontSize: 24,
+    margin: theme.spacing(0),
+    fontSize: theme.spacing(3),
     fontWeight: 'bold',
     color: '#fff',
   },
@@ -29,8 +29,8 @@ export const useStyles = makeStyles(() => ({
     justifyContent: 'flex-end',
   },
   card2: {
-    padding: 24,
-    height: 200,
+    padding: theme.spacing(3),
+    height: theme.spacing(25),
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -40,7 +40,7 @@ export const useStyles = makeStyles(() => ({
     backgroundRepeat: 'no-repeate',
   },
   card3: {
-    padding: 24,
+    padding: theme.spacing(3),
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -51,7 +51,7 @@ export const useStyles = makeStyles(() => ({
     backgroundRepeat: 'no-repeate',
   },
   card4: {
-    padding: 24,
+    padding: theme.spacing(3),
     height: '100%',
     display: 'flex',
     flexDirection: 'column',

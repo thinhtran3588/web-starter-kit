@@ -15,8 +15,7 @@ export const CoverImage = (): JSX.Element => {
           <p className={classes.paragraph}>
             Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac
             lectus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Pellentesque in ipsum id orci porta
-            dapibus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Nulla quis lorem ut libero malesuada
-            feugiat.
+            dapibus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a
           </p>
           <div className={classes.introButtonContainer}>
             <Button variant='contained' color='primary'>

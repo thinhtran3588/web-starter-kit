@@ -15,7 +15,7 @@ export const Features = (): JSX.Element => {
         <Grid item xs={1} lg={2}></Grid>
         <Grid item xs={10} lg={8}>
           <div className={classes.featuresContainer}>
-            <h3 className={classes.featuresTitle}>Praesent sapien massa, convallis a pellentesque nec</h3>
+            <h3 className={classes.featuresTitle}>Praesent sapien massa, convallis a</h3>
           </div>
 
           <div className={classes.featuresContent}>
