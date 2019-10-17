@@ -1,12 +1,14 @@
 import React from 'react';
 import { Layout } from '@app/components';
-import { useStyles } from './styles';
+import { CoverImage, Features, Quote, Help } from './components';
 
 export const Home = (): JSX.Element => {
-  const classes = useStyles();
   return (
     <Layout description='Home page'>
-      <h1 className={classes.header}>Home</h1>
+      <CoverImage />
+      <Features />
+      <Quote />
+      <Help />
     </Layout>
   );
 };

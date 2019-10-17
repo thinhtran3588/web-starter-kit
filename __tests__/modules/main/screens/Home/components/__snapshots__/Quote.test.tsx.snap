@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@app/modules/main/screens/Home/components/Quote renders successfully 1`] = `
+<body>
+  <div>
+    <div>
+      <div
+        class="MuiGrid-root MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+        />
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
+        >
+          <div
+            class="makeStyles-quoteContainer-1"
+          >
+            <h4
+              class="makeStyles-quote-2"
+            >
+              "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula"
+            </h4>
+            <div
+              class="makeStyles-signatureContainer-3"
+            >
+              <div
+                class="makeStyles-signatureName-4"
+              >
+                Lionel Messi
+              </div>
+              <div
+                class="makeStyles-signatureJob-5"
+              >
+                Greatest footballer of all time
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+        />
+      </div>
+      <div
+        class="makeStyles-coverImage2-6"
+      />
+    </div>
+  </div>
+</body>
+`;
