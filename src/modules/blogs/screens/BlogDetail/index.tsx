@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from '@app/components';
-import { Grid } from '@material-ui/core';
+import { Grid, Hidden } from '@material-ui/core';
 import { useStyles } from './styles';
 import { Content, SideMenu } from './components';
 
@@ -16,8 +16,10 @@ export const BlogDetail = (): JSX.Element => {
             <Grid item xs={12} lg={9}>
               <Content />
             </Grid>
-            <Grid item xs={false} lg={3}>
-              <SideMenu />
+            <Grid item xs={12} lg={3}>
+              <Hidden mdDown>
+                <SideMenu />
+              </Hidden>
             </Grid>
           </Grid>
         </Grid>

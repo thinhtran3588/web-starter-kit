@@ -316,318 +316,348 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-blogsListContainer-247"
+              class="makeStyles-blogsListContainer-248"
             >
-              <div
-                class="MuiGrid-root makeStyles-grid-249 MuiGrid-container"
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-247 MuiTypography-colorPrimary"
+                href="/blogs/nulla-porttitor-accumsan-tincidunt"
+                target="_blank"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                  class="MuiGrid-root makeStyles-grid-250 MuiGrid-container"
                 >
                   <div
-                    class="makeStyles-blogImage-250"
-                  />
-                </div>
-                <div
-                  class="MuiGrid-root makeStyles-bloginContentContainer-251 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
-                >
-                  <div>
-                    <h2
-                      class="makeStyles-blogTitle-252"
-                    >
-                      Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-                    </h2>
-                    <p
-                      class="makeStyles-blogDescription-253"
-                    >
-                      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
-                    </p>
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                  >
+                    <div
+                      class="makeStyles-blogImage-251"
+                    />
                   </div>
                   <div
-                    class="makeStyles-blogItemFooter-255"
+                    class="MuiGrid-root makeStyles-bloginContentContainer-252 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
                   >
                     <div>
-                      Author: 
-                      <span
-                        class="makeStyles-boldText-254"
+                      <h2
+                        class="makeStyles-blogTitle-253"
                       >
-                        Lorem ipsum
-                      </span>
-                       | Category:
-                       
-                      <span
-                        class="makeStyles-boldText-254"
+                        Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+                      </h2>
+                      <p
+                        class="makeStyles-blogDescription-254"
                       >
-                        Vivamus suscipit
-                      </span>
+                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+                      </p>
                     </div>
-                    <div>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-                        tabindex="0"
-                        type="button"
-                      >
+                    <div
+                      class="makeStyles-blogItemFooter-256"
+                    >
+                      <div>
+                        Author: 
                         <span
-                          class="MuiButton-label"
+                          class="makeStyles-boldText-255"
                         >
-                          See more
+                          Lorem ipsum
                         </span>
+                         | Category:
+                         
                         <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
+                          class="makeStyles-boldText-255"
+                        >
+                          Vivamus suscipit
+                        </span>
+                      </div>
+                      <div>
+                        <button
+                          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiButton-label"
+                          >
+                            See more
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-grid-249 MuiGrid-container"
+              </a>
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-247 MuiTypography-colorPrimary"
+                href="/blogs/nulla-porttitor-accumsan-tincidunt"
+                target="_blank"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                  class="MuiGrid-root makeStyles-grid-250 MuiGrid-container"
                 >
                   <div
-                    class="makeStyles-blogImage-250"
-                  />
-                </div>
-                <div
-                  class="MuiGrid-root makeStyles-bloginContentContainer-251 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
-                >
-                  <div>
-                    <h2
-                      class="makeStyles-blogTitle-252"
-                    >
-                      Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-                    </h2>
-                    <p
-                      class="makeStyles-blogDescription-253"
-                    >
-                      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
-                    </p>
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                  >
+                    <div
+                      class="makeStyles-blogImage-251"
+                    />
                   </div>
                   <div
-                    class="makeStyles-blogItemFooter-255"
+                    class="MuiGrid-root makeStyles-bloginContentContainer-252 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
                   >
                     <div>
-                      Author: 
-                      <span
-                        class="makeStyles-boldText-254"
+                      <h2
+                        class="makeStyles-blogTitle-253"
                       >
-                        Lorem ipsum
-                      </span>
-                       | Category:
-                       
-                      <span
-                        class="makeStyles-boldText-254"
+                        Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+                      </h2>
+                      <p
+                        class="makeStyles-blogDescription-254"
                       >
-                        Vivamus suscipit
-                      </span>
+                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+                      </p>
                     </div>
-                    <div>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-                        tabindex="0"
-                        type="button"
-                      >
+                    <div
+                      class="makeStyles-blogItemFooter-256"
+                    >
+                      <div>
+                        Author: 
                         <span
-                          class="MuiButton-label"
+                          class="makeStyles-boldText-255"
                         >
-                          See more
+                          Lorem ipsum
                         </span>
+                         | Category:
+                         
                         <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
+                          class="makeStyles-boldText-255"
+                        >
+                          Vivamus suscipit
+                        </span>
+                      </div>
+                      <div>
+                        <button
+                          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiButton-label"
+                          >
+                            See more
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-grid-249 MuiGrid-container"
+              </a>
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-247 MuiTypography-colorPrimary"
+                href="/blogs/nulla-porttitor-accumsan-tincidunt"
+                target="_blank"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                  class="MuiGrid-root makeStyles-grid-250 MuiGrid-container"
                 >
                   <div
-                    class="makeStyles-blogImage-250"
-                  />
-                </div>
-                <div
-                  class="MuiGrid-root makeStyles-bloginContentContainer-251 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
-                >
-                  <div>
-                    <h2
-                      class="makeStyles-blogTitle-252"
-                    >
-                      Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-                    </h2>
-                    <p
-                      class="makeStyles-blogDescription-253"
-                    >
-                      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
-                    </p>
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                  >
+                    <div
+                      class="makeStyles-blogImage-251"
+                    />
                   </div>
                   <div
-                    class="makeStyles-blogItemFooter-255"
+                    class="MuiGrid-root makeStyles-bloginContentContainer-252 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
                   >
                     <div>
-                      Author: 
-                      <span
-                        class="makeStyles-boldText-254"
+                      <h2
+                        class="makeStyles-blogTitle-253"
                       >
-                        Lorem ipsum
-                      </span>
-                       | Category:
-                       
-                      <span
-                        class="makeStyles-boldText-254"
+                        Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+                      </h2>
+                      <p
+                        class="makeStyles-blogDescription-254"
                       >
-                        Vivamus suscipit
-                      </span>
+                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+                      </p>
                     </div>
-                    <div>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-                        tabindex="0"
-                        type="button"
-                      >
+                    <div
+                      class="makeStyles-blogItemFooter-256"
+                    >
+                      <div>
+                        Author: 
                         <span
-                          class="MuiButton-label"
+                          class="makeStyles-boldText-255"
                         >
-                          See more
+                          Lorem ipsum
                         </span>
+                         | Category:
+                         
                         <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
+                          class="makeStyles-boldText-255"
+                        >
+                          Vivamus suscipit
+                        </span>
+                      </div>
+                      <div>
+                        <button
+                          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiButton-label"
+                          >
+                            See more
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-grid-249 MuiGrid-container"
+              </a>
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-247 MuiTypography-colorPrimary"
+                href="/blogs/nulla-porttitor-accumsan-tincidunt"
+                target="_blank"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                  class="MuiGrid-root makeStyles-grid-250 MuiGrid-container"
                 >
                   <div
-                    class="makeStyles-blogImage-250"
-                  />
-                </div>
-                <div
-                  class="MuiGrid-root makeStyles-bloginContentContainer-251 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
-                >
-                  <div>
-                    <h2
-                      class="makeStyles-blogTitle-252"
-                    >
-                      Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-                    </h2>
-                    <p
-                      class="makeStyles-blogDescription-253"
-                    >
-                      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
-                    </p>
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                  >
+                    <div
+                      class="makeStyles-blogImage-251"
+                    />
                   </div>
                   <div
-                    class="makeStyles-blogItemFooter-255"
+                    class="MuiGrid-root makeStyles-bloginContentContainer-252 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
                   >
                     <div>
-                      Author: 
-                      <span
-                        class="makeStyles-boldText-254"
+                      <h2
+                        class="makeStyles-blogTitle-253"
                       >
-                        Lorem ipsum
-                      </span>
-                       | Category:
-                       
-                      <span
-                        class="makeStyles-boldText-254"
+                        Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+                      </h2>
+                      <p
+                        class="makeStyles-blogDescription-254"
                       >
-                        Vivamus suscipit
-                      </span>
+                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+                      </p>
                     </div>
-                    <div>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-                        tabindex="0"
-                        type="button"
-                      >
+                    <div
+                      class="makeStyles-blogItemFooter-256"
+                    >
+                      <div>
+                        Author: 
                         <span
-                          class="MuiButton-label"
+                          class="makeStyles-boldText-255"
                         >
-                          See more
+                          Lorem ipsum
                         </span>
+                         | Category:
+                         
                         <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
+                          class="makeStyles-boldText-255"
+                        >
+                          Vivamus suscipit
+                        </span>
+                      </div>
+                      <div>
+                        <button
+                          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiButton-label"
+                          >
+                            See more
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="MuiGrid-root makeStyles-grid-249 MuiGrid-container"
+              </a>
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-247 MuiTypography-colorPrimary"
+                href="/blogs/nulla-porttitor-accumsan-tincidunt"
+                target="_blank"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                  class="MuiGrid-root makeStyles-grid-250 MuiGrid-container"
                 >
                   <div
-                    class="makeStyles-blogImage-250"
-                  />
-                </div>
-                <div
-                  class="MuiGrid-root makeStyles-bloginContentContainer-251 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
-                >
-                  <div>
-                    <h2
-                      class="makeStyles-blogTitle-252"
-                    >
-                      Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-                    </h2>
-                    <p
-                      class="makeStyles-blogDescription-253"
-                    >
-                      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
-                    </p>
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+                  >
+                    <div
+                      class="makeStyles-blogImage-251"
+                    />
                   </div>
                   <div
-                    class="makeStyles-blogItemFooter-255"
+                    class="MuiGrid-root makeStyles-bloginContentContainer-252 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
                   >
                     <div>
-                      Author: 
-                      <span
-                        class="makeStyles-boldText-254"
+                      <h2
+                        class="makeStyles-blogTitle-253"
                       >
-                        Lorem ipsum
-                      </span>
-                       | Category:
-                       
-                      <span
-                        class="makeStyles-boldText-254"
+                        Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
+                      </h2>
+                      <p
+                        class="makeStyles-blogDescription-254"
                       >
-                        Vivamus suscipit
-                      </span>
+                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+                      </p>
                     </div>
-                    <div>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-                        tabindex="0"
-                        type="button"
-                      >
+                    <div
+                      class="makeStyles-blogItemFooter-256"
+                    >
+                      <div>
+                        Author: 
                         <span
-                          class="MuiButton-label"
+                          class="makeStyles-boldText-255"
                         >
-                          See more
+                          Lorem ipsum
                         </span>
+                         | Category:
+                         
                         <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </button>
+                          class="makeStyles-boldText-255"
+                        >
+                          Vivamus suscipit
+                        </span>
+                      </div>
+                      <div>
+                        <button
+                          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiButton-label"
+                          >
+                            See more
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
           <div
@@ -636,7 +666,7 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
         </div>
       </main>
       <footer
-        class="makeStyles-root-256"
+        class="makeStyles-root-293"
       >
         <p
           class="MuiTypography-root MuiTypography-body1"
