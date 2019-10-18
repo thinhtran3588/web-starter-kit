@@ -28,3 +28,8 @@ What this starter kit provides:
 - And **more**
 
 View [wiki page](https://github.com/thinhtran3588/web-starter-kit/wiki) for details
+
+To make ssr work:
+"@apollo/react-hooks": "^3.0.0",
+"@apollo/react-ssr": "^3.0.0",
+"apollo-link-http": "^1.5.16",
