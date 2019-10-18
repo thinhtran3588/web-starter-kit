@@ -1,0 +1,15 @@
+{
+  "pleaseInputFirstname": "Vui lòng nhập họ tên",
+  "firstNameTooLong": "Họ tên qúa dài (50 kí tự)",
+  "pleaseInputLastname": "Vui lòng nhập họ tên",
+  "lastNameTooLong": "Họ tên quá dài",
+  "pleaseInputEmail": "Vui lòng nhập email",
+  "invalidEmail": "Email không hợp lệ",
+  "invalidPasswordRegex": "Mật khẩu tối thiểu 6 kí tự, ít nhất 1 chữ cái viết hoa, 1 sô và 1 kí tự đặc biệt",
+  "pleaseInputPassword": "Vui lòng nhập mật khẩu",
+  "pleaseConfirmPassword": "Vui lòng xác nhận mật khẩu",
+  "confirmPasswordDidntMatch": "Mật khẩu xác nhận không đúng",
+  "pleaseInputPhoneNo": "Vui lòng nhập số điện thoại",
+  "invalidPhoneNo": "Số điện thoại không hợp lệ",
+  "register": "Đăng kí"
+}

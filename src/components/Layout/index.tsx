@@ -31,6 +31,18 @@ export const Layout = ({ children, title = config.siteName, description = '' }: 
       text: 'About',
       icon: 'Info',
     },
+    {
+      id: 'login',
+      link: '/login',
+      text: 'Log In',
+      icon: 'Login',
+    },
+    {
+      id: 'register',
+      link: '/register',
+      text: 'Register',
+      icon: 'Register',
+    },
   ];
 
   const classes = useStyles();
