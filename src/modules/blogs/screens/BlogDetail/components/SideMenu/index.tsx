@@ -10,7 +10,12 @@ export const SideMenu = (): JSX.Element => {
     <div>
       <Grid container spacing={2} alignContent='stretch'>
         <Grid item xs={12}>
-          <Card className={classes.card2}>
+          <Card
+            className={classes.card2}
+            style={{
+              backgroundImage: `url(/static/images/intro2.jpg)`,
+            }}
+          >
             <div>
               <h2 className={classes.categoriesTitle}>// This impressive paella</h2>
             </div>
@@ -22,7 +27,12 @@ export const SideMenu = (): JSX.Element => {
           </Card>
         </Grid>
         <Grid item xs={12}>
-          <Card className={classes.card}>
+          <Card
+            className={classes.card}
+            style={{
+              backgroundImage: `url(/static/images/intro1.jpg)`,
+            }}
+          >
             <div>
               <h2 className={classes.categoriesTitle}>// This impressive paella</h2>
             </div>
@@ -34,7 +44,12 @@ export const SideMenu = (): JSX.Element => {
           </Card>
         </Grid>
         <Grid item xs={12}>
-          <Card className={classes.card3}>
+          <Card
+            className={classes.card3}
+            style={{
+              backgroundImage: `url(/static/images/intro3.jpg)`,
+            }}
+          >
             <div>
               <h2 className={classes.categoriesTitle}>// This impressive paella</h2>
             </div>
@@ -46,7 +61,12 @@ export const SideMenu = (): JSX.Element => {
           </Card>
         </Grid>
         <Grid item xs={12}>
-          <Card className={classes.card4}>
+          <Card
+            className={classes.card4}
+            style={{
+              backgroundImage: `url(/static/images/intro4.jpg)`,
+            }}
+          >
             <div>
               <h2 className={classes.categoriesTitle}>// This impressive paella</h2>
             </div>
