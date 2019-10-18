@@ -2,7 +2,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 export const useStyles = makeStyles((theme) => ({
   coverImage: {
-    height: '500px',
+    height: theme.spacing(60),
     margin: -theme.spacing(2),
     backgroundImage: 'url(/static/images/cover.jpg)',
     backgroundSize: 'cover',
@@ -10,16 +10,16 @@ export const useStyles = makeStyles((theme) => ({
     backgroundRepeat: 'no-repeate',
   },
   title: {
-    margin: 0,
-    paddingTop: 60,
-    fontSize: 36,
+    margin: theme.spacing(0),
+    paddingTop: theme.spacing(8),
+    fontSize: theme.spacing(4),
   },
   paragraph: {
-    margin: 0,
-    paddingTop: 36,
-    fontSize: 14,
+    margin: theme.spacing(0),
+    paddingTop: theme.spacing(4),
+    fontSize: theme.spacing(2),
   },
   introButtonContainer: {
-    paddingTop: 36,
+    paddingTop: theme.spacing(5),
   },
 }));

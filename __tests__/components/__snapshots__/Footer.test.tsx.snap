@@ -6,27 +6,171 @@ exports[`components/Header renders successfully 1`] = `
     <footer
       class="makeStyles-root-1"
     >
-      <p
-        class="MuiTypography-root MuiTypography-body1"
+      <div
+        class="MuiGrid-root MuiGrid-container"
       >
-        © 
-        <next-link
-          href="/"
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+        />
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
         >
-          <a
-            href="/"
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
           >
-            Thinh Tran
-          </a>
-        </next-link>
-         
-        2019
-      </p>
-      <span
-        class="MuiTypography-root MuiTypography-caption"
-      >
-        common.footer.createdWithLove
-      </span>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-3"
+            >
+              <h3
+                class="makeStyles-company-2"
+              >
+                Company
+              </h3>
+              <div>
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                >
+                  About us
+                </a>
+              </div>
+              <div>
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                >
+                  Contact
+                </a>
+              </div>
+              <div>
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                >
+                  Products
+                </a>
+              </div>
+              <div>
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                >
+                  Blogs
+                </a>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-3"
+            >
+              <h3
+                class="makeStyles-company-2"
+              >
+                Legal
+              </h3>
+              <div>
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                >
+                  FAQ
+                </a>
+              </div>
+              <div>
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                >
+                  Premium support
+                </a>
+              </div>
+              <div>
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                >
+                  Sponsorships
+                </a>
+              </div>
+              <div>
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                >
+                  Custom development
+                </a>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+            >
+              <h3
+                class="makeStyles-company-2"
+              >
+                Social medias
+              </h3>
+              <div>
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-3 MuiTypography-colorInherit"
+                >
+                  <img
+                    class="makeStyles-image-4"
+                    src="/static/images/facebook.png"
+                  />
+                </a>
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-3 MuiTypography-colorInherit"
+                >
+                  <img
+                    class="makeStyles-image-4"
+                    src="/static/images/dribbble.png"
+                  />
+                </a>
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-3 MuiTypography-colorInherit"
+                >
+                  <img
+                    class="makeStyles-image-4"
+                    src="/static/images/google-plus.png"
+                  />
+                </a>
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-3 MuiTypography-colorInherit"
+                >
+                  <img
+                    class="makeStyles-image-4"
+                    src="/static/images/linkedin.png"
+                  />
+                </a>
+                <a
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-3 MuiTypography-colorInherit"
+                >
+                  <img
+                    class="makeStyles-image-4"
+                    src="/static/images/pinterest.png"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-signature-5"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              © 
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+                href="/"
+              >
+                Thinh Tran
+              </a>
+               
+              2019
+            </p>
+            <span
+              class="MuiTypography-root MuiTypography-caption"
+            >
+              common.footer.createdWithLove
+            </span>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
+        />
+      </div>
     </footer>
   </div>
 </body>

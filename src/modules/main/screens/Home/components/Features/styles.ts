@@ -1,18 +1,18 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
-export const useStyles = makeStyles(() => ({
+export const useStyles = makeStyles((theme) => ({
   featuresContainer: {
-    marginTop: 84,
+    marginTop: theme.spacing(10),
   },
   featuresTitle: {
     textAlign: 'center',
-    fontSize: 36,
+    fontSize: theme.spacing(5),
   },
   featuresContent: {
-    paddingTop: 24,
+    paddingTop: theme.spacing(3),
   },
   media: {
-    height: 0,
+    height: theme.spacing(0),
     paddingTop: '56.25%', // 16:9
   },
 }));

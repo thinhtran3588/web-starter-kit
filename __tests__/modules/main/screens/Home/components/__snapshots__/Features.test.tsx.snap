@@ -19,7 +19,7 @@ exports[`@app/modules/main/screens/Home/components/Features renders successfully
             <h3
               class="makeStyles-featuresTitle-2"
             >
-              Praesent sapien massa, convallis a pellentesque nec
+              Praesent sapien massa, convallis a
             </h3>
           </div>
           <div
