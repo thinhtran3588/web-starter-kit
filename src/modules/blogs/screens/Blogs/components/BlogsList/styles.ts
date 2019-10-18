@@ -1,6 +1,10 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
 export const useStyles = makeStyles((theme) => ({
+  link: {
+    color: 'inherit',
+    textDecoration: 'none',
+  },
   blogsListContainer: {
     marginTop: theme.spacing(8),
     marginBottom: theme.spacing(8),
