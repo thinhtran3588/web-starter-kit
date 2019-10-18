@@ -1,30 +1,30 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
-export const useStyles = makeStyles(() => ({
+export const useStyles = makeStyles((theme) => ({
   helpContainer: {
-    marginTop: 84,
+    marginTop: theme.spacing(10),
   },
   helpIconContainer: {
     textAlign: 'center',
   },
   helpIcon: {
-    width: 64,
-    height: 64,
+    width: theme.spacing(8),
+    height: theme.spacing(8),
   },
   helpTitle: {
-    margin: 0,
+    margin: theme.spacing(0),
     textAlign: 'center',
-    fontSize: 24,
+    fontSize: theme.spacing(3),
   },
   helpInfo: {
-    margin: '24px auto',
-    maxWidth: 600,
+    margin: `${theme.spacing(3)}px auto`,
+    maxWidth: theme.spacing(80),
     textAlign: 'center',
   },
   helpContact: {
-    margin: '24px auto',
+    margin: `${theme.spacing(3)}px auto`,
     textAlign: 'center',
-    fontSize: 22,
+    fontSize: theme.spacing(3),
     color: '#556cd6',
   },
 }));
