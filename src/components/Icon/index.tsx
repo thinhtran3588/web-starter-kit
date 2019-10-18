@@ -12,6 +12,8 @@ import ArrowRight from '@material-ui/icons/ArrowRight';
 import Notifications from '@material-ui/icons/Notifications';
 import Input from '@material-ui/icons/Input';
 import Menu from '@material-ui/icons/Menu';
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
+import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
 
 interface Props extends SvgIconProps {
@@ -47,6 +49,10 @@ export const Icon = (props: Props): JSX.Element => {
       return <Input {...other} />;
     case 'Menu':
       return <Menu {...other} />;
+    case 'Login':
+      return <AssignmentIndIcon {...other} />;
+    case 'Register':
+      return <GroupAddIcon {...other} />;
     default:
       return <></>;
   }
