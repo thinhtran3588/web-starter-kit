@@ -1,5 +1,7 @@
 {
   "footer": {
     "createdWithLove": "Tạo cùng ♥!"
-  }
+  },
+  "invalidError": "{{field}} không hợp lệ",
+  "requiredError": "{{field}} bắt buộc"
 }

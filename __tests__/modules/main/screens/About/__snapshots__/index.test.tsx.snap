@@ -13,6 +13,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
           href="/"
         >
           <a
+            class=""
             href="/"
             title="Home"
           >
@@ -37,7 +38,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-52 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-53 MuiAvatar-colorDefault"
               >
                 EN
               </div>
@@ -145,7 +146,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
         </h1>
       </main>
       <footer
-        class="makeStyles-root-108"
+        class="makeStyles-root-109"
       >
         <div
           class="MuiGrid-root MuiGrid-container"
@@ -163,7 +164,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-3"
               >
                 <h3
-                  class="makeStyles-company-109"
+                  class="makeStyles-company-110"
                 >
                   Company
                 </h3>
@@ -200,7 +201,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-3"
               >
                 <h3
-                  class="makeStyles-company-109"
+                  class="makeStyles-company-110"
                 >
                   Legal
                 </h3>
@@ -237,48 +238,48 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
               >
                 <h3
-                  class="makeStyles-company-109"
+                  class="makeStyles-company-110"
                 >
                   Social medias
                 </h3>
                 <div>
                   <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-110 MuiTypography-colorInherit"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-111 MuiTypography-colorInherit"
                   >
                     <img
-                      class="makeStyles-image-111"
+                      class="makeStyles-image-112"
                       src="/static/images/facebook.png"
                     />
                   </a>
                   <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-110 MuiTypography-colorInherit"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-111 MuiTypography-colorInherit"
                   >
                     <img
-                      class="makeStyles-image-111"
+                      class="makeStyles-image-112"
                       src="/static/images/dribbble.png"
                     />
                   </a>
                   <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-110 MuiTypography-colorInherit"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-111 MuiTypography-colorInherit"
                   >
                     <img
-                      class="makeStyles-image-111"
+                      class="makeStyles-image-112"
                       src="/static/images/google-plus.png"
                     />
                   </a>
                   <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-110 MuiTypography-colorInherit"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-111 MuiTypography-colorInherit"
                   >
                     <img
-                      class="makeStyles-image-111"
+                      class="makeStyles-image-112"
                       src="/static/images/linkedin.png"
                     />
                   </a>
                   <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-110 MuiTypography-colorInherit"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-111 MuiTypography-colorInherit"
                   >
                     <img
-                      class="makeStyles-image-111"
+                      class="makeStyles-image-112"
                       src="/static/images/pinterest.png"
                     />
                   </a>
@@ -286,7 +287,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-signature-112"
+              class="makeStyles-signature-113"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1"

@@ -65,8 +65,7 @@ const GET_USERS_QUERY = gql`
 `;
 
 const BaseUsers = (props: Props): JSX.Element => {
-  // const { t } = props;
-  const t = (key: string): string => key;
+  const { t } = props;
   const loginTypes = [
     {
       value: '',

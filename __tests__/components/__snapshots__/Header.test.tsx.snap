@@ -13,6 +13,7 @@ exports[`components/Header renders successfully 1`] = `
           href="/"
         >
           <a
+            class=""
             href="/"
             title="Home"
           >
@@ -37,7 +38,7 @@ exports[`components/Header renders successfully 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-49 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-50 MuiAvatar-colorDefault"
               >
                 EN
               </div>

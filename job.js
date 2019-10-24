@@ -12,8 +12,8 @@ const updateConfig = (environment = 'default') => {
   const envFolder = `environments/${environment}`;
   const copyTasks = [
     {
-      src: path.resolve(__dirname, `${envFolder}/override_config.json`),
-      des: path.resolve(__dirname, `src/config/override_config.json`),
+      src: path.resolve(__dirname, `${envFolder}/override_config.ts`),
+      des: path.resolve(__dirname, `src/config/override_config.ts`),
     },
   ];
   copyTasks.forEach((copyTask) => {

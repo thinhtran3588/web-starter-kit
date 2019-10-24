@@ -1,5 +1,9 @@
 {
-  "pleaseInputEmail": "Please input email",
-  "pleaseInputPassword": "Please input password",
-  "login": "Log in"
+  "backToHome": "Back To Home",
+  "email": "Email",
+  "forgotPassword": "Forgot Password?",
+  "invalidPassword": "Password must be at least 6 characters and at most 20 characters and must include at least one upper case letter, one lower case letter, one numeric digit and one special letter (!, @, #, $, %, ^, &, *)",
+  "login": "Login",
+  "password": "Password",
+  "register": "Register"
 }

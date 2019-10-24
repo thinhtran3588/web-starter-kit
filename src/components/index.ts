@@ -14,3 +14,4 @@ export * from './Table';
 export * from './LanguageMenu';
 export * from './Link';
 export * from './AuthLayout';
+export * from './Head';

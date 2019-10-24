@@ -21,7 +21,7 @@ export const FormFilter = (props: Props): JSX.Element => {
             key={field.name}
             id={field.name}
             value={filter ? filter[field.name] : undefined}
-            type={field.type || 'text'}
+            type={field.type}
             label={field.text}
             onValueChange={handleChange ? handleChange(field.name) : undefined}
             pickerDataSources={field.pickerDataSources}

@@ -33,10 +33,7 @@ export const useStyles = makeStyles((theme) => ({
     flexShrink: 0,
   },
   logoText: {
-    fontSize: theme.spacing(5),
-    fontWeight: 300,
-    lineHeight: 1,
-    color: '#788195',
+    textAlign: 'center',
   },
   links: {
     marginTop: theme.spacing(4),

@@ -55,7 +55,7 @@ const BaseRegister = (props: WithTranslation): JSX.Element => {
   });
 
   return (
-    <AuthLayout pageName='register'>
+    <AuthLayout title='register'>
       <Formik
         initialValues={{
           firstName: '',

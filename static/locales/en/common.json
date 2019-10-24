@@ -1,5 +1,7 @@
 {
   "footer": {
     "createdWithLove": "Created with ♥!"
-  }
+  },
+  "invalidError": "{{field}} is invalid",
+  "requiredError": "{{field}} is required"
 }

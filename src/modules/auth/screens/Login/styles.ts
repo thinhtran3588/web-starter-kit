@@ -1,12 +1,29 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
 export const useStyles = makeStyles((theme) => ({
-  fullWidth: {
+  buttonContainer: {
+    justifyContent: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  button: {
+    marginTop: theme.spacing(3),
+  },
+  formControl: {
     width: '100%',
   },
-  buttonContainer: {
-    marginTop: theme.spacing(2),
+  bottomLinkContainer: {
     display: 'flex',
-    justifyContent: 'flex-end',
+    flexDirection: 'column',
+    textAlign: 'center',
+  },
+  bottomLink: {
+    marginTop: theme.spacing(4),
+  },
+  facebook: {
+    backgroundColor: '#4267b2',
+  },
+  google: {
+    backgroundColor: '#d93025',
   },
 }));

@@ -13,6 +13,7 @@ exports[`components/AdminLayout renders successfully 1`] = `
           href="/"
         >
           <a
+            class=""
             href="/"
             title="Home"
           >
@@ -37,7 +38,7 @@ exports[`components/AdminLayout renders successfully 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-51 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-52 MuiAvatar-colorDefault"
               >
                 EN
               </div>
@@ -197,7 +198,7 @@ exports[`components/AdminLayout renders successfully with title 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-138 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-139 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -206,18 +207,19 @@ exports[`components/AdminLayout renders successfully with title 1`] = `
           href="/"
         >
           <a
+            class=""
             href="/"
             title="Home"
           >
             <img
               alt="Logo"
-              class="makeStyles-logo-140"
+              class="makeStyles-logo-141"
               src="/static/images/logo.svg"
             />
           </a>
         </next-link>
         <div
-          class="makeStyles-flexGrow-139"
+          class="makeStyles-flexGrow-140"
         />
         <div>
           <button
@@ -230,7 +232,7 @@ exports[`components/AdminLayout renders successfully with title 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-186 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-188 MuiAvatar-colorDefault"
               >
                 EN
               </div>
@@ -326,10 +328,10 @@ exports[`components/AdminLayout renders successfully with title 1`] = `
       </div>
     </header>
     <div
-      class="makeStyles-container-136"
+      class="makeStyles-container-137"
     >
       <main
-        class="makeStyles-main-137"
+        class="makeStyles-main-138"
       />
     </div>
   </div>

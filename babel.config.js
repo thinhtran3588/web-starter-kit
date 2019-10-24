@@ -11,4 +11,9 @@ module.exports = {
       },
     ],
   ],
+  env: {
+    test: {
+      plugins: ['babel-plugin-dynamic-import-node'],
+    },
+  },
 };

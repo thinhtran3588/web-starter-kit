@@ -14,6 +14,7 @@ exports[`components/AdminFooter renders successfully 1`] = `
           href="/"
         >
           <a
+            class=""
             href="/"
           >
             Thinh Tran

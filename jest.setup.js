@@ -13,3 +13,8 @@ jest.mock('next-i18next', () => {
     };
   };
 });
+
+jest.mock('firebase/app', () => ({
+  auth: () => ({}),
+}));
+jest.mock('firebase/auth');
