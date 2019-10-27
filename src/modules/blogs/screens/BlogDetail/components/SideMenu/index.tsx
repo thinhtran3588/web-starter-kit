@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Card, CardMedia, Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import { config } from '@app/config';
 import { useStyles } from './styles';
 
 export const SideMenu = (): JSX.Element => {
@@ -83,7 +84,11 @@ export const SideMenu = (): JSX.Element => {
         <h3 className={classes.alsoWatch}>Views also watch</h3>
         <div>
           <Card className={classes.relatedCard}>
-            <CardMedia className={classes.media} image='/static/images/intro3.jpg' title='Contemplative Reptile' />
+            <CardMedia
+              className={classes.media}
+              image={`${config.storageLocation.static}/images/intro3.png`}
+              title='Contemplative Reptile'
+            />
             <div>
               <Typography variant='body2' color='textSecondary' component='p'>
                 Lizards are a widespread group of squamate reptiles, with over 6,000 species
@@ -91,7 +96,11 @@ export const SideMenu = (): JSX.Element => {
             </div>
           </Card>
           <Card className={classes.relatedCard}>
-            <CardMedia className={classes.media} image='/static/images/intro2.jpg' title='Contemplative Reptile' />
+            <CardMedia
+              className={classes.media}
+              image={`${config.storageLocation.static}/images/intro2.png`}
+              title='Contemplative Reptile'
+            />
             <div>
               <Typography variant='body2' color='textSecondary' component='p'>
                 Lizards are a widespread group of squamate reptiles, with over 6,000 species
@@ -99,7 +108,11 @@ export const SideMenu = (): JSX.Element => {
             </div>
           </Card>
           <Card className={classes.relatedCard}>
-            <CardMedia className={classes.media} image='/static/images/intro1.jpg' title='Contemplative Reptile' />
+            <CardMedia
+              className={classes.media}
+              image={`${config.storageLocation.static}/images/intro1.png`}
+              title='Contemplative Reptile'
+            />
             <div>
               <Typography variant='body2' color='textSecondary' component='p'>
                 Lizards are a widespread group of squamate reptiles, with over 6,000 species
@@ -107,7 +120,11 @@ export const SideMenu = (): JSX.Element => {
             </div>
           </Card>
           <Card className={classes.relatedCard}>
-            <CardMedia className={classes.media} image='/static/images/intro4.jpg' title='Contemplative Reptile' />
+            <CardMedia
+              className={classes.media}
+              image={`${config.storageLocation.static}/images/intro4.png`}
+              title='Contemplative Reptile'
+            />
             <div>
               <Typography variant='body2' color='textSecondary' component='p'>
                 Lizards are a widespread group of squamate reptiles, with over 6,000 species

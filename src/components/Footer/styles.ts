@@ -1,11 +1,11 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import { grey } from '@material-ui/core/colors';
+import grey from '@material-ui/core/colors/grey';
 
 export const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: grey[900],
     padding: theme.spacing(2),
-    color: '#fff',
+    color: theme.palette.background.default,
   },
   company: {
     fontSize: theme.spacing(2.5),

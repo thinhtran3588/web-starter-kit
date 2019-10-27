@@ -2,6 +2,7 @@ import React from 'react';
 import { AppBar, Toolbar, Hidden, Badge, Button, IconButton } from '@material-ui/core';
 import { NavItem } from '@app/core';
 import { Icon, Link, LanguageMenu } from '@app/components';
+import { config } from '@app/config';
 import { useStyles } from './styles';
 
 interface Props {
@@ -36,7 +37,7 @@ export const Header = ({ onSidebarOpen, navItems }: Props): JSX.Element => {
     <AppBar className={classes.root}>
       <Toolbar>
         <Link href='/' title='Home'>
-          <img className={classes.logo} alt='Logo' src='/static/images/logo.svg' />
+          <img className={classes.logo} alt='Logo' src={`${config.storageLocation.static}/images/logo.svg`} />
         </Link>
         <div className={classes.flexGrow} />
         <Hidden smDown>

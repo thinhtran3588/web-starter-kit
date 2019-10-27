@@ -51,19 +51,19 @@ export const BaseFooter = (props: Props): JSX.Element => {
               <h3 className={classes.company}>Social medias</h3>
               <div>
                 <Link color='inherit' className={classes.socialLink}>
-                  <img src='/static/images/facebook.png' className={classes.image} />
+                  <img src={`${config.storageLocation.static}/images/facebook.png`} className={classes.image} />
                 </Link>
                 <Link color='inherit' className={classes.socialLink}>
-                  <img src='/static/images/dribbble.png' className={classes.image} />
+                  <img src={`${config.storageLocation.static}/images/dribbble.png`} className={classes.image} />
                 </Link>
                 <Link color='inherit' className={classes.socialLink}>
-                  <img src='/static/images/google-plus.png' className={classes.image} />
+                  <img src={`${config.storageLocation.static}/images/google-plus.png`} className={classes.image} />
                 </Link>
                 <Link color='inherit' className={classes.socialLink}>
-                  <img src='/static/images/linkedin.png' className={classes.image} />
+                  <img src={`${config.storageLocation.static}/images/linkedin.png`} className={classes.image} />
                 </Link>
                 <Link color='inherit' className={classes.socialLink}>
-                  <img src='/static/images/pinterest.png' className={classes.image} />
+                  <img src={`${config.storageLocation.static}/images/pinterest.png`} className={classes.image} />
                 </Link>
               </div>
             </Grid>

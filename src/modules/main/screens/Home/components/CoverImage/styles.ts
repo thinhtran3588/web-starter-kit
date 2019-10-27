@@ -4,7 +4,6 @@ export const useStyles = makeStyles((theme) => ({
   coverImage: {
     height: theme.spacing(60),
     margin: -theme.spacing(2),
-    backgroundImage: 'url(/static/images/cover.jpg)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeate',

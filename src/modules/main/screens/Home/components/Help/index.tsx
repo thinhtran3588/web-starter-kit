@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
+import { config } from '@app/config';
 import { useStyles } from './styles';
 
 export const Help = (): JSX.Element => {
@@ -13,7 +14,7 @@ export const Help = (): JSX.Element => {
           <div className={classes.helpContainer}>
             <div>
               <div className={classes.helpIconContainer}>
-                <img src='/static/images/faq.png' className={classes.helpIcon} />
+                <img src={`${config.storageLocation.static}/images/faq.png`} className={classes.helpIcon} />
               </div>
               <h4 className={classes.helpTitle}>Need help?</h4>
             </div>

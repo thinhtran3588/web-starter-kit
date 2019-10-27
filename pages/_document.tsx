@@ -2,6 +2,7 @@ import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/styles';
 import { theme } from '@app/core/theme';
+import { config } from '@app/config';
 
 class MyDocument extends Document {
   // eslint-disable-next-line class-methods-use-this
@@ -14,7 +15,7 @@ class MyDocument extends Document {
           {/* PWA primary color */}
           <meta name='theme-color' content={theme.palette.primary.main} />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' />
-          <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
+          <link rel='shortcut icon' type='image/x-icon' href={`${config.storageLocation.static}/favicon.ico`} />
         </Head>
         <body>
           <Main />

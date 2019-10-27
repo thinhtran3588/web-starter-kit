@@ -17,10 +17,10 @@ export const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(0),
     fontSize: theme.spacing(3),
     fontWeight: 'bold',
-    color: '#fff',
+    color: theme.palette.background.default,
   },
   categoriesDescription: {
-    color: '#fff',
+    color: theme.palette.background.default,
   },
   categoriesButtonContainer: {
     display: 'flex',

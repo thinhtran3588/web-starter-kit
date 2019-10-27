@@ -141,6 +141,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
       >
         <div
           class="makeStyles-coverImage-108"
+          style="background-image: url(/static/images/cover.jpg);"
         >
           <div
             class="MuiGrid-root MuiGrid-container"

@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import { config } from '@app/config';
 import { useStyles } from './styles';
 
 export const Features = (): JSX.Element => {
@@ -22,7 +23,11 @@ export const Features = (): JSX.Element => {
             <Grid container spacing={4}>
               <Grid item xs={12} lg={4}>
                 <Card>
-                  <CardMedia className={classes.media} image='/static/images/intro1.jpg' title='Paella dish' />
+                  <CardMedia
+                    className={classes.media}
+                    image={`${config.storageLocation.static}/images/intro1.jpg`}
+                    title='Paella dish'
+                  />
                   <CardContent>
                     <Typography variant='body2' color='textSecondary' component='p'>
                       This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
@@ -33,7 +38,11 @@ export const Features = (): JSX.Element => {
               </Grid>
               <Grid item xs={12} lg={4}>
                 <Card>
-                  <CardMedia className={classes.media} image='/static/images/intro2.jpg' title='Paella dish' />
+                  <CardMedia
+                    className={classes.media}
+                    image={`${config.storageLocation.static}/images/intro2.jpg`}
+                    title='Paella dish'
+                  />
                   <CardContent>
                     <Typography variant='body2' color='textSecondary' component='p'>
                       This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
@@ -44,7 +53,11 @@ export const Features = (): JSX.Element => {
               </Grid>
               <Grid item xs={12} lg={4}>
                 <Card>
-                  <CardMedia className={classes.media} image='/static/images/intro3.jpg' title='Paella dish' />
+                  <CardMedia
+                    className={classes.media}
+                    image={`${config.storageLocation.static}/images/intro3.jpg`}
+                    title='Paella dish'
+                  />
                   <CardContent>
                     <Typography variant='body2' color='textSecondary' component='p'>
                       This impressive paella is a perfect party dish and a fun meal to cook together with your guests.

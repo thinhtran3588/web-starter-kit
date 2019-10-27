@@ -46,5 +46,10 @@ Object {
     "google",
   ],
   "siteName": "Web Starter Kit",
+  "storageLocation": Object {
+    "base": "",
+    "public": "/public",
+    "static": "/static",
+  },
 }
 `;

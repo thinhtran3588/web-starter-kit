@@ -1,5 +1,6 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import { deepOrange, deepPurple } from '@material-ui/core/colors';
+import deepOrange from '@material-ui/core/colors/deepOrange';
+import deepPurple from '@material-ui/core/colors/deepPurple';
 
 export const useStyles = makeStyles((theme) => ({
   coverImage: {

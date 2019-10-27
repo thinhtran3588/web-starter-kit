@@ -13,6 +13,7 @@ import {
   Button,
 } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import { config } from '@app/config';
 import { useStyles } from './styles';
 
 export const Content = (): JSX.Element => {
@@ -81,7 +82,7 @@ export const Content = (): JSX.Element => {
           Pellentesque in ipsum id orci porta dapibus.
         </p>
         <div>
-          <img src='/static/images/intro1.jpg' className={classes.image1} />
+          <img src={`${config.storageLocation.static}/images/intro1.png`} className={classes.image1} />
         </div>
         <p>
           Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque,
@@ -99,7 +100,7 @@ export const Content = (): JSX.Element => {
           Pellentesque in ipsum id orci porta dapibus.
         </p>
         <div>
-          <img src='/static/images/intro2.jpg' className={classes.image1} />
+          <img src={`${config.storageLocation.static}/images/intro2.png`} className={classes.image1} />
         </div>
         <p>
           Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque,
@@ -124,7 +125,11 @@ export const Content = (): JSX.Element => {
           <Grid item xs={6} md={3}>
             <Card className={classes.card}>
               <CardActionArea>
-                <CardMedia className={classes.media} image='/static/images/intro3.jpg' title='Contemplative Reptile' />
+                <CardMedia
+                  className={classes.media}
+                  image={`${config.storageLocation.static}/images/intro3.png`}
+                  title='Contemplative Reptile'
+                />
                 <CardContent>
                   <Typography gutterBottom variant='h5' component='h2'>
                     Lizard
@@ -148,7 +153,11 @@ export const Content = (): JSX.Element => {
           <Grid item xs={6} md={3}>
             <Card className={classes.card}>
               <CardActionArea>
-                <CardMedia className={classes.media} image='/static/images/intro4.jpg' title='Contemplative Reptile' />
+                <CardMedia
+                  className={classes.media}
+                  image={`${config.storageLocation.static}/images/intro4.png`}
+                  title='Contemplative Reptile'
+                />
                 <CardContent>
                   <Typography gutterBottom variant='h5' component='h2'>
                     Lizard
@@ -171,7 +180,11 @@ export const Content = (): JSX.Element => {
           <Grid item xs={6} md={3}>
             <Card className={classes.card}>
               <CardActionArea>
-                <CardMedia className={classes.media} image='/static/images/intro2.jpg' title='Contemplative Reptile' />
+                <CardMedia
+                  className={classes.media}
+                  image={`${config.storageLocation.static}/images/intro2.png`}
+                  title='Contemplative Reptile'
+                />
                 <CardContent>
                   <Typography gutterBottom variant='h5' component='h2'>
                     Lizard
@@ -194,7 +207,11 @@ export const Content = (): JSX.Element => {
           <Grid item xs={6} md={3}>
             <Card className={classes.card}>
               <CardActionArea>
-                <CardMedia className={classes.media} image='/static/images/intro1.jpg' title='Contemplative Reptile' />
+                <CardMedia
+                  className={classes.media}
+                  image={`${config.storageLocation.static}/images/intro1.png`}
+                  title='Contemplative Reptile'
+                />
                 <CardContent>
                   <Typography gutterBottom variant='h5' component='h2'>
                     Lizard

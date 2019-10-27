@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import { TreeView, TreeItem } from '@material-ui/lab';
-import { TreeItemProps } from '@material-ui/lab/TreeItem';
+import TreeView from '@material-ui/lab/TreeView';
+import TreeItem, { TreeItemProps } from '@material-ui/lab/TreeItem';
 import { Typography } from '@material-ui/core';
 import { NavItem } from '@app/core';
 import { Icon, Link } from '@app/components';

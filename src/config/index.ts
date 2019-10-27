@@ -1,4 +1,3 @@
-// import merge from 'lodash/fp/merge';
 import defaultConfig from './default_config';
 import overrideConfig from './override_config';
 

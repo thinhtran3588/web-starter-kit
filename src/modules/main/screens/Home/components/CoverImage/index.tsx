@@ -1,13 +1,19 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import { config } from '@app/config';
 import { useStyles } from './styles';
 
 export const CoverImage = (): JSX.Element => {
   const classes = useStyles();
 
   return (
-    <div className={classes.coverImage}>
+    <div
+      className={classes.coverImage}
+      style={{
+        backgroundImage: `url(${config.storageLocation.static}/images/cover.jpg)`,
+      }}
+    >
       <Grid container>
         <Grid item xs={1} lg={2}></Grid>
         <Grid item xs={10} lg={4}>

@@ -64,6 +64,9 @@ dist
 
 .DS_Store
 
+.serverless-deploy
+.serverless
+
 # credential files
 environments/production
 production.zip

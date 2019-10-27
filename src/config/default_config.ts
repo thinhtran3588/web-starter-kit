@@ -29,4 +29,9 @@ export default {
     appId: 'should_be_replaced',
     measurementId: 'should_be_replaced',
   },
+  storageLocation: {
+    base: '',
+    static: '/static',
+    public: '/public',
+  },
 };

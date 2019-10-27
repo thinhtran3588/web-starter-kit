@@ -5,6 +5,7 @@ exports[`@app/modules/main/screens/Home/components/CoverImage renders successful
   <div>
     <div
       class="makeStyles-coverImage-1"
+      style="background-image: url(/static/images/cover.jpg);"
     >
       <div
         class="MuiGrid-root MuiGrid-container"
