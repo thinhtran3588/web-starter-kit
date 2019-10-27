@@ -140,7 +140,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
         class="makeStyles-main-2"
       >
         <div
-          class="makeStyles-coverImage-108"
+          class="makeStyles-coverImage-109"
           style="background-image: url(/static/images/cover.jpg);"
         >
           <div
@@ -153,17 +153,17 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-4"
             >
               <h2
-                class="makeStyles-title-109"
+                class="makeStyles-title-110"
               >
                 Praesent sapien massa, convallis a pellentesque nec
               </h2>
               <p
-                class="makeStyles-paragraph-110"
+                class="makeStyles-paragraph-111"
               >
                 Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Pellentesque in ipsum id orci porta dapibus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a
               </p>
               <div
-                class="makeStyles-introButtonContainer-111"
+                class="makeStyles-introButtonContainer-112"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
@@ -197,16 +197,16 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
             >
               <div
-                class="makeStyles-featuresContainer-243"
+                class="makeStyles-featuresContainer-244"
               >
                 <h3
-                  class="makeStyles-featuresTitle-244"
+                  class="makeStyles-featuresTitle-245"
                 >
                   Praesent sapien massa, convallis a
                 </h3>
               </div>
               <div
-                class="makeStyles-featuresContent-245"
+                class="makeStyles-featuresContent-246"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4"
@@ -218,7 +218,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
                       class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardMedia-root makeStyles-media-246"
+                        class="MuiCardMedia-root makeStyles-media-247"
                         style="background-image: url(/static/images/intro1.jpg);"
                         title="Paella dish"
                       />
@@ -240,7 +240,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
                       class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardMedia-root makeStyles-media-246"
+                        class="MuiCardMedia-root makeStyles-media-247"
                         style="background-image: url(/static/images/intro2.jpg);"
                         title="Paella dish"
                       />
@@ -262,7 +262,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
                       class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardMedia-root makeStyles-media-246"
+                        class="MuiCardMedia-root makeStyles-media-247"
                         style="background-image: url(/static/images/intro3.jpg);"
                         title="Paella dish"
                       />
@@ -296,23 +296,23 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
             >
               <div
-                class="makeStyles-quoteContainer-282"
+                class="makeStyles-quoteContainer-283"
               >
                 <h4
-                  class="makeStyles-quote-283"
+                  class="makeStyles-quote-284"
                 >
                   "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula"
                 </h4>
                 <div
-                  class="makeStyles-signatureContainer-284"
+                  class="makeStyles-signatureContainer-285"
                 >
                   <div
-                    class="makeStyles-signatureName-285"
+                    class="makeStyles-signatureName-286"
                   >
                     Lionel Messi
                   </div>
                   <div
-                    class="makeStyles-signatureJob-286"
+                    class="makeStyles-signatureJob-287"
                   >
                     Greatest footballer of all time
                   </div>
@@ -324,7 +324,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
             />
           </div>
           <div
-            class="makeStyles-coverImage2-287"
+            class="makeStyles-coverImage2-288"
           />
         </div>
         <div>
@@ -338,30 +338,30 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
             >
               <div
-                class="makeStyles-helpContainer-288"
+                class="makeStyles-helpContainer-289"
               >
                 <div>
                   <div
-                    class="makeStyles-helpIconContainer-289"
+                    class="makeStyles-helpIconContainer-290"
                   >
                     <img
-                      class="makeStyles-helpIcon-290"
+                      class="makeStyles-helpIcon-291"
                       src="/static/images/faq.png"
                     />
                   </div>
                   <h4
-                    class="makeStyles-helpTitle-291"
+                    class="makeStyles-helpTitle-292"
                   >
                     Need help?
                   </h4>
                 </div>
                 <div
-                  class="makeStyles-helpInfo-292"
+                  class="makeStyles-helpInfo-293"
                 >
                   Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae
                 </div>
                 <div
-                  class="makeStyles-helpContact-293"
+                  class="makeStyles-helpContact-294"
                 >
                   support@mindxtech.com
                 </div>
@@ -374,7 +374,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
         </div>
       </main>
       <footer
-        class="makeStyles-root-294"
+        class="makeStyles-root-295"
       >
         <div
           class="MuiGrid-root MuiGrid-container"
@@ -392,7 +392,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-3"
               >
                 <h3
-                  class="makeStyles-company-295"
+                  class="makeStyles-company-296"
                 >
                   Company
                 </h3>
@@ -429,7 +429,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-3"
               >
                 <h3
-                  class="makeStyles-company-295"
+                  class="makeStyles-company-296"
                 >
                   Legal
                 </h3>
@@ -466,48 +466,48 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
               >
                 <h3
-                  class="makeStyles-company-295"
+                  class="makeStyles-company-296"
                 >
                   Social medias
                 </h3>
                 <div>
                   <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-296 MuiTypography-colorInherit"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-297 MuiTypography-colorInherit"
                   >
                     <img
-                      class="makeStyles-image-297"
+                      class="makeStyles-image-298"
                       src="/static/images/facebook.png"
                     />
                   </a>
                   <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-296 MuiTypography-colorInherit"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-297 MuiTypography-colorInherit"
                   >
                     <img
-                      class="makeStyles-image-297"
+                      class="makeStyles-image-298"
                       src="/static/images/dribbble.png"
                     />
                   </a>
                   <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-296 MuiTypography-colorInherit"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-297 MuiTypography-colorInherit"
                   >
                     <img
-                      class="makeStyles-image-297"
+                      class="makeStyles-image-298"
                       src="/static/images/google-plus.png"
                     />
                   </a>
                   <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-296 MuiTypography-colorInherit"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-297 MuiTypography-colorInherit"
                   >
                     <img
-                      class="makeStyles-image-297"
+                      class="makeStyles-image-298"
                       src="/static/images/linkedin.png"
                     />
                   </a>
                   <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-296 MuiTypography-colorInherit"
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-297 MuiTypography-colorInherit"
                   >
                     <img
-                      class="makeStyles-image-297"
+                      class="makeStyles-image-298"
                       src="/static/images/pinterest.png"
                     />
                   </a>
@@ -515,7 +515,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-signature-298"
+              class="makeStyles-signature-299"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1"
@@ -546,6 +546,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
   </div>
   <div
     aria-hidden="true"
+    class="MuiPopover-root"
     id="simple-menu"
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
@@ -556,7 +557,6 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
     />
     <div
       class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
-      role="document"
       style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
       tabindex="-1"
     >

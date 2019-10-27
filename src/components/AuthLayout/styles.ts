@@ -10,7 +10,6 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     alignItems: 'center',
     position: 'relative',
-    background: `url(/static/images/auth-background.jpg) no-repeat center center`,
     backgroundSize: 'cover',
   },
   form: {

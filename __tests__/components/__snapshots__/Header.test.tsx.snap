@@ -110,6 +110,7 @@ exports[`components/Header renders successfully 1`] = `
   </div>
   <div
     aria-hidden="true"
+    class="MuiPopover-root"
     id="simple-menu"
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
@@ -120,7 +121,6 @@ exports[`components/Header renders successfully 1`] = `
     />
     <div
       class="MuiPaper-root MuiMenu-paper MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded"
-      role="document"
       style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
       tabindex="-1"
     >

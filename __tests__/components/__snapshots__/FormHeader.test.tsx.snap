@@ -48,7 +48,7 @@ exports[`components/FormHeader renders successfully 1`] = `
         class="makeStyles-commands-3"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary makeStyles-button-4"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-4 MuiButton-containedPrimary"
           tabindex="0"
           type="button"
         >

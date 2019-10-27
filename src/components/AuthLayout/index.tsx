@@ -15,7 +15,12 @@ export const AuthLayout = (props: Props): JSX.Element => {
   const classes = useStyles();
 
   return (
-    <div className={classes.container}>
+    <div
+      className={classes.container}
+      style={{
+        background: `url(${config.storageLocation.static}/images/auth-background.jpg) no-repeat center center`,
+      }}
+    >
       <Head title={title} description={description} />
       <div className={classes.form}>
         <div className={classes.logoText}>
