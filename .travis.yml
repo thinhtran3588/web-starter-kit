@@ -16,14 +16,13 @@ before_install:
 jobs:
   include:
     - stage: Validate
-      script: yarn job production &&
-        yarn build &&
-        yarn validate &&
+      script: yarn validate &&
         yarn coveralls
     - stage: Publish develop
       if: branch = develop
       script: pip install --user awscli &&
         npm install -g serverless &&
+        yarn job production &&
         yarn serverless-prepare &&
         yarn serverless-update-s3 &&
         yarn serverless-deploy
