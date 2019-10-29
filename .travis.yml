@@ -28,4 +28,5 @@ jobs:
         yarn job production &&
         yarn serverless-prepare &&
         yarn serverless-update-s3 &&
+        npm install -g serverless &&
         yarn serverless-deploy
