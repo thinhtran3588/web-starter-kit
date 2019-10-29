@@ -117,8 +117,9 @@
     "serverless-update-s3": "aws s3 rm s3://t-web-starter-kit/static --recursive && aws s3 cp ./static s3://t-web-starter-kit/static --recursive && aws s3 cp s3://t-web-starter-kit/static s3://t-web-starter-kit/static --recursive --metadata-directive REPLACE --acl public-read --cache-control max-age=2592000,public",
     "start": "cross-env NODE_ENV=production node dist/server.js",
     "test": "jest --detectOpenHandles --verbose",
+    "type-check": "tsc --build tsconfig.json",
     "update-travis-config": "zip -r production.zip environments/production && travis encrypt-file --com production.zip",
-    "validate": "yarn lint && yarn build && yarn test",
+    "validate": "yarn lint && yarn type-check && yarn build && yarn test",
     "watch": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline --watch"
   },
   "version": "0.1.0"
