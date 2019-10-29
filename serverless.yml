@@ -1,16 +1,16 @@
 org: thinhtran3588
-app: web-starter-kit
-service: web-starter-kit-main
+app: t-web-starter-kit
+service: t-web-starter-kit-web
 provider:
   name: aws
   runtime: nodejs10.x
   region: ap-southeast-1
   stage: ${opt:stage, 'dev'}
-  timeout: 60 # optional, in seconds, default is 6
+  timeout: 30 # optional, in seconds, default is 6
   environment:
     NODE_ENV: production
 functions:
-  web_static:
+  web-static:
     handler: dist/lambda.handler
     memorySize: 256 # optional, in MB, default is 1024
     description: web starter kit

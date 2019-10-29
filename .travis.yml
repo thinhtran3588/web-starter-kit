@@ -4,6 +4,7 @@ branches:
     - master
     - develop
     - production
+    - travis-test
 language: node_js
 node_js: 10.16.0
 before_install:
@@ -16,7 +17,15 @@ before_install:
 jobs:
   include:
     - stage: Validate
+      if: branch != travis-test
       script: yarn job production &&
         yarn build &&
         yarn validate &&
         yarn coveralls
+    - stage: Publish
+      if: branch = travis-test
+      script: pip install --user awscli &&
+        yarn job production &&
+        yarn serverless-prepare &&
+        yarn serverless-update-s3 &&
+        yarn serverless-deploy
