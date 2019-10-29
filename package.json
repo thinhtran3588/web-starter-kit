@@ -108,7 +108,7 @@
     "dev": "yarn build-server && nodemon --watch ./dist --watch ./static --inspect=0.0.0.0:5858 --nolazy ./dist/server.js",
     "dev-client": "node ./dist/server.js",
     "gen-schema-query": "node ./dist/schema_query.js",
-    "job": "node job.js",
+    "job": "ts-node -O '{\"module\": \"commonjs\"}' job.ts",
     "lint": "eslint '{src,__tests__}/**/**.{ts,tsx}' && prettier --check '{src,__{tests,mocks}__}/**/*.{ts,tsx}'",
     "lint-fix": "prettier --write '{src,__{tests,mocks}__}/**/*.{ts,tsx}' && eslint '{src,__tests__}/**/**.{ts,tsx}' --fix",
     "prettier": "prettier --write '{src,__{tests,mocks}__}/**/*.{ts,tsx}'",

@@ -1,14 +1,12 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/no-var-requires */
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const log = (...args) => {
+const log = (...args: any[]): void => {
   global.console.log(...args);
 };
 
-const updateConfig = (environment = 'default') => {
+const updateConfig = (environment = 'default'): void => {
   const envFolder = `environments/${environment}`;
   const copyTasks = [
     {
@@ -25,7 +23,7 @@ const updateConfig = (environment = 'default') => {
   });
 };
 
-const run = () => {
+const run = (): void => {
   const command = process.argv[2];
   switch (command) {
     default:
