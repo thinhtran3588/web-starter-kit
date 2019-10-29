@@ -25,7 +25,6 @@ export const useStyles = makeStyles((theme) => ({
     marginTop: 72,
     height: '500px',
     margin: -theme.spacing(2),
-    backgroundImage: 'url(/static/images/cover2.jpg)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeate',

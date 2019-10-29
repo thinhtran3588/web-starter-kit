@@ -5,14 +5,28 @@ provider:
   name: aws
   runtime: nodejs10.x
   region: ap-southeast-1
-  memorySize: 256 # optional, in MB, default is 1024
+  stage: ${opt:stage, 'dev'}
   timeout: 60 # optional, in seconds, default is 6
   environment:
     NODE_ENV: production
 functions:
+  web_static:
+    handler: dist/lambda.handler
+    memorySize: 256 # optional, in MB, default is 1024
+    description: web starter kit
+    events:
+      - http:
+          path: /_next/{proxy+}
+          method: ANY
+          cors: true
+      - http:
+          path: /static/{proxy+}
+          method: ANY
+          cors: true
   web:
     # this is formatted as <FILENAME>.<HANDLER>
-    handler: dist/lamda.handler
+    handler: dist/lambda.handler
+    memorySize: 512 # optional, in MB, default is 1024
     description: web starter kit
     events:
       - http:

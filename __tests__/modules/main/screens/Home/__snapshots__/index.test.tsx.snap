@@ -325,6 +325,7 @@ exports[`@app/modules/main/screens/Home renders successfully 1`] = `
           </div>
           <div
             class="makeStyles-coverImage2-288"
+            style="background-image: url(/static/images/cover2.jpg);"
           />
         </div>
         <div>

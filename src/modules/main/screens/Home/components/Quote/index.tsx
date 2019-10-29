@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
+import { config } from '@app/config';
 import { useStyles } from './styles';
 
 export const Quote = (): JSX.Element => {
@@ -24,7 +25,12 @@ export const Quote = (): JSX.Element => {
         <Grid item xs={1} lg={2}></Grid>
       </Grid>
 
-      <div className={classes.coverImage2}></div>
+      <div
+        className={classes.coverImage2}
+        style={{
+          backgroundImage: `url(${config.storageLocation.static}/images/cover2.jpg)`,
+        }}
+      ></div>
     </div>
   );
 };
