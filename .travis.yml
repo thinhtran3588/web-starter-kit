@@ -20,3 +20,10 @@ jobs:
         yarn build &&
         yarn validate &&
         yarn coveralls
+    - stage: Publish develop
+      if: branch = develop
+      script: pip install --user awscli &&
+        npm install -g serverless &&
+        yarn serverless-prepare &&
+        yarn serverless-update-s3 &&
+        yarn serverless-deploy
