@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import fetch from 'node-fetch';
+import fetch from 'isomorphic-unfetch';
 import { writeFileSync } from 'fs';
 import { config } from '@app/config';
 
