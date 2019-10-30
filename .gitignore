@@ -63,6 +63,7 @@ bundles/client.html
 dist
 
 .DS_Store
+bin
 
 .serverless-deploy
 .serverless

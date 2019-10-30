@@ -22,6 +22,7 @@ jobs:
       if: branch = develop
       script: pip install --user awscli &&
         npm install -g serverless &&
+        curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash &&
         yarn job production &&
         yarn serverless-prepare &&
         yarn serverless-update-s3 &&
