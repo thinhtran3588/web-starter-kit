@@ -15,4 +15,5 @@ module.exports = withBundleAnalyzer({
       reportFilename: '../bundles/client.html',
     },
   },
+  target: process.env.NEXT_TARGET || 'server',
 });

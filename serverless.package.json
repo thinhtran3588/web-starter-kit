@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "next": "^9.1.1",
+    "next-i18next": "^1.2.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "serverless-http": "^2.3.0"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production node dist/server.js"
+  }
+}

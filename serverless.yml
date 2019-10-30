@@ -1,6 +1,10 @@
 org: thinhtran3588
 app: t-web-starter-kit
 service: t-web-starter-kit-web
+
+plugins:
+  - serverless-api-compression
+
 provider:
   name: aws
   runtime: nodejs10.x
@@ -9,6 +13,11 @@ provider:
   timeout: 30 # optional, in seconds, default is 6
   environment:
     NODE_ENV: production
+
+custom:
+  contentEncoding:
+    contentCompression: 0
+
 functions:
   web-static:
     handler: dist/lambda.handler

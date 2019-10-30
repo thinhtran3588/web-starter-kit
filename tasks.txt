@@ -2,13 +2,4 @@
 - theme
 - graphql
 - formik
-- upload to s3:
-  aws s3 rm s3://web-staterkit-main-static/static --recursive
-  aws s3 rm s3://web-staterkit-main-static/_next --recursive
-  aws s3 cp ./static s3://web-staterkit-main-static/static --recursive
-  aws s3 cp ./.next s3://web-staterkit-main-static/_next --recursive
-  aws s3 cp s3://web-staterkit-main-static/static s3://web-staterkit-main-static/static --recursive --metadata-directive REPLACE --acl public-read --cache-control max-age=2592000,public
-  aws s3 cp s3://web-staterkit-main-static/_next s3://web-staterkit-main-static/_next --recursive --metadata-directive REPLACE --acl public-read --cache-control max-age=public,max-age=31536000,immutable
-  find node_modules -path ./misc -prune -o \! -name "*.js" -type f -delete
-  find node_modules -path ./misc -prune -o \! -regex "(package.json,*.js)" -type f -delete
-  
+- (done) upload to s3
