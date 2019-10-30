@@ -29,8 +29,8 @@ exports[`components/AdminLayout renders successfully 1`] = `
         />
         <div>
           <button
-            aria-label="notification"
-            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+            aria-label="common.changeLanguage"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary"
             tabindex="0"
             type="button"
           >
@@ -223,8 +223,8 @@ exports[`components/AdminLayout renders successfully with title 1`] = `
         />
         <div>
           <button
-            aria-label="notification"
-            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+            aria-label="common.changeLanguage"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary"
             tabindex="0"
             type="button"
           >

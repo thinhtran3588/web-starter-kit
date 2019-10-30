@@ -11,7 +11,7 @@ export * from './Field';
 export * from './FormFilter';
 export * from './FormSearch';
 export * from './Table';
-export * from './LanguageMenu';
+export * from './LanguageSelection';
 export * from './Link';
 export * from './AuthLayout';
 export * from './Head';

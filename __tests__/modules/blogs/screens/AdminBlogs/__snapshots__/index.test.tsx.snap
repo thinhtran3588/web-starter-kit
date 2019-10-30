@@ -29,8 +29,8 @@ exports[`@app/modules/AdminBlogs/screens/AdminBlogs renders successfully 1`] = `
         />
         <div>
           <button
-            aria-label="notification"
-            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+            aria-label="common.changeLanguage"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary"
             tabindex="0"
             type="button"
           >

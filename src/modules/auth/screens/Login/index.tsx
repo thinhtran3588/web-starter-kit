@@ -1,13 +1,13 @@
 import React from 'react';
+import firebase from 'firebase/app';
 import { WithTranslation } from 'react-i18next';
 import { TextField, FormControl, FormHelperText, Button, Grid } from '@material-ui/core';
 import * as yup from 'yup';
 import { Formik, FormikContext } from 'formik';
 import clsx from 'clsx';
-import { AuthLayout, Link } from '@app/components';
+import { AuthLayout, Link, LanguageSelection } from '@app/components';
 import { withTranslation } from '@app/core';
 import { config } from '@app/config';
-import firebase from 'firebase/app';
 import { withFirebase } from '@app/hoc/withFirebase';
 import { useStyles } from './styles';
 
@@ -112,11 +112,11 @@ const BaseLogin = (props: WithTranslation): JSX.Element => {
                   <Button variant='contained' color='primary' className={clsx(classes.button, classes.google)}>
                     {props.t('loginGoogle')}
                   </Button>
-                  <Button variant='contained' color='default' className={classes.button}>
-                    <Link href='/' title={props.t('backToHome')} showAsText>
+                  <Link href='/' title={props.t('backToHome')} showAsText className={classes.button}>
+                    <Button variant='contained' color='default' className={classes.linkButton}>
                       {props.t('backToHome')}
-                    </Link>
-                  </Button>
+                    </Button>
+                  </Link>
                 </Grid>
                 <Grid item xs={12} className={classes.bottomLinkContainer}>
                   <Link href='/forgotPassword' title={props.t('forgotPassword')} className={classes.bottomLink}>
@@ -125,6 +125,7 @@ const BaseLogin = (props: WithTranslation): JSX.Element => {
                   <Link href='/register' title={props.t('register')} className={classes.bottomLink}>
                     {props.t('register')}
                   </Link>
+                  <LanguageSelection useFab className={classes.languageSelection} />
                 </Grid>
               </Grid>
             </form>

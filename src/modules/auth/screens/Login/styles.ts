@@ -26,4 +26,10 @@ export const useStyles = makeStyles((theme) => ({
   google: {
     backgroundColor: '#d93025',
   },
+  languageSelection: {
+    marginTop: theme.spacing(3),
+  },
+  linkButton: {
+    width: '100%',
+  },
 }));

@@ -3,5 +3,6 @@
     "createdWithLove": "Tạo cùng ♥!"
   },
   "invalidError": "{{field}} không hợp lệ",
-  "requiredError": "{{field}} bắt buộc"
+  "requiredError": "{{field}} bắt buộc",
+  "changeLanguage": "Đổi ngôn ngữ"
 }

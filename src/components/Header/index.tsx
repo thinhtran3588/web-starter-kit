@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, Hidden, Badge, Button, IconButton } from '@material-ui/core';
 import { NavItem } from '@app/core';
-import { Icon, Link, LanguageMenu } from '@app/components';
+import { Icon, Link, LanguageSelection } from '@app/components';
 import { config } from '@app/config';
 import { useStyles } from './styles';
 
@@ -43,7 +43,7 @@ export const Header = ({ onSidebarOpen, navItems }: Props): JSX.Element => {
         <Hidden smDown>
           <div>{navItems.map(renderLinkNavItem)}</div>
         </Hidden>
-        <LanguageMenu />
+        <LanguageSelection />
         <IconButton color='inherit' aria-label='notification'>
           <Badge badgeContent={notifications.length} color='primary' variant='dot'>
             <Icon name='Notifications' />

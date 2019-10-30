@@ -3,5 +3,6 @@
     "createdWithLove": "Created with ♥!"
   },
   "invalidError": "{{field}} is invalid",
-  "requiredError": "{{field}} is required"
+  "requiredError": "{{field}} is required",
+  "changeLanguage": "Change language"
 }

@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { IconButton, Menu, MenuItem, Avatar } from '@material-ui/core';
-import { i18n } from '@app/core';
+import { WithTranslation } from 'react-i18next';
+import { IconButton, Menu, MenuItem, Avatar, Fab } from '@material-ui/core';
+import { i18n, withTranslation } from '@app/core';
 import { config } from '@app/config';
 import { useStyles } from './styles';
 
-export const LanguageMenu = (): JSX.Element => {
+interface Props extends WithTranslation {
+  useFab?: boolean;
+  className?: string;
+}
+export const BaseLanguageSelection = (props: Props): JSX.Element => {
+  const { useFab, className, t } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(undefined);
   const [lang, setLang] = useState<string>('');
@@ -31,10 +37,17 @@ export const LanguageMenu = (): JSX.Element => {
   });
 
   return (
-    <div>
-      <IconButton color='inherit' aria-label='notification' onClick={handleClick}>
-        <Avatar className={classes.icon}>{lang.toLocaleUpperCase()}</Avatar>
-      </IconButton>
+    <div className={className}>
+      {useFab && (
+        <Fab color='primary' aria-label={t('changeLanguage')} onClick={handleClick}>
+          <Avatar className={classes.icon}>{lang.toLocaleUpperCase()}</Avatar>
+        </Fab>
+      )}
+      {!useFab && (
+        <IconButton color='primary' aria-label={t('changeLanguage')} onClick={handleClick}>
+          <Avatar className={classes.icon}>{lang.toLocaleUpperCase()}</Avatar>
+        </IconButton>
+      )}
       <Menu id='simple-menu' anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
         {config.languages.map((language) => (
           <MenuItem key={language.code} onClick={changeLanguage(language.code)}>
@@ -45,3 +58,5 @@ export const LanguageMenu = (): JSX.Element => {
     </div>
   );
 };
+
+export const LanguageSelection = withTranslation('common')(BaseLanguageSelection);
