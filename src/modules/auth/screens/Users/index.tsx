@@ -244,4 +244,4 @@ BaseUsers.getInitialProps = async () => {
   };
 };
 
-export const Users = withTranslation('admin_users')(withApollo(BaseUsers));
+export const Users = withApollo(withTranslation('admin_users')(BaseUsers));
