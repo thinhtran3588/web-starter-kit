@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import { Formik, FormikContext } from 'formik';
 import clsx from 'clsx';
 import { AuthLayout, Link, LanguageSelection } from '@app/components';
-import { withTranslation, handleError } from '@app/core';
+import { withTranslation, handleError, LoginType } from '@app/core';
 import { config } from '@app/config';
 import { navigationService, authService } from '@app/services';
 import { useStyles } from './styles';
@@ -78,6 +78,30 @@ const BaseScreen = (props: Props): JSX.Element => {
     }
   };
 
+  const loginExternal = async (loginType: LoginType): Promise<void> => {
+    try {
+      setIsBusy(true);
+      const result = loginType === 'FACEBOOK' ? await authService.loginFacebook() : await authService.loginGoogle();
+      if (result.isSuccessful) {
+        login(result.user);
+        navigationService.navigateTo({
+          url: '/',
+        });
+      }
+    } catch (error) {
+      handleError(
+        error,
+        {},
+        {
+          'auth/user-cancelled': true,
+          'auth/popup-closed-by-user': true,
+        },
+      );
+    } finally {
+      setIsBusy(false);
+    }
+  };
+
   return (
     <AuthLayout title={t('login')}>
       <Formik
@@ -138,6 +162,7 @@ const BaseScreen = (props: Props): JSX.Element => {
                     variant='contained'
                     color='primary'
                     className={clsx(classes.button, classes.facebook)}
+                    onClick={() => loginExternal('FACEBOOK')}
                   >
                     {props.t('loginFacebook')}
                   </Button>
@@ -146,6 +171,7 @@ const BaseScreen = (props: Props): JSX.Element => {
                     variant='contained'
                     color='primary'
                     className={clsx(classes.button, classes.google)}
+                    onClick={() => loginExternal('GOOGLE')}
                   >
                     {props.t('loginGoogle')}
                   </Button>
