@@ -7,5 +7,7 @@
   "loginFacebook": "Login Facebook",
   "loginGoogle": "Login Google",
   "password": "Password",
-  "register": "Register"
+  "register": "Register",
+  "userDisabled": "User has been disabled",
+  "wrongLoginCredentials": "Wrong login credentials"
 }

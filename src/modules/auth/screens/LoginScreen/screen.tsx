@@ -1,15 +1,18 @@
-import React from 'react';
-import firebase from 'firebase/app';
+import React, { useState } from 'react';
 import { WithTranslation } from 'react-i18next';
 import { TextField, FormControl, FormHelperText, Button, Grid } from '@material-ui/core';
 import * as yup from 'yup';
 import { Formik, FormikContext } from 'formik';
 import clsx from 'clsx';
 import { AuthLayout, Link, LanguageSelection } from '@app/components';
-import { withTranslation } from '@app/core';
+import { withTranslation, handleError } from '@app/core';
 import { config } from '@app/config';
-import { withFirebase } from '@app/hoc/withFirebase';
+import { navigationService, authService } from '@app/services';
 import { useStyles } from './styles';
+import { mapDispatchToProps } from './map_dispatch_to_props';
+import { mapStateToProps } from './map_state_to_props';
+
+type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps> & WithTranslation;
 
 interface LoginInput {
   email: string;
@@ -21,8 +24,9 @@ const initialValues: LoginInput = {
   password: '',
 };
 
-const BaseLogin = (props: WithTranslation): JSX.Element => {
-  const { t } = props;
+const BaseScreen = (props: Props): JSX.Element => {
+  const { t, login } = props;
+  const [isBusy, setIsBusy] = useState<boolean>(false);
   const classes = useStyles();
   const validationSchema = yup.object().shape<LoginInput>({
     email: yup
@@ -48,13 +52,30 @@ const BaseLogin = (props: WithTranslation): JSX.Element => {
       .matches(config.regex.password, t('invalidPassword')),
   });
 
-  const login = async (input: LoginInput): Promise<void> => {
-    if (!firebase) {
-      return;
+  const onSubmit = async (input: LoginInput): Promise<void> => {
+    try {
+      setIsBusy(true);
+      const user = await authService.signInWithEmailAndPassword(input.email, input.password);
+      login(user);
+      if (user.emailVerified) {
+        navigationService.navigateTo({
+          url: '/',
+        });
+      } else {
+        navigationService.navigateTo({
+          url: '/emailVerification',
+        });
+      }
+    } catch (error) {
+      handleError(error, {
+        'auth/invalid-email': t('wrongLoginCredentials'),
+        'auth/user-disabled': t('userDisabled'),
+        'auth/user-not-found': t('wrongLoginCredentials'),
+        'auth/wrong-password': t('wrongLoginCredentials'),
+      });
+    } finally {
+      setIsBusy(false);
     }
-    const user = await firebase.auth().signInWithEmailAndPassword(input.email, input.password);
-    // eslint-disable-next-line no-console
-    console.log(user);
   };
 
   return (
@@ -63,7 +84,7 @@ const BaseLogin = (props: WithTranslation): JSX.Element => {
         initialValues={initialValues}
         validateOnChange={false}
         validationSchema={validationSchema}
-        onSubmit={login}
+        onSubmit={onSubmit}
       >
         {(context: FormikContext<LoginInput>) => {
           return (
@@ -103,17 +124,33 @@ const BaseLogin = (props: WithTranslation): JSX.Element => {
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} className={classes.buttonContainer}>
-                  <Button type='submit' variant='contained' color='primary' className={classes.button}>
+                  <Button
+                    disabled={isBusy}
+                    type='submit'
+                    variant='contained'
+                    color='primary'
+                    className={classes.button}
+                  >
                     {props.t('login')}
                   </Button>
-                  <Button variant='contained' color='primary' className={clsx(classes.button, classes.facebook)}>
+                  <Button
+                    disabled={isBusy}
+                    variant='contained'
+                    color='primary'
+                    className={clsx(classes.button, classes.facebook)}
+                  >
                     {props.t('loginFacebook')}
                   </Button>
-                  <Button variant='contained' color='primary' className={clsx(classes.button, classes.google)}>
+                  <Button
+                    disabled={isBusy}
+                    variant='contained'
+                    color='primary'
+                    className={clsx(classes.button, classes.google)}
+                  >
                     {props.t('loginGoogle')}
                   </Button>
                   <Link href='/' title={props.t('backToHome')} showAsText className={classes.button}>
-                    <Button variant='contained' color='default' className={classes.linkButton}>
+                    <Button disabled={isBusy} variant='contained' color='default' className={classes.linkButton}>
                       {props.t('backToHome')}
                     </Button>
                   </Link>
@@ -136,10 +173,10 @@ const BaseLogin = (props: WithTranslation): JSX.Element => {
   );
 };
 
-BaseLogin.getInitialProps = async () => {
+BaseScreen.getInitialProps = async () => {
   return {
     namespacesRequired: ['common', 'login'],
   };
 };
 
-export const Login = withFirebase(withTranslation('login')(BaseLogin));
+export const Screen = withTranslation('login')(BaseScreen);

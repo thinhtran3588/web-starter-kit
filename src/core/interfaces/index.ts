@@ -10,3 +10,5 @@ export * from './field_value_type';
 export * from './table_column';
 export * from './next_request';
 export * from './search_record';
+export * from './user';
+export * from './login_type';

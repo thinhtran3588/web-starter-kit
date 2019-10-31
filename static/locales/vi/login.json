@@ -7,5 +7,7 @@
   "loginFacebook": "Đăng nhập Facebook",
   "loginGoogle": "Đăng nhập Google",
   "password": "Mật khẩu",
-  "register": "Đăng kí"
+  "register": "Đăng kí",
+  "userDisabled": "Người dùng đã bị khoá",
+  "wrongLoginCredentials": "Sai thông tin đăng nhập"
 }

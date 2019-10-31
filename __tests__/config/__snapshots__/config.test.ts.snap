@@ -8,7 +8,6 @@ Object {
   "dateFormat": "DD/MM/YYYY",
   "dateTimeFormat": "DD/MM/YYYY HH:mm:ss",
   "debounceDelay": 300,
-  "defaultLanguage": "en",
   "firebaseConfig": Object {
     "apiKey": "should_be_replaced",
     "appId": "should_be_replaced",
@@ -19,16 +18,19 @@ Object {
     "projectId": "should_be_replaced",
     "storageBucket": "should_be_replaced",
   },
-  "languages": Array [
-    Object {
-      "code": "en",
-      "name": "English",
-    },
-    Object {
-      "code": "vi",
-      "name": "Tiếng Việt",
-    },
-  ],
+  "i18n": Object {
+    "defaultLang": "en",
+    "languages": Array [
+      Object {
+        "code": "en",
+        "name": "English",
+      },
+      Object {
+        "code": "vi",
+        "name": "Tiếng Việt",
+      },
+    ],
+  },
   "regex": Object {
     "email": /\\^\\[a-z\\]\\[a-z0-9_\\.\\]\\{5,40\\}@\\[a-z0-9\\]\\{2,\\}\\(\\.\\[a-z0-9\\]\\{2,4\\}\\)\\{1,2\\}\\$/,
     "password": /\\^\\(\\?=\\.\\*\\[A-Za-z\\]\\)\\(\\?=\\.\\*\\\\d\\)\\(\\?=\\.\\*\\[@\\$!%\\*#\\?&\\]\\)\\[A-Za-z\\\\d@\\$!%\\*#\\?&\\]\\{6,\\}\\$/,

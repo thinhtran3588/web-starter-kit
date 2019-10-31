@@ -16,7 +16,7 @@ import {
   formatDateTime,
 } from '@app/core';
 import { config } from '@app/config';
-import { withApollo } from '@app/hoc/withApollo';
+import { withApollo } from '@app/hoc';
 
 interface Props extends WithTranslation {
   loginTypes: PickerDataItem<string>[];

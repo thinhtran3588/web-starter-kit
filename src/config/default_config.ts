@@ -5,17 +5,19 @@ export default {
   dateFormat: 'DD/MM/YYYY',
   dateTimeFormat: 'DD/MM/YYYY HH:mm:ss',
   debounceDelay: 300,
-  defaultLanguage: 'en',
-  languages: [
-    {
-      code: 'en',
-      name: 'English',
-    },
-    {
-      code: 'vi',
-      name: 'Tiếng Việt',
-    },
-  ],
+  i18n: {
+    defaultLang: 'en',
+    languages: [
+      {
+        code: 'en',
+        name: 'English',
+      },
+      {
+        code: 'vi',
+        name: 'Tiếng Việt',
+      },
+    ],
+  },
   rowsPerPageOptions: [10, 20, 50],
   signInOptions: ['email', 'phone', 'facebook', 'google'],
   siteName: 'Web Starter Kit',

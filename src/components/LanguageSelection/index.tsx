@@ -30,10 +30,10 @@ export const BaseLanguageSelection = (props: Props): JSX.Element => {
   };
 
   useEffect(() => {
-    const currentLanguage = config.languages.find(
+    const currentLanguage = config.i18n.languages.find(
       (language) => window.location.pathname.indexOf(`/${language.code}`) === 0,
     );
-    setLang(currentLanguage ? currentLanguage.code : config.defaultLanguage);
+    setLang(currentLanguage ? currentLanguage.code : config.i18n.defaultLang);
   });
 
   return (
@@ -49,7 +49,7 @@ export const BaseLanguageSelection = (props: Props): JSX.Element => {
         </IconButton>
       )}
       <Menu id='simple-menu' anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
-        {config.languages.map((language) => (
+        {config.i18n.languages.map((language) => (
           <MenuItem key={language.code} onClick={changeLanguage(language.code)}>
             {language.name}
           </MenuItem>

@@ -1,3 +1,3 @@
-import { Login } from '@app/modules/auth/screens/Login';
+import { LoginScreen } from '@app/modules/auth/screens/LoginScreen';
 
-export default Login;
+export default LoginScreen;
