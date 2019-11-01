@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@app/modules/main/screens/Home/components/Help renders successfully 1`] = `
+exports[`@app/modules/main/screens/HomeScreen/components/Help renders successfully 1`] = `
 <body>
   <div>
     <div>

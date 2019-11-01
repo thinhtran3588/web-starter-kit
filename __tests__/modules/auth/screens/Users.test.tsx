@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Users } from '@app/modules/auth/screens/Users';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { TestBaseComponent } from '@test/helpers/TestBaseComponent';
 
 describe('@app/modules/auth/screens/Users', () => {
   const loginTypes = [
@@ -32,20 +32,13 @@ describe('@app/modules/auth/screens/Users', () => {
       label: 'Normal User',
     },
   ];
-  const theme = createMuiTheme({
-    props: {
-      MuiWithWidth: {
-        initialWidth: 'xs',
-      },
-    },
-  });
   beforeEach(() => {});
 
   it('renders successfully', async () => {
     const { baseElement } = render(
-      <MuiThemeProvider theme={theme}>
+      <TestBaseComponent>
         <Users loginTypes={loginTypes} roles={roles} />
-      </MuiThemeProvider>,
+      </TestBaseComponent>,
     );
     expect(baseElement).toMatchSnapshot();
   });

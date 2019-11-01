@@ -24,7 +24,7 @@ export const FormInput: <T>(props: Props<T>) => JSX.Element = (props) => {
                 <FormField
                   key={field.name.toString()}
                   id={field.name.toString()}
-                  label={field.text}
+                  label={field.label}
                   value={context.values[field.name]}
                   type={field.type}
                   onValueChange={context.handleChange}
@@ -33,6 +33,8 @@ export const FormInput: <T>(props: Props<T>) => JSX.Element = (props) => {
                   onChange={context.handleChange}
                   onBlur={context.handleBlur}
                   pickerDataSources={field.pickerDataSources}
+                  isPassword={field.isPassword}
+                  disabled={field.disabled}
                 />
               ))}
             {children}

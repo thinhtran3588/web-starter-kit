@@ -3,6 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 import { AdminLayout } from '@app/components';
 import { createMuiTheme } from '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import { TestBaseComponent } from '@test/helpers/TestBaseComponent';
 
 jest.mock('@material-ui/core/useMediaQuery', () => () => false);
 
@@ -17,9 +18,9 @@ describe('components/AdminLayout', () => {
   beforeEach(() => {});
   it('renders successfully', async () => {
     const { baseElement } = render(
-      <MuiThemeProvider theme={theme}>
+      <TestBaseComponent>
         <AdminLayout />
-      </MuiThemeProvider>,
+      </TestBaseComponent>,
     );
 
     expect(baseElement).toMatchSnapshot();
@@ -27,9 +28,9 @@ describe('components/AdminLayout', () => {
 
   it('renders successfully with title', async () => {
     const { baseElement } = render(
-      <MuiThemeProvider theme={theme}>
-        <AdminLayout title='Title' />
-      </MuiThemeProvider>,
+      <TestBaseComponent>
+        <AdminLayout title='Title' />{' '}
+      </TestBaseComponent>,
     );
 
     expect(baseElement).toMatchSnapshot();

@@ -5,8 +5,8 @@ import { ThemeProvider } from '@material-ui/styles';
 import { CssBaseline } from '@material-ui/core';
 import { theme, appWithTranslation } from '@app/core';
 import { config } from '@app/config';
-import { store } from '@app/store';
 import { Provider } from 'react-redux';
+import { withApollo } from '@app/hoc';
 
 import('firebase/auth');
 
@@ -29,12 +29,10 @@ class MyApp extends App {
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
-          <Provider store={store}>
-            <Component {...pageProps} />
-          </Provider>
+          <Component {...pageProps} />
         </ThemeProvider>
       </React.Fragment>
     );
   }
 }
-export default appWithTranslation(MyApp);
+export default appWithTranslation(withApollo(MyApp));

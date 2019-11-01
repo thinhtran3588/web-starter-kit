@@ -1,22 +1,15 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { Layout } from '@app/components';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { TestBaseComponent } from '@test/helpers/TestBaseComponent';
 
 describe('components/Layout', () => {
-  const theme = createMuiTheme({
-    props: {
-      MuiWithWidth: {
-        initialWidth: 'xs',
-      },
-    },
-  });
   beforeEach(() => {});
   it('renders successfully', async () => {
     const { baseElement } = render(
-      <MuiThemeProvider theme={theme}>
+      <TestBaseComponent>
         <Layout />
-      </MuiThemeProvider>,
+      </TestBaseComponent>,
     );
 
     expect(baseElement).toMatchSnapshot();
@@ -24,9 +17,9 @@ describe('components/Layout', () => {
 
   it('renders successfully with title', async () => {
     const { baseElement } = render(
-      <MuiThemeProvider theme={theme}>
+      <TestBaseComponent>
         <Layout title='Title' />
-      </MuiThemeProvider>,
+      </TestBaseComponent>,
     );
 
     expect(baseElement).toMatchSnapshot();
@@ -34,9 +27,9 @@ describe('components/Layout', () => {
 
   it('opens sidebar when clicking Menu icon', async () => {
     const { getByTestId } = render(
-      <MuiThemeProvider theme={theme}>
+      <TestBaseComponent>
         <Layout title='Title' />
-      </MuiThemeProvider>,
+      </TestBaseComponent>,
     );
     fireEvent.click(getByTestId('menu-icon'));
 
@@ -46,9 +39,9 @@ describe('components/Layout', () => {
 
   it('closes sidebar when clicking sidebar backdrop', async () => {
     const { getByTestId } = render(
-      <MuiThemeProvider theme={theme}>
+      <TestBaseComponent>
         <Layout title='Title' />
-      </MuiThemeProvider>,
+      </TestBaseComponent>,
     );
     fireEvent.click(getByTestId('menu-icon'));
     const backdrop = getByTestId('sidebar').querySelector('.MuiBackdrop-root');

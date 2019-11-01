@@ -1,23 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Home } from '@app/modules/main/screens/Home';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { HomeScreen } from '@app/modules/main/screens/HomeScreen';
+import { TestBaseComponent } from '@test/helpers/TestBaseComponent';
 
-describe('@app/modules/main/screens/Home', () => {
-  const theme = createMuiTheme({
-    props: {
-      MuiWithWidth: {
-        initialWidth: 'xs',
-      },
-    },
-  });
+describe('@app/modules/main/screens/HomeScreen', () => {
   beforeEach(() => {});
 
   it('renders successfully', async () => {
     const { baseElement } = render(
-      <MuiThemeProvider theme={theme}>
-        <Home />
-      </MuiThemeProvider>,
+      <TestBaseComponent>
+        <HomeScreen />
+      </TestBaseComponent>,
     );
     expect(baseElement).toMatchSnapshot();
   });

@@ -1,3 +1,3 @@
-import { Home } from '@app/modules/main/screens/Home';
+import { HomeScreen } from '@app/modules/main/screens/HomeScreen';
 
-export default Home;
+export default HomeScreen;

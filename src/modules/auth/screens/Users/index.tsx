@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { WithTranslation } from 'react-i18next';
 import debounce from 'lodash/fp/debounce';
-import gql from 'graphql-tag';
+import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 import { AdminLayout, FormHeader, FormSearch } from '@app/components';
 import {

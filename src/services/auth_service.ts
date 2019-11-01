@@ -2,19 +2,6 @@ import firebase, { auth } from 'firebase/app';
 import { User, LoginType, AppError } from '@app/core';
 import { config } from '@app/config';
 
-interface LoginResultSuccess {
-  isSuccessful: true;
-  user: User;
-}
-
-interface LoginResultFail {
-  isSuccessful: false;
-  isCancelled: boolean;
-  errorMessage: string;
-}
-
-export type LoginResult = LoginResultSuccess | LoginResultFail;
-
 const FACEBOOK_PROVIDER_ID = 'facebook.com';
 const GOOGLE_PROVIDER_ID = 'google.com';
 const PHONE_PROVIDER_ID = 'phone';
@@ -61,9 +48,9 @@ const getUser = (user: firebase.User): User => {
   return {
     id: user.uid,
     displayName,
-    avatarUrl: avatarUrl || undefined,
+    avatarUrl: avatarUrl || '',
     isLoggedIn: true,
-    email: user.email || undefined,
+    email: user.email || '',
     emailVerified: user.emailVerified,
     loginType,
   };
@@ -72,23 +59,16 @@ const getUser = (user: firebase.User): User => {
 const login = async (
   provider: firebase.auth.AuthProvider,
   language: string = config.i18n.defaultLang,
-): Promise<LoginResult> => {
+): Promise<User> => {
   firebase.auth().languageCode = language;
-  const result = await auth().signInWithPopup(provider);
-  if (!result.user) {
-    return {
-      isSuccessful: false,
-      isCancelled: true,
-      errorMessage: '',
-    };
+  const { user } = await auth().signInWithPopup(provider);
+  if (!user) {
+    throw new AppError('auth/user-not-found', 'User not found');
   }
-  return {
-    user: getUser(result.user),
-    isSuccessful: true,
-  };
+  return getUser(user);
 };
 
-const loginFacebook = async (language: string = config.i18n.defaultLang): Promise<LoginResult> => {
+const loginFacebook = async (language: string = config.i18n.defaultLang): Promise<User> => {
   const provider = new firebase.auth.FacebookAuthProvider();
   provider.addScope('public_profile');
   provider.addScope('email');
@@ -100,7 +80,7 @@ const loginFacebook = async (language: string = config.i18n.defaultLang): Promis
   return login(provider, language);
 };
 
-const loginGoogle = async (language: string = config.i18n.defaultLang): Promise<LoginResult> => {
+const loginGoogle = async (language: string = config.i18n.defaultLang): Promise<User> => {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.setCustomParameters({
     display: 'popup',

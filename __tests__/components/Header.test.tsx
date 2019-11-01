@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { Header } from '@app/components';
 import { NavItem } from '@app/core';
+import { TestBaseComponent } from '@test/helpers/TestBaseComponent';
 
 describe('components/Header', () => {
   beforeEach(() => {});
@@ -24,7 +25,11 @@ describe('components/Header', () => {
       },
     ];
 
-    const { baseElement } = render(<Header onSidebarOpen={() => {}} navItems={navItems} />);
+    const { baseElement } = render(
+      <TestBaseComponent>
+        <Header onSidebarOpen={() => {}} navItems={navItems} />
+      </TestBaseComponent>,
+    );
 
     expect(baseElement).toMatchSnapshot();
   });

@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Help } from '@app/modules/main/screens/Home/components';
+import { Help } from '@app/modules/main/screens/HomeScreen/components';
 
-describe('@app/modules/main/screens/Home/components/Help', () => {
+describe('@app/modules/main/screens/HomeScreen/components/Help', () => {
   beforeEach(() => {});
 
   it('renders successfully', async () => {

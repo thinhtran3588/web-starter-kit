@@ -1,30 +1,19 @@
 import React from 'react';
 import Head from 'next/head';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { ApolloClient } from 'apollo-client';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { HttpLink } from 'apollo-link-http';
-import fetch from 'isomorphic-unfetch';
-import { config } from '@app/config';
-
-// https://github.com/zeit/next.js/tree/canary/examples/with-apollo
-// eslint-disable-next-line no-null/no-null, @typescript-eslint/no-explicit-any
-let apolloClient: any = null;
+import { initApolloClient } from '@app/core';
 
 /**
  * Creates and provides the apolloContext
  * to a next.js PageTree. Use it by wrapping
  * your PageComponent via HOC pattern.
- * @param {Function|Class} PageComponent
- * @param {Object} [config]
- * @param {Boolean} [config.ssr=true]
  */
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-explicit-any
 export function withApollo(PageComponent: any, { ssr = true } = {}) {
   // eslint-disable-next-line no-shadow, @typescript-eslint/no-explicit-any
-  const WithApollo = ({ apolloClient, apolloState, ...pageProps }: any): any => {
+  const WithApollo = ({ apolloClient, ...pageProps }: any): any => {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    const client = apolloClient || initApolloClient(apolloState);
+    const client = apolloClient || initApolloClient();
     return (
       <ApolloProvider client={client}>
         <PageComponent {...pageProps} />
@@ -106,45 +95,4 @@ export function withApollo(PageComponent: any, { ssr = true } = {}) {
   }
 
   return WithApollo;
-}
-
-/**
- * Always creates a new apollo client on the server
- * Creates or reuses apollo client in the browser.
- * @param  {Object} initialState
- */
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-explicit-any
-function initApolloClient(initialState?: any) {
-  // Make sure to create a new client for every server-side request so that data
-  // isn't shared between connections (which would be bad)
-  if (typeof window === 'undefined') {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    return createApolloClient(initialState);
-  }
-
-  // Reuse client on the client-side
-  if (!apolloClient) {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    apolloClient = createApolloClient(initialState);
-  }
-
-  return apolloClient;
-}
-
-/**
- * Creates and configures the ApolloClient
- * @param  {Object} [initialState={}]
- */
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-function createApolloClient(initialState = {}) {
-  // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
-  return new ApolloClient({
-    ssrMode: typeof window === 'undefined', // Disables forceFetch on the server (so queries are only run once)
-    link: new HttpLink({
-      uri: config.apiEndpoint, // Server URL (must be absolute)
-      credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
-      fetch,
-    }),
-    cache: new InMemoryCache().restore(initialState),
-  });
 }

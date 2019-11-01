@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { CoverImage } from '@app/modules/main/screens/Home/components';
+import { CoverImage } from '@app/modules/main/screens/HomeScreen/components';
 
-describe('@app/modules/main/screens/Home/components/CoverImage', () => {
+describe('@app/modules/main/screens/HomeScreen/components/CoverImage', () => {
   beforeEach(() => {});
 
   it('renders successfully', async () => {
