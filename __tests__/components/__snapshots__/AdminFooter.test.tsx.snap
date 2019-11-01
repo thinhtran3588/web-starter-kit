@@ -15,6 +15,7 @@ exports[`components/AdminFooter renders successfully 1`] = `
         >
           <a
             class=""
+            color="inherit"
             href="/"
           >
             Thinh Tran

@@ -1,8 +1,13 @@
 {
+  "aboutUs": "Về chúng tôi",
+  "blogs": "Bài viết",
+  "changeLanguage": "Đổi ngôn ngữ",
+  "company": "Công ty",
   "footer": {
     "createdWithLove": "Tạo cùng ♥!"
   },
+  "home": "Trang chủ",
   "invalidError": "{{field}} không hợp lệ",
   "requiredError": "{{field}} bắt buộc",
-  "changeLanguage": "Đổi ngôn ngữ"
+  "socialMedias": "Mạng xã hội"
 }

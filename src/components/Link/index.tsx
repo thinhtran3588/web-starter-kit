@@ -10,10 +10,11 @@ interface Props {
   title?: string;
   className?: string;
   showAsText?: boolean;
+  color?: string;
 }
 
 export const Link = (props: Props): JSX.Element => {
-  const { children, href, className, showAsText, ...other } = props;
+  const { children, href, className, showAsText, color, ...other } = props;
   const classes = useStyles();
   return (
     <NextLink href={href}>
@@ -23,6 +24,7 @@ export const Link = (props: Props): JSX.Element => {
         className={clsx(className, {
           [classes.showAsText]: showAsText,
         })}
+        color={color || 'inherit'}
       >
         {children}
       </a>

@@ -14,6 +14,7 @@ exports[`components/Layout renders successfully 1`] = `
         >
           <a
             class=""
+            color="inherit"
             href="/"
             title="Home"
           >
@@ -132,150 +133,124 @@ exports[`components/Layout renders successfully 1`] = `
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-3"
               >
-                <h3
-                  class="makeStyles-company-110"
+                <h6
+                  class="MuiTypography-root MuiTypography-h6"
                 >
-                  Company
-                </h3>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-                  >
-                    About us
-                  </a>
-                </div>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-                  >
-                    Contact
-                  </a>
-                </div>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-                  >
-                    Products
-                  </a>
-                </div>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-                  >
-                    Blogs
-                  </a>
-                </div>
-              </div>
-              <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-3"
-              >
-                <h3
-                  class="makeStyles-company-110"
+                  common.company
+                </h6>
+                <div
+                  class="makeStyles-linkContainer-111"
                 >
-                  Legal
-                </h3>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                  <next-link
+                    href="/"
                   >
-                    FAQ
-                  </a>
+                    <a
+                      class="makeStyles-link-110"
+                      color="inherit"
+                      href="/"
+                    >
+                      common.home
+                    </a>
+                  </next-link>
                 </div>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                <div
+                  class="makeStyles-linkContainer-111"
+                >
+                  <next-link
+                    href="/aboutUs"
                   >
-                    Premium support
-                  </a>
+                    <a
+                      class="makeStyles-link-110"
+                      color="inherit"
+                      href="/aboutUs"
+                    >
+                      common.aboutUs
+                    </a>
+                  </next-link>
                 </div>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                <div
+                  class="makeStyles-linkContainer-111"
+                >
+                  <next-link
+                    href="/blogs"
                   >
-                    Sponsorships
-                  </a>
-                </div>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-                  >
-                    Custom development
-                  </a>
+                    <a
+                      class="makeStyles-link-110"
+                      color="inherit"
+                      href="/blogs"
+                    >
+                      common.blogs
+                    </a>
+                  </next-link>
                 </div>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
               >
-                <h3
-                  class="makeStyles-company-110"
+                <h6
+                  class="MuiTypography-root MuiTypography-h6"
                 >
-                  Social medias
-                </h3>
+                  common.socialMedias
+                </h6>
                 <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-111 MuiTypography-colorInherit"
+                  <next-link
+                    href="/"
                   >
-                    <img
-                      class="makeStyles-image-112"
-                      src="/static/images/facebook.png"
-                    />
-                  </a>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-111 MuiTypography-colorInherit"
+                    <a
+                      class="makeStyles-socialLink-112"
+                      color="inherit"
+                      href="/"
+                    >
+                      <img
+                        class="makeStyles-image-113"
+                        src="/static/images/facebook.png"
+                      />
+                    </a>
+                  </next-link>
+                  <next-link
+                    href="/"
                   >
-                    <img
-                      class="makeStyles-image-112"
-                      src="/static/images/dribbble.png"
-                    />
-                  </a>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-111 MuiTypography-colorInherit"
-                  >
-                    <img
-                      class="makeStyles-image-112"
-                      src="/static/images/google-plus.png"
-                    />
-                  </a>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-111 MuiTypography-colorInherit"
-                  >
-                    <img
-                      class="makeStyles-image-112"
-                      src="/static/images/linkedin.png"
-                    />
-                  </a>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-111 MuiTypography-colorInherit"
-                  >
-                    <img
-                      class="makeStyles-image-112"
-                      src="/static/images/pinterest.png"
-                    />
-                  </a>
+                    <a
+                      class="makeStyles-socialLink-112"
+                      color="inherit"
+                      href="/"
+                    >
+                      <img
+                        class="makeStyles-image-113"
+                        src="/static/images/linkedin.png"
+                      />
+                    </a>
+                  </next-link>
                 </div>
               </div>
-            </div>
-            <div
-              class="makeStyles-signature-113"
-            >
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3"
               >
-                © 
-                <a
-                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="/"
+                <h6
+                  class="MuiTypography-root MuiTypography-h6"
                 >
-                  Thinh Tran
-                </a>
-                 
-                2019
-              </p>
-              <span
-                class="MuiTypography-root MuiTypography-caption"
-              >
-                common.footer.createdWithLove
-              </span>
+                  ©
+                   
+                  <next-link
+                    href="/"
+                  >
+                    <a
+                      class="makeStyles-link-110"
+                      color="inherit"
+                      href="/"
+                    >
+                      Thinh Tran
+                    </a>
+                  </next-link>
+                   
+                  2019
+                </h6>
+                <span
+                  class="MuiTypography-root MuiTypography-caption"
+                >
+                  common.footer.createdWithLove
+                </span>
+              </div>
             </div>
           </div>
           <div
@@ -342,7 +317,7 @@ exports[`components/Layout renders successfully with title 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-284 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-278 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -352,18 +327,19 @@ exports[`components/Layout renders successfully with title 1`] = `
         >
           <a
             class=""
+            color="inherit"
             href="/"
             title="Home"
           >
             <img
               alt="Logo"
-              class="makeStyles-logo-286"
+              class="makeStyles-logo-280"
               src="/static/images/logo.svg"
             />
           </a>
         </next-link>
         <div
-          class="makeStyles-flexGrow-285"
+          class="makeStyles-flexGrow-279"
         />
         <div>
           <button
@@ -376,7 +352,7 @@ exports[`components/Layout renders successfully with title 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-333 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-327 MuiAvatar-colorDefault"
               >
                 EN
               </div>
@@ -447,13 +423,13 @@ exports[`components/Layout renders successfully with title 1`] = `
       </div>
     </header>
     <div
-      class="makeStyles-container-282"
+      class="makeStyles-container-276"
     >
       <main
-        class="makeStyles-main-283"
+        class="makeStyles-main-277"
       />
       <footer
-        class="makeStyles-root-390"
+        class="makeStyles-root-384"
       >
         <div
           class="MuiGrid-root MuiGrid-container"
@@ -470,150 +446,124 @@ exports[`components/Layout renders successfully with title 1`] = `
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-3"
               >
-                <h3
-                  class="makeStyles-company-391"
+                <h6
+                  class="MuiTypography-root MuiTypography-h6"
                 >
-                  Company
-                </h3>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-                  >
-                    About us
-                  </a>
-                </div>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-                  >
-                    Contact
-                  </a>
-                </div>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-                  >
-                    Products
-                  </a>
-                </div>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-                  >
-                    Blogs
-                  </a>
-                </div>
-              </div>
-              <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-3"
-              >
-                <h3
-                  class="makeStyles-company-391"
+                  common.company
+                </h6>
+                <div
+                  class="makeStyles-linkContainer-386"
                 >
-                  Legal
-                </h3>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                  <next-link
+                    href="/"
                   >
-                    FAQ
-                  </a>
+                    <a
+                      class="makeStyles-link-385"
+                      color="inherit"
+                      href="/"
+                    >
+                      common.home
+                    </a>
+                  </next-link>
                 </div>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                <div
+                  class="makeStyles-linkContainer-386"
+                >
+                  <next-link
+                    href="/aboutUs"
                   >
-                    Premium support
-                  </a>
+                    <a
+                      class="makeStyles-link-385"
+                      color="inherit"
+                      href="/aboutUs"
+                    >
+                      common.aboutUs
+                    </a>
+                  </next-link>
                 </div>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+                <div
+                  class="makeStyles-linkContainer-386"
+                >
+                  <next-link
+                    href="/blogs"
                   >
-                    Sponsorships
-                  </a>
-                </div>
-                <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-                  >
-                    Custom development
-                  </a>
+                    <a
+                      class="makeStyles-link-385"
+                      color="inherit"
+                      href="/blogs"
+                    >
+                      common.blogs
+                    </a>
+                  </next-link>
                 </div>
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
               >
-                <h3
-                  class="makeStyles-company-391"
+                <h6
+                  class="MuiTypography-root MuiTypography-h6"
                 >
-                  Social medias
-                </h3>
+                  common.socialMedias
+                </h6>
                 <div>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-392 MuiTypography-colorInherit"
+                  <next-link
+                    href="/"
                   >
-                    <img
-                      class="makeStyles-image-393"
-                      src="/static/images/facebook.png"
-                    />
-                  </a>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-392 MuiTypography-colorInherit"
+                    <a
+                      class="makeStyles-socialLink-387"
+                      color="inherit"
+                      href="/"
+                    >
+                      <img
+                        class="makeStyles-image-388"
+                        src="/static/images/facebook.png"
+                      />
+                    </a>
+                  </next-link>
+                  <next-link
+                    href="/"
                   >
-                    <img
-                      class="makeStyles-image-393"
-                      src="/static/images/dribbble.png"
-                    />
-                  </a>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-392 MuiTypography-colorInherit"
-                  >
-                    <img
-                      class="makeStyles-image-393"
-                      src="/static/images/google-plus.png"
-                    />
-                  </a>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-392 MuiTypography-colorInherit"
-                  >
-                    <img
-                      class="makeStyles-image-393"
-                      src="/static/images/linkedin.png"
-                    />
-                  </a>
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-socialLink-392 MuiTypography-colorInherit"
-                  >
-                    <img
-                      class="makeStyles-image-393"
-                      src="/static/images/pinterest.png"
-                    />
-                  </a>
+                    <a
+                      class="makeStyles-socialLink-387"
+                      color="inherit"
+                      href="/"
+                    >
+                      <img
+                        class="makeStyles-image-388"
+                        src="/static/images/linkedin.png"
+                      />
+                    </a>
+                  </next-link>
                 </div>
               </div>
-            </div>
-            <div
-              class="makeStyles-signature-394"
-            >
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3"
               >
-                © 
-                <a
-                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="/"
+                <h6
+                  class="MuiTypography-root MuiTypography-h6"
                 >
-                  Thinh Tran
-                </a>
-                 
-                2019
-              </p>
-              <span
-                class="MuiTypography-root MuiTypography-caption"
-              >
-                common.footer.createdWithLove
-              </span>
+                  ©
+                   
+                  <next-link
+                    href="/"
+                  >
+                    <a
+                      class="makeStyles-link-385"
+                      color="inherit"
+                      href="/"
+                    >
+                      Thinh Tran
+                    </a>
+                  </next-link>
+                   
+                  2019
+                </h6>
+                <span
+                  class="MuiTypography-root MuiTypography-caption"
+                >
+                  common.footer.createdWithLove
+                </span>
+              </div>
             </div>
           </div>
           <div

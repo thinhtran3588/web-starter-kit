@@ -14,6 +14,7 @@ exports[`@app/modules/AdminBlogs/screens/AdminBlogs renders successfully 1`] = `
         >
           <a
             class=""
+            color="inherit"
             href="/"
             title="Home"
           >
@@ -207,6 +208,7 @@ exports[`@app/modules/AdminBlogs/screens/AdminBlogs renders successfully 1`] = `
                         >
                           <a
                             class="makeStyles-link-120 makeStyles-labelRoot-116"
+                            color="inherit"
                             href="/admin/users"
                             title="Users"
                           >
@@ -263,6 +265,7 @@ exports[`@app/modules/AdminBlogs/screens/AdminBlogs renders successfully 1`] = `
                         >
                           <a
                             class="makeStyles-link-120 makeStyles-labelRoot-116"
+                            color="inherit"
                             href="/admin/roles"
                             title="Roles"
                           >
@@ -388,6 +391,7 @@ exports[`@app/modules/AdminBlogs/screens/AdminBlogs renders successfully 1`] = `
                         >
                           <a
                             class="makeStyles-link-120 makeStyles-labelRoot-116"
+                            color="inherit"
                             href="/admin/blogs"
                             title="Blogs"
                           >
@@ -441,6 +445,7 @@ exports[`@app/modules/AdminBlogs/screens/AdminBlogs renders successfully 1`] = `
             >
               <a
                 class=""
+                color="inherit"
                 href="/"
               >
                 Thinh Tran

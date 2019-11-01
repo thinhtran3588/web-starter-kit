@@ -1,8 +1,13 @@
 {
+  "aboutUs": "About Us",
+  "blogs": "Blogs",
+  "changeLanguage": "Change language",
+  "company": "Company",
   "footer": {
     "createdWithLove": "Created with ♥!"
   },
+  "home": "Home",
   "invalidError": "{{field}} is invalid",
   "requiredError": "{{field}} is required",
-  "changeLanguage": "Change language"
+  "socialMedias": "Social Medias"
 }

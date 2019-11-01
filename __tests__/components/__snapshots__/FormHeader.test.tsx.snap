@@ -21,6 +21,7 @@ exports[`components/FormHeader renders successfully 1`] = `
             >
               <a
                 class=""
+                color="inherit"
                 href="/admin/users"
               >
                 Auth

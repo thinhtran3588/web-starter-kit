@@ -14,6 +14,7 @@ exports[`components/AdminLayout renders successfully 1`] = `
         >
           <a
             class=""
+            color="inherit"
             href="/"
             title="Home"
           >
@@ -183,6 +184,7 @@ exports[`components/AdminLayout renders successfully with title 1`] = `
         >
           <a
             class=""
+            color="inherit"
             href="/"
             title="Home"
           >
