@@ -19,7 +19,9 @@ exports[`@app/modules/main/screens/HomeScreen/components/Quote renders successfu
             <h4
               class="makeStyles-quote-2"
             >
-              "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula"
+              "
+              quote
+              "
             </h4>
             <div
               class="makeStyles-signatureContainer-3"
@@ -27,12 +29,12 @@ exports[`@app/modules/main/screens/HomeScreen/components/Quote renders successfu
               <div
                 class="makeStyles-signatureName-4"
               >
-                Lionel Messi
+                quoteFrom
               </div>
               <div
                 class="makeStyles-signatureJob-5"
               >
-                Greatest footballer of all time
+                quoteFromTitle
               </div>
             </div>
           </div>

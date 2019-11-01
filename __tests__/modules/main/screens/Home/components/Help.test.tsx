@@ -6,7 +6,7 @@ describe('@app/modules/main/screens/HomeScreen/components/Help', () => {
   beforeEach(() => {});
 
   it('renders successfully', async () => {
-    const { baseElement } = render(<Help />);
+    const { baseElement } = render(<Help t={(key: string) => key} />);
     expect(baseElement).toMatchSnapshot();
   });
 });

@@ -1,14 +1,18 @@
 import React from 'react';
 import { Layout } from '@app/components';
+import { WithTranslation, withTranslation } from '@app/core';
 import { CoverImage, Features, Quote, Help } from './components';
 
-const Screen = (): JSX.Element => {
+type Props = WithTranslation;
+
+const Screen = (props: Props): JSX.Element => {
+  const { t } = props;
   return (
-    <Layout description='Home page'>
-      <CoverImage />
+    <Layout description={t('title')}>
+      <CoverImage t={t} />
       <Features />
-      <Quote />
-      <Help />
+      <Quote t={t} />
+      <Help t={t} />
     </Layout>
   );
 };
@@ -19,4 +23,4 @@ Screen.getInitialProps = async () => {
   };
 };
 
-export const HomeScreen = Screen;
+export const HomeScreen = withTranslation('home')(Screen);

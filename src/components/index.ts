@@ -17,3 +17,4 @@ export * from './Link';
 export * from './AuthLayout';
 export * from './Head';
 export * from './Button';
+export * from './Grid';

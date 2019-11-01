@@ -6,7 +6,7 @@ describe('@app/modules/main/screens/HomeScreen/components/Quote', () => {
   beforeEach(() => {});
 
   it('renders successfully', async () => {
-    const { baseElement } = render(<Quote />);
+    const { baseElement } = render(<Quote t={(key: string) => key} />);
     expect(baseElement).toMatchSnapshot();
   });
 });

@@ -1,10 +1,14 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
 import { config } from '@app/config';
+import { Button, Grid } from '@app/components';
 import { useStyles } from './styles';
 
-export const CoverImage = (): JSX.Element => {
+interface Props {
+  t: (key: string) => string;
+}
+
+export const CoverImage = (props: Props): JSX.Element => {
+  const { t } = props;
   const classes = useStyles();
 
   return (
@@ -17,15 +21,11 @@ export const CoverImage = (): JSX.Element => {
       <Grid container>
         <Grid item xs={1} lg={2}></Grid>
         <Grid item xs={10} lg={4}>
-          <h2 className={classes.title}>Praesent sapien massa, convallis a pellentesque nec</h2>
-          <p className={classes.paragraph}>
-            Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac
-            lectus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Pellentesque in ipsum id orci porta
-            dapibus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a
-          </p>
+          <h2 className={classes.title}>{t('coverTitle')}</h2>
+          <p className={classes.paragraph}>{t('coverParagraph')}</p>
           <div className={classes.introButtonContainer}>
             <Button variant='contained' color='primary'>
-              Explore
+              {t('explore')}
             </Button>
           </div>
         </Grid>

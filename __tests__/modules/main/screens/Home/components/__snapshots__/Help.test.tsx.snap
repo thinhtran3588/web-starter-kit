@@ -28,18 +28,18 @@ exports[`@app/modules/main/screens/HomeScreen/components/Help renders successful
               <h4
                 class="makeStyles-helpTitle-4"
               >
-                Need help?
+                needHelp
               </h4>
             </div>
             <div
               class="makeStyles-helpInfo-5"
             >
-              Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae
+              needHelpDescription
             </div>
             <div
               class="makeStyles-helpContact-6"
             >
-              support@mindxtech.com
+              contact@webstarterkit.com
             </div>
           </div>
         </div>

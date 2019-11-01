@@ -1,9 +1,14 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
 import { config } from '@app/config';
+import { Grid } from '@app/components';
 import { useStyles } from './styles';
 
-export const Quote = (): JSX.Element => {
+interface Props {
+  t: (key: string) => string;
+}
+
+export const Quote = (props: Props): JSX.Element => {
+  const { t } = props;
   const classes = useStyles();
 
   return (
@@ -12,19 +17,15 @@ export const Quote = (): JSX.Element => {
         <Grid item xs={1} lg={2}></Grid>
         <Grid item xs={10} lg={8}>
           <div className={classes.quoteContainer}>
-            <h4 className={classes.quote}>
-              &quot;Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Donec velit
-              neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula&quot;
-            </h4>
+            <h4 className={classes.quote}>&quot;{t('quote')}&quot;</h4>
             <div className={classes.signatureContainer}>
-              <div className={classes.signatureName}>Lionel Messi</div>
-              <div className={classes.signatureJob}>Greatest footballer of all time</div>
+              <div className={classes.signatureName}>{t('quoteFrom')}</div>
+              <div className={classes.signatureJob}>{t('quoteFromTitle')}</div>
             </div>
           </div>
         </Grid>
         <Grid item xs={1} lg={2}></Grid>
       </Grid>
-
       <div
         className={classes.coverImage2}
         style={{
