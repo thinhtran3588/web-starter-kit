@@ -9,9 +9,6 @@ export const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(3),
   },
-  formControl: {
-    width: '100%',
-  },
   bottomLinkContainer: {
     display: 'flex',
     flexDirection: 'column',

@@ -5,7 +5,6 @@ import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import { AdminLayout, FormHeader, FormSearch } from '@app/components';
 import {
-  FieldInfo,
   PickerDataItem,
   TableColumn,
   withTranslation,
@@ -81,7 +80,8 @@ const BaseUsers = (props: Props): JSX.Element => {
     ...props.roles,
   ];
 
-  const filterFields: FieldInfo[] = [
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const filterFields: any[] = [
     {
       name: 'filter',
       text: t('filter'),

@@ -1,7 +1,7 @@
 import { PickerDataItem, FieldType } from '@app/core';
 
-export interface FieldInfo {
-  name: string;
+export interface FieldInfo<T> {
+  name: keyof T;
   text: string;
   type?: FieldType; // default = text
   required?: boolean;

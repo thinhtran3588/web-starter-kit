@@ -1,11 +1,12 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import { FieldInfo, Filter, FieldValueType } from '@app/core';
+import { Filter, FieldValueType } from '@app/core';
 import { Field } from '@app/components/Field';
 
 interface Props {
   filter: Filter;
-  filterFields?: FieldInfo[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  filterFields?: any[];
   children?: React.ReactNode;
   handleChange?: (fieldName: string) => (value: FieldValueType, useDebounce: boolean) => void;
 }

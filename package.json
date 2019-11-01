@@ -100,7 +100,6 @@
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "build": "yarn build-server && rm -r -f .next && next build",
-    "build-serverless": "yarn build-server && rm -r -f .next && NEXT_TARGET=serverless next build",
     "build-server": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "dev": "yarn build-server && nodemon --watch ./dist --watch ./static --inspect=0.0.0.0:5858 --nolazy ./dist/server.js",

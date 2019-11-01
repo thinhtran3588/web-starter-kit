@@ -17,7 +17,8 @@ import { useStyles } from './styles';
 interface Props<T> {
   children?: React.ReactNode;
   defaultFilter?: Filter;
-  filterFields?: FieldInfo[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  filterFields?: FieldInfo<any>[];
   onFilterChange?: (filter: FilterWithOffsetPagination, useDebounce: boolean) => void;
   columns: TableColumn[];
   rows: { [id: string]: FieldValueType }[];

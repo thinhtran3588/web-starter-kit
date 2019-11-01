@@ -9,6 +9,7 @@ export * from './SidebarMenu';
 export * from './FormHeader';
 export * from './Field';
 export * from './FormFilter';
+export * from './FormInput';
 export * from './FormSearch';
 export * from './Table';
 export * from './LanguageSelection';
