@@ -5,7 +5,6 @@ import { AuthLayout, Link, LanguageSelection, FormInput, Button } from '@app/com
 import { WithTranslation, withTranslation, handleError, LoginType, FieldInfo, writeDataModel } from '@app/core';
 import { config } from '@app/config';
 import { navigationService, authService } from '@app/services';
-import { withApollo } from '@app/hoc';
 import { useStyles } from './styles';
 
 type Props = WithTranslation;
@@ -161,4 +160,4 @@ Screen.getInitialProps = async () => {
   };
 };
 
-export const LoginScreen = withApollo(withTranslation('login')(Screen));
+export const LoginScreen = withTranslation('login')(Screen);
