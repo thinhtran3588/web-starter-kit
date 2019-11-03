@@ -1,35 +1,31 @@
 import React from 'react';
-import { AppBar, Toolbar, Hidden, Badge, Button, IconButton, NoSsr, Typography } from '@material-ui/core';
 import { NavItem, User, resetStore } from '@app/core';
-import { Icon, Link, LanguageSelection } from '@app/components';
 import { config } from '@app/config';
 import { authService } from '@app/services';
+import { Icon } from '../Icon';
+import { Link } from '../Link';
+import { LanguageSelection } from '../LanguageSelection';
+import { Button } from '../Button';
+import { NoSsr } from '../NoSsr';
+import { Typography } from '../Typography';
+import { AppBar } from '../AppBar';
+import { Toolbar } from '../Toolbar';
+import { Hidden } from '../Hidden';
+import { Badge } from '../Badge';
+import { IconButton } from '../IconButton';
 import { useStyles } from './styles';
 
 interface Props {
   user?: User;
   navItems: NavItem[];
+  loginNavItems?: NavItem[];
   onSidebarOpen: () => void;
 }
 
 export const Header = (props: Props): JSX.Element => {
-  const { onSidebarOpen, navItems, user } = props;
+  const { onSidebarOpen, navItems, loginNavItems, user } = props;
   const classes = useStyles();
   const notifications = [{}, {}];
-  const loginNavItems: NavItem[] = [
-    {
-      id: 'login',
-      link: '/login',
-      text: 'Log In',
-      icon: 'Login',
-    },
-    {
-      id: 'register',
-      link: '/register',
-      text: 'Register',
-      icon: 'Register',
-    },
-  ];
 
   const renderNavItem = (navItem: NavItem): JSX.Element => (
     <Button color='inherit' className={classes.menuItemButton} key={`${navItem.link}${navItem.text}`}>
@@ -64,7 +60,7 @@ export const Header = (props: Props): JSX.Element => {
         <Hidden smDown>
           <div>
             {navItems.map(renderLinkNavItem)}
-            {!user && <NoSsr>{loginNavItems.map(renderLinkNavItem)}</NoSsr>}
+            {!user && <NoSsr>{!!loginNavItems && loginNavItems.map(renderLinkNavItem)}</NoSsr>}
           </div>
         </Hidden>
         <LanguageSelection />

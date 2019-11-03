@@ -1,20 +1,11 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { AdminLayout } from '@app/components';
-import { createMuiTheme } from '@material-ui/core';
-import { MuiThemeProvider } from '@material-ui/core/styles';
 import { TestBaseComponent } from '@test/helpers/TestBaseComponent';
 
 jest.mock('@material-ui/core/useMediaQuery', () => () => false);
 
 describe('components/AdminLayout', () => {
-  const theme = createMuiTheme({
-    props: {
-      MuiWithWidth: {
-        initialWidth: 'xs',
-      },
-    },
-  });
   beforeEach(() => {});
   it('renders successfully', async () => {
     const { baseElement } = render(
@@ -29,7 +20,7 @@ describe('components/AdminLayout', () => {
   it('renders successfully with title', async () => {
     const { baseElement } = render(
       <TestBaseComponent>
-        <AdminLayout title='Title' />{' '}
+        <AdminLayout title='Title' />
       </TestBaseComponent>,
     );
 
@@ -38,9 +29,9 @@ describe('components/AdminLayout', () => {
 
   it('opens sidebar when clicking Menu icon', async () => {
     const { getByTestId } = render(
-      <MuiThemeProvider theme={theme}>
+      <TestBaseComponent>
         <AdminLayout title='Title' />
-      </MuiThemeProvider>,
+      </TestBaseComponent>,
     );
     fireEvent.click(getByTestId('menu-icon'));
 
@@ -50,9 +41,9 @@ describe('components/AdminLayout', () => {
 
   it('closes sidebar when clicking sidebar backdrop', async () => {
     const { getByTestId } = render(
-      <MuiThemeProvider theme={theme}>
+      <TestBaseComponent>
         <AdminLayout title='Title' />
-      </MuiThemeProvider>,
+      </TestBaseComponent>,
     );
     fireEvent.click(getByTestId('menu-icon'));
     const backdrop = getByTestId('sidebar').querySelector('.MuiBackdrop-root');

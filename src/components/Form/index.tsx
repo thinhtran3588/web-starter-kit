@@ -1,7 +1,7 @@
 import React from 'react';
 import { FieldInfo } from '@app/core';
-import { FormField } from '@app/components/FormField';
 import { Formik, FormikConfig } from 'formik';
+import { FormField } from '../FormField';
 
 interface Props<T> extends FormikConfig<T> {
   fields?: FieldInfo<T>[];
@@ -9,9 +9,7 @@ interface Props<T> extends FormikConfig<T> {
   setForm?: (ref: Formik<T> | null) => void;
 }
 
-export type FormInput = <T>(props: Props<T>) => JSX.Element;
-
-export const FormInput: <T>(props: Props<T>) => JSX.Element = (props) => {
+export const Form: <T>(props: Props<T>) => JSX.Element = (props) => {
   const { fields, children, setForm, initialValues, ...other } = props;
 
   return (

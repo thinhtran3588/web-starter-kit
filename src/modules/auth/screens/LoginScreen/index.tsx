@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as yup from 'yup';
 import clsx from 'clsx';
-import { AuthLayout, Link, LanguageSelection, FormInput, Button } from '@app/components';
+import { AuthLayout, Link, LanguageSelection, Form, Button } from '@app/components';
 import { WithTranslation, withTranslation, handleError, LoginType, FieldInfo, writeDataModel } from '@app/core';
 import { config } from '@app/config';
 import { navigationService, authService } from '@app/services';
@@ -111,7 +111,7 @@ const Screen = (props: Props): JSX.Element => {
 
   return (
     <AuthLayout title={t('login')}>
-      <FormInput initialValues={initialValues} fields={fields} validationSchema={validationSchema} onSubmit={onSubmit}>
+      <Form initialValues={initialValues} fields={fields} validationSchema={validationSchema} onSubmit={onSubmit}>
         <div className={classes.buttonContainer}>
           <Button disabled={isBusy} type='submit' variant='contained' color='primary' className={classes.button}>
             {props.t('login')}
@@ -149,7 +149,7 @@ const Screen = (props: Props): JSX.Element => {
           </Link>
           <LanguageSelection useFab className={classes.languageSelection} />
         </div>
-      </FormInput>
+      </Form>
     </AuthLayout>
   );
 };

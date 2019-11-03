@@ -1,7 +1,7 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
 import { Filter, FieldValueType } from '@app/core';
-import { Field } from '@app/components/Field';
+import { Field } from '../Field';
+import { Grid } from '../Grid';
 
 interface Props {
   filter: Filter;

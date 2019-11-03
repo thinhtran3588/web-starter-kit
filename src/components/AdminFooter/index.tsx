@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from '@app/components';
-import { Typography } from '@material-ui/core';
-import { withTranslation } from '@app/core';
-import { WithTranslation } from 'react-i18next';
+import { withTranslation, WithTranslation } from '@app/core';
 import { config } from '@app/config';
+import { Typography } from '../Typography';
+import { Link } from '../Link';
 import { useStyles } from './styles';
 
 type Props = WithTranslation;

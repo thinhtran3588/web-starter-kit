@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import produce from 'immer';
-import { Paper, useTheme, useMediaQuery } from '@material-ui/core';
+import { useTheme, useMediaQuery } from '@material-ui/core';
 import {
   OffsetPagination,
   FieldInfo,
@@ -11,7 +11,9 @@ import {
   FilterWithOffsetPagination,
 } from '@app/core';
 import { config } from '@app/config';
-import { Table, FormFilter } from '@app/components';
+import { Table } from '../Table';
+import { FormFilter } from '../FormFilter';
+import { Paper } from '../Paper';
 import { useStyles } from './styles';
 
 interface Props<T> {

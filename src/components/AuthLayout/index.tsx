@@ -1,8 +1,8 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
 import { config } from '@app/config';
-import { useStyles } from './styles';
+import { Typography } from '../Typography';
 import { Head } from '../Head';
+import { useStyles } from './styles';
 
 interface Props {
   children?: JSX.Element;

@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { WithTranslation } from 'react-i18next';
-import { IconButton, Menu, MenuItem, Avatar, Fab } from '@material-ui/core';
 import { i18n, withTranslation } from '@app/core';
 import { config } from '@app/config';
 import { useStyles } from './styles';
+import { IconButton } from '../IconButton';
+import { Menu } from '../Menu';
+import { MenuItem } from '../MenuItem';
+import { Avatar } from '../Avatar';
+import { Fab } from '../Fab';
 
 interface Props extends WithTranslation {
   useFab?: boolean;

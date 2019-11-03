@@ -1,8 +1,7 @@
 import React, { CSSProperties, HTMLAttributes } from 'react';
 import clsx from 'clsx';
-import { useTheme, Typography, TextField, MenuItem, Paper, Chip } from '@material-ui/core';
-import { BaseTextFieldProps } from '@material-ui/core/TextField';
 import Select from 'react-select';
+import { useTheme } from '@material-ui/core';
 import { ValueContainerProps } from 'react-select/src/components/containers';
 import { ControlProps } from 'react-select/src/components/Control';
 import { MenuProps, NoticeProps } from 'react-select/src/components/Menu';
@@ -13,7 +12,12 @@ import { SingleValueProps } from 'react-select/src/components/SingleValue';
 import { ValueType } from 'react-select/src/types';
 import { Omit } from '@material-ui/types';
 import { PickerDataItem, FieldValueType } from '@app/core';
-import { Icon } from '@app/components';
+import { Chip } from '../Chip';
+import { Paper } from '../Paper';
+import { MenuItem } from '../MenuItem';
+import { Typography } from '../Typography';
+import { Icon } from '../Icon';
+import { BaseTextFieldProps, TextField } from '../TextField';
 import { useStyles } from './styles';
 
 interface OptionType {

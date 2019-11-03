@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import NextHead from 'next/head';
-import { config } from '@app/config';
-import { Header, Sidebar, Footer, SidebarMenu } from '@app/components';
-import { NavItem, GET_CURRENT_USER_QUERY, User } from '@app/core';
 import { useQuery } from '@apollo/react-hooks';
+import { config } from '@app/config';
+import { NavItem, GET_CURRENT_USER_QUERY, User } from '@app/core';
+import { Header } from '../Header';
+import { Sidebar } from '../Sidebar';
+import { Footer } from '../Footer';
+import { SidebarMenu } from '../SidebarMenu';
 import { useStyles } from './styles';
 
 interface Props {
@@ -34,6 +37,21 @@ export const Layout = ({ children, title = config.siteName, description = '' }: 
     },
   ];
 
+  const loginNavItems: NavItem[] = [
+    {
+      id: 'login',
+      link: '/login',
+      text: 'Log In',
+      icon: 'Login',
+    },
+    {
+      id: 'register',
+      link: '/register',
+      text: 'Register',
+      icon: 'Register',
+    },
+  ];
+
   const classes = useStyles();
   const [openSidebar, setOpenSidebar] = useState(false);
 
@@ -55,9 +73,9 @@ export const Layout = ({ children, title = config.siteName, description = '' }: 
         <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no' />
         <meta name='Description' content={description}></meta>
       </NextHead>
-      <Header onSidebarOpen={handleSidebarOpen} navItems={navItems} user={user} />
+      <Header onSidebarOpen={handleSidebarOpen} navItems={navItems} loginNavItems={loginNavItems} user={user} />
       <Sidebar onClose={handleSidebarClose} open={openSidebar} variant={'temporary'}>
-        <SidebarMenu navItems={navItems} />
+        <SidebarMenu navItems={navItems} loginNavItems={loginNavItems} user={user} />
       </Sidebar>
       <div className={classes.container}>
         <main className={classes.main}>{children}</main>

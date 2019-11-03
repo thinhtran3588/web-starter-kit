@@ -1,6 +1,10 @@
 import React from 'react';
-import { Button, Paper, Breadcrumbs, Typography, PropTypes } from '@material-ui/core';
-import { Link } from '@app/components';
+import { PropTypes } from '@material-ui/core';
+import { Link } from '../Link';
+import { Button } from '../Button';
+import { Paper } from '../Paper';
+import { Breadcrumbs } from '../Breadcrumbs';
+import { Typography } from '../Typography';
 import { useStyles } from './styles';
 
 interface Props {

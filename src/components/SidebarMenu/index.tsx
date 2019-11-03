@@ -1,14 +1,17 @@
 import React from 'react';
 import clsx from 'clsx';
-import TreeView from '@material-ui/lab/TreeView';
-import TreeItem, { TreeItemProps } from '@material-ui/lab/TreeItem';
-import { Typography } from '@material-ui/core';
-import { NavItem } from '@app/core';
-import { Icon, Link } from '@app/components';
+import { NavItem, User } from '@app/core';
+import { TreeView, TreeItem, TreeItemProps } from '../TreeView';
+import { Icon } from '../Icon';
+import { Link } from '../Link';
+import { Typography } from '../Typography';
+import { NoSsr } from '../NoSsr';
 import { useStyles } from './styles';
 
 interface Props {
+  user?: User;
   navItems: NavItem[];
+  loginNavItems?: NavItem[];
 }
 
 type StyledTreeItemProps = TreeItemProps & {
@@ -87,7 +90,7 @@ const renderMenuItems = (navItems: NavItem[]): JSX.Element => {
 };
 
 export const SidebarMenu = (props: Props): JSX.Element => {
-  const { navItems } = props;
+  const { navItems, loginNavItems, user } = props;
   const classes = useStyles();
   const defaultExpanded = navItems.filter((m) => m.expanded).map((m) => m.id);
   return (
@@ -99,6 +102,7 @@ export const SidebarMenu = (props: Props): JSX.Element => {
       defaultEndIcon={<div className={classes.defaultEndIcon} />}
     >
       {renderMenuItems(navItems)}
+      {!user && <NoSsr>{!!loginNavItems && renderMenuItems(loginNavItems)}</NoSsr>}
     </TreeView>
   );
 };

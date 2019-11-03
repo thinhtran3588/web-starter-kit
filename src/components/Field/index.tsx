@@ -1,11 +1,12 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { Grid, TextField } from '@material-ui/core';
 import clsx from 'clsx';
 import { PickerDataItem, FieldType, FieldValueType } from '@app/core';
+import { Grid } from '../Grid';
+import { TextField } from '../TextField';
 import { useStyles } from './styles';
 
-const Autocomplete = dynamic(() => import('@app/components/Autocomplete'));
+const Autocomplete = dynamic(() => import('../Autocomplete'));
 
 interface Props<T extends FieldValueType> {
   id?: string;
