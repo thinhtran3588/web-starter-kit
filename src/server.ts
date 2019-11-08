@@ -3,14 +3,8 @@ import http from 'http';
 import https from 'https';
 import { express } from './express';
 
-(async () => {
+(() => {
   const app = express();
-  const httpServer = http.createServer(app);
-  const port = process.env.PORT || 3000;
-  httpServer.listen(port);
-  if (process.env.NODE_ENV !== 'production') {
-    global.console.log(`> Ready on http://localhost:${port}`);
-  }
   if (process.env.HTTPS === 'TRUE') {
     const key = fs.readFileSync(`${__dirname}/../selfsigned.key`);
     const cert = fs.readFileSync(`${__dirname}/../selfsigned.crt`);
@@ -21,10 +15,17 @@ import { express } from './express';
       },
       app,
     );
-    const sslPort = process.env.SSL_PORT || 443;
-    httpsServer.listen(sslPort);
+    const port = process.env.SSL_PORT || 443;
+    httpsServer.listen(port);
     if (process.env.NODE_ENV !== 'production') {
-      global.console.log(`> Ready on https://localhost:${sslPort}`);
+      global.console.log(`> Ready on https://localhost:${port}`);
+    }
+  } else {
+    const httpServer = http.createServer(app);
+    const port = process.env.PORT || 3000;
+    httpServer.listen(port);
+    if (process.env.NODE_ENV !== 'production') {
+      global.console.log(`> Ready on http://localhost:${port}`);
     }
   }
 })();
