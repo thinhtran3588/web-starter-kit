@@ -1,6 +1,7 @@
 import firebase, { auth } from 'firebase/app';
-import { User, LoginType, AppError } from '@app/core';
+import { User, LoginType, AppError, initApolloClient } from '@app/core';
 import { config } from '@app/config';
+import { gql } from 'apollo-boost';
 
 const FACEBOOK_PROVIDER_ID = 'facebook.com';
 const GOOGLE_PROVIDER_ID = 'google.com';
@@ -40,11 +41,12 @@ const getUser = (user: firebase.User): User => {
   let displayName = user.displayName || undefined;
   if (!displayName) {
     if (loginType === 'PHONE_NO') {
-      displayName = (user.phoneNumber as unknown) as string;
+      displayName = user.phoneNumber as string;
     } else if (loginType === 'EMAIL') {
-      displayName = (user.email as unknown) as string;
+      displayName = user.email as string;
     }
   }
+
   return {
     id: user.uid,
     displayName,
@@ -56,6 +58,32 @@ const getUser = (user: firebase.User): User => {
   };
 };
 
+const verifyRegistration = async (): Promise<void> => {
+  const { currentUser } = auth();
+  if (!currentUser) {
+    return;
+  }
+  const { claims } = await currentUser.getIdTokenResult(true);
+  if (!claims.id) {
+    const token = await currentUser.getIdToken(true);
+    const apolloClient = initApolloClient();
+    await apolloClient.mutate({
+      variables: {
+        token,
+      },
+      mutation: gql`
+        mutation registerWithToken($token: String!) {
+          users {
+            registerWithToken(payload: { token: $token }) {
+              id
+            }
+          }
+        }
+      `,
+    });
+  }
+};
+
 const login = async (
   provider: firebase.auth.AuthProvider,
   language: string = config.i18n.defaultLang,
@@ -65,6 +93,7 @@ const login = async (
   if (!user) {
     throw new AppError('auth/user-not-found', 'User not found');
   }
+  await verifyRegistration();
   return getUser(user);
 };
 
@@ -82,6 +111,8 @@ const loginFacebook = async (language: string = config.i18n.defaultLang): Promis
 
 const loginGoogle = async (language: string = config.i18n.defaultLang): Promise<User> => {
   const provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('profile');
+  provider.addScope('email');
   provider.setCustomParameters({
     display: 'popup',
   });
@@ -111,6 +142,7 @@ const signInWithEmailAndPassword = async (email: string, password: string): Prom
   if (!user) {
     throw new AppError('auth/user-not-found', 'User not found');
   }
+  await verifyRegistration();
   return getUser(user);
 };
 
@@ -175,7 +207,8 @@ const sendSmsVerification = async (
 
 const verifySmsCode = async (confirmationResult: auth.ConfirmationResult, code: string): Promise<User | undefined> => {
   const credential = await confirmationResult.confirm(code);
-  return credential && credential.user ? getUser(credential.user) : undefined;
+  await verifyRegistration();
+  return credential.user ? getUser(credential.user) : undefined;
 };
 
 const sendPasswordResetEmail = async (email: string, language: string = config.i18n.defaultLang): Promise<void> => {
