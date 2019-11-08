@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import * as yup from 'yup';
 import clsx from 'clsx';
-import { AuthLayout, Link, LanguageSelection, Form, Button } from '@app/components';
-import { WithTranslation, withTranslation, handleError, LoginType, FieldInfo, writeDataModel } from '@app/core';
-import { config } from '@app/config';
+import { AuthLayout, Link, LanguageSelection, Button } from '@app/components';
+import { WithTranslation, withTranslation, handleError, LoginType, writeDataModel } from '@app/core';
 import { navigationService, authService } from '@app/services';
 import { useStyles } from './styles';
+import { EmailLogin } from './components';
 
 type Props = WithTranslation;
 
@@ -14,77 +13,11 @@ interface InputFormData {
   password: string;
 }
 
-const initialValues: InputFormData = {
-  email: '',
-  password: '',
-};
-
 const Screen = (props: Props): JSX.Element => {
   const { t } = props;
   const [isBusy, setIsBusy] = useState<boolean>(false);
+  const [showingEmailLogin] = useState<boolean>(true);
   const classes = useStyles();
-  const fields: FieldInfo<InputFormData>[] = [
-    {
-      name: 'email',
-      label: t('email'),
-      required: true,
-    },
-    {
-      name: 'password',
-      label: t('password'),
-      required: true,
-      isPassword: true,
-    },
-  ];
-  const validationSchema = yup.object().shape<InputFormData>({
-    email: yup
-      .string()
-      .required(
-        t('common:requiredError', {
-          field: t('email'),
-        }),
-      )
-      .matches(
-        config.regex.email,
-        t('common:invalidError', {
-          field: t('email'),
-        }),
-      ),
-    password: yup
-      .string()
-      .required(
-        t('common:requiredError', {
-          field: t('password'),
-        }),
-      )
-      .matches(config.regex.password, t('invalidPassword')),
-  });
-
-  const onSubmit = async (input: InputFormData): Promise<void> => {
-    try {
-      setIsBusy(true);
-      const currentUser = await authService.signInWithEmailAndPassword(input.email, input.password);
-      writeDataModel(currentUser, 'currentUser');
-      if (currentUser.emailVerified) {
-        navigationService.navigateTo({
-          url: '/',
-        });
-      } else {
-        navigationService.navigateTo({
-          url: '/emailVerification',
-        });
-      }
-    } catch (error) {
-      handleError(error, {
-        'auth/invalid-email': t('wrongLoginCredentials'),
-        'auth/user-disabled': t('userDisabled'),
-        'auth/user-not-found': t('wrongLoginCredentials'),
-        'auth/wrong-password': t('wrongLoginCredentials'),
-      });
-    } finally {
-      setIsBusy(false);
-    }
-  };
 
   const loginExternal = async (loginType: LoginType): Promise<void> => {
     try {
@@ -111,11 +44,9 @@ const Screen = (props: Props): JSX.Element => {
 
   return (
     <AuthLayout title={t('login')}>
-      <Form initialValues={initialValues} fields={fields} validationSchema={validationSchema} onSubmit={onSubmit}>
+      <>
+        {showingEmailLogin && <EmailLogin t={t} isBusy={isBusy} setIsBusy={setIsBusy} />}
         <div className={classes.buttonContainer}>
-          <Button disabled={isBusy} type='submit' variant='contained' color='primary' className={classes.button}>
-            {props.t('login')}
-          </Button>
           <Button
             disabled={isBusy}
             variant='contained'
@@ -149,7 +80,7 @@ const Screen = (props: Props): JSX.Element => {
           </Link>
           <LanguageSelection useFab className={classes.languageSelection} />
         </div>
-      </Form>
+      </>
     </AuthLayout>
   );
 };
