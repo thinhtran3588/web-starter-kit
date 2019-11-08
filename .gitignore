@@ -70,6 +70,7 @@ bin
 
 # credential files
 environments/production
+environments/development
 production.zip
 selfsigned.crt
 selfsigned.key
