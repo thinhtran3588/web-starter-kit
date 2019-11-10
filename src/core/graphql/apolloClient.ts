@@ -24,7 +24,7 @@ if (typeof window !== 'undefined') {
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const createApolloClient = () => {
   // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
-  return new ApolloClient({
+  const client = new ApolloClient({
     ssrMode: typeof window === 'undefined', // Disables forceFetch on the server (so queries are only run once)
     link: new HttpLink({
       uri: config.apiEndpoint, // Server URL (must be absolute)
@@ -34,6 +34,15 @@ const createApolloClient = () => {
     cache,
     resolvers: {},
   });
+  client.writeData({
+    data: {
+      currentNotification: {
+        open: false,
+        __typename: 'currentNotification',
+      },
+    },
+  });
+  return client;
 };
 
 /**

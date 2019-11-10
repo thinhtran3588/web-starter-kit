@@ -33,6 +33,7 @@ export * from './NoSsr';
 export * from './Paper';
 export * from './Sidebar';
 export * from './SidebarMenu';
+export * from './Notification';
 export * from './Table';
 export * from './TextField';
 export * from './Toolbar';

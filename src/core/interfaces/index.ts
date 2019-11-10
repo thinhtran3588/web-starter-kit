@@ -13,3 +13,4 @@ export * from './search_record';
 export * from './user';
 export * from './login_type';
 export * from './form_data';
+export * from './notification_content';

@@ -14,6 +14,11 @@ import Input from '@material-ui/icons/Input';
 import Menu from '@material-ui/icons/Menu';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
+import CloseIcon from '@material-ui/icons/Close';
+import CheckCircle from '@material-ui/icons/CheckCircle';
+import Warning from '@material-ui/icons/Warning';
+import Error from '@material-ui/icons/Error';
+
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
 
 interface Props extends SvgIconProps {
@@ -53,6 +58,14 @@ export const Icon = (props: Props): JSX.Element => {
       return <AssignmentIndIcon {...other} />;
     case 'Register':
       return <GroupAddIcon {...other} />;
+    case 'Close':
+      return <CloseIcon {...other} />;
+    case 'CheckCircle':
+      return <CheckCircle {...other} />;
+    case 'Warning':
+      return <Warning {...other} />;
+    case 'Error':
+      return <Error {...other} />;
     default:
       return <></>;
   }

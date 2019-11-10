@@ -5,8 +5,8 @@ import { ThemeProvider } from '@material-ui/styles';
 import { CssBaseline } from '@material-ui/core';
 import { theme, appWithTranslation } from '@app/core';
 import { config } from '@app/config';
-import { Provider } from 'react-redux';
 import { withApollo } from '@app/hoc';
+import { Notification, NoSsr } from '@app/components';
 
 import('firebase/auth');
 
@@ -25,13 +25,16 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
           <Component {...pageProps} />
         </ThemeProvider>
-      </React.Fragment>
+        <NoSsr>
+          <Notification />
+        </NoSsr>
+      </>
     );
   }
 }
