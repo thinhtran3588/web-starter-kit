@@ -58,7 +58,7 @@ export const Notification = (): JSX.Element => {
   };
 
   const { data } = useQuery(GET_CURRENT_NOTIFICATION_QUERY);
-  const notification: NotificationContent | undefined = data.currentNotification;
+  const notification: NotificationContent | undefined = data ? data.currentNotification : undefined;
   return (
     <MuiSnackbar
       anchorOrigin={{

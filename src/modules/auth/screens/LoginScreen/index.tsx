@@ -4,7 +4,7 @@ import { AuthLayout, Link, LanguageSelection, Button } from '@app/components';
 import { WithTranslation, withTranslation, handleError, LoginType, writeDataModel } from '@app/core';
 import { navigationService, authService } from '@app/services';
 import { useStyles } from './styles';
-import { EmailLogin } from './components';
+import { EmailLogin, PhoneNoLogin } from './components';
 
 type Props = WithTranslation;
 
@@ -16,7 +16,7 @@ interface InputFormData {
 const Screen = (props: Props): JSX.Element => {
   const { t } = props;
   const [isBusy, setIsBusy] = useState<boolean>(false);
-  const [showingEmailLogin] = useState<boolean>(true);
+  const [showingEmailLogin, setShowingEmailLogin] = useState<boolean>(true);
   const classes = useStyles();
 
   const loginExternal = async (loginType: LoginType): Promise<void> => {
@@ -46,6 +46,7 @@ const Screen = (props: Props): JSX.Element => {
     <AuthLayout title={t('login')}>
       <>
         {showingEmailLogin && <EmailLogin t={t} isBusy={isBusy} setIsBusy={setIsBusy} />}
+        {!showingEmailLogin && <PhoneNoLogin t={t} isBusy={isBusy} setIsBusy={setIsBusy} />}
         <div className={classes.buttonContainer}>
           <Button
             disabled={isBusy}
@@ -54,7 +55,7 @@ const Screen = (props: Props): JSX.Element => {
             className={clsx(classes.button, classes.facebook)}
             onClick={() => loginExternal('FACEBOOK')}
           >
-            {props.t('loginFacebook')}
+            {props.t('continueWithFacebook')}
           </Button>
           <Button
             disabled={isBusy}
@@ -63,7 +64,16 @@ const Screen = (props: Props): JSX.Element => {
             className={clsx(classes.button, classes.google)}
             onClick={() => loginExternal('GOOGLE')}
           >
-            {props.t('loginGoogle')}
+            {props.t('continueWithGoogle')}
+          </Button>
+          <Button
+            disabled={isBusy}
+            variant='contained'
+            color='primary'
+            className={classes.button}
+            onClick={() => setShowingEmailLogin(!showingEmailLogin)}
+          >
+            {props.t(showingEmailLogin ? 'continueWithPhoneNo' : 'loginWithEmail')}
           </Button>
           <Link href='/' title={props.t('backToHome')} showAsText className={classes.button}>
             <Button disabled={isBusy} variant='contained' color='default' className={classes.linkButton}>

@@ -9,4 +9,5 @@ export interface FieldInfo<T> {
   pickerDataSources?: PickerDataItem<any>[];
   isPassword?: boolean;
   disabled?: boolean;
+  hidden?: boolean;
 }

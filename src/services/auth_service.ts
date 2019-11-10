@@ -7,22 +7,6 @@ const FACEBOOK_PROVIDER_ID = 'facebook.com';
 const GOOGLE_PROVIDER_ID = 'google.com';
 const PHONE_PROVIDER_ID = 'phone';
 
-// if (typeof window !== 'undefined') {
-//   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//   (window as any).recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-//     size: 'normal',
-//     // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
-//     callback: (_response: any) => {
-//       // reCAPTCHA solved, allow signInWithPhoneNumber.
-//       // ...
-//     },
-//     'expired-callback': () => {
-//       // Response expired. Ask user to solve reCAPTCHA again.
-//       // ...
-//     },
-//   });
-// }
-
 const getUser = (user: firebase.User): User => {
   const avatarUrl =
     user.photoURL && user.photoURL.indexOf('facebook') > -1 ? `${user.photoURL}?height=500` : user.photoURL;
@@ -205,10 +189,13 @@ const sendSmsVerification = async (
   return auth().signInWithPhoneNumber(phoneNo, appVerifier);
 };
 
-const verifySmsCode = async (confirmationResult: auth.ConfirmationResult, code: string): Promise<User | undefined> => {
+const verifySmsCode = async (confirmationResult: auth.ConfirmationResult, code: string): Promise<User> => {
   const credential = await confirmationResult.confirm(code);
+  if (!credential.user) {
+    throw new AppError('auth/user-not-found', 'User not found');
+  }
   await verifyRegistration();
-  return credential.user ? getUser(credential.user) : undefined;
+  return getUser(credential.user);
 };
 
 const sendPasswordResetEmail = async (email: string, language: string = config.i18n.defaultLang): Promise<void> => {

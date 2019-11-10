@@ -1,13 +1,20 @@
 {
   "backToHome": "Back To Home",
+  "continueWithFacebook": "Continue with Facebook",
+  "continueWithGoogle": "Continue with Google",
+  "continueWithPhoneNo": "Continue with Phone No",
+  "countryCode": "Country Code",
   "email": "Email",
   "forgotPassword": "Forgot Password?",
   "invalidPassword": "Password must be at least 6 characters and at most 20 characters and must include at least one upper case letter, one lower case letter, one numeric digit and one special letter (!, @, #, $, %, ^, &, *)",
+  "verificationCode": "Verification Code",
   "login": "Login",
-  "loginFacebook": "Login Facebook",
-  "loginGoogle": "Login Google",
+  "loginWithEmail": "Login with email",
   "password": "Password",
+  "phoneNo": "Phone No",
   "register": "Register",
+  "resendVerificationCode": "Resend Verification Code",
+  "sendVerificationCode": "Send Verification Code",
   "userDisabled": "User has been disabled",
   "wrongLoginCredentials": "Wrong login credentials"
 }

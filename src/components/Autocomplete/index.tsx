@@ -206,7 +206,7 @@ const Autocomplete: <T extends FieldValueType>(props: Props<T>) => JSX.Element =
         value={inputValue}
         onChange={handleChangeSingle}
         error={error}
-        disabled={disabled}
+        isDisabled={disabled}
       />
     </div>
   );
