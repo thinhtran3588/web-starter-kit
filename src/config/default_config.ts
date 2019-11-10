@@ -37,4 +37,5 @@ export default {
     static: '/static',
     public: '/public',
   },
+  defaultCountryCode: '+84',
 };
