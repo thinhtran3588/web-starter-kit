@@ -24,7 +24,7 @@ export const AuthLayout = (props: Props): JSX.Element => {
       <Head title={title} description={description} />
       <div className={classes.form}>
         <div className={classes.logoText}>
-          <Typography variant='h4'>{config.siteName}</Typography>
+          <Typography variant='h4'>{title}</Typography>
         </div>
         {children}
       </div>
