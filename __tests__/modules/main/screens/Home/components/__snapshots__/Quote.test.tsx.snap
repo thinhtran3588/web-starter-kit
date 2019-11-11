@@ -44,8 +44,8 @@ exports[`@app/modules/main/screens/HomeScreen/components/Quote renders successfu
         />
       </div>
       <div
-        class="makeStyles-coverImage2-6"
-        style="background-image: url(/static/images/cover2.jpg);"
+        class="makeStyles-coverImage2-6 lazyload"
+        data-bg="/static/images/cover2.jpg"
       />
     </div>
   </div>

@@ -57,8 +57,8 @@ exports[`@app/modules/main/screens/HomeScreen/components/Features renders succes
                   class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
                 >
                   <div
-                    class="MuiCardMedia-root makeStyles-media-4"
-                    style="background-image: url(/static/images/intro2.jpg);"
+                    class="makeStyles-media-4 lazyload"
+                    data-bg="/static/images/intro2.jpg"
                     title="feature2"
                   />
                   <div
@@ -79,8 +79,8 @@ exports[`@app/modules/main/screens/HomeScreen/components/Features renders succes
                   class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
                 >
                   <div
-                    class="MuiCardMedia-root makeStyles-media-4"
-                    style="background-image: url(/static/images/intro3.jpg);"
+                    class="makeStyles-media-4 lazyload"
+                    data-bg="/static/images/intro3.jpg"
                     title="feature3"
                   />
                   <div

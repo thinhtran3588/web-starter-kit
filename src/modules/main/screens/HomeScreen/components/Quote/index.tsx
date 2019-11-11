@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { config } from '@app/config';
 import { Grid } from '@app/components';
 import { useStyles } from './styles';
@@ -27,10 +28,8 @@ export const Quote = (props: Props): JSX.Element => {
         <Grid item xs={1} lg={2}></Grid>
       </Grid>
       <div
-        className={classes.coverImage2}
-        style={{
-          backgroundImage: `url(${config.storageLocation.static}/images/cover2.jpg)`,
-        }}
+        className={clsx(classes.coverImage2, 'lazyload')}
+        data-bg={`${config.storageLocation.static}/images/cover2.jpg`}
       ></div>
     </div>
   );

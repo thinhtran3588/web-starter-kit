@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { Grid } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -41,9 +42,9 @@ export const Features = (props: Props): JSX.Element => {
               </Grid>
               <Grid item xs={12} lg={4}>
                 <Card>
-                  <CardMedia
-                    className={classes.media}
-                    image={`${config.storageLocation.static}/images/intro2.jpg`}
+                  <div
+                    className={clsx(classes.media, 'lazyload')}
+                    data-bg={`${config.storageLocation.static}/images/intro2.jpg`}
                     title={t('feature2')}
                   />
                   <CardContent>
@@ -55,9 +56,9 @@ export const Features = (props: Props): JSX.Element => {
               </Grid>
               <Grid item xs={12} lg={4}>
                 <Card>
-                  <CardMedia
-                    className={classes.media}
-                    image={`${config.storageLocation.static}/images/intro3.jpg`}
+                  <div
+                    className={clsx(classes.media, 'lazyload')}
+                    data-bg={`${config.storageLocation.static}/images/intro3.jpg`}
                     title={t('feature3')}
                   />
                   <CardContent>

@@ -11,9 +11,6 @@ import { Sidebar } from '../Sidebar';
 import { Header } from '../Header';
 import { useStyles } from './styles';
 
-import 'lazysizes';
-import 'firebase/auth';
-
 interface Props {
   children?: React.ReactNode;
   title?: string;

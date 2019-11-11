@@ -420,8 +420,8 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                       class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardMedia-root makeStyles-media-262"
-                        style="background-image: url(/static/images/intro2.jpg);"
+                        class="makeStyles-media-262 lazyload"
+                        data-bg="/static/images/intro2.jpg"
                         title="home.feature2"
                       />
                       <div
@@ -442,8 +442,8 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                       class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardMedia-root makeStyles-media-262"
-                        style="background-image: url(/static/images/intro3.jpg);"
+                        class="makeStyles-media-262 lazyload"
+                        data-bg="/static/images/intro3.jpg"
                         title="home.feature3"
                       />
                       <div
@@ -506,8 +506,8 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
             />
           </div>
           <div
-            class="makeStyles-coverImage2-303"
-            style="background-image: url(/static/images/cover2.jpg);"
+            class="makeStyles-coverImage2-303 lazyload"
+            data-bg="/static/images/cover2.jpg"
           />
         </div>
         <div>

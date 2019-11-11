@@ -15,6 +15,18 @@ import { Hidden } from '../Hidden';
 import { Badge } from '../Badge';
 import { IconButton } from '../IconButton';
 import { useStyles } from './styles';
+import 'firebase/auth';
+import 'lazysizes';
+
+typeof document !== 'undefined' &&
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  document.addEventListener('lazybeforeunveil', (e: any) => {
+    const bg = e.target.getAttribute('data-bg');
+    if (bg) {
+      // eslint-disable-next-line no-param-reassign
+      e.target.style.backgroundImage = `url(${bg})`;
+    }
+  });
 
 interface Props {
   user?: User;
