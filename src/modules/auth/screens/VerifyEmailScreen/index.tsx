@@ -65,7 +65,7 @@ const Screen = (props: Props): JSX.Element => {
   const resendVerificationEmail = async (): Promise<void> => {
     try {
       setIsBusy(true);
-      // await authService.resendVerificationEmail();
+      await authService.resendVerificationEmail();
       showNotification({
         type: 'SUCCESS',
         message: t('verificationEmailResent'),

@@ -50,8 +50,9 @@ export const PhoneNoLogin = (props: Props): JSX.Element => {
     }));
   }
 
+  const [showVerificationCode, setShowVerificationCode] = useState(false);
   const [verificationCodeSent, setVerificationCodeSent] = useState(false);
-  const [waitToResend, setWaitToResend] = useState(30);
+  const [waitToResend, setWaitToResend] = useState(0);
   const fields: FieldInfo<FormData>[] = [
     {
       name: 'countryCode',
@@ -59,19 +60,19 @@ export const PhoneNoLogin = (props: Props): JSX.Element => {
       required: true,
       type: 'picker',
       pickerDataSources: countries,
-      disabled: verificationCodeSent,
+      disabled: showVerificationCode,
     },
     {
       name: 'phoneNo',
       label: t('phoneNo'),
       required: true,
-      disabled: verificationCodeSent,
+      disabled: showVerificationCode,
     },
     {
       name: 'verificationCode',
       label: t('verificationCode'),
       required: true,
-      hidden: !verificationCodeSent,
+      hidden: !showVerificationCode,
     },
   ];
   const validationSchema = yup.object().shape<FormData>({
@@ -116,6 +117,7 @@ export const PhoneNoLogin = (props: Props): JSX.Element => {
 
       setConfirmationResult(await authService.sendSmsVerification(`${input.countryCode}${input.phoneNo.toString()}`));
       setVerificationCodeSent(true);
+      setShowVerificationCode(true);
     } catch (error) {
       handleError(error, {
         'auth/invalid-phone-number': t('common:invalidError', {
@@ -139,15 +141,20 @@ export const PhoneNoLogin = (props: Props): JSX.Element => {
       callback: form.submitForm,
     });
   }, []);
+
   useEffect(() => {
     let intervalId: NodeJS.Timeout | undefined;
     if (verificationCodeSent) {
+      if (waitToResend === 0) {
+        setWaitToResend(config.defaultWaitToResend - 1);
+      }
       intervalId = setInterval(() => {
         setWaitToResend((value) => {
-          const newWaitToSend = (value - 1) % 30;
+          const newWaitToSend = (value - 1 + config.defaultWaitToResend) % config.defaultWaitToResend;
           if (newWaitToSend === 0 && intervalId) {
             clearInterval(intervalId);
             intervalId = undefined;
+            setVerificationCodeSent(false);
           }
           return newWaitToSend;
         });
@@ -159,7 +166,6 @@ export const PhoneNoLogin = (props: Props): JSX.Element => {
       }
     };
   }, [verificationCodeSent]);
-
   return (
     <Form
       initialValues={initialValues}
@@ -171,9 +177,9 @@ export const PhoneNoLogin = (props: Props): JSX.Element => {
       }}
     >
       <Button disabled={isBusy} type='submit' fullWidth variant='contained' color='primary' className={classes.button}>
-        {props.t(verificationCodeSent ? 'login' : 'sendVerificationCode')}
+        {props.t(showVerificationCode ? 'login' : 'sendVerificationCode')}
       </Button>
-      {verificationCodeSent && (
+      {showVerificationCode && (
         <Button
           disabled={isBusy || waitToResend !== 0}
           type='submit'
