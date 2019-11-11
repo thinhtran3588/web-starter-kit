@@ -19,7 +19,7 @@ exports[`@app/modules/main/screens/HomeScreen/components/Features renders succes
             <h3
               class="makeStyles-featuresTitle-2"
             >
-              Praesent sapien massa, convallis a
+              features
             </h3>
           </div>
           <div
@@ -37,7 +37,7 @@ exports[`@app/modules/main/screens/HomeScreen/components/Features renders succes
                   <div
                     class="MuiCardMedia-root makeStyles-media-4"
                     style="background-image: url(/static/images/intro1.jpg);"
-                    title="Paella dish"
+                    title="feature1"
                   />
                   <div
                     class="MuiCardContent-root"
@@ -45,7 +45,7 @@ exports[`@app/modules/main/screens/HomeScreen/components/Features renders succes
                     <p
                       class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
                     >
-                      This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                      featureDescription1
                     </p>
                   </div>
                 </div>
@@ -59,7 +59,7 @@ exports[`@app/modules/main/screens/HomeScreen/components/Features renders succes
                   <div
                     class="MuiCardMedia-root makeStyles-media-4"
                     style="background-image: url(/static/images/intro2.jpg);"
-                    title="Paella dish"
+                    title="feature2"
                   />
                   <div
                     class="MuiCardContent-root"
@@ -67,7 +67,7 @@ exports[`@app/modules/main/screens/HomeScreen/components/Features renders succes
                     <p
                       class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
                     >
-                      This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                      featureDescription2
                     </p>
                   </div>
                 </div>
@@ -81,7 +81,7 @@ exports[`@app/modules/main/screens/HomeScreen/components/Features renders succes
                   <div
                     class="MuiCardMedia-root makeStyles-media-4"
                     style="background-image: url(/static/images/intro3.jpg);"
-                    title="Paella dish"
+                    title="feature3"
                   />
                   <div
                     class="MuiCardContent-root"
@@ -89,7 +89,7 @@ exports[`@app/modules/main/screens/HomeScreen/components/Features renders succes
                     <p
                       class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
                     >
-                      This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                      featureDescription3
                     </p>
                   </div>
                 </div>

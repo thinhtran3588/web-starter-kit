@@ -56,7 +56,7 @@ export const BaseFooter = (props: Props): JSX.Element => {
                 </Link>
                 &nbsp;{config.copyRightYear}
               </Typography>
-              <Typography variant='caption'>{t('footer.createdWithLove')}</Typography>
+              <Typography variant='caption'>{t('createdWithLove')}</Typography>
             </Grid>
           </Grid>
         </Grid>

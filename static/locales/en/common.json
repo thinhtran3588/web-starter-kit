@@ -3,11 +3,11 @@
   "blogs": "Blogs",
   "changeLanguage": "Change language",
   "company": "Company",
-  "footer": {
-    "createdWithLove": "Created with ♥!"
-  },
+  "createdWithLove": "Created with ♥!",
   "home": "Home",
   "invalidError": "{{field}} is invalid",
+  "login": "Login",
+  "register": "Register",
   "requiredError": "{{field}} is required",
   "socialMedias": "Social Medias"
 }

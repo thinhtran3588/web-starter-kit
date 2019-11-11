@@ -28,6 +28,86 @@ exports[`components/Header renders successfully 1`] = `
         <div
           class="makeStyles-flexGrow-2"
         />
+        <div
+          class="PrivateHiddenCss-smDown-54"
+        >
+          <div>
+            <next-link
+              href="/"
+            >
+              <a
+                class="makeStyles-menuItem-4"
+                color="inherit"
+                href="/"
+              >
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-7 MuiButton-colorInherit"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <span
+                      class="makeStyles-menuItemText-6"
+                    >
+                      Home
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </a>
+            </next-link>
+            <next-link
+              href="/about"
+            >
+              <a
+                class="makeStyles-menuItem-4"
+                color="inherit"
+                href="/about"
+              >
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-7 MuiButton-colorInherit"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <span
+                      class="makeStyles-menuItemText-6"
+                    >
+                      About
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </a>
+            </next-link>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-7 MuiButton-colorInherit"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                <span
+                  class="makeStyles-menuItemText-6"
+                >
+                  No Link
+                </span>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
         <div>
           <button
             aria-label="common.changeLanguage"
@@ -39,7 +119,7 @@ exports[`components/Header renders successfully 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-50 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-96 MuiAvatar-colorDefault"
               >
                 EN
               </div>

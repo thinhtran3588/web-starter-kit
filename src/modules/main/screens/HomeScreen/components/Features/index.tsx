@@ -7,7 +7,12 @@ import Typography from '@material-ui/core/Typography';
 import { config } from '@app/config';
 import { useStyles } from './styles';
 
-export const Features = (): JSX.Element => {
+interface Props {
+  t: (key: string) => string;
+}
+
+export const Features = (props: Props): JSX.Element => {
+  const { t } = props;
   const classes = useStyles();
 
   return (
@@ -16,9 +21,8 @@ export const Features = (): JSX.Element => {
         <Grid item xs={1} lg={2}></Grid>
         <Grid item xs={10} lg={8}>
           <div className={classes.featuresContainer}>
-            <h3 className={classes.featuresTitle}>Praesent sapien massa, convallis a</h3>
+            <h3 className={classes.featuresTitle}>{t('features')}</h3>
           </div>
-
           <div className={classes.featuresContent}>
             <Grid container spacing={4}>
               <Grid item xs={12} lg={4}>
@@ -26,12 +30,11 @@ export const Features = (): JSX.Element => {
                   <CardMedia
                     className={classes.media}
                     image={`${config.storageLocation.static}/images/intro1.jpg`}
-                    title='Paella dish'
+                    title={t('feature1')}
                   />
                   <CardContent>
                     <Typography variant='body2' color='textSecondary' component='p'>
-                      This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
-                      Add 1 cup of frozen peas along with the mussels, if you like.
+                      {t('featureDescription1')}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -41,12 +44,11 @@ export const Features = (): JSX.Element => {
                   <CardMedia
                     className={classes.media}
                     image={`${config.storageLocation.static}/images/intro2.jpg`}
-                    title='Paella dish'
+                    title={t('feature2')}
                   />
                   <CardContent>
                     <Typography variant='body2' color='textSecondary' component='p'>
-                      This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
-                      Add 1 cup of frozen peas along with the mussels, if you like.
+                      {t('featureDescription2')}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -56,12 +58,11 @@ export const Features = (): JSX.Element => {
                   <CardMedia
                     className={classes.media}
                     image={`${config.storageLocation.static}/images/intro3.jpg`}
-                    title='Paella dish'
+                    title={t('feature3')}
                   />
                   <CardContent>
                     <Typography variant='body2' color='textSecondary' component='p'>
-                      This impressive paella is a perfect party dish and a fun meal to cook together with your guests.
-                      Add 1 cup of frozen peas along with the mussels, if you like.
+                      {t('featureDescription3')}
                     </Typography>
                   </CardContent>
                 </Card>

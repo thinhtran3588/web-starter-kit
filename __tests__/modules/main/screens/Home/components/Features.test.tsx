@@ -6,7 +6,7 @@ describe('@app/modules/main/screens/HomeScreen/components/Features', () => {
   beforeEach(() => {});
 
   it('renders successfully', async () => {
-    const { baseElement } = render(<Features />);
+    const { baseElement } = render(<Features t={(key: string) => key} />);
     expect(baseElement).toMatchSnapshot();
   });
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { About } from '@app/modules/main/screens/About';
+import { AboutUsScreen } from '@app/modules/main/screens/AboutUsScreen';
 import { TestBaseComponent } from '@test/helpers/TestBaseComponent';
 
 describe('@app/modules/main/screens/About', () => {
@@ -9,7 +9,7 @@ describe('@app/modules/main/screens/About', () => {
   it('renders successfully', async () => {
     const { baseElement } = render(
       <TestBaseComponent>
-        <About />
+        <AboutUsScreen />
       </TestBaseComponent>,
     );
     expect(baseElement).toMatchSnapshot();

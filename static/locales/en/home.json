@@ -2,10 +2,17 @@
   "coverParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna eget est lorem ipsum dolor sit amet consectetur. Orci dapibus ultrices in iaculis nunc sed. Ac turpis egestas sed tempus urna.",
   "coverTitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
   "explore": "Explore",
+  "features": "Features",
+  "feature1": "Feature 1",
+  "feature2": "Feature 2",
+  "feature3": "Feature 3",
+  "featureDescription1": "Feature Description 1",
+  "featureDescription2": "Feature Description 2",
+  "featureDescription3": "Feature Description 3",
+  "home": "Home",
   "needHelp": "Need help?",
   "needHelpDescription": "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae",
   "quote": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula",
   "quoteFrom": "Someone",
-  "quoteFromTitle": "Donec velit neque, auctor sit amet",
-  "title": "Home"
+  "quoteFromTitle": "Donec velit neque, auctor sit amet"
 }

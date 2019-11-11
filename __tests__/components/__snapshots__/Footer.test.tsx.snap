@@ -136,7 +136,7 @@ exports[`components/Header renders successfully 1`] = `
               <span
                 class="MuiTypography-root MuiTypography-caption"
               >
-                common.footer.createdWithLove
+                common.createdWithLove
               </span>
             </div>
           </div>

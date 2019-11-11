@@ -1,38 +1,40 @@
 import React, { useState } from 'react';
 import NextHead from 'next/head';
+import { WithTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { config } from '@app/config';
-import { NavItem, GET_CURRENT_USER_QUERY, User } from '@app/core';
+import { NavItem, GET_CURRENT_USER_QUERY, User, withTranslation } from '@app/core';
 import { Header } from '../Header';
 import { Sidebar } from '../Sidebar';
 import { Footer } from '../Footer';
 import { SidebarMenu } from '../SidebarMenu';
 import { useStyles } from './styles';
 
-interface Props {
+interface Props extends WithTranslation {
   children?: React.ReactNode;
   title?: string;
   description?: string;
 }
 
-export const Layout = ({ children, title = config.siteName, description = '' }: Props): JSX.Element => {
+const BaseLayout = (props: Props): JSX.Element => {
+  const { children, title = config.siteName, description = '', t } = props;
   const navItems: NavItem[] = [
     {
       id: 'home',
       link: '/',
-      text: 'Home',
+      text: t('home'),
       icon: 'Home',
     },
     {
       id: 'blogs',
       link: '/blogs',
-      text: 'Blogs',
+      text: t('blogs'),
       icon: 'MenuBook',
     },
     {
-      id: 'about',
-      link: '/about',
-      text: 'About',
+      id: 'aboutUs',
+      link: '/aboutUs',
+      text: t('aboutUs'),
       icon: 'Info',
     },
   ];
@@ -41,13 +43,13 @@ export const Layout = ({ children, title = config.siteName, description = '' }: 
     {
       id: 'login',
       link: '/login',
-      text: 'Log In',
+      text: t('login'),
       icon: 'Login',
     },
     {
       id: 'register',
       link: '/register',
-      text: 'Register',
+      text: t('register'),
       icon: 'Register',
     },
   ];
@@ -84,3 +86,5 @@ export const Layout = ({ children, title = config.siteName, description = '' }: 
     </>
   );
 };
+
+export const Layout = withTranslation('common')(BaseLayout);

@@ -3,11 +3,11 @@
   "blogs": "Bài viết",
   "changeLanguage": "Đổi ngôn ngữ",
   "company": "Công ty",
-  "footer": {
-    "createdWithLove": "Tạo cùng ♥!"
-  },
+  "createdWithLove": "Tạo cùng ♥!",
   "home": "Trang chủ",
   "invalidError": "{{field}} không hợp lệ",
+  "login": "Đăng nhập",
+  "register": "Đăng kí",
   "requiredError": "{{field}} bắt buộc",
   "socialMedias": "Mạng xã hội"
 }

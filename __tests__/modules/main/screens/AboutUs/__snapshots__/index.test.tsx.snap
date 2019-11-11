@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
+exports[`@app/modules/main/screens/About renders successfully 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-3 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-4 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -20,28 +20,28 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
           >
             <img
               alt="Logo"
-              class="makeStyles-logo-5"
+              class="makeStyles-logo-6"
               src="/static/images/logo.svg"
             />
           </a>
         </next-link>
         <div
-          class="makeStyles-flexGrow-4"
+          class="makeStyles-flexGrow-5"
         />
         <div
-          class="PrivateHiddenCss-smDown-56"
+          class="PrivateHiddenCss-smDown-57"
         >
           <div>
             <next-link
               href="/"
             >
               <a
-                class="makeStyles-menuItem-6"
+                class="makeStyles-menuItem-7"
                 color="inherit"
                 href="/"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-9 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-10 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -60,7 +60,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                       />
                     </svg>
                     <span
-                      class="makeStyles-menuItemText-8"
+                      class="makeStyles-menuItemText-9"
                     >
                       common.home
                     </span>
@@ -75,12 +75,12 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
               href="/blogs"
             >
               <a
-                class="makeStyles-menuItem-6"
+                class="makeStyles-menuItem-7"
                 color="inherit"
                 href="/blogs"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-9 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-10 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -102,7 +102,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                       />
                     </svg>
                     <span
-                      class="makeStyles-menuItemText-8"
+                      class="makeStyles-menuItemText-9"
                     >
                       common.blogs
                     </span>
@@ -117,12 +117,12 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
               href="/aboutUs"
             >
               <a
-                class="makeStyles-menuItem-6"
+                class="makeStyles-menuItem-7"
                 color="inherit"
                 href="/aboutUs"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-9 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-10 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -141,7 +141,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                       />
                     </svg>
                     <span
-                      class="makeStyles-menuItemText-8"
+                      class="makeStyles-menuItemText-9"
                     >
                       common.aboutUs
                     </span>
@@ -156,12 +156,12 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
               href="/login"
             >
               <a
-                class="makeStyles-menuItem-6"
+                class="makeStyles-menuItem-7"
                 color="inherit"
                 href="/login"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-9 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-10 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -180,7 +180,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                       />
                     </svg>
                     <span
-                      class="makeStyles-menuItemText-8"
+                      class="makeStyles-menuItemText-9"
                     >
                       common.login
                     </span>
@@ -195,12 +195,12 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
               href="/register"
             >
               <a
-                class="makeStyles-menuItem-6"
+                class="makeStyles-menuItem-7"
                 color="inherit"
                 href="/register"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-9 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-10 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -219,7 +219,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                       />
                     </svg>
                     <span
-                      class="makeStyles-menuItemText-8"
+                      class="makeStyles-menuItemText-9"
                     >
                       common.register
                     </span>
@@ -243,7 +243,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-107 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-108 MuiAvatar-colorDefault"
               >
                 EN
               </div>
@@ -314,250 +314,19 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
       </div>
     </header>
     <div
-      class="makeStyles-container-1"
+      class="makeStyles-container-2"
     >
       <main
-        class="makeStyles-main-2"
+        class="makeStyles-main-3"
       >
-        <div
-          class="makeStyles-coverImage-152"
-          style="background-image: url(/static/images/cover.jpg);"
+        <h1
+          class="makeStyles-header-1"
         >
-          <div
-            class="MuiGrid-root MuiGrid-container"
-          >
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
-            />
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-4"
-            >
-              <h2
-                class="makeStyles-title-153"
-              >
-                home.coverTitle
-              </h2>
-              <p
-                class="makeStyles-paragraph-154"
-              >
-                home.coverParagraph
-              </p>
-              <div
-                class="makeStyles-introButtonContainer-155"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-label"
-                  >
-                    home.explore
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </div>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
-            />
-          </div>
-        </div>
-        <div>
-          <div
-            class="MuiGrid-root MuiGrid-container"
-          >
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
-            />
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
-            >
-              <div
-                class="makeStyles-featuresContainer-259"
-              >
-                <h3
-                  class="makeStyles-featuresTitle-260"
-                >
-                  home.features
-                </h3>
-              </div>
-              <div
-                class="makeStyles-featuresContent-261"
-              >
-                <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4"
-                >
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
-                  >
-                    <div
-                      class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
-                    >
-                      <div
-                        class="MuiCardMedia-root makeStyles-media-262"
-                        style="background-image: url(/static/images/intro1.jpg);"
-                        title="home.feature1"
-                      />
-                      <div
-                        class="MuiCardContent-root"
-                      >
-                        <p
-                          class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
-                        >
-                          home.featureDescription1
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
-                  >
-                    <div
-                      class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
-                    >
-                      <div
-                        class="MuiCardMedia-root makeStyles-media-262"
-                        style="background-image: url(/static/images/intro2.jpg);"
-                        title="home.feature2"
-                      />
-                      <div
-                        class="MuiCardContent-root"
-                      >
-                        <p
-                          class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
-                        >
-                          home.featureDescription2
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
-                  >
-                    <div
-                      class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
-                    >
-                      <div
-                        class="MuiCardMedia-root makeStyles-media-262"
-                        style="background-image: url(/static/images/intro3.jpg);"
-                        title="home.feature3"
-                      />
-                      <div
-                        class="MuiCardContent-root"
-                      >
-                        <p
-                          class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
-                        >
-                          home.featureDescription3
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
-            />
-          </div>
-        </div>
-        <div>
-          <div
-            class="MuiGrid-root MuiGrid-container"
-          >
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
-            />
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
-            >
-              <div
-                class="makeStyles-quoteContainer-298"
-              >
-                <h4
-                  class="makeStyles-quote-299"
-                >
-                  "
-                  home.quote
-                  "
-                </h4>
-                <div
-                  class="makeStyles-signatureContainer-300"
-                >
-                  <div
-                    class="makeStyles-signatureName-301"
-                  >
-                    home.quoteFrom
-                  </div>
-                  <div
-                    class="makeStyles-signatureJob-302"
-                  >
-                    home.quoteFromTitle
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
-            />
-          </div>
-          <div
-            class="makeStyles-coverImage2-303"
-            style="background-image: url(/static/images/cover2.jpg);"
-          />
-        </div>
-        <div>
-          <div
-            class="MuiGrid-root MuiGrid-container"
-          >
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
-            />
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
-            >
-              <div
-                class="makeStyles-helpContainer-304"
-              >
-                <div>
-                  <div
-                    class="makeStyles-helpIconContainer-305"
-                  >
-                    <img
-                      class="makeStyles-helpIcon-306"
-                      src="/static/images/faq.png"
-                    />
-                  </div>
-                  <h4
-                    class="makeStyles-helpTitle-307"
-                  >
-                    home.needHelp
-                  </h4>
-                </div>
-                <div
-                  class="makeStyles-helpInfo-308"
-                >
-                  home.needHelpDescription
-                </div>
-                <div
-                  class="makeStyles-helpContact-309"
-                >
-                  contact@webstarterkit.com
-                </div>
-              </div>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 MuiGrid-grid-lg-2"
-            />
-          </div>
-        </div>
+          about_us.aboutUs
+        </h1>
       </main>
       <footer
-        class="makeStyles-root-310"
+        class="makeStyles-root-153"
       >
         <div
           class="MuiGrid-root MuiGrid-container"
@@ -580,13 +349,13 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                   common.company
                 </h6>
                 <div
-                  class="makeStyles-linkContainer-312"
+                  class="makeStyles-linkContainer-155"
                 >
                   <next-link
                     href="/"
                   >
                     <a
-                      class="makeStyles-link-311"
+                      class="makeStyles-link-154"
                       color="inherit"
                       href="/"
                     >
@@ -595,13 +364,13 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                   </next-link>
                 </div>
                 <div
-                  class="makeStyles-linkContainer-312"
+                  class="makeStyles-linkContainer-155"
                 >
                   <next-link
                     href="/aboutUs"
                   >
                     <a
-                      class="makeStyles-link-311"
+                      class="makeStyles-link-154"
                       color="inherit"
                       href="/aboutUs"
                     >
@@ -610,13 +379,13 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                   </next-link>
                 </div>
                 <div
-                  class="makeStyles-linkContainer-312"
+                  class="makeStyles-linkContainer-155"
                 >
                   <next-link
                     href="/blogs"
                   >
                     <a
-                      class="makeStyles-link-311"
+                      class="makeStyles-link-154"
                       color="inherit"
                       href="/blogs"
                     >
@@ -638,12 +407,12 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-socialLink-313"
+                      class="makeStyles-socialLink-156"
                       color="inherit"
                       href="/"
                     >
                       <img
-                        class="makeStyles-image-314"
+                        class="makeStyles-image-157"
                         src="/static/images/facebook.png"
                       />
                     </a>
@@ -652,12 +421,12 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-socialLink-313"
+                      class="makeStyles-socialLink-156"
                       color="inherit"
                       href="/"
                     >
                       <img
-                        class="makeStyles-image-314"
+                        class="makeStyles-image-157"
                         src="/static/images/linkedin.png"
                       />
                     </a>
@@ -676,7 +445,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-link-311"
+                      class="makeStyles-link-154"
                       color="inherit"
                       href="/"
                     >

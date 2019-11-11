@@ -57,7 +57,7 @@ export const Header = (props: Props): JSX.Element => {
           <img className={classes.logo} alt='Logo' src={`${config.storageLocation.static}/images/logo.svg`} />
         </Link>
         <div className={classes.flexGrow} />
-        <Hidden smDown>
+        <Hidden smDown implementation='css'>
           <div>
             {navItems.map(renderLinkNavItem)}
             {!user && <NoSsr>{!!loginNavItems && loginNavItems.map(renderLinkNavItem)}</NoSsr>}
