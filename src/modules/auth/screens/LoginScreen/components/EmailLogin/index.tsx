@@ -68,15 +68,9 @@ export const EmailLogin = (props: Props): JSX.Element => {
       setIsBusy(true);
       const currentUser = await authService.signInWithEmailAndPassword(input.email, input.password);
       writeDataModel(currentUser, 'currentUser');
-      if (currentUser.emailVerified) {
-        navigationService.navigateTo({
-          url: '/',
-        });
-      } else {
-        navigationService.navigateTo({
-          url: '/emailVerification',
-        });
-      }
+      navigationService.navigateTo({
+        url: currentUser.emailVerified ? '/' : '/verifyEmail',
+      });
     } catch (error) {
       handleError(error, {
         'auth/invalid-email': t('wrongLoginCredentials'),

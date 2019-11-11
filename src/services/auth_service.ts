@@ -118,6 +118,7 @@ const createUserWithEmailAndPassword = async (
   });
   await user.reload();
   await user.sendEmailVerification();
+  await verifyRegistration();
   return getUser(user);
 };
 
@@ -145,7 +146,7 @@ const isEmailRegistered = async (email: string): Promise<boolean> => {
 };
 
 const isEmailVerified = async (): Promise<boolean> => {
-  const currentUser = await auth().currentUser;
+  const { currentUser } = auth();
   if (!currentUser) {
     return false;
   }

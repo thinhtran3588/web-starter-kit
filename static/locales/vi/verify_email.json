@@ -1,0 +1,9 @@
+{
+  "back": "Quay lại",
+  "checkEmailValidation": "Kiểm tra",
+  "emailNotVerified": "Email chưa được xác thực",
+  "resendVerificationEmail": "Gửi lại email xác thực",
+  "verificationEmailResent": "Email xác thực đã được gửi lại",
+  "verificationNotification": "Vui lòng kiểm tra hòm thư và xác thực email {{email}}",
+  "verifyEmail": "Xác thực Email"
+}

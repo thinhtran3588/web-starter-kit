@@ -1,0 +1,9 @@
+{
+  "back": "Back",
+  "checkEmailValidation": "Check Email Validation",
+  "emailNotVerified": "Email not verified",
+  "resendVerificationEmail": "Resend Verification Email",
+  "verificationEmailResent": "Verification Email has been resent",
+  "verificationNotification": "Please check your mailbox and verify your email {{email}}",
+  "verifyEmail": "Verify Email"
+}

@@ -10,6 +10,7 @@ Object {
   "dateTimeFormat": "DD/MM/YYYY HH:mm:ss",
   "debounceDelay": 300,
   "defaultCountryCode": "+84",
+  "defaultWaitToResend": 30,
   "firebaseConfig": Object {
     "apiKey": "should_be_replaced",
     "appId": "should_be_replaced",

@@ -38,4 +38,5 @@ export default {
     public: '/public',
   },
   defaultCountryCode: '+84',
+  defaultWaitToResend: 30,
 };

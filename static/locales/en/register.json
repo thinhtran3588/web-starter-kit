@@ -1,15 +1,10 @@
 {
-  "pleaseInputFirstname": "Please input first name",
-  "firstNameTooLong": "First name too long (50 characters)",
-  "pleaseInputLastname": "Please input last name",
-  "lastNameTooLong": "Last name too long",
-  "pleaseInputEmail": "Please input email",
-  "invalidEmail": "Invalid email",
-  "invalidPasswordRegex": "Password at least 6 characters, 1 uppercase letter, 1 number and 1 special character",
-  "pleaseInputPassword": "Please input password",
-  "pleaseConfirmPassword": "Please confirm password",
-  "confirmPasswordDidntMatch": "Confirm password didn't match",
-  "pleaseInputPhoneNo": "Please input phone number",
-  "invalidPhoneNo": "Invalid phone no",
-  "register": "Register"
+  "back": "Back",
+  "confirmPassword": "Confirm Password",
+  "confirmPasswordNotMatch": "Confirm Password does not match",
+  "email": "Email",
+  "invalidPassword": "Password must be at least 6 characters and at most 20 characters and must include at least one upper case letter, one lower case letter, one numeric digit and one special letter (!, @, #, $, %, ^, &, *)",
+  "password": "Password",
+  "register": "Register",
+  "registerCompleted": "Đăng kí thành công"
 }

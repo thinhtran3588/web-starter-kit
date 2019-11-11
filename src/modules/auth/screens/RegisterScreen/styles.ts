@@ -1,12 +1,12 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
 export const useStyles = makeStyles((theme) => ({
-  fullWidth: {
-    width: '100%',
-  },
   buttonContainer: {
-    marginTop: theme.spacing(2),
+    justifyContent: 'center',
     display: 'flex',
-    justifyContent: 'flex-end',
+    flexDirection: 'column',
+  },
+  button: {
+    marginTop: theme.spacing(3),
   },
 }));
