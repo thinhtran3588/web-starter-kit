@@ -10,6 +10,9 @@ import { Footer } from '../Footer';
 import { SidebarMenu } from '../SidebarMenu';
 import { useStyles } from './styles';
 
+import 'lazysizes';
+import 'firebase/auth';
+
 interface Props extends WithTranslation {
   children?: React.ReactNode;
   title?: string;
