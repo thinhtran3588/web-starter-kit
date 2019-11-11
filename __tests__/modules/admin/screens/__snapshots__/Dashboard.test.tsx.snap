@@ -20,8 +20,8 @@ exports[`@app/modules/admin/screens/Dashboard renders successfully 1`] = `
           >
             <img
               alt="Logo"
-              class="makeStyles-logo-6"
-              src="/static/images/logo.svg"
+              class="makeStyles-logo-6 lazyload"
+              data-src="/static/images/logo.svg"
             />
           </a>
         </next-link>

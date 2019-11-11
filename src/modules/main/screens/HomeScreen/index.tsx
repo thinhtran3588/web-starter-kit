@@ -8,7 +8,7 @@ type Props = WithTranslation;
 const Screen = (props: Props): JSX.Element => {
   const { t } = props;
   return (
-    <Layout title={t('home')}>
+    <Layout title={t('home')} description={t('description')}>
       <CoverImage t={t} />
       <Features t={t} />
       <Quote t={t} />

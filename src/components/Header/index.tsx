@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { NavItem, User, resetStore } from '@app/core';
 import { config } from '@app/config';
 import { authService } from '@app/services';
@@ -54,7 +55,11 @@ export const Header = (props: Props): JSX.Element => {
     <AppBar className={classes.root}>
       <Toolbar>
         <Link href='/' title='Home'>
-          <img className={classes.logo} alt='Logo' src={`${config.storageLocation.static}/images/logo.svg`} />
+          <img
+            className={clsx(classes.logo, 'lazyload')}
+            alt='Logo'
+            data-src={`${config.storageLocation.static}/images/logo.svg`}
+          />
         </Link>
         <div className={classes.flexGrow} />
         <Hidden smDown implementation='css'>

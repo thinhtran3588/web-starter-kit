@@ -73,7 +73,7 @@ const BaseLayout = (props: Props): JSX.Element => {
       <NextHead>
         <title>{title}</title>
         <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no' />
-        <meta name='Description' content={description}></meta>
+        <meta name='Description' content={description || title}></meta>
       </NextHead>
       <Header onSidebarOpen={handleSidebarOpen} navItems={navItems} loginNavItems={loginNavItems} user={user} />
       <Sidebar onClose={handleSidebarClose} open={openSidebar} variant={'temporary'}>

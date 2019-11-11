@@ -2,6 +2,7 @@ import React from 'react';
 import { withTranslation } from '@app/core';
 import { WithTranslation } from 'react-i18next';
 import { config } from '@app/config';
+import clsx from 'clsx';
 import { useStyles } from './styles';
 import { Grid } from '../Grid';
 import { Link } from '../Link';
@@ -40,11 +41,19 @@ export const BaseFooter = (props: Props): JSX.Element => {
             <Grid item xs={12} md={6}>
               <Typography variant='h6'>{t('socialMedias')}</Typography>
               <div>
-                <Link href='/' className={classes.socialLink}>
-                  <img src={`${config.storageLocation.static}/images/facebook.png`} className={classes.image} />
+                <Link href='/' className={classes.socialLink} title='facebook'>
+                  <img
+                    data-src={`${config.storageLocation.static}/images/facebook.png`}
+                    className={clsx(classes.image, 'lazyload')}
+                    alt='facebook'
+                  />
                 </Link>
-                <Link href='/' className={classes.socialLink}>
-                  <img src={`${config.storageLocation.static}/images/linkedin.png`} className={classes.image} />
+                <Link href='/' className={classes.socialLink} title='linkedIn'>
+                  <img
+                    data-src={`${config.storageLocation.static}/images/linkedin.png`}
+                    className={clsx(classes.image, 'lazyload')}
+                    alt='linkedIn'
+                  />
                 </Link>
               </div>
             </Grid>

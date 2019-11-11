@@ -21,8 +21,9 @@ exports[`@app/modules/main/screens/HomeScreen/components/Help renders successful
                 class="makeStyles-helpIconContainer-2"
               >
                 <img
-                  class="makeStyles-helpIcon-3"
-                  src="/static/images/faq.png"
+                  alt="needHelp"
+                  class="makeStyles-helpIcon-3 lazyload"
+                  data-src="/static/images/faq.png"
                 />
               </div>
               <h4

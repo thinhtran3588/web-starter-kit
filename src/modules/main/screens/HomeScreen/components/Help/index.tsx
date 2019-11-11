@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import { config } from '@app/config';
+import clsx from 'clsx';
 import { useStyles } from './styles';
 
 interface Props {
@@ -19,7 +20,11 @@ export const Help = (props: Props): JSX.Element => {
           <div className={classes.helpContainer}>
             <div>
               <div className={classes.helpIconContainer}>
-                <img src={`${config.storageLocation.static}/images/faq.png`} className={classes.helpIcon} />
+                <img
+                  data-src={`${config.storageLocation.static}/images/faq.png`}
+                  className={clsx(classes.helpIcon, 'lazyload')}
+                  alt={t('needHelp')}
+                />
               </div>
               <h4 className={classes.helpTitle}>{t('needHelp')}</h4>
             </div>

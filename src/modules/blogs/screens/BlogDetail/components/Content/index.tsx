@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { config } from '@app/config';
+import clsx from 'clsx';
 import { useStyles } from './styles';
 
 export const Content = (): JSX.Element => {
@@ -82,7 +83,10 @@ export const Content = (): JSX.Element => {
           Pellentesque in ipsum id orci porta dapibus.
         </p>
         <div>
-          <img src={`${config.storageLocation.static}/images/intro1.png`} className={classes.image1} />
+          <img
+            data-src={`${config.storageLocation.static}/images/intro1.png`}
+            className={clsx(classes.image1, 'lazyload')}
+          />
         </div>
         <p>
           Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque,
@@ -100,7 +104,10 @@ export const Content = (): JSX.Element => {
           Pellentesque in ipsum id orci porta dapibus.
         </p>
         <div>
-          <img src={`${config.storageLocation.static}/images/intro2.png`} className={classes.image1} />
+          <img
+            data-src={`${config.storageLocation.static}/images/intro2.png`}
+            className={clsx(classes.image1, 'lazyload')}
+          />
         </div>
         <p>
           Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque,

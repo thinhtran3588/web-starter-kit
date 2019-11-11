@@ -8,7 +8,8 @@ import { config } from '@app/config';
 import { withApollo } from '@app/hoc';
 import { Notification, NoSsr } from '@app/components';
 
-import('firebase/auth');
+import 'lazysizes';
+import 'firebase/auth';
 
 class MyApp extends App {
   // eslint-disable-next-line class-methods-use-this

@@ -88,10 +88,12 @@ exports[`components/Header renders successfully 1`] = `
                     class="makeStyles-socialLink-4"
                     color="inherit"
                     href="/"
+                    title="facebook"
                   >
                     <img
-                      class="makeStyles-image-5"
-                      src="/static/images/facebook.png"
+                      alt="facebook"
+                      class="makeStyles-image-5 lazyload"
+                      data-src="/static/images/facebook.png"
                     />
                   </a>
                 </next-link>
@@ -102,10 +104,12 @@ exports[`components/Header renders successfully 1`] = `
                     class="makeStyles-socialLink-4"
                     color="inherit"
                     href="/"
+                    title="linkedIn"
                   >
                     <img
-                      class="makeStyles-image-5"
-                      src="/static/images/linkedin.png"
+                      alt="linkedIn"
+                      class="makeStyles-image-5 lazyload"
+                      data-src="/static/images/linkedin.png"
                     />
                   </a>
                 </next-link>

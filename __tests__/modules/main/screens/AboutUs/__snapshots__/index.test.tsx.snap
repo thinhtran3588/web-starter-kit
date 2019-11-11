@@ -20,8 +20,8 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
           >
             <img
               alt="Logo"
-              class="makeStyles-logo-6"
-              src="/static/images/logo.svg"
+              class="makeStyles-logo-6 lazyload"
+              data-src="/static/images/logo.svg"
             />
           </a>
         </next-link>
@@ -410,10 +410,12 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                       class="makeStyles-socialLink-156"
                       color="inherit"
                       href="/"
+                      title="facebook"
                     >
                       <img
-                        class="makeStyles-image-157"
-                        src="/static/images/facebook.png"
+                        alt="facebook"
+                        class="makeStyles-image-157 lazyload"
+                        data-src="/static/images/facebook.png"
                       />
                     </a>
                   </next-link>
@@ -424,10 +426,12 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                       class="makeStyles-socialLink-156"
                       color="inherit"
                       href="/"
+                      title="linkedIn"
                     >
                       <img
-                        class="makeStyles-image-157"
-                        src="/static/images/linkedin.png"
+                        alt="linkedIn"
+                        class="makeStyles-image-157 lazyload"
+                        data-src="/static/images/linkedin.png"
                       />
                     </a>
                   </next-link>

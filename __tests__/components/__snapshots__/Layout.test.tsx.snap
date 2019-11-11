@@ -20,8 +20,8 @@ exports[`components/Layout renders successfully 1`] = `
           >
             <img
               alt="Logo"
-              class="makeStyles-logo-5"
-              src="/static/images/logo.svg"
+              class="makeStyles-logo-5 lazyload"
+              data-src="/static/images/logo.svg"
             />
           </a>
         </next-link>
@@ -404,10 +404,12 @@ exports[`components/Layout renders successfully 1`] = `
                       class="makeStyles-socialLink-155"
                       color="inherit"
                       href="/"
+                      title="facebook"
                     >
                       <img
-                        class="makeStyles-image-156"
-                        src="/static/images/facebook.png"
+                        alt="facebook"
+                        class="makeStyles-image-156 lazyload"
+                        data-src="/static/images/facebook.png"
                       />
                     </a>
                   </next-link>
@@ -418,10 +420,12 @@ exports[`components/Layout renders successfully 1`] = `
                       class="makeStyles-socialLink-155"
                       color="inherit"
                       href="/"
+                      title="linkedIn"
                     >
                       <img
-                        class="makeStyles-image-156"
-                        src="/static/images/linkedin.png"
+                        alt="linkedIn"
+                        class="makeStyles-image-156 lazyload"
+                        data-src="/static/images/linkedin.png"
                       />
                     </a>
                   </next-link>
@@ -537,8 +541,8 @@ exports[`components/Layout renders successfully with title 1`] = `
           >
             <img
               alt="Logo"
-              class="makeStyles-logo-323"
-              src="/static/images/logo.svg"
+              class="makeStyles-logo-323 lazyload"
+              data-src="/static/images/logo.svg"
             />
           </a>
         </next-link>
@@ -921,10 +925,12 @@ exports[`components/Layout renders successfully with title 1`] = `
                       class="makeStyles-socialLink-473"
                       color="inherit"
                       href="/"
+                      title="facebook"
                     >
                       <img
-                        class="makeStyles-image-474"
-                        src="/static/images/facebook.png"
+                        alt="facebook"
+                        class="makeStyles-image-474 lazyload"
+                        data-src="/static/images/facebook.png"
                       />
                     </a>
                   </next-link>
@@ -935,10 +941,12 @@ exports[`components/Layout renders successfully with title 1`] = `
                       class="makeStyles-socialLink-473"
                       color="inherit"
                       href="/"
+                      title="linkedIn"
                     >
                       <img
-                        class="makeStyles-image-474"
-                        src="/static/images/linkedin.png"
+                        alt="linkedIn"
+                        class="makeStyles-image-474 lazyload"
+                        data-src="/static/images/linkedin.png"
                       />
                     </a>
                   </next-link>

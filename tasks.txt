@@ -1,5 +1,6 @@
 - (done) i18n - check for serverless update
 - theme
-- graphql
-- formik
+- (done) graphql
+- (done) formik
 - (done) upload to s3
+- update file directly to s3 from client
