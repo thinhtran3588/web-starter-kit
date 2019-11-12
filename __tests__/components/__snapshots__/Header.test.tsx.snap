@@ -29,7 +29,7 @@ exports[`components/Header renders successfully 1`] = `
           class="makeStyles-flexGrow-2"
         />
         <div
-          class="PrivateHiddenCss-smDown-54"
+          class="PrivateHiddenCss-smDown-55"
         >
           <div>
             <next-link
@@ -119,7 +119,7 @@ exports[`components/Header renders successfully 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-96 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-97 MuiAvatar-colorDefault"
               >
                 EN
               </div>

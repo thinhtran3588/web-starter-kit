@@ -29,7 +29,7 @@ exports[`components/Layout renders successfully 1`] = `
           class="makeStyles-flexGrow-4"
         />
         <div
-          class="PrivateHiddenCss-smDown-56"
+          class="PrivateHiddenCss-smDown-57"
         >
           <div>
             <next-link
@@ -243,7 +243,7 @@ exports[`components/Layout renders successfully 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-107 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-108 MuiAvatar-colorDefault"
               >
                 EN
               </div>
@@ -320,7 +320,7 @@ exports[`components/Layout renders successfully 1`] = `
         class="makeStyles-main-2"
       />
       <footer
-        class="makeStyles-root-152"
+        class="makeStyles-root-153"
       >
         <div
           class="MuiGrid-root MuiGrid-container"
@@ -343,13 +343,13 @@ exports[`components/Layout renders successfully 1`] = `
                   common.company
                 </h6>
                 <div
-                  class="makeStyles-linkContainer-154"
+                  class="makeStyles-linkContainer-155"
                 >
                   <next-link
                     href="/"
                   >
                     <a
-                      class="makeStyles-link-153"
+                      class="makeStyles-link-154"
                       color="inherit"
                       href="/"
                     >
@@ -358,13 +358,13 @@ exports[`components/Layout renders successfully 1`] = `
                   </next-link>
                 </div>
                 <div
-                  class="makeStyles-linkContainer-154"
+                  class="makeStyles-linkContainer-155"
                 >
                   <next-link
                     href="/aboutUs"
                   >
                     <a
-                      class="makeStyles-link-153"
+                      class="makeStyles-link-154"
                       color="inherit"
                       href="/aboutUs"
                     >
@@ -373,13 +373,13 @@ exports[`components/Layout renders successfully 1`] = `
                   </next-link>
                 </div>
                 <div
-                  class="makeStyles-linkContainer-154"
+                  class="makeStyles-linkContainer-155"
                 >
                   <next-link
                     href="/blogs"
                   >
                     <a
-                      class="makeStyles-link-153"
+                      class="makeStyles-link-154"
                       color="inherit"
                       href="/blogs"
                     >
@@ -401,14 +401,14 @@ exports[`components/Layout renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-socialLink-155"
+                      class="makeStyles-socialLink-156"
                       color="inherit"
                       href="/"
                       title="facebook"
                     >
                       <img
                         alt="facebook"
-                        class="makeStyles-image-156 lazyload"
+                        class="makeStyles-image-157 lazyload"
                         data-src="/static/images/facebook.png"
                       />
                     </a>
@@ -417,14 +417,14 @@ exports[`components/Layout renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-socialLink-155"
+                      class="makeStyles-socialLink-156"
                       color="inherit"
                       href="/"
                       title="linkedIn"
                     >
                       <img
                         alt="linkedIn"
-                        class="makeStyles-image-156 lazyload"
+                        class="makeStyles-image-157 lazyload"
                         data-src="/static/images/linkedin.png"
                       />
                     </a>
@@ -443,7 +443,7 @@ exports[`components/Layout renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-link-153"
+                      class="makeStyles-link-154"
                       color="inherit"
                       href="/"
                     >
@@ -525,7 +525,7 @@ exports[`components/Layout renders successfully with title 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-321 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-322 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -541,28 +541,28 @@ exports[`components/Layout renders successfully with title 1`] = `
           >
             <img
               alt="Logo"
-              class="makeStyles-logo-323 lazyload"
+              class="makeStyles-logo-324 lazyload"
               data-src="/static/images/logo.svg"
             />
           </a>
         </next-link>
         <div
-          class="makeStyles-flexGrow-322"
+          class="makeStyles-flexGrow-323"
         />
         <div
-          class="PrivateHiddenCss-smDown-374"
+          class="PrivateHiddenCss-smDown-376"
         >
           <div>
             <next-link
               href="/"
             >
               <a
-                class="makeStyles-menuItem-324"
+                class="makeStyles-menuItem-325"
                 color="inherit"
                 href="/"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-327 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-328 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -581,7 +581,7 @@ exports[`components/Layout renders successfully with title 1`] = `
                       />
                     </svg>
                     <span
-                      class="makeStyles-menuItemText-326"
+                      class="makeStyles-menuItemText-327"
                     >
                       common.home
                     </span>
@@ -596,12 +596,12 @@ exports[`components/Layout renders successfully with title 1`] = `
               href="/blogs"
             >
               <a
-                class="makeStyles-menuItem-324"
+                class="makeStyles-menuItem-325"
                 color="inherit"
                 href="/blogs"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-327 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-328 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -623,7 +623,7 @@ exports[`components/Layout renders successfully with title 1`] = `
                       />
                     </svg>
                     <span
-                      class="makeStyles-menuItemText-326"
+                      class="makeStyles-menuItemText-327"
                     >
                       common.blogs
                     </span>
@@ -638,12 +638,12 @@ exports[`components/Layout renders successfully with title 1`] = `
               href="/aboutUs"
             >
               <a
-                class="makeStyles-menuItem-324"
+                class="makeStyles-menuItem-325"
                 color="inherit"
                 href="/aboutUs"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-327 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-328 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -662,7 +662,7 @@ exports[`components/Layout renders successfully with title 1`] = `
                       />
                     </svg>
                     <span
-                      class="makeStyles-menuItemText-326"
+                      class="makeStyles-menuItemText-327"
                     >
                       common.aboutUs
                     </span>
@@ -677,12 +677,12 @@ exports[`components/Layout renders successfully with title 1`] = `
               href="/login"
             >
               <a
-                class="makeStyles-menuItem-324"
+                class="makeStyles-menuItem-325"
                 color="inherit"
                 href="/login"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-327 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-328 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -701,7 +701,7 @@ exports[`components/Layout renders successfully with title 1`] = `
                       />
                     </svg>
                     <span
-                      class="makeStyles-menuItemText-326"
+                      class="makeStyles-menuItemText-327"
                     >
                       common.login
                     </span>
@@ -716,12 +716,12 @@ exports[`components/Layout renders successfully with title 1`] = `
               href="/register"
             >
               <a
-                class="makeStyles-menuItem-324"
+                class="makeStyles-menuItem-325"
                 color="inherit"
                 href="/register"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-327 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-328 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -740,7 +740,7 @@ exports[`components/Layout renders successfully with title 1`] = `
                       />
                     </svg>
                     <span
-                      class="makeStyles-menuItemText-326"
+                      class="makeStyles-menuItemText-327"
                     >
                       common.register
                     </span>
@@ -764,7 +764,7 @@ exports[`components/Layout renders successfully with title 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-425 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-427 MuiAvatar-colorDefault"
               >
                 EN
               </div>
@@ -835,13 +835,13 @@ exports[`components/Layout renders successfully with title 1`] = `
       </div>
     </header>
     <div
-      class="makeStyles-container-319"
+      class="makeStyles-container-320"
     >
       <main
-        class="makeStyles-main-320"
+        class="makeStyles-main-321"
       />
       <footer
-        class="makeStyles-root-470"
+        class="makeStyles-root-472"
       >
         <div
           class="MuiGrid-root MuiGrid-container"
@@ -864,13 +864,13 @@ exports[`components/Layout renders successfully with title 1`] = `
                   common.company
                 </h6>
                 <div
-                  class="makeStyles-linkContainer-472"
+                  class="makeStyles-linkContainer-474"
                 >
                   <next-link
                     href="/"
                   >
                     <a
-                      class="makeStyles-link-471"
+                      class="makeStyles-link-473"
                       color="inherit"
                       href="/"
                     >
@@ -879,13 +879,13 @@ exports[`components/Layout renders successfully with title 1`] = `
                   </next-link>
                 </div>
                 <div
-                  class="makeStyles-linkContainer-472"
+                  class="makeStyles-linkContainer-474"
                 >
                   <next-link
                     href="/aboutUs"
                   >
                     <a
-                      class="makeStyles-link-471"
+                      class="makeStyles-link-473"
                       color="inherit"
                       href="/aboutUs"
                     >
@@ -894,13 +894,13 @@ exports[`components/Layout renders successfully with title 1`] = `
                   </next-link>
                 </div>
                 <div
-                  class="makeStyles-linkContainer-472"
+                  class="makeStyles-linkContainer-474"
                 >
                   <next-link
                     href="/blogs"
                   >
                     <a
-                      class="makeStyles-link-471"
+                      class="makeStyles-link-473"
                       color="inherit"
                       href="/blogs"
                     >
@@ -922,14 +922,14 @@ exports[`components/Layout renders successfully with title 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-socialLink-473"
+                      class="makeStyles-socialLink-475"
                       color="inherit"
                       href="/"
                       title="facebook"
                     >
                       <img
                         alt="facebook"
-                        class="makeStyles-image-474 lazyload"
+                        class="makeStyles-image-476 lazyload"
                         data-src="/static/images/facebook.png"
                       />
                     </a>
@@ -938,14 +938,14 @@ exports[`components/Layout renders successfully with title 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-socialLink-473"
+                      class="makeStyles-socialLink-475"
                       color="inherit"
                       href="/"
                       title="linkedIn"
                     >
                       <img
                         alt="linkedIn"
-                        class="makeStyles-image-474 lazyload"
+                        class="makeStyles-image-476 lazyload"
                         data-src="/static/images/linkedin.png"
                       />
                     </a>
@@ -964,7 +964,7 @@ exports[`components/Layout renders successfully with title 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-link-471"
+                      class="makeStyles-link-473"
                       color="inherit"
                       href="/"
                     >

@@ -29,7 +29,7 @@ exports[`components/AdminLayout renders successfully 1`] = `
           class="makeStyles-flexGrow-4"
         />
         <div
-          class="PrivateHiddenCss-smDown-56"
+          class="PrivateHiddenCss-smDown-57"
         >
           <div />
         </div>
@@ -44,7 +44,7 @@ exports[`components/AdminLayout renders successfully 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-67 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-68 MuiAvatar-colorDefault"
               >
                 EN
               </div>
@@ -179,7 +179,7 @@ exports[`components/AdminLayout renders successfully with title 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-155 MuiAppBar-colorPrimary mui-fixed"
+      class="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-root-156 MuiAppBar-colorPrimary mui-fixed"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -195,16 +195,16 @@ exports[`components/AdminLayout renders successfully with title 1`] = `
           >
             <img
               alt="Logo"
-              class="makeStyles-logo-157 lazyload"
+              class="makeStyles-logo-158 lazyload"
               data-src="/static/images/logo.svg"
             />
           </a>
         </next-link>
         <div
-          class="makeStyles-flexGrow-156"
+          class="makeStyles-flexGrow-157"
         />
         <div
-          class="PrivateHiddenCss-smDown-208"
+          class="PrivateHiddenCss-smDown-210"
         >
           <div />
         </div>
@@ -219,7 +219,7 @@ exports[`components/AdminLayout renders successfully with title 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-219 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-221 MuiAvatar-colorDefault"
               >
                 EN
               </div>
@@ -290,10 +290,10 @@ exports[`components/AdminLayout renders successfully with title 1`] = `
       </div>
     </header>
     <div
-      class="makeStyles-container-153"
+      class="makeStyles-container-154"
     >
       <main
-        class="makeStyles-main-154"
+        class="makeStyles-main-155"
       />
     </div>
   </div>

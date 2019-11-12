@@ -29,7 +29,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
           class="makeStyles-flexGrow-5"
         />
         <div
-          class="PrivateHiddenCss-smDown-57"
+          class="PrivateHiddenCss-smDown-58"
         >
           <div>
             <next-link
@@ -243,7 +243,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-108 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-109 MuiAvatar-colorDefault"
               >
                 EN
               </div>
@@ -326,7 +326,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
         </h1>
       </main>
       <footer
-        class="makeStyles-root-153"
+        class="makeStyles-root-154"
       >
         <div
           class="MuiGrid-root MuiGrid-container"
@@ -349,13 +349,13 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                   common.company
                 </h6>
                 <div
-                  class="makeStyles-linkContainer-155"
+                  class="makeStyles-linkContainer-156"
                 >
                   <next-link
                     href="/"
                   >
                     <a
-                      class="makeStyles-link-154"
+                      class="makeStyles-link-155"
                       color="inherit"
                       href="/"
                     >
@@ -364,13 +364,13 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                   </next-link>
                 </div>
                 <div
-                  class="makeStyles-linkContainer-155"
+                  class="makeStyles-linkContainer-156"
                 >
                   <next-link
                     href="/aboutUs"
                   >
                     <a
-                      class="makeStyles-link-154"
+                      class="makeStyles-link-155"
                       color="inherit"
                       href="/aboutUs"
                     >
@@ -379,13 +379,13 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                   </next-link>
                 </div>
                 <div
-                  class="makeStyles-linkContainer-155"
+                  class="makeStyles-linkContainer-156"
                 >
                   <next-link
                     href="/blogs"
                   >
                     <a
-                      class="makeStyles-link-154"
+                      class="makeStyles-link-155"
                       color="inherit"
                       href="/blogs"
                     >
@@ -407,14 +407,14 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-socialLink-156"
+                      class="makeStyles-socialLink-157"
                       color="inherit"
                       href="/"
                       title="facebook"
                     >
                       <img
                         alt="facebook"
-                        class="makeStyles-image-157 lazyload"
+                        class="makeStyles-image-158 lazyload"
                         data-src="/static/images/facebook.png"
                       />
                     </a>
@@ -423,14 +423,14 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-socialLink-156"
+                      class="makeStyles-socialLink-157"
                       color="inherit"
                       href="/"
                       title="linkedIn"
                     >
                       <img
                         alt="linkedIn"
-                        class="makeStyles-image-157 lazyload"
+                        class="makeStyles-image-158 lazyload"
                         data-src="/static/images/linkedin.png"
                       />
                     </a>
@@ -449,7 +449,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-link-154"
+                      class="makeStyles-link-155"
                       color="inherit"
                       href="/"
                     >

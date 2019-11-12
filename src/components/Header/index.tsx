@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
-import { NavItem, User, resetStore } from '@app/core';
+import { NavItem, User, resetStore, withTranslation, WithTranslation } from '@app/core';
 import { config } from '@app/config';
-import { authService } from '@app/services';
+import { authService, navigationService } from '@app/services';
 import { Icon } from '../Icon';
 import { Link } from '../Link';
 import { LanguageSelection } from '../LanguageSelection';
@@ -15,6 +15,8 @@ import { Hidden } from '../Hidden';
 import { Badge } from '../Badge';
 import { IconButton } from '../IconButton';
 import { useStyles } from './styles';
+import { Menu } from '../Menu';
+import { MenuItem } from '../MenuItem';
 import 'firebase/auth';
 import 'lazysizes';
 
@@ -28,15 +30,15 @@ typeof document !== 'undefined' &&
     }
   });
 
-interface Props {
+interface Props extends WithTranslation {
   user?: User;
   navItems: NavItem[];
   loginNavItems?: NavItem[];
   onSidebarOpen: () => void;
 }
 
-export const Header = (props: Props): JSX.Element => {
-  const { onSidebarOpen, navItems, loginNavItems, user } = props;
+const BaseHeader = (props: Props): JSX.Element => {
+  const { onSidebarOpen, navItems, loginNavItems, user, t } = props;
   const classes = useStyles();
   const notifications = [{}, {}];
 
@@ -58,9 +60,26 @@ export const Header = (props: Props): JSX.Element => {
     return renderNavItem(navItem);
   };
 
+  const [anchorEl, setAnchorEl] = React.useState<undefined | HTMLElement>(undefined);
+
+  const openUserMenu = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const closeUserMenu = (): void => {
+    setAnchorEl(undefined);
+  };
+
   const logout = (): void => {
     authService.logout();
     resetStore();
+    closeUserMenu();
+  };
+
+  const navigateToProfile = (): void => {
+    navigationService.navigateTo({
+      url: '/profile',
+    });
   };
 
   return (
@@ -88,10 +107,15 @@ export const Header = (props: Props): JSX.Element => {
         </IconButton>
         {user && (
           <NoSsr>
-            <Typography variant='subtitle2'>{user.displayName}</Typography>
-            <IconButton color='inherit' aria-label='logout' onClick={logout}>
-              <Icon name='Input' />
-            </IconButton>
+            <Button onClick={openUserMenu}>
+              <Typography variant='subtitle2' className={classes.displayName}>
+                {user.displayName}
+              </Typography>
+            </Button>
+            <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={closeUserMenu}>
+              <MenuItem onClick={navigateToProfile}>{t('profile')}</MenuItem>
+              <MenuItem onClick={logout}>{t('logout')}</MenuItem>
+            </Menu>
           </NoSsr>
         )}
         <Hidden mdUp>
@@ -103,3 +127,5 @@ export const Header = (props: Props): JSX.Element => {
     </AppBar>
   );
 };
+
+export const Header = withTranslation('common')(BaseHeader);

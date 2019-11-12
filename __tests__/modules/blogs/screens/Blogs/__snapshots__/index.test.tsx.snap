@@ -29,7 +29,7 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
           class="makeStyles-flexGrow-4"
         />
         <div
-          class="PrivateHiddenCss-smDown-56"
+          class="PrivateHiddenCss-smDown-57"
         >
           <div>
             <next-link
@@ -243,7 +243,7 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-107 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-108 MuiAvatar-colorDefault"
               >
                 EN
               </div>
@@ -329,7 +329,7 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
           >
             <div
-              class="makeStyles-categoriesContainer-255"
+              class="makeStyles-categoriesContainer-256"
             >
               <div
                 class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
@@ -344,22 +344,22 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-256 MuiPaper-rounded"
+                        class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-257 MuiPaper-rounded"
                       >
                         <div>
                           <h2
-                            class="makeStyles-categoriesTitle-257"
+                            class="makeStyles-categoriesTitle-258"
                           >
                             // This impressive paella
                           </h2>
                           <p
-                            class="makeStyles-categoriesDescription-258"
+                            class="makeStyles-categoriesDescription-259"
                           >
                             Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui
                           </p>
                         </div>
                         <div
-                          class="makeStyles-categoriesButtonContainer-259"
+                          class="makeStyles-categoriesButtonContainer-260"
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
@@ -382,22 +382,22 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
                     >
                       <div
-                        class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card2-260 MuiPaper-rounded"
+                        class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card2-261 MuiPaper-rounded"
                       >
                         <div>
                           <h2
-                            class="makeStyles-categoriesTitle-257"
+                            class="makeStyles-categoriesTitle-258"
                           >
                             // This impressive paella
                           </h2>
                           <p
-                            class="makeStyles-categoriesDescription-258"
+                            class="makeStyles-categoriesDescription-259"
                           >
                             Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui
                           </p>
                         </div>
                         <div
-                          class="makeStyles-categoriesButtonContainer-259"
+                          class="makeStyles-categoriesButtonContainer-260"
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
@@ -422,22 +422,22 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
                 >
                   <div
-                    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card3-261 MuiPaper-rounded"
+                    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card3-262 MuiPaper-rounded"
                   >
                     <div>
                       <h2
-                        class="makeStyles-categoriesTitle-257"
+                        class="makeStyles-categoriesTitle-258"
                       >
                         // This impressive paella
                       </h2>
                       <p
-                        class="makeStyles-categoriesDescription-258"
+                        class="makeStyles-categoriesDescription-259"
                       >
                         Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui
                       </p>
                     </div>
                     <div
-                      class="makeStyles-categoriesButtonContainer-259"
+                      class="makeStyles-categoriesButtonContainer-260"
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
@@ -460,22 +460,22 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
                 >
                   <div
-                    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card4-262 MuiPaper-rounded"
+                    class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card4-263 MuiPaper-rounded"
                   >
                     <div>
                       <h2
-                        class="makeStyles-categoriesTitle-257"
+                        class="makeStyles-categoriesTitle-258"
                       >
                         // This impressive paella
                       </h2>
                       <p
-                        class="makeStyles-categoriesDescription-258"
+                        class="makeStyles-categoriesDescription-259"
                       >
                         Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui
                       </p>
                     </div>
                     <div
-                      class="makeStyles-categoriesButtonContainer-259"
+                      class="makeStyles-categoriesButtonContainer-260"
                     >
                       <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
@@ -497,52 +497,52 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
               </div>
             </div>
             <div
-              class="makeStyles-blogsListContainer-265"
+              class="makeStyles-blogsListContainer-266"
             >
               <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-264 MuiTypography-colorPrimary"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-265 MuiTypography-colorPrimary"
                 href="/blogs/nulla-porttitor-accumsan-tincidunt"
                 target="_blank"
               >
                 <div
-                  class="MuiGrid-root makeStyles-grid-267 MuiGrid-container"
+                  class="MuiGrid-root makeStyles-grid-268 MuiGrid-container"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
                   >
                     <div
-                      class="makeStyles-blogImage-268"
+                      class="makeStyles-blogImage-269"
                     />
                   </div>
                   <div
-                    class="MuiGrid-root makeStyles-bloginContentContainer-269 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+                    class="MuiGrid-root makeStyles-bloginContentContainer-270 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
                   >
                     <div>
                       <h2
-                        class="makeStyles-blogTitle-270"
+                        class="makeStyles-blogTitle-271"
                       >
                         Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
                       </h2>
                       <p
-                        class="makeStyles-blogDescription-271"
+                        class="makeStyles-blogDescription-272"
                       >
                         Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
                       </p>
                     </div>
                     <div
-                      class="makeStyles-blogItemFooter-273"
+                      class="makeStyles-blogItemFooter-274"
                     >
                       <div>
                         Author: 
                         <span
-                          class="makeStyles-boldText-272"
+                          class="makeStyles-boldText-273"
                         >
                           Lorem ipsum
                         </span>
                          | Category:
                          
                         <span
-                          class="makeStyles-boldText-272"
+                          class="makeStyles-boldText-273"
                         >
                           Vivamus suscipit
                         </span>
@@ -568,49 +568,49 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                 </div>
               </a>
               <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-264 MuiTypography-colorPrimary"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-265 MuiTypography-colorPrimary"
                 href="/blogs/nulla-porttitor-accumsan-tincidunt"
                 target="_blank"
               >
                 <div
-                  class="MuiGrid-root makeStyles-grid-267 MuiGrid-container"
+                  class="MuiGrid-root makeStyles-grid-268 MuiGrid-container"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
                   >
                     <div
-                      class="makeStyles-blogImage-268"
+                      class="makeStyles-blogImage-269"
                     />
                   </div>
                   <div
-                    class="MuiGrid-root makeStyles-bloginContentContainer-269 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+                    class="MuiGrid-root makeStyles-bloginContentContainer-270 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
                   >
                     <div>
                       <h2
-                        class="makeStyles-blogTitle-270"
+                        class="makeStyles-blogTitle-271"
                       >
                         Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
                       </h2>
                       <p
-                        class="makeStyles-blogDescription-271"
+                        class="makeStyles-blogDescription-272"
                       >
                         Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
                       </p>
                     </div>
                     <div
-                      class="makeStyles-blogItemFooter-273"
+                      class="makeStyles-blogItemFooter-274"
                     >
                       <div>
                         Author: 
                         <span
-                          class="makeStyles-boldText-272"
+                          class="makeStyles-boldText-273"
                         >
                           Lorem ipsum
                         </span>
                          | Category:
                          
                         <span
-                          class="makeStyles-boldText-272"
+                          class="makeStyles-boldText-273"
                         >
                           Vivamus suscipit
                         </span>
@@ -636,49 +636,49 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                 </div>
               </a>
               <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-264 MuiTypography-colorPrimary"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-265 MuiTypography-colorPrimary"
                 href="/blogs/nulla-porttitor-accumsan-tincidunt"
                 target="_blank"
               >
                 <div
-                  class="MuiGrid-root makeStyles-grid-267 MuiGrid-container"
+                  class="MuiGrid-root makeStyles-grid-268 MuiGrid-container"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
                   >
                     <div
-                      class="makeStyles-blogImage-268"
+                      class="makeStyles-blogImage-269"
                     />
                   </div>
                   <div
-                    class="MuiGrid-root makeStyles-bloginContentContainer-269 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+                    class="MuiGrid-root makeStyles-bloginContentContainer-270 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
                   >
                     <div>
                       <h2
-                        class="makeStyles-blogTitle-270"
+                        class="makeStyles-blogTitle-271"
                       >
                         Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
                       </h2>
                       <p
-                        class="makeStyles-blogDescription-271"
+                        class="makeStyles-blogDescription-272"
                       >
                         Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
                       </p>
                     </div>
                     <div
-                      class="makeStyles-blogItemFooter-273"
+                      class="makeStyles-blogItemFooter-274"
                     >
                       <div>
                         Author: 
                         <span
-                          class="makeStyles-boldText-272"
+                          class="makeStyles-boldText-273"
                         >
                           Lorem ipsum
                         </span>
                          | Category:
                          
                         <span
-                          class="makeStyles-boldText-272"
+                          class="makeStyles-boldText-273"
                         >
                           Vivamus suscipit
                         </span>
@@ -704,49 +704,49 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                 </div>
               </a>
               <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-264 MuiTypography-colorPrimary"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-265 MuiTypography-colorPrimary"
                 href="/blogs/nulla-porttitor-accumsan-tincidunt"
                 target="_blank"
               >
                 <div
-                  class="MuiGrid-root makeStyles-grid-267 MuiGrid-container"
+                  class="MuiGrid-root makeStyles-grid-268 MuiGrid-container"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
                   >
                     <div
-                      class="makeStyles-blogImage-268"
+                      class="makeStyles-blogImage-269"
                     />
                   </div>
                   <div
-                    class="MuiGrid-root makeStyles-bloginContentContainer-269 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+                    class="MuiGrid-root makeStyles-bloginContentContainer-270 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
                   >
                     <div>
                       <h2
-                        class="makeStyles-blogTitle-270"
+                        class="makeStyles-blogTitle-271"
                       >
                         Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
                       </h2>
                       <p
-                        class="makeStyles-blogDescription-271"
+                        class="makeStyles-blogDescription-272"
                       >
                         Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
                       </p>
                     </div>
                     <div
-                      class="makeStyles-blogItemFooter-273"
+                      class="makeStyles-blogItemFooter-274"
                     >
                       <div>
                         Author: 
                         <span
-                          class="makeStyles-boldText-272"
+                          class="makeStyles-boldText-273"
                         >
                           Lorem ipsum
                         </span>
                          | Category:
                          
                         <span
-                          class="makeStyles-boldText-272"
+                          class="makeStyles-boldText-273"
                         >
                           Vivamus suscipit
                         </span>
@@ -772,49 +772,49 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                 </div>
               </a>
               <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-264 MuiTypography-colorPrimary"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-link-265 MuiTypography-colorPrimary"
                 href="/blogs/nulla-porttitor-accumsan-tincidunt"
                 target="_blank"
               >
                 <div
-                  class="MuiGrid-root makeStyles-grid-267 MuiGrid-container"
+                  class="MuiGrid-root makeStyles-grid-268 MuiGrid-container"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
                   >
                     <div
-                      class="makeStyles-blogImage-268"
+                      class="makeStyles-blogImage-269"
                     />
                   </div>
                   <div
-                    class="MuiGrid-root makeStyles-bloginContentContainer-269 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+                    class="MuiGrid-root makeStyles-bloginContentContainer-270 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
                   >
                     <div>
                       <h2
-                        class="makeStyles-blogTitle-270"
+                        class="makeStyles-blogTitle-271"
                       >
                         Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
                       </h2>
                       <p
-                        class="makeStyles-blogDescription-271"
+                        class="makeStyles-blogDescription-272"
                       >
                         Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
                       </p>
                     </div>
                     <div
-                      class="makeStyles-blogItemFooter-273"
+                      class="makeStyles-blogItemFooter-274"
                     >
                       <div>
                         Author: 
                         <span
-                          class="makeStyles-boldText-272"
+                          class="makeStyles-boldText-273"
                         >
                           Lorem ipsum
                         </span>
                          | Category:
                          
                         <span
-                          class="makeStyles-boldText-272"
+                          class="makeStyles-boldText-273"
                         >
                           Vivamus suscipit
                         </span>
@@ -847,7 +847,7 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
         </div>
       </main>
       <footer
-        class="makeStyles-root-310"
+        class="makeStyles-root-311"
       >
         <div
           class="MuiGrid-root MuiGrid-container"
@@ -870,13 +870,13 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                   common.company
                 </h6>
                 <div
-                  class="makeStyles-linkContainer-312"
+                  class="makeStyles-linkContainer-313"
                 >
                   <next-link
                     href="/"
                   >
                     <a
-                      class="makeStyles-link-311"
+                      class="makeStyles-link-312"
                       color="inherit"
                       href="/"
                     >
@@ -885,13 +885,13 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                   </next-link>
                 </div>
                 <div
-                  class="makeStyles-linkContainer-312"
+                  class="makeStyles-linkContainer-313"
                 >
                   <next-link
                     href="/aboutUs"
                   >
                     <a
-                      class="makeStyles-link-311"
+                      class="makeStyles-link-312"
                       color="inherit"
                       href="/aboutUs"
                     >
@@ -900,13 +900,13 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                   </next-link>
                 </div>
                 <div
-                  class="makeStyles-linkContainer-312"
+                  class="makeStyles-linkContainer-313"
                 >
                   <next-link
                     href="/blogs"
                   >
                     <a
-                      class="makeStyles-link-311"
+                      class="makeStyles-link-312"
                       color="inherit"
                       href="/blogs"
                     >
@@ -928,14 +928,14 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-socialLink-313"
+                      class="makeStyles-socialLink-314"
                       color="inherit"
                       href="/"
                       title="facebook"
                     >
                       <img
                         alt="facebook"
-                        class="makeStyles-image-314 lazyload"
+                        class="makeStyles-image-315 lazyload"
                         data-src="/static/images/facebook.png"
                       />
                     </a>
@@ -944,14 +944,14 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-socialLink-313"
+                      class="makeStyles-socialLink-314"
                       color="inherit"
                       href="/"
                       title="linkedIn"
                     >
                       <img
                         alt="linkedIn"
-                        class="makeStyles-image-314 lazyload"
+                        class="makeStyles-image-315 lazyload"
                         data-src="/static/images/linkedin.png"
                       />
                     </a>
@@ -970,7 +970,7 @@ exports[`@app/modules/blogs/screens/Blogs renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-link-311"
+                      class="makeStyles-link-312"
                       color="inherit"
                       href="/"
                     >

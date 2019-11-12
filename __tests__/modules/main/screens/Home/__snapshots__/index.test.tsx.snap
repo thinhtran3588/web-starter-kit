@@ -29,7 +29,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
           class="makeStyles-flexGrow-4"
         />
         <div
-          class="PrivateHiddenCss-smDown-56"
+          class="PrivateHiddenCss-smDown-57"
         >
           <div>
             <next-link
@@ -243,7 +243,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
               class="MuiIconButton-label"
             >
               <div
-                class="MuiAvatar-root makeStyles-icon-107 MuiAvatar-colorDefault"
+                class="MuiAvatar-root makeStyles-icon-108 MuiAvatar-colorDefault"
               >
                 EN
               </div>
@@ -320,7 +320,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
         class="makeStyles-main-2"
       >
         <div
-          class="makeStyles-coverImage-152"
+          class="makeStyles-coverImage-153"
           style="background-image: url(/static/images/cover.jpg);"
         >
           <div
@@ -333,17 +333,17 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-4"
             >
               <h2
-                class="makeStyles-title-153"
+                class="makeStyles-title-154"
               >
                 home.coverTitle
               </h2>
               <p
-                class="makeStyles-paragraph-154"
+                class="makeStyles-paragraph-155"
               >
                 home.coverParagraph
               </p>
               <div
-                class="makeStyles-introButtonContainer-155"
+                class="makeStyles-introButtonContainer-156"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
@@ -377,16 +377,16 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
             >
               <div
-                class="makeStyles-featuresContainer-259"
+                class="makeStyles-featuresContainer-260"
               >
                 <h3
-                  class="makeStyles-featuresTitle-260"
+                  class="makeStyles-featuresTitle-261"
                 >
                   home.features
                 </h3>
               </div>
               <div
-                class="makeStyles-featuresContent-261"
+                class="makeStyles-featuresContent-262"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4"
@@ -398,7 +398,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                       class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardMedia-root makeStyles-media-262"
+                        class="MuiCardMedia-root makeStyles-media-263"
                         style="background-image: url(/static/images/intro1.jpg);"
                         title="home.feature1"
                       />
@@ -420,7 +420,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                       class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
                     >
                       <div
-                        class="makeStyles-media-262 lazyload"
+                        class="makeStyles-media-263 lazyload"
                         data-bg="/static/images/intro2.jpg"
                         title="home.feature2"
                       />
@@ -442,7 +442,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                       class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
                     >
                       <div
-                        class="makeStyles-media-262 lazyload"
+                        class="makeStyles-media-263 lazyload"
                         data-bg="/static/images/intro3.jpg"
                         title="home.feature3"
                       />
@@ -476,25 +476,25 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
             >
               <div
-                class="makeStyles-quoteContainer-298"
+                class="makeStyles-quoteContainer-299"
               >
                 <h4
-                  class="makeStyles-quote-299"
+                  class="makeStyles-quote-300"
                 >
                   "
                   home.quote
                   "
                 </h4>
                 <div
-                  class="makeStyles-signatureContainer-300"
+                  class="makeStyles-signatureContainer-301"
                 >
                   <div
-                    class="makeStyles-signatureName-301"
+                    class="makeStyles-signatureName-302"
                   >
                     home.quoteFrom
                   </div>
                   <div
-                    class="makeStyles-signatureJob-302"
+                    class="makeStyles-signatureJob-303"
                   >
                     home.quoteFromTitle
                   </div>
@@ -506,7 +506,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
             />
           </div>
           <div
-            class="makeStyles-coverImage2-303 lazyload"
+            class="makeStyles-coverImage2-304 lazyload"
             data-bg="/static/images/cover2.jpg"
           />
         </div>
@@ -521,31 +521,31 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-10 MuiGrid-grid-lg-8"
             >
               <div
-                class="makeStyles-helpContainer-304"
+                class="makeStyles-helpContainer-305"
               >
                 <div>
                   <div
-                    class="makeStyles-helpIconContainer-305"
+                    class="makeStyles-helpIconContainer-306"
                   >
                     <img
                       alt="home.needHelp"
-                      class="makeStyles-helpIcon-306 lazyload"
+                      class="makeStyles-helpIcon-307 lazyload"
                       data-src="/static/images/faq.png"
                     />
                   </div>
                   <h4
-                    class="makeStyles-helpTitle-307"
+                    class="makeStyles-helpTitle-308"
                   >
                     home.needHelp
                   </h4>
                 </div>
                 <div
-                  class="makeStyles-helpInfo-308"
+                  class="makeStyles-helpInfo-309"
                 >
                   home.needHelpDescription
                 </div>
                 <div
-                  class="makeStyles-helpContact-309"
+                  class="makeStyles-helpContact-310"
                 >
                   contact@webstarterkit.com
                 </div>
@@ -558,7 +558,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
         </div>
       </main>
       <footer
-        class="makeStyles-root-310"
+        class="makeStyles-root-311"
       >
         <div
           class="MuiGrid-root MuiGrid-container"
@@ -581,13 +581,13 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                   common.company
                 </h6>
                 <div
-                  class="makeStyles-linkContainer-312"
+                  class="makeStyles-linkContainer-313"
                 >
                   <next-link
                     href="/"
                   >
                     <a
-                      class="makeStyles-link-311"
+                      class="makeStyles-link-312"
                       color="inherit"
                       href="/"
                     >
@@ -596,13 +596,13 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                   </next-link>
                 </div>
                 <div
-                  class="makeStyles-linkContainer-312"
+                  class="makeStyles-linkContainer-313"
                 >
                   <next-link
                     href="/aboutUs"
                   >
                     <a
-                      class="makeStyles-link-311"
+                      class="makeStyles-link-312"
                       color="inherit"
                       href="/aboutUs"
                     >
@@ -611,13 +611,13 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                   </next-link>
                 </div>
                 <div
-                  class="makeStyles-linkContainer-312"
+                  class="makeStyles-linkContainer-313"
                 >
                   <next-link
                     href="/blogs"
                   >
                     <a
-                      class="makeStyles-link-311"
+                      class="makeStyles-link-312"
                       color="inherit"
                       href="/blogs"
                     >
@@ -639,14 +639,14 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-socialLink-313"
+                      class="makeStyles-socialLink-314"
                       color="inherit"
                       href="/"
                       title="facebook"
                     >
                       <img
                         alt="facebook"
-                        class="makeStyles-image-314 lazyload"
+                        class="makeStyles-image-315 lazyload"
                         data-src="/static/images/facebook.png"
                       />
                     </a>
@@ -655,14 +655,14 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-socialLink-313"
+                      class="makeStyles-socialLink-314"
                       color="inherit"
                       href="/"
                       title="linkedIn"
                     >
                       <img
                         alt="linkedIn"
-                        class="makeStyles-image-314 lazyload"
+                        class="makeStyles-image-315 lazyload"
                         data-src="/static/images/linkedin.png"
                       />
                     </a>
@@ -681,7 +681,7 @@ exports[`@app/modules/main/screens/HomeScreen renders successfully 1`] = `
                     href="/"
                   >
                     <a
-                      class="makeStyles-link-311"
+                      class="makeStyles-link-312"
                       color="inherit"
                       href="/"
                     >

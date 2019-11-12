@@ -7,6 +7,8 @@
   "home": "Trang chủ",
   "invalidError": "{{field}} không hợp lệ",
   "login": "Đăng nhập",
+  "logout": "Đăng xuất",
+  "profile": "Thông tin cá nhân",
   "register": "Đăng kí",
   "requiredError": "{{field}} bắt buộc",
   "socialMedias": "Mạng xã hội"

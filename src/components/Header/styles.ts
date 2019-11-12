@@ -1,6 +1,6 @@
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
-export const useStyles = makeStyles(() => ({
+export const useStyles = makeStyles((theme) => ({
   root: {
     boxShadow: 'none',
   },
@@ -18,9 +18,17 @@ export const useStyles = makeStyles(() => ({
   },
   menuItemIcon: {},
   menuItemText: {
-    marginLeft: 10,
+    marginLeft: theme.spacing(2),
   },
   menuItemButton: {
-    padding: 20,
+    padding: theme.spacing(1),
+  },
+  displayName: {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    color: '#fff',
+    textTransform: 'none',
+    margin: theme.spacing(2, 0),
   },
 }));
