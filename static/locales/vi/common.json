@@ -1,15 +1,20 @@
 {
   "aboutUs": "Về chúng tôi",
+  "back": "Quay lại",
   "blogs": "Bài viết",
   "changeLanguage": "Đổi ngôn ngữ",
   "company": "Công ty",
   "createdWithLove": "Tạo cùng ♥!",
+  "dataSaved": "Dữ liệu đã được lưu!",
   "home": "Trang chủ",
   "invalidError": "{{field}} không hợp lệ",
   "login": "Đăng nhập",
   "logout": "Đăng xuất",
+  "none": "(Bỏ trống)",
   "profile": "Thông tin cá nhân",
   "register": "Đăng kí",
   "requiredError": "{{field}} bắt buộc",
-  "socialMedias": "Mạng xã hội"
+  "save": "Lưu",
+  "socialMedias": "Mạng xã hội",
+  "uniqueError": "{{field}} đã tồn tại"
 }

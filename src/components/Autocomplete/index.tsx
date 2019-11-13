@@ -143,11 +143,12 @@ interface Props<T extends FieldValueType> {
   pickerDataSources?: PickerDataItem<T>[];
   error?: boolean;
   disabled?: boolean;
+  placeholder?: string;
   onChange?: (value: T) => void;
 }
 
 const Autocomplete: <T extends FieldValueType>(props: Props<T>) => JSX.Element = (props) => {
-  const { id, label, value, onChange, pickerDataSources, error, disabled } = props;
+  const { id, label, value, onChange, pickerDataSources, error, disabled, placeholder } = props;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let inputValue: ValueType<OptionType>;
   let options: OptionType[] = [];
@@ -200,7 +201,7 @@ const Autocomplete: <T extends FieldValueType>(props: Props<T>) => JSX.Element =
             shrink: true,
           },
         }}
-        placeholder=''
+        placeholder={placeholder}
         options={options}
         components={components}
         value={inputValue}

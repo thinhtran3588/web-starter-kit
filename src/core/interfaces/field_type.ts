@@ -1,1 +1,1 @@
-export type FieldType = 'text' | 'picker' | 'datepicker';
+export type FieldType = 'text' | 'picker' | 'datepicker' | 'timepicker';

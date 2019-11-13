@@ -3,6 +3,7 @@
   "confirmPassword": "Confirm Password",
   "confirmPasswordNotMatch": "Confirm Password does not match",
   "email": "Email",
+  "emailAlreadyInUse": "The email address is already in use by another account.",
   "invalidPassword": "Password must be at least 6 characters and at most 20 characters and must include at least one upper case letter, one lower case letter, one numeric digit and one special letter (!, @, #, $, %, ^, &, *)",
   "password": "Password",
   "register": "Register",

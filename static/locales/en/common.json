@@ -1,15 +1,20 @@
 {
   "aboutUs": "About Us",
+  "back": "Back",
   "blogs": "Blogs",
   "changeLanguage": "Change language",
   "company": "Company",
   "createdWithLove": "Created with ♥!",
+  "dataSaved": "Data saved!",
   "home": "Home",
   "invalidError": "{{field}} is invalid",
   "login": "Login",
   "logout": "Logout",
+  "none": "(None)",
   "profile": "Profile",
   "register": "Register",
   "requiredError": "{{field}} is required",
-  "socialMedias": "Social Medias"
+  "save": "Save",
+  "socialMedias": "Social Medias",
+  "uniqueError": "{{field}} already exists"
 }

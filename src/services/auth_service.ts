@@ -1,5 +1,5 @@
 import firebase, { auth } from 'firebase/app';
-import { User, LoginType, AppError, initApolloClient } from '@app/core';
+import { User, LoginType, AppError, initApolloClient, sleep } from '@app/core';
 import { config } from '@app/config';
 import { gql } from 'apollo-boost';
 
@@ -7,7 +7,37 @@ const FACEBOOK_PROVIDER_ID = 'facebook.com';
 const GOOGLE_PROVIDER_ID = 'google.com';
 const PHONE_PROVIDER_ID = 'phone';
 
-const getUser = (user: firebase.User): User => {
+const verifyRegistration = async (user: firebase.User): Promise<string> => {
+  let tokenResult = await user.getIdTokenResult(true);
+  if (!tokenResult.claims.id) {
+    const token = await user.getIdToken();
+    const apolloClient = initApolloClient();
+    await apolloClient.mutate({
+      variables: {
+        token,
+      },
+      mutation: gql`
+        mutation registerWithToken($token: String!) {
+          users {
+            registerWithToken(payload: { token: $token }) {
+              id
+            }
+          }
+        }
+      `,
+    });
+    do {
+      // eslint-disable-next-line no-await-in-loop
+      tokenResult = await user.getIdTokenResult(true);
+      // eslint-disable-next-line no-await-in-loop
+      await sleep(500);
+    } while (!tokenResult.claims.id);
+  }
+  return tokenResult.claims.id;
+};
+
+const getUser = async (user: firebase.User): Promise<User> => {
+  const id = await verifyRegistration(user);
   const avatarUrl =
     user.photoURL && user.photoURL.indexOf('facebook') > -1 ? `${user.photoURL}?height=500` : user.photoURL;
   let loginType: LoginType = 'EMAIL';
@@ -30,42 +60,14 @@ const getUser = (user: firebase.User): User => {
       displayName = user.email as string;
     }
   }
-
   return {
-    id: user.uid,
+    id,
     displayName,
     avatarUrl: avatarUrl || '',
-    isLoggedIn: true,
     email: user.email || '',
     emailVerified: user.emailVerified,
     loginType,
   };
-};
-
-const verifyRegistration = async (): Promise<void> => {
-  const { currentUser } = auth();
-  if (!currentUser) {
-    return;
-  }
-  const { claims } = await currentUser.getIdTokenResult(true);
-  if (!claims.id) {
-    const token = await currentUser.getIdToken(true);
-    const apolloClient = initApolloClient();
-    await apolloClient.mutate({
-      variables: {
-        token,
-      },
-      mutation: gql`
-        mutation registerWithToken($token: String!) {
-          users {
-            registerWithToken(payload: { token: $token }) {
-              id
-            }
-          }
-        }
-      `,
-    });
-  }
 };
 
 const login = async (
@@ -77,7 +79,6 @@ const login = async (
   if (!user) {
     throw new AppError('auth/user-not-found', 'User not found');
   }
-  await verifyRegistration();
   return getUser(user);
 };
 
@@ -113,12 +114,7 @@ const createUserWithEmailAndPassword = async (
   if (!user) {
     throw new AppError('auth/user-not-found', 'User not found');
   }
-  await user.updateProfile({
-    displayName: email,
-  });
-  await user.reload();
   await user.sendEmailVerification();
-  await verifyRegistration();
   return getUser(user);
 };
 
@@ -127,7 +123,6 @@ const signInWithEmailAndPassword = async (email: string, password: string): Prom
   if (!user) {
     throw new AppError('auth/user-not-found', 'User not found');
   }
-  await verifyRegistration();
   return getUser(user);
 };
 
@@ -154,7 +149,7 @@ const isEmailVerified = async (): Promise<boolean> => {
   return currentUser.emailVerified;
 };
 
-const getCurrentUser = (): User | undefined => {
+const getCurrentUser = async (): Promise<User | undefined> => {
   const { currentUser } = auth();
   return currentUser ? getUser(currentUser) : undefined;
 };
@@ -195,7 +190,6 @@ const verifySmsCode = async (confirmationResult: auth.ConfirmationResult, code: 
   if (!credential.user) {
     throw new AppError('auth/user-not-found', 'User not found');
   }
-  await verifyRegistration();
   return getUser(credential.user);
 };
 

@@ -1,9 +1,6 @@
 import { showNotification } from './show_notification';
+import { ErrorWithCode } from '../interfaces';
 
-export interface ErrorWithCode extends Error {
-  code?: string;
-  message: string;
-}
 export const handleError = (
   error: ErrorWithCode,
   matchedCodes: { [code: string]: string },

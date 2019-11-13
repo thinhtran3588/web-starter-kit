@@ -4,6 +4,7 @@ export default {
   contactEmail: 'contact@webstarterkit.com',
   copyRightYear: 2019,
   dateFormat: 'DD/MM/YYYY',
+  timeFormat: 'HH:mm',
   dateTimeFormat: 'DD/MM/YYYY HH:mm:ss',
   debounceDelay: 300,
   i18n: {

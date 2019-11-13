@@ -39,3 +39,6 @@ export * from './TextField';
 export * from './Toolbar';
 export * from './TreeView';
 export * from './Typography';
+export * from './DatePicker';
+export * from './TimePicker';
+export * from './Loading';

@@ -1,16 +1,19 @@
 import React from 'react';
 import { FieldInfo, FieldValueType } from '@app/core';
 import { Formik, FormikConfig } from 'formik';
+import { GridSize } from '@material-ui/core/Grid';
+import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { FormField } from '../FormField';
+import { Grid } from '../Grid';
 
-interface Props<T> extends FormikConfig<T> {
+type Props<T> = FormikConfig<T> & {
   fields?: FieldInfo<T>[];
   children?: React.ReactNode;
   setForm?: (ref: Formik<T>) => void;
-}
+} & Partial<Record<Breakpoint, boolean | GridSize>>;
 
 export const Form: <T>(props: Props<T>) => JSX.Element = (props) => {
-  const { fields, children, setForm, initialValues, ...other } = props;
+  const { fields, children, setForm, initialValues, xs, sm, md, lg, xl, ...other } = props;
 
   return (
     <Formik
@@ -25,27 +28,34 @@ export const Form: <T>(props: Props<T>) => JSX.Element = (props) => {
         };
         return (
           <form onSubmit={context.handleSubmit}>
-            {fields &&
-              fields
-                .filter((m) => !m.hidden)
-                .map((field) => (
-                  <FormField
-                    key={field.name.toString()}
-                    id={field.name.toString()}
-                    label={field.label}
-                    value={context.values[field.name]}
-                    type={field.type}
-                    onValueChange={handleChange(field.name.toString())}
-                    error={context.touched[field.name] && !!context.errors[field.name]}
-                    errorMessage={(context.errors[field.name] as unknown) as string}
-                    onChange={context.handleChange}
-                    onBlur={context.handleBlur}
-                    pickerDataSources={field.pickerDataSources}
-                    isPassword={field.isPassword}
-                    disabled={field.disabled}
-                  />
-                ))}
-            {children}
+            <Grid item xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
+              <Grid container spacing={1}>
+                {fields &&
+                  fields
+                    .filter((m) => !m.hidden)
+                    .map((field) => (
+                      <FormField
+                        key={field.name.toString()}
+                        id={field.name.toString()}
+                        label={field.label}
+                        value={context.values[field.name]}
+                        type={field.type}
+                        onValueChange={handleChange(field.name.toString())}
+                        error={context.touched[field.name] && !!context.errors[field.name]}
+                        errorMessage={(context.errors[field.name] as unknown) as string}
+                        onChange={context.handleChange}
+                        onBlur={context.handleBlur}
+                        pickerDataSources={field.pickerDataSources}
+                        isPassword={field.isPassword}
+                        disabled={field.disabled}
+                        placeholder={field.placeholder}
+                      />
+                    ))}
+                <Grid item xs={12}>
+                  {children}
+                </Grid>
+              </Grid>
+            </Grid>
           </form>
         );
       }}

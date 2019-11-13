@@ -96,7 +96,9 @@ const Screen = (props: Props): JSX.Element => {
         });
       }, 2000);
     } catch (error) {
-      handleError(error, {}, {});
+      handleError(error, {
+        'auth/email-already-in-use': t('emailAlreadyInUse'),
+      });
     } finally {
       setIsBusy(false);
     }
@@ -109,10 +111,10 @@ const Screen = (props: Props): JSX.Element => {
           <Button
             disabled={isBusy}
             type='submit'
-            fullWidth
             variant='contained'
             color='primary'
             className={classes.button}
+            fullWidth
           >
             {props.t('register')}
           </Button>

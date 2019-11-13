@@ -6,7 +6,6 @@ export const GET_CURRENT_USER_QUERY = gql`
       id
       displayName
       avatarUrl
-      isLoggedIn
       email
       emailVerified
       loginType

@@ -57,5 +57,6 @@ Object {
     "public": "/public",
     "static": "/static",
   },
+  "timeFormat": "HH:mm",
 }
 `;

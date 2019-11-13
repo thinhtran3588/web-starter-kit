@@ -3,7 +3,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 export const useStyles = makeStyles((theme) => ({
   container: {
     width: '100%',
-    minWidth: theme.spacing(50),
+    minWidth: theme.spacing(40),
     minHeight: '100vh',
     height: '100vh',
     display: 'flex',
@@ -14,7 +14,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   form: {
     width: theme.spacing(62.5),
-    minWidth: theme.spacing(50),
+    minWidth: theme.spacing(40),
     height: '100%',
     overflowY: 'auto',
     zIndex: 10,

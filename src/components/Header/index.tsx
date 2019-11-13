@@ -73,7 +73,9 @@ const BaseHeader = (props: Props): JSX.Element => {
   const logout = (): void => {
     authService.logout();
     resetStore();
-    closeUserMenu();
+    navigationService.navigateTo({
+      url: '/',
+    });
   };
 
   const navigateToProfile = (): void => {

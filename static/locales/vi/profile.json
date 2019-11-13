@@ -1,0 +1,15 @@
+{
+  "address": "Địa chỉ",
+  "changePassword": "Đổi mật khẩu",
+  "dob": "Ngày sinh",
+  "email": "Email",
+  "firstName": "Tên",
+  "gender": "Giới tính",
+  "lastName": "Họ",
+  "middleName": "Tên đệm",
+  "phoneNo": "Số điện thoại",
+  "phoneNoAlreadyExists": "Số điện thoại đã tồn tại",
+  "profile": "Hồ sơ cá nhân",
+  "username": "Tên người dùng",
+  "usernameUpdateOnlyOne": "Tên người dùng chỉ được phép cập nhật 1 lần"
+}

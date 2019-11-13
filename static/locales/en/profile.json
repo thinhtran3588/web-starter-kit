@@ -1,0 +1,15 @@
+{
+  "address": "Address",
+  "changePassword": "Change Password",
+  "dob": "DoB",
+  "email": "Email",
+  "firstName": "First Name",
+  "gender": "Gender",
+  "lastName": "Last Name",
+  "middleName": "Middle Name",
+  "phoneNo": "Phone No",
+  "phoneNoAlreadyExists": "Phone No Already Exists",
+  "profile": "Profile",
+  "username": "Username",
+  "usernameUpdateOnlyOne": "Username can only be updated once"
+}
