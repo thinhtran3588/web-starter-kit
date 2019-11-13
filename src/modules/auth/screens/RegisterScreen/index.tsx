@@ -106,7 +106,13 @@ const Screen = (props: Props): JSX.Element => {
 
   return (
     <AuthLayout title={t('register')}>
-      <Form initialValues={initialValues} fields={fields} validationSchema={validationSchema} onSubmit={onSubmit}>
+      <Form
+        initialValues={initialValues}
+        fields={fields}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+        isBusy={isBusy}
+      >
         <div className={classes.buttonContainer}>
           <Button
             disabled={isBusy}

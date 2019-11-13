@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import * as yup from 'yup';
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
-import { Layout, Button, Form } from '@app/components';
-import { useTheme } from '@material-ui/styles';
-import { useMediaQuery, Theme } from '@material-ui/core';
+import { Layout, Form } from '@app/components';
 import {
   WithTranslation,
   withTranslation,
@@ -21,9 +19,7 @@ import {
 import { navigationService } from '@app/services';
 import { config } from '@app/config';
 import { withNoSsr } from '@app/hoc/WithNoSsr';
-import clsx from 'clsx';
 import { ChangePassword } from './components';
-import { useStyles } from './styles';
 
 type Props = WithTranslation;
 
@@ -100,11 +96,6 @@ const defaultUser: User = {
 
 const Screen = (props: Props): JSX.Element => {
   const { t } = props;
-  const classes = useStyles();
-  const theme = useTheme<Theme>();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'), {
-    defaultMatches: true,
-  });
   const [isBusy, setIsBusy] = useState<boolean>(false);
   const [openChangePassword, setOpenChangePassword] = useState<boolean>(false);
   const [usernameDisabled, setUsernameDisabled] = useState(false);
@@ -125,7 +116,7 @@ const Screen = (props: Props): JSX.Element => {
   if (queryError) {
     showNotification({
       type: 'ERROR',
-      message: getErrorMessage(queryError.graphQLErrors, {}),
+      message: queryError.graphQLErrors.length > 0 ? getErrorMessage(queryError.graphQLErrors, {}) : queryError.message,
     });
   }
 
@@ -141,7 +132,11 @@ const Screen = (props: Props): JSX.Element => {
   const validationSchema = yup.object().shape<FormData>({
     username: yup
       .string()
-      .required()
+      .required(
+        t('common:requiredError', {
+          field: t('username'),
+        }),
+      )
       .matches(
         config.regex.username,
         t('common:invalidError', {
@@ -265,43 +260,27 @@ const Screen = (props: Props): JSX.Element => {
           fields={fields}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
+          isBusy={isBusy}
+          buttons={[
+            {
+              type: 'submit',
+              color: 'primary',
+              title: t('common:save'),
+            },
+            {
+              color: 'primary',
+              title: t('changePassword'),
+              onClick: openChangePasswordModal,
+              hidden: user.loginType !== 'EMAIL',
+            },
+            {
+              title: t('common:back'),
+              onClick: goBack,
+            },
+          ]}
           lg={4}
           md={6}
-        >
-          <div className={clsx(isDesktop && classes.buttonContainer)}>
-            <Button
-              disabled={isBusy}
-              type='submit'
-              variant='contained'
-              color='primary'
-              className={isDesktop ? classes.button : classes.mobileButton}
-              fullWidth={!isDesktop}
-            >
-              {props.t('common:save')}
-            </Button>
-            {user.loginType === 'EMAIL' && (
-              <Button
-                disabled={isBusy}
-                variant='contained'
-                color='primary'
-                className={isDesktop ? classes.button : classes.mobileButton}
-                fullWidth={!isDesktop}
-                onClick={openChangePasswordModal}
-              >
-                {props.t('changePassword')}
-              </Button>
-            )}
-            <Button
-              disabled={isBusy}
-              variant='contained'
-              className={isDesktop ? classes.button : classes.mobileButton}
-              fullWidth={!isDesktop}
-              onClick={goBack}
-            >
-              {props.t('common:back')}
-            </Button>
-          </div>
-        </Form>
+        />
       )}
       {user.loginType === 'EMAIL' && (
         <ChangePassword

@@ -84,7 +84,13 @@ export const EmailLogin = (props: Props): JSX.Element => {
   };
 
   return (
-    <Form initialValues={initialValues} fields={fields} validationSchema={validationSchema} onSubmit={onSubmit}>
+    <Form
+      initialValues={initialValues}
+      fields={fields}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+      isBusy={isBusy}
+    >
       <Button disabled={isBusy} type='submit' fullWidth variant='contained' color='primary' className={classes.button}>
         {props.t('login')}
       </Button>

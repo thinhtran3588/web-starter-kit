@@ -76,6 +76,7 @@ export const ChangePassword = (props: Props): JSX.Element => {
           fields={fields}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
+          isBusy={isBusy}
           setForm={(ref) => {
             form = ref;
           }}
