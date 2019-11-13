@@ -6,8 +6,6 @@
   "countryCode": "Country Code",
   "email": "Email",
   "forgotPassword": "Forgot Password?",
-  "invalidPassword": "Password must be at least 6 characters and at most 20 characters and must include at least one upper case letter, one lower case letter, one numeric digit and one special letter (!, @, #, $, %, ^, &, *)",
-  "verificationCode": "Verification Code",
   "login": "Login",
   "loginWithEmail": "Login with email",
   "password": "Password",
@@ -16,5 +14,6 @@
   "resendVerificationCode": "Resend Verification Code",
   "sendVerificationCode": "Send Verification Code",
   "userDisabled": "User has been disabled",
+  "verificationCode": "Verification Code",
   "wrongLoginCredentials": "Wrong login credentials"
 }

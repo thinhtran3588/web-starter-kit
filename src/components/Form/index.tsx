@@ -1,10 +1,8 @@
 import React from 'react';
 import { FieldInfo, FieldValueType } from '@app/core';
 import { Formik, FormikConfig } from 'formik';
-import { GridSize } from '@material-ui/core/Grid';
-import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { FormField } from '../FormField';
-import { Grid } from '../Grid';
+import { Grid, GridSize, Breakpoint } from '../Grid';
 
 type Props<T> = FormikConfig<T> & {
   fields?: FieldInfo<T>[];

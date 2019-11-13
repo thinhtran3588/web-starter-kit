@@ -66,7 +66,7 @@ const Screen = (props: Props): JSX.Element => {
           field: t('password'),
         }),
       )
-      .matches(config.regex.password, t('invalidPassword')),
+      .matches(config.regex.password, t('common:invalidPassword')),
     confirmPassword: yup.string().when('password', {
       is: (password) => Boolean(password),
       then: yup

@@ -42,3 +42,4 @@ export * from './Typography';
 export * from './DatePicker';
 export * from './TimePicker';
 export * from './Loading';
+export * from './Dialog';

@@ -11,5 +11,6 @@
   "phoneNoAlreadyExists": "Phone No Already Exists",
   "profile": "Profile",
   "username": "Username",
-  "usernameUpdateOnlyOne": "Username can only be updated once"
+  "usernameUpdateOnlyOne": "Username can only be updated once",
+  "newPassword": "New Password"
 }

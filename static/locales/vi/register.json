@@ -4,7 +4,6 @@
   "confirmPasswordNotMatch": "Xác thực mật khẩu không trùng khớp",
   "email": "Email",
   "emailAlreadyInUse": "Email đã được sử dụng bởi người dùng khác",
-  "invalidPassword": "Mật khẩu phải có ít nhất 6 kí tự, nhiều nhất 20 kí tự, ít nhất 1 chữ hoa, 1 chữ thường, 1 chữ số và 1 kí tự đặc biệt (!, @, #, $, %, ^, &, *)",
   "password": "Mật khẩu",
   "register": "Đăng kí",
   "registerCompleted": "Đăng kí thành công"

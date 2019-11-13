@@ -6,3 +6,5 @@
 - update file directly to s3 from client\
 - SEO auth layout
 - avatar update with s3
+- i18n to firebase
+- login with username

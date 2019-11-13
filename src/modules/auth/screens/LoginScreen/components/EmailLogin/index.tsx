@@ -60,7 +60,7 @@ export const EmailLogin = (props: Props): JSX.Element => {
           field: t('password'),
         }),
       )
-      .matches(config.regex.password, t('invalidPassword')),
+      .matches(config.regex.password, t('common:invalidPassword')),
   });
 
   const onSubmit = async (input: FormData): Promise<void> => {

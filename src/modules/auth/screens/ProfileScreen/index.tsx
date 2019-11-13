@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import * as yup from 'yup';
 import { gql } from 'apollo-boost';
+import { useQuery } from '@apollo/react-hooks';
 import { Layout, Button, Form } from '@app/components';
+import { useTheme } from '@material-ui/styles';
+import { useMediaQuery, Theme } from '@material-ui/core';
 import {
   WithTranslation,
   withTranslation,
@@ -18,7 +21,8 @@ import {
 import { navigationService } from '@app/services';
 import { config } from '@app/config';
 import { withNoSsr } from '@app/hoc/WithNoSsr';
-import { useQuery } from '@apollo/react-hooks';
+import clsx from 'clsx';
+import { ChangePassword } from './components';
 import { useStyles } from './styles';
 
 type Props = WithTranslation;
@@ -97,7 +101,12 @@ const defaultUser: User = {
 const Screen = (props: Props): JSX.Element => {
   const { t } = props;
   const classes = useStyles();
+  const theme = useTheme<Theme>();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'), {
+    defaultMatches: true,
+  });
   const [isBusy, setIsBusy] = useState<boolean>(false);
+  const [openChangePassword, setOpenChangePassword] = useState<boolean>(false);
   const [usernameDisabled, setUsernameDisabled] = useState(false);
   const { data: userData } = useQuery(GET_CURRENT_USER_QUERY);
   const user = userData ? (userData.currentUser as User) : defaultUser;
@@ -196,6 +205,8 @@ const Screen = (props: Props): JSX.Element => {
     }
   };
 
+  const openChangePasswordModal = (): void => setOpenChangePassword(true);
+
   const goBack = (): void => navigationService.goBack();
 
   const fields: FieldInfo<FormData>[] = [
@@ -249,19 +260,57 @@ const Screen = (props: Props): JSX.Element => {
   return (
     <Layout title={t('profile')}>
       {profile && (
-        <Form initialValues={profile} fields={fields} validationSchema={validationSchema} onSubmit={onSubmit}>
-          <div className={classes.buttonContainer}>
-            <Button disabled={isBusy} type='submit' variant='contained' color='primary' className={classes.button}>
+        <Form
+          initialValues={profile}
+          fields={fields}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+          lg={4}
+          md={6}
+        >
+          <div className={clsx(isDesktop && classes.buttonContainer)}>
+            <Button
+              disabled={isBusy}
+              type='submit'
+              variant='contained'
+              color='primary'
+              className={isDesktop ? classes.button : classes.mobileButton}
+              fullWidth={!isDesktop}
+            >
               {props.t('common:save')}
             </Button>
-            <Button disabled={isBusy} variant='contained' color='primary' className={classes.button}>
-              {props.t('changePassword')}
-            </Button>
-            <Button disabled={isBusy} variant='contained' className={classes.button} onClick={goBack}>
+            {user.loginType === 'EMAIL' && (
+              <Button
+                disabled={isBusy}
+                variant='contained'
+                color='primary'
+                className={isDesktop ? classes.button : classes.mobileButton}
+                fullWidth={!isDesktop}
+                onClick={openChangePasswordModal}
+              >
+                {props.t('changePassword')}
+              </Button>
+            )}
+            <Button
+              disabled={isBusy}
+              variant='contained'
+              className={isDesktop ? classes.button : classes.mobileButton}
+              fullWidth={!isDesktop}
+              onClick={goBack}
+            >
               {props.t('common:back')}
             </Button>
           </div>
         </Form>
+      )}
+      {user.loginType === 'EMAIL' && (
+        <ChangePassword
+          t={t}
+          isBusy={isBusy}
+          setIsBusy={setIsBusy}
+          open={openChangePassword}
+          setOpen={setOpenChangePassword}
+        />
       )}
     </Layout>
   );

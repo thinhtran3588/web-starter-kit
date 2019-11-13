@@ -7,4 +7,7 @@ export const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: theme.spacing(2),
   },
+  mobileButton: {
+    marginTop: theme.spacing(2),
+  },
 }));

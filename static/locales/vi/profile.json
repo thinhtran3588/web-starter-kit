@@ -11,5 +11,6 @@
   "phoneNoAlreadyExists": "Số điện thoại đã tồn tại",
   "profile": "Hồ sơ cá nhân",
   "username": "Tên người dùng",
-  "usernameUpdateOnlyOne": "Tên người dùng chỉ được phép cập nhật 1 lần"
+  "usernameUpdateOnlyOne": "Tên người dùng chỉ được phép cập nhật 1 lần",
+  "newPassword": "Mật khẩu mới"
 }
