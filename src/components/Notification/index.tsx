@@ -51,29 +51,33 @@ const SnackbarContentWrapper = (props: SnackbarContentWrapperProps): JSX.Element
 };
 
 export const Notification = (): JSX.Element => {
+  const { data } = useQuery(GET_CURRENT_NOTIFICATION_QUERY);
+  const notification: NotificationContent | undefined = data ? data.currentNotification : undefined;
   const handleClose = (): void => {
     showNotification({
+      type: notification ? notification.type : undefined,
       open: false,
     });
   };
-
-  const { data } = useQuery(GET_CURRENT_NOTIFICATION_QUERY);
-  const notification: NotificationContent | undefined = data ? data.currentNotification : undefined;
   return (
-    <MuiSnackbar
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'center',
-      }}
-      open={!!notification && !!notification.open}
-      autoHideDuration={2000}
-      onClose={handleClose}
-    >
-      <SnackbarContentWrapper
-        onClose={handleClose}
-        type={notification ? notification.type : 'INFO'}
-        message={notification ? notification.message : ''}
-      />
-    </MuiSnackbar>
+    <>
+      {notification && notification.open && (
+        <MuiSnackbar
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
+          open={!!notification && !!notification.open}
+          autoHideDuration={2000}
+          onClose={handleClose}
+        >
+          <SnackbarContentWrapper
+            onClose={handleClose}
+            type={notification ? notification.type : 'INFO'}
+            message={notification ? notification.message : ''}
+          />
+        </MuiSnackbar>
+      )}
+    </>
   );
 };
