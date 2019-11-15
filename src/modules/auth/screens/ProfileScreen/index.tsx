@@ -18,7 +18,7 @@ import {
 } from '@app/core';
 import { navigationService } from '@app/services';
 import { config } from '@app/config';
-import { withNoSsr } from '@app/hoc/WithNoSsr';
+import { withAuth } from '@app/hoc/WithAuth';
 import { ChangePassword } from './components';
 
 type Props = WithTranslation;
@@ -295,7 +295,7 @@ const Screen = (props: Props): JSX.Element => {
   );
 };
 
-const ScreenBeforeTranslation = withNoSsr(Screen);
+const ScreenBeforeTranslation = withAuth(Screen);
 
 ScreenBeforeTranslation.getInitialProps = async () => {
   return {

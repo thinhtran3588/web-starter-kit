@@ -17,6 +17,7 @@
     "@material-ui/styles": "4.5.0",
     "apollo-boost": "^0.4.4",
     "apollo-cache-persist": "^0.1.1",
+    "apollo-link-context": "^1.0.19",
     "clsx": "^1.0.4",
     "dayjs": "^1.8.16",
     "express": "^4.17.1",

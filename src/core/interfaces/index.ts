@@ -16,3 +16,6 @@ export * from './form_data';
 export * from './notification_content';
 export * from './country';
 export * from './error_with_code';
+export * from './aggregate_permission';
+export * from './permission_tree';
+export * from './permission';
