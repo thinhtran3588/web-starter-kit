@@ -6,45 +6,14 @@ exports[`components/FormHeader renders successfully 1`] = `
     <div
       class="MuiPaper-root MuiPaper-elevation1 makeStyles-root-1 MuiPaper-rounded"
     >
-      <nav
-        aria-label="breadcrumb"
-        class="MuiTypography-root MuiBreadcrumbs-root makeStyles-breadcrumb-2 MuiTypography-body1 MuiTypography-colorTextSecondary"
+      <h6
+        class="MuiTypography-root MuiTypography-h6 MuiTypography-colorTextPrimary"
       >
-        <ol
-          class="MuiBreadcrumbs-ol"
-        >
-          <li
-            class="MuiBreadcrumbs-li"
-          >
-            <next-link
-              href="/admin/users"
-            >
-              <a
-                class=""
-                color="inherit"
-                href="/admin/users"
-              >
-                Auth
-              </a>
-            </next-link>
-          </li>
-          <li
-            aria-hidden="true"
-            class="PrivateBreadcrumbSeparator-root-67 MuiBreadcrumbs-separator"
-          >
-            /
-          </li>
-          <li
-            class="MuiBreadcrumbs-li"
-          >
-            <p
-              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextPrimary"
-            >
-              Users
-            </p>
-          </li>
-        </ol>
-      </nav>
+        title
+      </h6>
+      <div
+        class="makeStyles-separator-2"
+      />
       <div
         class="makeStyles-commands-3"
       >

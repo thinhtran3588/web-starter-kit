@@ -64,7 +64,8 @@ export const Table = (props: Props): JSX.Element => {
         }
       }
     }
-    value = value === undefined ? '' : value;
+    // eslint-disable-next-line no-null/no-null
+    value = value === undefined || value === null ? '' : value;
 
     return (
       <TableCell key={key} align={column.align}>

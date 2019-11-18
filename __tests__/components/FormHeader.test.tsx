@@ -9,15 +9,7 @@ describe('components/FormHeader', () => {
     const createUser = jest.fn();
     const { baseElement } = render(
       <FormHeader
-        breadcrumbLinks={[
-          {
-            text: 'Auth',
-            link: '/admin/users',
-          },
-          {
-            text: 'Users',
-          },
-        ]}
+        title={'title'}
         commandButtons={[
           {
             text: 'Create',

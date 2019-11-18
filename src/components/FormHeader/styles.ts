@@ -10,11 +10,8 @@ export const useStyles = makeStyles((theme) => ({
       flexDirection: 'column',
     },
   },
-  breadcrumb: {
+  separator: {
     flexGrow: 1,
-    [theme.breakpoints.down('xs')]: {
-      marginBottom: theme.spacing(1),
-    },
   },
   commands: {},
   button: {

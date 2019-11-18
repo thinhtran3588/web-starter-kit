@@ -110,7 +110,7 @@ const Screen = (props: Props): JSX.Element => {
     variables: {
       id: user.id,
     },
-    fetchPolicy: 'network-only',
+    fetchPolicy: 'no-cache',
   });
 
   if (queryError) {

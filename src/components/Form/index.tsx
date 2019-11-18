@@ -54,22 +54,31 @@ export const Form: <T>(props: Props<T>) => JSX.Element = (props) => {
                   fields
                     .filter((m) => !m.hidden)
                     .map((field) => (
-                      <FormField
+                      <Grid
                         key={field.name.toString()}
-                        id={field.name.toString()}
-                        label={field.label}
-                        value={context.values[field.name]}
-                        type={field.type}
-                        onValueChange={handleChange(field.name.toString(), field.type)}
-                        error={context.touched[field.name] && !!context.errors[field.name]}
-                        errorMessage={(context.errors[field.name] as unknown) as string}
-                        onChange={context.handleChange}
-                        onBlur={context.handleBlur}
-                        pickerDataSources={field.pickerDataSources}
-                        isPassword={field.isPassword}
-                        disabled={field.disabled || isBusy}
-                        placeholder={field.placeholder}
-                      />
+                        item
+                        xs={field.xs}
+                        sm={field.sm}
+                        md={field.md}
+                        lg={field.lg}
+                        xl={field.xl}
+                      >
+                        <FormField
+                          id={field.name.toString()}
+                          label={field.label}
+                          value={context.values[field.name]}
+                          type={field.type}
+                          onValueChange={handleChange(field.name.toString(), field.type)}
+                          error={context.touched[field.name] && !!context.errors[field.name]}
+                          errorMessage={(context.errors[field.name] as unknown) as string}
+                          onChange={context.handleChange}
+                          onBlur={context.handleBlur}
+                          pickerDataSources={field.pickerDataSources}
+                          isPassword={field.isPassword}
+                          disabled={field.disabled || isBusy}
+                          placeholder={field.placeholder}
+                        />
+                      </Grid>
                     ))}
                 <Grid item xs={12}>
                   {!!buttons && (

@@ -15,6 +15,10 @@ jest.mock('next-i18next', () => {
 });
 
 jest.mock('firebase/app', () => ({
-  auth: () => ({}),
+  auth: () => ({
+    onAuthStateChanged: () => {
+      return () => {};
+    },
+  }),
 }));
 jest.mock('firebase/auth');

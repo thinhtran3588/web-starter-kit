@@ -5,31 +5,34 @@ import { useTheme, useMediaQuery } from '@material-ui/core';
 import {
   OffsetPagination,
   FieldInfo,
-  Filter,
   FieldValueType,
   TableColumn,
   FilterWithOffsetPagination,
+  CommandButton,
 } from '@app/core';
 import { config } from '@app/config';
 import { Table } from '../Table';
 import { FormFilter } from '../FormFilter';
 import { Paper } from '../Paper';
 import { useStyles } from './styles';
+import { FormHeader } from '../FormHeader';
 
 interface Props<T> {
   children?: React.ReactNode;
-  defaultFilter?: Filter;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  filterFields?: FieldInfo<any>[];
+  defaultFilter?: T;
+  filterFields: FieldInfo<T>[];
   onFilterChange?: (filter: FilterWithOffsetPagination, useDebounce: boolean) => void;
   columns: TableColumn[];
   rows: { [id: string]: FieldValueType }[];
   count: number;
   classes?: { [className: string]: string };
+  title: string;
+  commandButtons?: CommandButton[];
 }
 
 interface State {
-  filter: Filter;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  filter: any;
   useDebounce: boolean;
   pagination: {
     pageIndex: number;
@@ -47,6 +50,8 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
     rows,
     count,
     classes: externalClasses = {},
+    title,
+    commandButtons,
   } = props;
   const classes = useStyles();
 
@@ -112,7 +117,14 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
 
   return (
     <Paper className={clsx(classes.root, externalClasses.formSearchRoot)}>
-      <FormFilter filterFields={filterFields} filter={state.filter} handleChange={handleChange} />
+      <FormHeader title={title} commandButtons={commandButtons} />
+      <FormFilter
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        filterFields={filterFields as any}
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        filter={state.filter as any}
+        handleChange={handleChange}
+      />
       <Table
         columns={columns}
         rows={rows}

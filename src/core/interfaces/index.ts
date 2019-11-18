@@ -19,3 +19,4 @@ export * from './error_with_code';
 export * from './aggregate_permission';
 export * from './permission_tree';
 export * from './permission';
+export * from './command_button';

@@ -3,7 +3,7 @@ import { WithTranslation } from 'react-i18next';
 import debounce from 'lodash/fp/debounce';
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
-import { AdminLayout, FormHeader, FormSearch } from '@app/components';
+import { AdminLayout, FormSearch } from '@app/components';
 import {
   PickerDataItem,
   TableColumn,
@@ -174,16 +174,8 @@ const BaseUsers = (props: Props): JSX.Element => {
 
   return (
     <AdminLayout title='Users' description='Users'>
-      <FormHeader
-        breadcrumbLinks={[
-          {
-            text: 'Auth',
-            link: '/admin/users',
-          },
-          {
-            text: 'Users',
-          },
-        ]}
+      <FormSearch
+        title='Users'
         commandButtons={[
           {
             text: 'Create',
@@ -191,8 +183,6 @@ const BaseUsers = (props: Props): JSX.Element => {
             color: 'primary',
           },
         ]}
-      />
-      <FormSearch
         filterFields={filterFields}
         onFilterChange={onFilterChange}
         defaultFilter={{

@@ -476,108 +476,82 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
         <div
           class="MuiPaper-root MuiPaper-elevation1 makeStyles-root-180 MuiPaper-rounded"
         >
-          <nav
-            aria-label="breadcrumb"
-            class="MuiTypography-root MuiBreadcrumbs-root makeStyles-breadcrumb-181 MuiTypography-body1 MuiTypography-colorTextSecondary"
-          >
-            <ol
-              class="MuiBreadcrumbs-ol"
-            >
-              <li
-                class="MuiBreadcrumbs-li"
-              >
-                <next-link
-                  href="/admin/users"
-                >
-                  <a
-                    class=""
-                    color="inherit"
-                    href="/admin/users"
-                  >
-                    Auth
-                  </a>
-                </next-link>
-              </li>
-              <li
-                aria-hidden="true"
-                class="PrivateBreadcrumbSeparator-root-188 MuiBreadcrumbs-separator"
-              >
-                /
-              </li>
-              <li
-                class="MuiBreadcrumbs-li"
-              >
-                <p
-                  class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextPrimary"
-                >
-                  Users
-                </p>
-              </li>
-            </ol>
-          </nav>
           <div
-            class="makeStyles-commands-182"
+            class="MuiPaper-root MuiPaper-elevation1 makeStyles-root-182 MuiPaper-rounded"
           >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-183 MuiButton-containedPrimary"
-              tabindex="0"
-              type="button"
+            <h6
+              class="MuiTypography-root MuiTypography-h6 MuiTypography-colorTextPrimary"
             >
-              <span
-                class="MuiButton-label"
+              Users
+            </h6>
+            <div
+              class="makeStyles-separator-183"
+            />
+            <div
+              class="makeStyles-commands-184"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-185 MuiButton-containedPrimary"
+                tabindex="0"
+                type="button"
               >
-                Create
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
+                <span
+                  class="MuiButton-label"
+                >
+                  Create
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
           </div>
-        </div>
-        <div
-          class="MuiPaper-root MuiPaper-elevation1 makeStyles-root-217 MuiPaper-rounded"
-        >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root makeStyles-textField-322 MuiFormControl-marginDense MuiFormControl-fullWidth"
+                class="MuiFormControl-root makeStyles-formControl-317"
               >
-                <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-marginDense"
-                  data-shrink="false"
-                  for="filter"
-                >
-                  admin_users.filter
-                </label>
                 <div
-                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl MuiInputBase-marginDense"
+                  class="MuiFormControl-root MuiTextField-root MuiFormControl-marginDense MuiFormControl-fullWidth"
                 >
-                  <input
-                    aria-invalid="false"
-                    class="MuiInputBase-input MuiInput-input MuiInputBase-inputMarginDense MuiInput-inputMarginDense"
-                    id="filter"
-                    type=""
-                    value=""
-                  />
+                  <div
+                    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl MuiInputBase-marginDense"
+                  >
+                    <input
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiInput-input MuiInputBase-inputMarginDense MuiInput-inputMarginDense"
+                      id="filter"
+                      type=""
+                      value=""
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-            />
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <div
+                class="MuiFormControl-root makeStyles-formControl-317"
+              />
+            </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
-            />
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+            >
+              <div
+                class="MuiFormControl-root makeStyles-formControl-317"
+              />
+            </div>
           </div>
           <div
-            class="makeStyles-root-379 makeStyles-formTable-218"
+            class="makeStyles-root-355 makeStyles-formTable-181"
           >
             <div
-              class="makeStyles-tableWrapper-380"
+              class="makeStyles-tableWrapper-356"
               style="max-height: calc(100vh - 265px); min-height: 318px;"
             >
               <table

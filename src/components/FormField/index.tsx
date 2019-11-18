@@ -87,7 +87,6 @@ export const FormField: FormField = (props) => {
   const handleTimeChange = (date: MaterialUiPickersDate | null, _value?: string | null): void => {
     date && onValueChange && onValueChange(date.format('HHmm'), false);
   };
-
   return (
     <FormControl className={classes.formControl}>
       {type === 'text' && (

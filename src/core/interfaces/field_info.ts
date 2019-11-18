@@ -1,6 +1,8 @@
 import { PickerDataItem, FieldType } from '@app/core';
+import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
+import { GridSize } from '@material-ui/core/Grid';
 
-export interface FieldInfo<T> {
+export interface FieldInfo<T> extends Partial<Record<Breakpoint, boolean | GridSize>> {
   name: keyof T;
   label: string;
   placeholder?: string;

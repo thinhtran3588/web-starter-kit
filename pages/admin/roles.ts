@@ -1,3 +1,3 @@
-import { Roles } from '@app/modules/auth/screens/Roles';
+import { RolesScreen } from '@app/modules/auth/screens/RolesScreen';
 
-export default Roles;
+export default RolesScreen;

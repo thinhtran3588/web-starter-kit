@@ -1,33 +1,50 @@
 import React from 'react';
-import { Filter, FieldValueType } from '@app/core';
-import { Field } from '../Field';
+import { FieldValueType, FieldInfo, FieldType } from '@app/core';
+import { FormField } from '../FormField';
 import { Grid } from '../Grid';
 
 interface Props {
-  filter: Filter;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  filterFields?: any[];
+  filter: Record<string, FieldValueType>;
+  filterFields: FieldInfo<Record<string, FieldValueType>>[];
   children?: React.ReactNode;
-  handleChange?: (fieldName: string) => (value: FieldValueType, useDebounce: boolean) => void;
+  handleChange: (fieldName: string) => (value: FieldValueType, useDebounce: boolean) => void;
 }
 
-export const FormFilter = (props: Props): JSX.Element => {
+export const FormFilter: <T>(props: Props) => JSX.Element = (props) => {
   const { children, filter, filterFields, handleChange } = props;
+  const handleValueChange = (fieldName: string, type?: FieldType) => (newValue: FieldValueType) => {
+    const value = (!type || type === 'picker') && !newValue ? '' : newValue;
+    handleChange(fieldName)(value, false);
+  };
 
   return (
     <Grid container spacing={1}>
       {filterFields &&
-        filterFields.map((field) => (
-          <Field
-            key={field.name}
-            id={field.name}
-            value={filter ? filter[field.name] : undefined}
-            type={field.type}
-            label={field.text}
-            onValueChange={handleChange ? handleChange(field.name) : undefined}
-            pickerDataSources={field.pickerDataSources}
-          />
-        ))}
+        filterFields
+          .filter((m) => !m.hidden)
+          .map((field) => (
+            <Grid
+              key={field.name.toString()}
+              item
+              xs={field.xs || 12}
+              sm={field.sm}
+              md={field.md || 6}
+              lg={field.lg || 4}
+              xl={field.xl || 3}
+            >
+              <FormField
+                id={field.name.toString()}
+                label={field.label}
+                value={filter ? filter[field.name.toString()] : undefined}
+                type={field.type}
+                onValueChange={handleValueChange(field.name.toString(), field.type)}
+                pickerDataSources={field.pickerDataSources}
+                isPassword={field.isPassword}
+                disabled={field.disabled}
+                placeholder={field.placeholder}
+              />
+            </Grid>
+          ))}
       {children}
     </Grid>
   );
