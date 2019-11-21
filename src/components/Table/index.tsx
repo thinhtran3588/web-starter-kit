@@ -1,6 +1,13 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Table as MuiTable, TableBody, TableCell, TableHead, TablePagination, TableRow } from '@material-ui/core';
+import {
+  Table as MuiTable,
+  TableBody as MuiTableBody,
+  TableCell as MuiTableCell,
+  TableHead as MuiTableHead,
+  TablePagination as MuiTablePagination,
+  TableRow as MuiTableRow,
+} from '@material-ui/core';
 import { OffsetPagination, TableColumn, FieldValueType } from '@app/core';
 import { config } from '@app/config';
 import { useStyles } from './styles';
@@ -16,6 +23,13 @@ interface Props {
   bodyMaxHeight?: string | number;
   bodyMinHeight?: string | number;
 }
+
+export const TableBody = MuiTableBody;
+export const TableCell = MuiTableCell;
+export const TableHead = MuiTableHead;
+export const TablePagination = MuiTablePagination;
+export const TableRow = MuiTableRow;
+export const RawTable = MuiTable;
 
 export const Table = (props: Props): JSX.Element => {
   const {

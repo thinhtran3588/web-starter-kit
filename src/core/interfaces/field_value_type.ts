@@ -1,1 +1,1 @@
-export type FieldValueType = string | number | undefined;
+export type FieldValueType = string | number | boolean | undefined;

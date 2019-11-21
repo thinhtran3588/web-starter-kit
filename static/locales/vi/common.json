@@ -16,11 +16,14 @@
   "lastModifiedBy": "Sửa lần cuối bởi",
   "login": "Đăng nhập",
   "logout": "Đăng xuất",
+  "maxLengthError": "{{field}} không vượt quá {{maxCharacters}} kí tự",
   "none": "(Bỏ trống)",
   "profile": "Thông tin cá nhân",
   "register": "Đăng kí",
   "requiredError": "{{field}} bắt buộc",
   "save": "Lưu",
   "socialMedias": "Mạng xã hội",
-  "uniqueError": "{{field}} đã tồn tại"
+  "uniqueError": "{{field}} đã tồn tại",
+  "isActive": "Đang hoạt động",
+  "isDefault": "Mặc định"
 }

@@ -4,12 +4,16 @@ import dayjs from 'dayjs';
 import { PickerDataItem, FieldType, FieldValueType } from '@app/core';
 import { config } from '@app/config';
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
+import clsx from 'clsx';
 import { TextField } from '../TextField';
 import { DatePicker } from '../DatePicker';
 import { TimePicker } from '../TimePicker';
 import { FormControl } from '../FormControl';
 import { FormHelperText } from '../FormHelperText';
 import { useStyles } from './styles';
+import { FormControlLabel } from '../FormControlLabel';
+import { Switch } from '../Switch';
+import { Checkbox } from '../Checkbox';
 
 const Autocomplete = dynamic(() => import('@app/components/Autocomplete'));
 
@@ -29,6 +33,7 @@ interface Props<T extends FieldValueType> {
   onChange?: (e: React.ChangeEvent<any>) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onBlur?: (e: React.ChangeEvent<any>) => void;
+  className?: string;
 }
 
 type FormField = <T extends FieldValueType>(props: Props<T>) => JSX.Element;
@@ -48,11 +53,12 @@ export const FormField: FormField = (props) => {
     onChange,
     onBlur,
     placeholder,
+    className,
     ...other
   } = props;
   const classes = useStyles();
 
-  const onFieldValueChange = (newValue: string | number | undefined, useDebounce?: boolean): void => {
+  const onFieldValueChange = (newValue: FieldValueType, useDebounce?: boolean): void => {
     onValueChange && onValueChange(newValue, useDebounce === true);
   };
   const onTextValueChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -87,8 +93,11 @@ export const FormField: FormField = (props) => {
   const handleTimeChange = (date: MaterialUiPickersDate | null, _value?: string | null): void => {
     date && onValueChange && onValueChange(date.format('HHmm'), false);
   };
+  const onSwitchValueChange = (_event: React.ChangeEvent<HTMLInputElement>, checked: boolean): void => {
+    onValueChange && onValueChange(checked, false);
+  };
   return (
-    <FormControl className={classes.formControl}>
+    <FormControl className={clsx(classes.formControl, className)}>
       {type === 'text' && (
         <TextField
           id={id}
@@ -147,6 +156,20 @@ export const FormField: FormField = (props) => {
           KeyboardButtonProps={{
             'aria-label': 'Change time',
           }}
+        />
+      )}
+      {type === 'switch' && (
+        <FormControlLabel
+          id={id}
+          control={<Switch checked={value as boolean} value={value as boolean} onChange={onSwitchValueChange} />}
+          label={label}
+        />
+      )}
+      {type === 'checkbox' && (
+        <FormControlLabel
+          id={id}
+          control={<Checkbox checked={value as boolean} value={value as boolean} onChange={onSwitchValueChange} />}
+          label={label}
         />
       )}
       {error && <FormHelperText error={true}>{errorMessage}</FormHelperText>}

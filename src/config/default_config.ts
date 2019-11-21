@@ -40,4 +40,13 @@ export default {
   },
   defaultCountryCode: '+84',
   defaultWaitToResend: 30,
+  validation: {
+    date: {
+      length: 8,
+    },
+    string: {
+      descriptionMaxLength: 4000,
+      maxLength: 255,
+    },
+  },
 };

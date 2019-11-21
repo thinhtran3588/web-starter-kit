@@ -20,3 +20,4 @@ export * from './aggregate_permission';
 export * from './permission_tree';
 export * from './permission';
 export * from './command_button';
+export * from './dialog_params';

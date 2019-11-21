@@ -10,12 +10,14 @@ import {
   withTranslation,
   showNotification,
   getErrorMessage,
+  DialogParams,
 } from '@app/core';
 import { config } from '@app/config';
 import debounce from 'lodash/fp/debounce';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { withAuth } from '@app/hoc/WithAuth';
+import { Detail, AggregateConfig } from './components';
 
 type Props = WithTranslation;
 
@@ -33,6 +35,19 @@ interface FormData {
 const defaultFilter: FormData = {
   filter: '',
 };
+
+const GET_AGGREGATE_CONFIGS_QUERY = gql`
+  query getAggregateConfigs {
+    aggregateConfigs {
+      id
+      name
+      viewFields
+      updateFields
+      customActions
+      excludedActions
+    }
+  }
+`;
 
 const GET_ROLES_QUERY = gql`
   query getUsers($filter: String, $pageIndex: Int!, $itemsPerPage: Int!) {
@@ -56,16 +71,30 @@ const GET_ROLES_QUERY = gql`
 
 const Screen = (props: Props): JSX.Element => {
   const { t } = props;
-  const create = async (): Promise<void> => {
-    // TODO: implementation
-  };
+  const [isBusy, setIsBusy] = useState<boolean>(false);
+  const [dialogInfo, setDialogInfo] = useState<DialogParams<string>>({
+    open: false,
+    mode: 'create',
+  });
+
+  const create = (): void =>
+    setDialogInfo({
+      mode: 'create',
+      open: true,
+    });
+
+  const setOpenDialog = (open: boolean): void =>
+    setDialogInfo({
+      ...dialogInfo,
+      open,
+    });
 
   const filterFields: FieldInfo<FormData>[] = [
     {
       name: 'filter',
       label: t('filter'),
-      lg: 6,
-      xl: 6,
+      lg: 12,
+      xl: 12,
     },
   ];
 
@@ -79,6 +108,16 @@ const Screen = (props: Props): JSX.Element => {
       field: 'description',
       label: t('description'),
       minWidth: 300,
+    },
+    {
+      field: 'isActive',
+      label: t('common:isActive'),
+      minWidth: 100,
+    },
+    {
+      field: 'isDefault',
+      label: t('common:isDefault'),
+      minWidth: 100,
     },
     {
       field: 'createdBy',
@@ -128,6 +167,24 @@ const Screen = (props: Props): JSX.Element => {
     });
   }
 
+  const { data: aggregateConfigsData, error: aggregateConfigsError } = useQuery<{
+    aggregateConfigs: AggregateConfig[];
+  }>(GET_AGGREGATE_CONFIGS_QUERY, {
+    variables: filter,
+    fetchPolicy: 'no-cache',
+  });
+  const aggregateConfigs = aggregateConfigsData ? aggregateConfigsData.aggregateConfigs : undefined;
+
+  if (aggregateConfigsError) {
+    showNotification({
+      type: 'ERROR',
+      message:
+        aggregateConfigsError.graphQLErrors.length > 0
+          ? getErrorMessage(aggregateConfigsError.graphQLErrors, {})
+          : aggregateConfigsError.message,
+    });
+  }
+
   return (
     <AdminLayout title={t('roles')}>
       <FormSearch
@@ -144,6 +201,15 @@ const Screen = (props: Props): JSX.Element => {
         columns={columns}
         rows={data ? data.roles.data : []}
         count={data ? data.roles.pagination.total : 0}
+      />
+      <Detail
+        t={t}
+        title={`${dialogInfo.mode ? t('common:create') : t('common:edit')} ${t('roles')}`}
+        isBusy={isBusy}
+        setIsBusy={setIsBusy}
+        open={dialogInfo.open}
+        setOpen={setOpenDialog}
+        aggregateConfigs={aggregateConfigs}
       />
     </AdminLayout>
   );

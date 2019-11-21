@@ -57,27 +57,33 @@ export const Form: <T>(props: Props<T>) => JSX.Element = (props) => {
                       <Grid
                         key={field.name.toString()}
                         item
-                        xs={field.xs}
+                        xs={field.xs || 12}
                         sm={field.sm}
                         md={field.md}
                         lg={field.lg}
                         xl={field.xl}
                       >
-                        <FormField
-                          id={field.name.toString()}
-                          label={field.label}
-                          value={context.values[field.name]}
-                          type={field.type}
-                          onValueChange={handleChange(field.name.toString(), field.type)}
-                          error={context.touched[field.name] && !!context.errors[field.name]}
-                          errorMessage={(context.errors[field.name] as unknown) as string}
-                          onChange={context.handleChange}
-                          onBlur={context.handleBlur}
-                          pickerDataSources={field.pickerDataSources}
-                          isPassword={field.isPassword}
-                          disabled={field.disabled || isBusy}
-                          placeholder={field.placeholder}
-                        />
+                        {!field.customRender && (
+                          <FormField
+                            id={field.name.toString()}
+                            label={field.label}
+                            value={context.values[field.name]}
+                            type={field.type}
+                            onValueChange={handleChange(field.name.toString(), field.type)}
+                            error={context.touched[field.name] && !!context.errors[field.name]}
+                            errorMessage={(context.errors[field.name] as unknown) as string}
+                            onChange={context.handleChange}
+                            onBlur={context.handleBlur}
+                            pickerDataSources={field.pickerDataSources}
+                            isPassword={field.isPassword}
+                            disabled={field.disabled || isBusy}
+                            placeholder={field.placeholder}
+                          />
+                        )}
+                        {!!field.customRender &&
+                          field.customRender({
+                            setFieldValue: context.setFieldValue,
+                          })}
                       </Grid>
                     ))}
                 <Grid item xs={12}>

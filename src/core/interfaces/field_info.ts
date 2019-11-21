@@ -1,4 +1,4 @@
-import { PickerDataItem, FieldType } from '@app/core';
+import { PickerDataItem, FieldType, FieldValueType } from '@app/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { GridSize } from '@material-ui/core/Grid';
 
@@ -6,7 +6,7 @@ export interface FieldInfo<T> extends Partial<Record<Breakpoint, boolean | GridS
   name: keyof T;
   label: string;
   placeholder?: string;
-  /** default = "text" */
+  /** default: "text" */
   type?: FieldType;
   required?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -14,4 +14,6 @@ export interface FieldInfo<T> extends Partial<Record<Breakpoint, boolean | GridS
   isPassword?: boolean;
   disabled?: boolean;
   hidden?: boolean;
+  /** custom render, use setFieldValue to update field value */
+  customRender?: (params: { setFieldValue: (field: string, value: FieldValueType) => void }) => JSX.Element;
 }

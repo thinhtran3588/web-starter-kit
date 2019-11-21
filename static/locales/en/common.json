@@ -16,11 +16,14 @@
   "lastModifiedBy": "Last Modified By",
   "login": "Login",
   "logout": "Logout",
+  "maxLengthError": "{{field}} should not exceed {{maxCharacters}} characters",
   "none": "(None)",
   "profile": "Profile",
   "register": "Register",
   "requiredError": "{{field}} is required",
   "save": "Save",
   "socialMedias": "Social Medias",
-  "uniqueError": "{{field}} already exists"
+  "uniqueError": "{{field}} already exists",
+  "isActive": "Is Active",
+  "isDefault": "Is Default"
 }

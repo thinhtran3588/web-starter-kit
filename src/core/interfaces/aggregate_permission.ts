@@ -6,4 +6,4 @@ export type AggregatePermission = {
   updateOwn?: Record<string, 0 | 1>;
   deleteAny?: Record<string, 0 | 1>;
   deleteOwn?: Record<string, 0 | 1>;
-};
+} & Record<string, Record<string, 0 | 1>>;

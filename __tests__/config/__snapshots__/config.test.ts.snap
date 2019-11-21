@@ -58,5 +58,14 @@ Object {
     "static": "/static",
   },
   "timeFormat": "HH:mm",
+  "validation": Object {
+    "date": Object {
+      "length": 8,
+    },
+    "string": Object {
+      "descriptionMaxLength": 4000,
+      "maxLength": 255,
+    },
+  },
 }
 `;
