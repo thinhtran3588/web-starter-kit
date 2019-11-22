@@ -8,11 +8,15 @@ import {
   TablePagination as MuiTablePagination,
   TableRow as MuiTableRow,
 } from '@material-ui/core';
-import { OffsetPagination, TableColumn, FieldValueType } from '@app/core';
+import { OffsetPagination, TableColumn, FieldValueType, RowCommand } from '@app/core';
 import { config } from '@app/config';
 import { useStyles } from './styles';
+import { IconButton } from '../IconButton';
+import { Icon } from '../Icon';
+import { Tooltip } from '../Tooltip';
 
 interface Props {
+  commands?: RowCommand[];
   columns: TableColumn[];
   rows: { [id: string]: FieldValueType }[];
   pageIndex: number;
@@ -22,6 +26,8 @@ interface Props {
   className: string;
   bodyMaxHeight?: string | number;
   bodyMinHeight?: string | number;
+  size?: 'small' | 'medium';
+  isBusy?: boolean;
 }
 
 export const TableBody = MuiTableBody;
@@ -42,6 +48,9 @@ export const Table = (props: Props): JSX.Element => {
     pageIndex,
     itemsPerPage,
     count,
+    size,
+    commands,
+    isBusy,
   } = props;
   const classes = useStyles();
 
@@ -94,13 +103,20 @@ export const Table = (props: Props): JSX.Element => {
       <div
         className={classes.tableWrapper}
         style={{
-          maxHeight: bodyMaxHeight || 53 * 6,
-          minHeight: bodyMinHeight || 53 * 6, // shows minimum 5 columns
+          maxHeight: bodyMaxHeight,
+          minHeight: bodyMinHeight, // shows minimum 5 columns
         }}
       >
-        <MuiTable stickyHeader>
+        <MuiTable stickyHeader size={size}>
           <TableHead>
             <TableRow>
+              {!!commands && (
+                <TableCell
+                  style={{
+                    minWidth: commands.length * 60,
+                  }}
+                />
+              )}
               {columns.map((column) => (
                 <TableCell
                   key={Array.isArray(column.field) ? column.field.join('_') : column.field}
@@ -118,6 +134,32 @@ export const Table = (props: Props): JSX.Element => {
             {rows.map((row, index) => {
               return (
                 <TableRow hover tabIndex={-1} key={index}>
+                  {!!commands && (
+                    <TableCell>
+                      {commands.map((command) => (
+                        <Tooltip key={command.title} title={command.title}>
+                          <span className={classes.commandButton}>
+                            <IconButton
+                              color='primary'
+                              style={
+                                isBusy
+                                  ? {}
+                                  : {
+                                      color: command.color,
+                                    }
+                              }
+                              aria-label={command.title}
+                              onClick={() => command.onClick(row)}
+                              size='small'
+                              disabled={isBusy}
+                            >
+                              <Icon name={command.icon} />
+                            </IconButton>
+                          </span>
+                        </Tooltip>
+                      ))}
+                    </TableCell>
+                  )}
                   {columns.map((column) => renderCell(row, column))}
                 </TableRow>
               );

@@ -18,6 +18,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import CheckCircle from '@material-ui/icons/CheckCircle';
 import Warning from '@material-ui/icons/Warning';
 import Error from '@material-ui/icons/Error';
+import Edit from '@material-ui/icons/Edit';
+import Delete from '@material-ui/icons/Delete';
 
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
 
@@ -66,6 +68,10 @@ export const Icon = (props: Props): JSX.Element => {
       return <Warning {...other} />;
     case 'Error':
       return <Error {...other} />;
+    case 'Edit':
+      return <Edit {...other} />;
+    case 'Delete':
+      return <Delete {...other} />;
     default:
       return <></>;
   }

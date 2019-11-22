@@ -9,6 +9,7 @@ import {
   TableColumn,
   FilterWithOffsetPagination,
   CommandButton,
+  RowCommand,
 } from '@app/core';
 import { config } from '@app/config';
 import { Table } from '../Table';
@@ -22,12 +23,15 @@ interface Props<T> {
   defaultFilter?: T;
   filterFields: FieldInfo<T>[];
   onFilterChange?: (filter: FilterWithOffsetPagination, useDebounce: boolean) => void;
+  rowCommands?: RowCommand[];
   columns: TableColumn[];
   rows: { [id: string]: FieldValueType }[];
   count: number;
   classes?: { [className: string]: string };
   title: string;
   commandButtons?: CommandButton[];
+  size?: 'small' | 'medium';
+  isBusy?: boolean;
 }
 
 interface State {
@@ -52,6 +56,9 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
     classes: externalClasses = {},
     title,
     commandButtons,
+    size,
+    rowCommands,
+    isBusy,
   } = props;
   const classes = useStyles();
 
@@ -126,6 +133,7 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
         handleChange={handleChange}
       />
       <Table
+        commands={rowCommands}
         columns={columns}
         rows={rows}
         pageIndex={state.pagination.pageIndex}
@@ -134,6 +142,8 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
         onPaginationChange={handlePaginationChange}
         className={classes.formTable}
         bodyMaxHeight={bodyMaxHeight}
+        size={size || 'small'}
+        isBusy={isBusy}
       />
       {children}
     </Paper>

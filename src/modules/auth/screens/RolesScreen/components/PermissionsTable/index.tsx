@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useImmer } from 'use-immer';
+import React from 'react';
 import { TFunction } from 'next-i18next';
 import { RawTable, TableRow, TableBody, TableCell, Typography, TableHead, FormField } from '@app/components';
 import { PermissionTree, FieldValueType } from '@app/core';
@@ -17,38 +16,37 @@ interface Props {
   t: TFunction;
   aggregateConfigs?: AggregateConfig[];
   setFieldValue: (field: string, value: FieldValueType) => void;
+  data: PermissionTree;
+  isBusy: boolean;
 }
 
 const baseActions = ['create', 'viewAny', 'viewOwn', 'updateAny', 'updateOwn', 'deleteAny', 'deleteOwn'];
 const actionsWithFields = ['viewAny', 'viewOwn', 'updateAny', 'updateOwn'];
 
 export const PermissionsTable = (props: Props): JSX.Element => {
-  const { aggregateConfigs, t, setFieldValue } = props;
+  const { aggregateConfigs, t, setFieldValue, data, isBusy } = props;
   const classes = useStyles();
-  const [permissionTree, setPermissionTree] = useImmer<PermissionTree>({});
+  const permissionTree: PermissionTree = JSON.parse(JSON.stringify(data));
 
   const updateActionPermission = (aggregateConfig: AggregateConfig, action: string): (() => void) => () => {
     if (permissionTree[aggregateConfig.name] && permissionTree[aggregateConfig.name][action]) {
-      setPermissionTree((draft: PermissionTree) => {
-        delete draft[aggregateConfig.name][action];
-      });
+      delete permissionTree[aggregateConfig.name][action];
     } else {
-      setPermissionTree((draft: PermissionTree) => {
-        if (!draft[aggregateConfig.name]) {
-          draft[aggregateConfig.name] = {};
-        }
-        draft[aggregateConfig.name][action] = {};
-        if (action.indexOf('view') === 0) {
-          aggregateConfig.viewFields.forEach((field) => {
-            draft[aggregateConfig.name][action][field] = 1;
-          });
-        } else if (action.indexOf('update') === 0) {
-          aggregateConfig.updateFields.forEach((field) => {
-            draft[aggregateConfig.name][action][field] = 1;
-          });
-        }
-      });
+      if (!permissionTree[aggregateConfig.name]) {
+        permissionTree[aggregateConfig.name] = {};
+      }
+      permissionTree[aggregateConfig.name][action] = {};
+      if (action.indexOf('view') === 0) {
+        aggregateConfig.viewFields.forEach((field) => {
+          permissionTree[aggregateConfig.name][action][field] = 1;
+        });
+      } else if (action.indexOf('update') === 0) {
+        aggregateConfig.updateFields.forEach((field) => {
+          permissionTree[aggregateConfig.name][action][field] = 1;
+        });
+      }
     }
+    setFieldValue('permissions', JSON.stringify(permissionTree));
   };
 
   const updateFieldPermission = (
@@ -61,27 +59,21 @@ export const PermissionsTable = (props: Props): JSX.Element => {
       permissionTree[aggregateConfig.name][action] &&
       permissionTree[aggregateConfig.name][action][field]
     ) {
-      setPermissionTree((draft: PermissionTree) => {
-        delete draft[aggregateConfig.name][action][field];
-        if (Object.keys(draft[aggregateConfig.name][action]).length === 0) {
-          delete draft[aggregateConfig.name][action];
-        }
-      });
+      delete permissionTree[aggregateConfig.name][action][field];
+      if (Object.keys(permissionTree[aggregateConfig.name][action]).length === 0) {
+        delete permissionTree[aggregateConfig.name][action];
+      }
     } else {
-      setPermissionTree((draft: PermissionTree) => {
-        if (!draft[aggregateConfig.name]) {
-          draft[aggregateConfig.name] = {};
-        }
-        if (!draft[aggregateConfig.name][action]) {
-          draft[aggregateConfig.name][action] = {};
-        }
-        draft[aggregateConfig.name][action][field] = 1;
-      });
+      if (!permissionTree[aggregateConfig.name]) {
+        permissionTree[aggregateConfig.name] = {};
+      }
+      if (!permissionTree[aggregateConfig.name][action]) {
+        permissionTree[aggregateConfig.name][action] = {};
+      }
+      permissionTree[aggregateConfig.name][action][field] = 1;
     }
-  };
-  useEffect(() => {
     setFieldValue('permissions', JSON.stringify(permissionTree));
-  }, [permissionTree]);
+  };
 
   const renderAggregatePermissions = (aggregateConfig: AggregateConfig): JSX.Element => {
     let actions = baseActions.filter(
@@ -101,6 +93,7 @@ export const PermissionsTable = (props: Props): JSX.Element => {
                 value={!!permissionTree[aggregateConfig.name] && !!permissionTree[aggregateConfig.name][action]}
                 onValueChange={updateActionPermission(aggregateConfig, action)}
                 type='checkbox'
+                disabled={isBusy}
               />
             </TableCell>
             <TableCell>
@@ -119,6 +112,7 @@ export const PermissionsTable = (props: Props): JSX.Element => {
                         onValueChange={updateFieldPermission(aggregateConfig, action, field)}
                         type='checkbox'
                         className={classes.field}
+                        disabled={isBusy}
                       />
                     );
                   },
@@ -131,13 +125,13 @@ export const PermissionsTable = (props: Props): JSX.Element => {
   };
   return (
     <div>
-      <Typography variant='caption'>{'permissions'}</Typography>
+      <Typography variant='subtitle1'>{t('permissions')}</Typography>
       <RawTable stickyHeader size='small'>
         <TableHead>
           <TableRow>
-            <TableCell>{t('aggregate')}</TableCell>
-            <TableCell>{t('permissions')}</TableCell>
-            <TableCell>{t('fields')}</TableCell>
+            <TableCell className={classes.tableHeader}>{t('aggregate')}</TableCell>
+            <TableCell className={classes.tableHeader}>{t('permissions')}</TableCell>
+            <TableCell className={classes.tableHeader}>{t('fields')}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>{!!aggregateConfigs && aggregateConfigs.map(renderAggregatePermissions)}</TableBody>

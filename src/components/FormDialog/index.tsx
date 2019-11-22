@@ -3,7 +3,9 @@ import { PropTypes, useTheme, useMediaQuery, Theme } from '@material-ui/core';
 import { FieldInfo } from '@app/core';
 import { Formik, FormikConfig } from 'formik';
 import clsx from 'clsx';
+import { TransitionProps } from '@material-ui/core/transitions';
 import { Form } from '../Form';
+import { Slide } from '../Slide';
 import { GridSize, Breakpoint, Grid } from '../Grid';
 import { Dialog, DialogContent, DialogActions } from '../Dialog';
 import { Button } from '../Button';
@@ -32,6 +34,10 @@ type Props<T> = FormikConfig<T> & {
   fullScreen?: boolean;
 } & Partial<Record<Breakpoint, boolean | GridSize>>;
 
+const Transition = React.forwardRef<unknown, TransitionProps>(function Transition(props, ref) {
+  return <Slide direction='up' ref={ref} {...props} />;
+});
+
 export const FormDialog: <T>(props: Props<T>) => JSX.Element = (props) => {
   const { title, open, setOpen, isBusy, buttons, fullScreen, ...other } = props;
   const classes = useStyles();
@@ -42,7 +48,13 @@ export const FormDialog: <T>(props: Props<T>) => JSX.Element = (props) => {
   });
 
   return (
-    <Dialog open={open} onClose={handleClose} aria-labelledby={title} fullScreen={fullScreen}>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      aria-labelledby={title}
+      fullScreen={fullScreen}
+      TransitionComponent={Transition}
+    >
       <AppBar className={classes.appBar}>
         <Typography variant='h6'>{title}</Typography>
       </AppBar>

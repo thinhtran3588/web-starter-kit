@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as yup from 'yup';
 import { TFunction } from 'next-i18next';
 import { FormDialog } from '@app/components';
-import { handleError, FieldInfo, showNotification, FieldValueType, initApolloClient, getErrorMessage } from '@app/core';
+import { FieldInfo, showNotification, FieldValueType, initApolloClient, getErrorMessage, catchError } from '@app/core';
 import { config } from '@app/config';
 import { Formik } from 'formik';
 import { gql } from 'apollo-boost';
 import { GraphQLError } from 'graphql';
+import { useImmer } from 'use-immer';
 import { PermissionsTable, AggregateConfig } from '../PermissionsTable';
 
 interface Props {
   id?: string;
   t: TFunction;
-  title: string;
   isBusy: boolean;
-  setIsBusy: (isBusy: boolean) => void;
+  setIsBusy: (f: (draft: boolean) => boolean | void) => void;
   open: boolean;
   setOpen: (open: boolean) => void;
   aggregateConfigs?: AggregateConfig[];
+  refresh: () => void;
 }
 
 interface FormData {
@@ -28,15 +29,32 @@ interface FormData {
   isDefault: boolean;
 }
 
-type RenderPermissionTable = (params: { setFieldValue: (field: string, value: FieldValueType) => void }) => JSX.Element;
+type RenderPermissionTable = (params: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data: any;
+  setFieldValue: (field: string, value: FieldValueType) => void;
+}) => JSX.Element;
 
-const defaultEntity: FormData = {
+const defaultRole: FormData = {
   name: '',
   description: '',
   permissions: '{}',
   isActive: true,
   isDefault: false,
 };
+
+const GET_ROLE_QUERY = gql`
+  query getRole($id: ID!) {
+    role(id: $id) {
+      id
+      name
+      description
+      isActive
+      isDefault
+      permissions
+    }
+  }
+`;
 
 const CREATE_ROLE_MUTATION = gql`
   mutation CreateRole(
@@ -89,10 +107,41 @@ const UPDATE_ROLE_MUTATION = gql`
 `;
 
 export const Detail = (props: Props): JSX.Element => {
-  const { id, t, isBusy, setIsBusy, open, setOpen, title, aggregateConfigs } = props;
-  const entity = defaultEntity;
-  const renderPermissionTable: RenderPermissionTable = ({ setFieldValue }) => (
-    <PermissionsTable aggregateConfigs={aggregateConfigs} t={t} setFieldValue={setFieldValue} />
+  const { id, t, isBusy, setIsBusy, open, setOpen, aggregateConfigs, refresh } = props;
+  const [role, setRole] = useImmer(defaultRole);
+
+  useEffect(() => {
+    catchError(async () => {
+      if (!id || !open) {
+        return;
+      }
+      const apolloClient = initApolloClient();
+      const { data, errors } = await apolloClient.query({
+        query: GET_ROLE_QUERY,
+        variables: {
+          id,
+        },
+        fetchPolicy: 'network-only',
+      });
+      if (errors) {
+        showNotification({
+          type: 'ERROR',
+          message: getErrorMessage(errors),
+        });
+        return;
+      }
+      setRole(() => data.role);
+    }, setIsBusy)();
+  }, [id, open]);
+
+  const renderPermissionTable: RenderPermissionTable = ({ data, setFieldValue }) => (
+    <PermissionsTable
+      aggregateConfigs={aggregateConfigs}
+      t={t}
+      setFieldValue={setFieldValue}
+      data={JSON.parse(data.permissions)}
+      isBusy={isBusy}
+    />
   );
   const fields: FieldInfo<FormData>[] = [
     {
@@ -158,43 +207,43 @@ export const Detail = (props: Props): JSX.Element => {
     permissions: yup.string(),
   });
 
-  const onSubmit = async (input: FormData): Promise<void> => {
-    try {
-      setIsBusy(true);
-      const apolloClient = initApolloClient();
-      let errors: readonly GraphQLError[] | undefined;
-      if (!id) {
-        errors = (await apolloClient.mutate({
-          variables: input,
-          mutation: CREATE_ROLE_MUTATION,
-        })).errors;
-      } else {
-        errors = (await apolloClient.mutate({
-          variables: {
-            id,
-            ...input,
-          },
-          mutation: UPDATE_ROLE_MUTATION,
-        })).errors;
-      }
-      if (errors) {
-        showNotification({
-          type: 'ERROR',
-          message: getErrorMessage(errors, {}),
-        });
-        return;
-      }
+  const onSubmit = catchError(async (input: FormData) => {
+    const apolloClient = initApolloClient();
+    let errors: readonly GraphQLError[] | undefined;
+    if (!id) {
+      errors = (await apolloClient.mutate({
+        variables: input,
+        mutation: CREATE_ROLE_MUTATION,
+        errorPolicy: 'all',
+      })).errors;
+    } else {
+      errors = (await apolloClient.mutate({
+        variables: {
+          id,
+          ...input,
+        },
+        mutation: UPDATE_ROLE_MUTATION,
+        errorPolicy: 'all',
+      })).errors;
+    }
+    if (errors) {
+      showNotification({
+        type: 'ERROR',
+        message: getErrorMessage(errors, {
+          INVALID_PAYLOAD_UNIQUE_NAME: t('common:uniqueError', {
+            field: t('name'),
+          }),
+        }),
+      });
+    } else {
       showNotification({
         type: 'SUCCESS',
         message: t('common:dataSaved'),
       });
-      // setOpen(false);
-    } catch (error) {
-      handleError(error, {});
-    } finally {
-      setIsBusy(false);
+      refresh();
+      setOpen(false);
     }
-  };
+  }, setIsBusy);
 
   const handleClose = (): void => setOpen(false);
 
@@ -205,10 +254,10 @@ export const Detail = (props: Props): JSX.Element => {
 
   return (
     <FormDialog
-      title={title}
+      title={`${id ? t('common:create') : t('common:update')} ${t('roles')}`}
       open={open}
       setOpen={handleClose}
-      initialValues={entity}
+      initialValues={role}
       fields={fields}
       validationSchema={validationSchema}
       onSubmit={onSubmit}

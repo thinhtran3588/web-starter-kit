@@ -23,7 +23,7 @@ module.exports = {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true, allowTypedFunctionExpressions: true }], // force to define function return type
-    '@typescript-eslint/indent': ['error', 2], // change indent to 2
+    '@typescript-eslint/indent': 'off', // change indent to 2
     'class-methods-use-this': ['error', { 'exceptMethods': ['componentDidCatch', 'componentDidAppear', 'componentDidDisappear'] }],
     'import/no-unresolved': ['error', { ignore: ['@app', '.'] }], // ignore import with @app & .
     'import/prefer-default-export': 'off', // don't prefer default export

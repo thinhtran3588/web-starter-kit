@@ -2,6 +2,7 @@ export * from './format_with_lookup';
 export * from './format_date';
 export * from './format_date_time';
 export * from './show_notification';
+export * from './catch_error';
 export * from './handle_error';
 export * from './app_error';
 export * from './sanitize_form_data';

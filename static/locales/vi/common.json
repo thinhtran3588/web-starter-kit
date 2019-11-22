@@ -12,6 +12,8 @@
   "home": "Trang chủ",
   "invalidError": "{{field}} không hợp lệ",
   "invalidPassword": "Mật khẩu phải có ít nhất 6 kí tự, nhiều nhất 20 kí tự, ít nhất 1 chữ hoa, 1 chữ thường, 1 chữ số và 1 kí tự đặc biệt (!, @, #, $, %, ^, &, *)",
+  "isActive": "Đang hoạt động",
+  "isDefault": "Mặc định",
   "lastModifiedAt": "Sửa lần cuối lúc",
   "lastModifiedBy": "Sửa lần cuối bởi",
   "login": "Đăng nhập",
@@ -19,11 +21,11 @@
   "maxLengthError": "{{field}} không vượt quá {{maxCharacters}} kí tự",
   "none": "(Bỏ trống)",
   "profile": "Thông tin cá nhân",
+  "refresh": "Làm mới",
   "register": "Đăng kí",
   "requiredError": "{{field}} bắt buộc",
   "save": "Lưu",
   "socialMedias": "Mạng xã hội",
   "uniqueError": "{{field}} đã tồn tại",
-  "isActive": "Đang hoạt động",
-  "isDefault": "Mặc định"
+  "update": "Cập nhật"
 }

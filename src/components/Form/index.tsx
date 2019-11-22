@@ -38,6 +38,7 @@ export const Form: <T>(props: Props<T>) => JSX.Element = (props) => {
     <Formik
       validateOnChange={false}
       initialValues={initialValues}
+      enableReinitialize
       ref={(ref) => ref && setForm && setForm(ref)}
       {...other}
     >
@@ -82,6 +83,7 @@ export const Form: <T>(props: Props<T>) => JSX.Element = (props) => {
                         )}
                         {!!field.customRender &&
                           field.customRender({
+                            data: context.values,
                             setFieldValue: context.setFieldValue,
                           })}
                       </Grid>

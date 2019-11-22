@@ -1,6 +1,9 @@
 {
+  "aggregate": "Aggregate",
   "description": "Description",
+  "fields": "Fields",
   "filter": "Filter",
   "name": "Name",
+  "permissions": "Permissions",
   "roles": "Roles"
 }

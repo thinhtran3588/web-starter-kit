@@ -10,11 +10,11 @@ interface Props {
   handleChange: (fieldName: string) => (value: FieldValueType, useDebounce: boolean) => void;
 }
 
-export const FormFilter: <T>(props: Props) => JSX.Element = (props) => {
+export const FormFilter: (props: Props) => JSX.Element = (props) => {
   const { children, filter, filterFields, handleChange } = props;
   const handleValueChange = (fieldName: string, type?: FieldType) => (newValue: FieldValueType) => {
     const value = (!type || type === 'picker') && !newValue ? '' : newValue;
-    handleChange(fieldName)(value, false);
+    handleChange(fieldName)(value, !type || type === 'text');
   };
 
   return (

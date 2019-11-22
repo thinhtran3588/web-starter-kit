@@ -15,5 +15,6 @@ export interface FieldInfo<T> extends Partial<Record<Breakpoint, boolean | GridS
   disabled?: boolean;
   hidden?: boolean;
   /** custom render, use setFieldValue to update field value */
-  customRender?: (params: { setFieldValue: (field: string, value: FieldValueType) => void }) => JSX.Element;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  customRender?: (params: { data: any; setFieldValue: (field: string, value: FieldValueType) => void }) => JSX.Element;
 }

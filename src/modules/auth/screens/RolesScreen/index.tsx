@@ -1,32 +1,29 @@
-import React, { useState } from 'react';
-import { AdminLayout, FormSearch } from '@app/components';
+import React, { useEffect } from 'react';
+import { AdminLayout, FormSearch, FormField } from '@app/components';
 import {
   WithTranslation,
   FieldInfo,
   FilterWithOffsetPagination,
-  SearchRecord,
-  OffsetPaginationResult,
   TableColumn,
   withTranslation,
   showNotification,
   getErrorMessage,
-  DialogParams,
+  DetailDialogParams,
+  FieldValueType,
+  RowCommand,
+  initApolloClient,
+  SearchResult,
+  catchError,
 } from '@app/core';
 import { config } from '@app/config';
 import debounce from 'lodash/fp/debounce';
-import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { withAuth } from '@app/hoc/WithAuth';
+import red from '@material-ui/core/colors/red';
+import { useImmer } from 'use-immer';
 import { Detail, AggregateConfig } from './components';
 
 type Props = WithTranslation;
-
-interface SearchResult {
-  roles: {
-    data: SearchRecord[];
-    pagination: OffsetPaginationResult;
-  };
-}
 
 interface FormData {
   filter: string;
@@ -56,6 +53,8 @@ const GET_ROLES_QUERY = gql`
         id
         name
         description
+        isActive
+        isDefault
         createdAt
         createdBy
         lastModifiedAt
@@ -71,33 +70,38 @@ const GET_ROLES_QUERY = gql`
 
 const Screen = (props: Props): JSX.Element => {
   const { t } = props;
-  const [isBusy, setIsBusy] = useState<boolean>(false);
-  const [dialogInfo, setDialogInfo] = useState<DialogParams<string>>({
+  const [isBusy, setIsBusy] = useImmer<boolean>(false);
+  const [dialogParams, setDialogParams] = useImmer<DetailDialogParams>({
     open: false,
-    mode: 'create',
   });
 
   const create = (): void =>
-    setDialogInfo({
-      mode: 'create',
+    setDialogParams(() => ({
       open: true,
-    });
+      id: undefined,
+    }));
 
   const setOpenDialog = (open: boolean): void =>
-    setDialogInfo({
-      ...dialogInfo,
-      open,
+    setDialogParams((draft) => {
+      draft.open = open;
     });
 
   const filterFields: FieldInfo<FormData>[] = [
     {
       name: 'filter',
       label: t('filter'),
+      md: 12,
       lg: 12,
       xl: 12,
     },
   ];
 
+  const renderIsActive = (data: Record<string, FieldValueType>): JSX.Element => {
+    return <FormField value={!!data.isActive} label='' type='switch' />;
+  };
+  const renderIsDefault = (data: Record<string, FieldValueType>): JSX.Element => (
+    <FormField value={!!data.isDefault} label='' type='switch' />
+  );
   const columns: TableColumn[] = [
     {
       field: 'name',
@@ -113,11 +117,13 @@ const Screen = (props: Props): JSX.Element => {
       field: 'isActive',
       label: t('common:isActive'),
       minWidth: 100,
+      customRender: renderIsActive,
     },
     {
       field: 'isDefault',
       label: t('common:isDefault'),
       minWidth: 100,
+      customRender: renderIsDefault,
     },
     {
       field: 'createdBy',
@@ -141,7 +147,7 @@ const Screen = (props: Props): JSX.Element => {
     },
   ];
 
-  const [filter, setFilter] = useState<FilterWithOffsetPagination>({
+  const [filter, setFilter] = useImmer<FilterWithOffsetPagination>({
     pageIndex: 0,
     itemsPerPage: config.rowsPerPageOptions[0],
   });
@@ -149,47 +155,91 @@ const Screen = (props: Props): JSX.Element => {
 
   const onFilterChange = (newFilter: FilterWithOffsetPagination, useDebounce: boolean): void => {
     if (useDebounce) {
-      setFilterDebounce(newFilter);
+      setFilterDebounce(() => newFilter);
     } else {
-      setFilter(newFilter);
+      setFilter(() => newFilter);
     }
   };
 
-  const { data, error } = useQuery<SearchResult>(GET_ROLES_QUERY, {
-    variables: filter,
-    fetchPolicy: 'no-cache',
+  const refresh = (): void => {
+    setFilter(() => ({
+      ...filter,
+    }));
+  };
+
+  const rowCommands: RowCommand[] = [
+    {
+      title: t('common:edit'),
+      icon: 'Edit',
+      onClick: (data) => {
+        setDialogParams(() => ({
+          open: true,
+          id: data.id,
+        }));
+      },
+    },
+    {
+      title: t('common:delete'),
+      icon: 'Delete',
+      onClick: (_data) => {},
+      color: red.A400,
+    },
+  ];
+
+  const [searchResult, setSearchResult] = useImmer<SearchResult>({
+    data: [],
+    pagination: {
+      total: 0,
+    },
   });
+  useEffect(() => {
+    catchError(async () => {
+      const apolloClient = initApolloClient();
+      const { data, errors } = await apolloClient.query({
+        query: GET_ROLES_QUERY,
+        variables: filter,
+        fetchPolicy: 'network-only',
+      });
+      if (errors) {
+        showNotification({
+          type: 'ERROR',
+          message: getErrorMessage(errors),
+        });
+        return;
+      }
+      setSearchResult(() => data.roles);
+    }, setIsBusy)();
+  }, [filter]);
 
-  if (error) {
-    showNotification({
-      type: 'ERROR',
-      message: error.graphQLErrors.length > 0 ? getErrorMessage(error.graphQLErrors, {}) : error.message,
-    });
-  }
-
-  const { data: aggregateConfigsData, error: aggregateConfigsError } = useQuery<{
-    aggregateConfigs: AggregateConfig[];
-  }>(GET_AGGREGATE_CONFIGS_QUERY, {
-    variables: filter,
-    fetchPolicy: 'no-cache',
-  });
-  const aggregateConfigs = aggregateConfigsData ? aggregateConfigsData.aggregateConfigs : undefined;
-
-  if (aggregateConfigsError) {
-    showNotification({
-      type: 'ERROR',
-      message:
-        aggregateConfigsError.graphQLErrors.length > 0
-          ? getErrorMessage(aggregateConfigsError.graphQLErrors, {})
-          : aggregateConfigsError.message,
-    });
-  }
+  const [aggregateConfigs, setAggregateConfigs] = useImmer<AggregateConfig[]>([]);
+  useEffect(() => {
+    catchError(async () => {
+      const apolloClient = initApolloClient();
+      const { data, errors } = await apolloClient.query({
+        query: GET_AGGREGATE_CONFIGS_QUERY,
+        fetchPolicy: 'network-only',
+      });
+      if (errors) {
+        showNotification({
+          type: 'ERROR',
+          message: getErrorMessage(errors),
+        });
+        return;
+      }
+      setAggregateConfigs(() => data.aggregateConfigs);
+    }, setIsBusy)();
+  }, []);
 
   return (
     <AdminLayout title={t('roles')}>
       <FormSearch
         title={t('roles')}
         commandButtons={[
+          {
+            text: t('common:refresh'),
+            onClick: refresh,
+            color: 'default',
+          },
           {
             text: t('common:create'),
             onClick: create,
@@ -198,19 +248,24 @@ const Screen = (props: Props): JSX.Element => {
         defaultFilter={defaultFilter}
         filterFields={filterFields}
         onFilterChange={onFilterChange}
+        rowCommands={rowCommands}
         columns={columns}
-        rows={data ? data.roles.data : []}
-        count={data ? data.roles.pagination.total : 0}
-      />
-      <Detail
-        t={t}
-        title={`${dialogInfo.mode ? t('common:create') : t('common:edit')} ${t('roles')}`}
+        rows={searchResult ? searchResult.data : []}
+        count={searchResult ? searchResult.pagination.total : 0}
         isBusy={isBusy}
-        setIsBusy={setIsBusy}
-        open={dialogInfo.open}
-        setOpen={setOpenDialog}
-        aggregateConfigs={aggregateConfigs}
       />
+      {dialogParams.open && (
+        <Detail
+          t={t}
+          id={dialogParams.id}
+          isBusy={isBusy}
+          setIsBusy={setIsBusy}
+          open={dialogParams.open}
+          setOpen={setOpenDialog}
+          aggregateConfigs={aggregateConfigs}
+          refresh={refresh}
+        />
+      )}
     </AdminLayout>
   );
 };

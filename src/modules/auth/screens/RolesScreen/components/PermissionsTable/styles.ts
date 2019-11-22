@@ -5,4 +5,7 @@ export const useStyles = makeStyles(() => ({
     width: 'auto',
     minWidth: 200,
   },
+  tableHeader: {
+    minWidth: 150,
+  },
 }));

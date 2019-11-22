@@ -12,6 +12,8 @@
   "home": "Home",
   "invalidError": "{{field}} is invalid",
   "invalidPassword": "Password must be at least 6 characters and at most 20 characters and must include at least one upper case letter, one lower case letter, one numeric digit and one special letter (!, @, #, $, %, ^, &, *)",
+  "isActive": "Is Active",
+  "isDefault": "Is Default",
   "lastModifiedAt": "Last Modified At",
   "lastModifiedBy": "Last Modified By",
   "login": "Login",
@@ -19,11 +21,11 @@
   "maxLengthError": "{{field}} should not exceed {{maxCharacters}} characters",
   "none": "(None)",
   "profile": "Profile",
+  "refresh": "Refresh",
   "register": "Register",
   "requiredError": "{{field}} is required",
   "save": "Save",
   "socialMedias": "Social Medias",
   "uniqueError": "{{field}} already exists",
-  "isActive": "Is Active",
-  "isDefault": "Is Default"
+  "update": "Update"
 }
