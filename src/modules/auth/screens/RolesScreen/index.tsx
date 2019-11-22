@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { AdminLayout, FormSearch, FormField } from '@app/components';
+import { AdminLayout, FormSearch, FormField, ConfirmationDialog } from '@app/components';
 import {
   WithTranslation,
   FieldInfo,
@@ -8,9 +8,8 @@ import {
   withTranslation,
   showNotification,
   getErrorMessage,
-  DetailDialogParams,
+  DialogParams,
   FieldValueType,
-  RowCommand,
   initApolloClient,
   SearchResult,
   catchError,
@@ -68,21 +67,34 @@ const GET_ROLES_QUERY = gql`
   }
 `;
 
+const DELETE_ROLE_MUTATION = gql`
+  mutation DeleteRole($id: ID!) {
+    roles {
+      delete(payload: { id: $id }) {
+        id
+      }
+    }
+  }
+`;
+
 const Screen = (props: Props): JSX.Element => {
   const { t } = props;
   const [isBusy, setIsBusy] = useImmer<boolean>(false);
-  const [dialogParams, setDialogParams] = useImmer<DetailDialogParams>({
+  const [detailParams, setDetailParams] = useImmer<DialogParams>({
+    open: false,
+  });
+  const [deleteParams, setDeleteParams] = useImmer<DialogParams>({
     open: false,
   });
 
   const create = (): void =>
-    setDialogParams(() => ({
+    setDetailParams(() => ({
       open: true,
       id: undefined,
     }));
 
-  const setOpenDialog = (open: boolean): void =>
-    setDialogParams((draft) => {
+  const setOpenDetailDialog = (open: boolean): void =>
+    setDetailParams((draft) => {
       draft.open = open;
     });
 
@@ -167,25 +179,6 @@ const Screen = (props: Props): JSX.Element => {
     }));
   };
 
-  const rowCommands: RowCommand[] = [
-    {
-      title: t('common:edit'),
-      icon: 'Edit',
-      onClick: (data) => {
-        setDialogParams(() => ({
-          open: true,
-          id: data.id,
-        }));
-      },
-    },
-    {
-      title: t('common:delete'),
-      icon: 'Delete',
-      onClick: (_data) => {},
-      color: red.A400,
-    },
-  ];
-
   const [searchResult, setSearchResult] = useImmer<SearchResult>({
     data: [],
     pagination: {
@@ -194,8 +187,7 @@ const Screen = (props: Props): JSX.Element => {
   });
   useEffect(() => {
     catchError(async () => {
-      const apolloClient = initApolloClient();
-      const { data, errors } = await apolloClient.query({
+      const { data, errors } = await initApolloClient().query({
         query: GET_ROLES_QUERY,
         variables: filter,
         fetchPolicy: 'network-only',
@@ -214,8 +206,7 @@ const Screen = (props: Props): JSX.Element => {
   const [aggregateConfigs, setAggregateConfigs] = useImmer<AggregateConfig[]>([]);
   useEffect(() => {
     catchError(async () => {
-      const apolloClient = initApolloClient();
-      const { data, errors } = await apolloClient.query({
+      const { data, errors } = await initApolloClient().query({
         query: GET_AGGREGATE_CONFIGS_QUERY,
         fetchPolicy: 'network-only',
       });
@@ -229,6 +220,34 @@ const Screen = (props: Props): JSX.Element => {
       setAggregateConfigs(() => data.aggregateConfigs);
     }, setIsBusy)();
   }, []);
+
+  const closeDeleteConfirmationDialog = (): void =>
+    setDeleteParams(() => ({
+      open: false,
+    }));
+
+  const deleteRole = catchError(async () => {
+    const { errors } = await initApolloClient().mutate({
+      variables: {
+        id: deleteParams.id,
+      },
+      mutation: DELETE_ROLE_MUTATION,
+      errorPolicy: 'all',
+    });
+    if (errors) {
+      showNotification({
+        type: 'ERROR',
+        message: getErrorMessage(errors),
+      });
+    } else {
+      showNotification({
+        type: 'SUCCESS',
+        message: t('common:dataDeleted'),
+      });
+      refresh();
+      closeDeleteConfirmationDialog();
+    }
+  }, setIsBusy);
 
   return (
     <AdminLayout title={t('roles')}>
@@ -248,22 +267,67 @@ const Screen = (props: Props): JSX.Element => {
         defaultFilter={defaultFilter}
         filterFields={filterFields}
         onFilterChange={onFilterChange}
-        rowCommands={rowCommands}
+        rowCommands={[
+          {
+            title: t('common:update'),
+            icon: 'Edit',
+            onClick: (data) => {
+              setDetailParams(() => ({
+                open: true,
+                id: data.id,
+              }));
+            },
+          },
+          {
+            title: t('common:delete'),
+            icon: 'Delete',
+            onClick: (data) => {
+              setDeleteParams(() => ({
+                open: true,
+                id: data.id,
+              }));
+            },
+            color: red.A400,
+          },
+        ]}
         columns={columns}
         rows={searchResult ? searchResult.data : []}
         count={searchResult ? searchResult.pagination.total : 0}
         isBusy={isBusy}
       />
-      {dialogParams.open && (
+      {detailParams.open && (
         <Detail
           t={t}
-          id={dialogParams.id}
+          id={detailParams.id}
           isBusy={isBusy}
           setIsBusy={setIsBusy}
-          open={dialogParams.open}
-          setOpen={setOpenDialog}
+          open={detailParams.open}
+          setOpen={setOpenDetailDialog}
           aggregateConfigs={aggregateConfigs}
           refresh={refresh}
+        />
+      )}
+      {deleteParams.open && (
+        <ConfirmationDialog
+          title={t('common:deleteConfirmationTitle')}
+          message={t('common:deleteConfirmationMessage')}
+          open={deleteParams.open}
+          setOpen={(open) =>
+            setDeleteParams(() => ({
+              open,
+            }))
+          }
+          buttons={[
+            {
+              color: 'primary',
+              title: t('common:delete'),
+              onClick: deleteRole,
+            },
+            {
+              title: t('common:back'),
+              onClick: closeDeleteConfirmationDialog,
+            },
+          ]}
         />
       )}
     </AdminLayout>

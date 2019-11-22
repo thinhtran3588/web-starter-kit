@@ -45,3 +45,4 @@ export * from './Dialog';
 export * from './FormDialog';
 export * from './Checkbox';
 export * from './FormControlLabel';
+export * from './ConfirmationDialog';

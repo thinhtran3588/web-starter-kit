@@ -115,8 +115,7 @@ export const Detail = (props: Props): JSX.Element => {
       if (!id || !open) {
         return;
       }
-      const apolloClient = initApolloClient();
-      const { data, errors } = await apolloClient.query({
+      const { data, errors } = await initApolloClient().query({
         query: GET_ROLE_QUERY,
         variables: {
           id,
@@ -208,16 +207,15 @@ export const Detail = (props: Props): JSX.Element => {
   });
 
   const onSubmit = catchError(async (input: FormData) => {
-    const apolloClient = initApolloClient();
     let errors: readonly GraphQLError[] | undefined;
     if (!id) {
-      errors = (await apolloClient.mutate({
+      errors = (await initApolloClient().mutate({
         variables: input,
         mutation: CREATE_ROLE_MUTATION,
         errorPolicy: 'all',
       })).errors;
     } else {
-      errors = (await apolloClient.mutate({
+      errors = (await initApolloClient().mutate({
         variables: {
           id,
           ...input,
