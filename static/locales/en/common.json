@@ -8,6 +8,7 @@
   "createdAt": "Created At",
   "createdBy": "Created By",
   "createdWithLove": "Created with ♥!",
+  "dataDeleted": "Data has been deleted",
   "dataSaved": "Data saved!",
   "delete": "Delete",
   "deleteConfirmationMessage": "Are you sure to delete this data?",
@@ -30,6 +31,5 @@
   "save": "Save",
   "socialMedias": "Social Medias",
   "uniqueError": "{{field}} already exists",
-  "update": "Update",
-  "dataDeleted": "Data has been deleted"
+  "update": "Update"
 }

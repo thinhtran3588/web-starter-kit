@@ -23,9 +23,9 @@ export const GET_ROLES_QUERY = gql`
         isActive
         isDefault
         createdAt
-        createdBy
+        createdByName
         lastModifiedAt
-        lastModifiedBy
+        lastModifiedByName
       }
       pagination {
         type

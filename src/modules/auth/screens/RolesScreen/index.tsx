@@ -13,6 +13,7 @@ import {
   initApolloClient,
   SearchResult,
   catchError,
+  formatDateTime,
 } from '@app/core';
 import { config } from '@app/config';
 import debounce from 'lodash/fp/debounce';
@@ -20,7 +21,7 @@ import { withAuth } from '@app/hoc/WithAuth';
 import red from '@material-ui/core/colors/red';
 import { useImmer } from 'use-immer';
 import { Detail, AggregateConfig } from './components';
-import { GET_ROLES_QUERY, GET_AGGREGATE_CONFIGS_QUERY, DELETE_ROLE_MUTATION } from './graphql';
+import { GET_ROLES_QUERY, GET_AGGREGATE_CONFIGS_QUERY, DELETE_ROLE_MUTATION, UPDATE_ROLE_MUTATION } from './graphql';
 
 type Props = WithTranslation;
 
@@ -65,6 +66,35 @@ const Screen = (props: Props): JSX.Element => {
     },
   ];
 
+  const updateSearchResult = catchError(async (field: string, id: string, value: FieldValueType) => {
+    const variables = {
+      id,
+      [field]: value,
+    };
+    const { errors } = await initApolloClient().mutate({
+      variables,
+      mutation: UPDATE_ROLE_MUTATION,
+      errorPolicy: 'all',
+    });
+    if (errors) {
+      showNotification({
+        type: 'ERROR',
+        message: getErrorMessage(errors),
+      });
+    } else {
+      showNotification({
+        type: 'SUCCESS',
+        message: t('common:dataSaved'),
+      });
+    }
+    setSearchResult((draft) => {
+      const record = draft.data.find((m) => m.id === id);
+      if (record) {
+        record[field] = value;
+      }
+    });
+  }, setIsBusy);
+
   const columns: TableColumn[] = [
     {
       field: 'name',
@@ -81,7 +111,15 @@ const Screen = (props: Props): JSX.Element => {
       label: t('common:isActive'),
       minWidth: 100,
       customRender(data) {
-        return <FormField value={!!data.isActive} label='' type='switch' />;
+        return (
+          <FormField
+            value={!!data.isActive}
+            label=''
+            type='switch'
+            disabled={isBusy}
+            onValueChange={(value) => updateSearchResult('isActive', data.id, value)}
+          />
+        );
       },
     },
     {
@@ -89,11 +127,19 @@ const Screen = (props: Props): JSX.Element => {
       label: t('common:isDefault'),
       minWidth: 100,
       customRender(data) {
-        return <FormField value={!!data.isDefault} label='' type='switch' />;
+        return (
+          <FormField
+            value={!!data.isDefault}
+            label=''
+            type='switch'
+            disabled={isBusy}
+            onValueChange={(value) => updateSearchResult('isDefault', data.id, value)}
+          />
+        );
       },
     },
     {
-      field: 'createdBy',
+      field: 'createdByName',
       label: t('common:createdBy'),
       minWidth: 100,
     },
@@ -101,9 +147,10 @@ const Screen = (props: Props): JSX.Element => {
       field: 'createdAt',
       label: t('common:createdAt'),
       minWidth: 100,
+      format: formatDateTime,
     },
     {
-      field: 'lastModifiedBy',
+      field: 'lastModifiedByName',
       label: t('common:lastModifiedBy'),
       minWidth: 100,
     },
@@ -111,6 +158,7 @@ const Screen = (props: Props): JSX.Element => {
       field: 'lastModifiedAt',
       label: t('common:lastModifiedAt'),
       minWidth: 100,
+      format: formatDateTime,
     },
   ];
   /* --- variables & states - end --- */
