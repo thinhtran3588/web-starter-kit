@@ -8,7 +8,6 @@ import {
   FieldValueType,
   TableColumn,
   FilterWithOffsetPagination,
-  CommandButton,
   RowCommand,
 } from '@app/core';
 import { config } from '@app/config';
@@ -17,6 +16,7 @@ import { FormFilter } from '../FormFilter';
 import { Paper } from '../Paper';
 import { useStyles } from './styles';
 import { FormHeader } from '../FormHeader';
+import { ButtonProps } from '../Button';
 
 interface Props<T> {
   children?: React.ReactNode;
@@ -29,7 +29,7 @@ interface Props<T> {
   count: number;
   classes?: { [className: string]: string };
   title: string;
-  commandButtons?: CommandButton[];
+  commandButtons?: ButtonProps[];
   size?: 'small' | 'medium';
   isBusy?: boolean;
 }

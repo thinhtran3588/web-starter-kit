@@ -41,7 +41,7 @@ exports[`components/Header renders successfully 1`] = `
                 href="/"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-7 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-menuItemButton-7 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -69,7 +69,7 @@ exports[`components/Header renders successfully 1`] = `
                 href="/about"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-7 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-menuItemButton-7 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -89,7 +89,7 @@ exports[`components/Header renders successfully 1`] = `
               </a>
             </next-link>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-7 MuiButton-colorInherit"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-menuItemButton-7 MuiButton-colorInherit"
               tabindex="0"
               type="button"
             >

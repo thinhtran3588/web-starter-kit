@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes, useTheme, useMediaQuery, Theme } from '@material-ui/core';
+import { useTheme, useMediaQuery, Theme } from '@material-ui/core';
 import { FieldInfo } from '@app/core';
 import { Formik, FormikConfig } from 'formik';
 import clsx from 'clsx';
@@ -8,7 +8,7 @@ import { Form } from '../Form';
 import { Slide } from '../Slide';
 import { GridSize, Breakpoint, Grid } from '../Grid';
 import { Dialog, DialogContent, DialogActions } from '../Dialog';
-import { Button } from '../Button';
+import { Button, ButtonProps } from '../Button';
 import { useStyles } from './styles';
 import { AppBar } from '../AppBar';
 import { Typography } from '../Typography';
@@ -18,16 +18,7 @@ type Props<T> = FormikConfig<T> & {
   open: boolean;
   onClose: () => void;
   fields?: FieldInfo<T>[];
-  buttons?: {
-    key?: string;
-    disabled?: boolean;
-    hidden?: boolean;
-    type?: 'submit' | 'reset' | 'button';
-    variant?: 'text' | 'outlined' | 'contained';
-    color?: PropTypes.Color;
-    title?: string;
-    onClick?: () => void;
-  }[];
+  buttons?: ButtonProps[];
   children?: React.ReactNode;
   setForm?: (ref: Formik<T>) => void;
   isBusy: boolean;
@@ -68,14 +59,11 @@ export const FormDialog: <T>(props: Props<T>) => JSX.Element = (props) => {
                 .filter((button) => !button.hidden)
                 .map((button) => (
                   <Button
+                    {...button}
                     key={button.key || button.title}
                     disabled={button.disabled || isBusy}
-                    type={button.type}
-                    variant={button.variant || 'contained'}
-                    color={button.color}
                     className={isDesktop ? classes.button : classes.mobileButton}
                     fullWidth={!isDesktop}
-                    onClick={button.onClick}
                   >
                     {button.title}
                   </Button>

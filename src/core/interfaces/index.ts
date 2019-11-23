@@ -23,3 +23,4 @@ export * from './command_button';
 export * from './dialog_params';
 export * from './row_command';
 export * from './search_result';
+export * from './color';

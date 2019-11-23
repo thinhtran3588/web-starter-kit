@@ -41,7 +41,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                 href="/"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-10 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-menuItemButton-10 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -80,7 +80,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                 href="/blogs"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-10 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-menuItemButton-10 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -122,7 +122,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                 href="/aboutUs"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-10 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-menuItemButton-10 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -161,7 +161,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                 href="/login"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-10 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-menuItemButton-10 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >
@@ -200,7 +200,7 @@ exports[`@app/modules/main/screens/About renders successfully 1`] = `
                 href="/register"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-menuItemButton-10 MuiButton-colorInherit"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-menuItemButton-10 MuiButton-colorInherit"
                   tabindex="0"
                   type="button"
                 >

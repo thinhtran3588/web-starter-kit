@@ -8,6 +8,7 @@ import {
   TablePagination as MuiTablePagination,
   TableRow as MuiTableRow,
 } from '@material-ui/core';
+import red from '@material-ui/core/colors/red';
 import { OffsetPagination, TableColumn, FieldValueType, RowCommand } from '@app/core';
 import { config } from '@app/config';
 import { useStyles } from './styles';
@@ -146,13 +147,13 @@ export const Table = (props: Props): JSX.Element => {
                                 isBusy
                                   ? {}
                                   : {
-                                      color: command.color,
+                                      color: command.color === 'error' ? red.A400 : command.color,
                                     }
                               }
                               aria-label={command.title}
                               onClick={() => command.onClick(row)}
                               size='small'
-                              disabled={isBusy}
+                              disabled={command.disabled || isBusy}
                             >
                               <Icon name={command.icon} />
                             </IconButton>

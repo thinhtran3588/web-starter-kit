@@ -493,13 +493,12 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-185 MuiButton-containedPrimary"
                 tabindex="0"
+                text="Create"
                 type="button"
               >
                 <span
                   class="MuiButton-label"
-                >
-                  Create
-                </span>
+                />
                 <span
                   class="MuiTouchRipple-root"
                 />

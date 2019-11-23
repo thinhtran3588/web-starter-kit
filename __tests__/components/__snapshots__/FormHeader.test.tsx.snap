@@ -20,13 +20,12 @@ exports[`components/FormHeader renders successfully 1`] = `
         <button
           class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-4 MuiButton-containedPrimary"
           tabindex="0"
+          text="Create"
           type="button"
         >
           <span
             class="MuiButton-label"
-          >
-            Create
-          </span>
+          />
           <span
             class="MuiTouchRipple-root"
           />

@@ -214,6 +214,7 @@ export const Detail = (props: Props): JSX.Element => {
         {
           title: t('common:back'),
           onClick: onClose,
+          color: 'default',
         },
       ]}
       setForm={setForm}

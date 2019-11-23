@@ -163,6 +163,7 @@ export const FormField: FormField = (props) => {
           id={id}
           control={<Switch checked={value as boolean} value={value as boolean} onChange={onSwitchValueChange} />}
           label={label}
+          disabled={disabled}
         />
       )}
       {type === 'checkbox' && (
@@ -170,6 +171,7 @@ export const FormField: FormField = (props) => {
           id={id}
           control={<Checkbox checked={value as boolean} value={value as boolean} onChange={onSwitchValueChange} />}
           label={label}
+          disabled={disabled}
         />
       )}
       {error && <FormHelperText error={true}>{errorMessage}</FormHelperText>}

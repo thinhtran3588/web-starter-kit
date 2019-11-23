@@ -1,13 +1,13 @@
 import React from 'react';
-import { CommandButton } from '@app/core';
-import { Button } from '../Button';
+import clsx from 'clsx';
+import { Button, ButtonProps } from '../Button';
 import { Paper } from '../Paper';
 import { Typography } from '../Typography';
 import { useStyles } from './styles';
 
 interface Props {
   title: string;
-  commandButtons?: CommandButton[];
+  commandButtons?: ButtonProps[];
 }
 
 export const FormHeader = (props: Props): JSX.Element => {
@@ -24,13 +24,11 @@ export const FormHeader = (props: Props): JSX.Element => {
         {!!commandButtons &&
           commandButtons.map((commandButton) => (
             <Button
-              key={commandButton.text}
-              variant='contained'
-              color={commandButton.color || 'primary'}
-              className={classes.button}
-              onClick={commandButton.onClick}
+              {...commandButton}
+              key={commandButton.title}
+              className={clsx(classes.button, commandButton.className)}
             >
-              {commandButton.text}
+              {commandButton.title}
             </Button>
           ))}
       </div>

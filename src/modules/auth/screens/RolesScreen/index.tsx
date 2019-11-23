@@ -18,7 +18,6 @@ import {
 import { config } from '@app/config';
 import debounce from 'lodash/fp/debounce';
 import { withAuth } from '@app/hoc/WithAuth';
-import red from '@material-ui/core/colors/red';
 import { useImmer } from 'use-immer';
 import { Detail, AggregateConfig } from './components';
 import { GET_ROLES_QUERY, GET_AGGREGATE_CONFIGS_QUERY, DELETE_ROLE_MUTATION, UPDATE_ROLE_MUTATION } from './graphql';
@@ -273,13 +272,15 @@ const Screen = (props: Props): JSX.Element => {
         title={t('roles')}
         commandButtons={[
           {
-            text: t('common:refresh'),
+            title: t('common:refresh'),
             onClick: refresh,
+            disabled: isBusy,
             color: 'default',
           },
           {
-            text: t('common:create'),
+            title: t('common:create'),
             onClick: create,
+            disabled: isBusy,
           },
         ]}
         defaultFilter={defaultFilter}
@@ -295,7 +296,7 @@ const Screen = (props: Props): JSX.Element => {
             title: t('common:delete'),
             icon: 'Delete',
             onClick: openDeleteConfirmationDialog,
-            color: red.A400,
+            color: 'error',
           },
         ]}
         columns={columns}
@@ -323,15 +324,17 @@ const Screen = (props: Props): JSX.Element => {
           onClose={closeDeleteConfirmationDialog}
           buttons={[
             {
-              color: 'primary',
+              color: 'error',
               title: t('common:delete'),
               onClick: deleteRole,
             },
             {
+              color: 'default',
               title: t('common:back'),
               onClick: closeDeleteConfirmationDialog,
             },
           ]}
+          color='error'
         />
       )}
     </AdminLayout>
