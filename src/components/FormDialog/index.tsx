@@ -16,7 +16,7 @@ import { Typography } from '../Typography';
 type Props<T> = FormikConfig<T> & {
   title: string;
   open: boolean;
-  setOpen: (open: boolean) => void;
+  onClose: () => void;
   fields?: FieldInfo<T>[];
   buttons?: {
     key?: string;
@@ -39,9 +39,8 @@ const Transition = React.forwardRef<unknown, TransitionProps>(function Transitio
 });
 
 export const FormDialog: <T>(props: Props<T>) => JSX.Element = (props) => {
-  const { title, open, setOpen, isBusy, buttons, fullScreen, ...other } = props;
+  const { title, open, onClose, isBusy, buttons, fullScreen, ...other } = props;
   const classes = useStyles();
-  const handleClose = (): void => setOpen(false);
   const theme = useTheme<Theme>();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -50,7 +49,7 @@ export const FormDialog: <T>(props: Props<T>) => JSX.Element = (props) => {
   return (
     <Dialog
       open={open}
-      onClose={handleClose}
+      onClose={onClose}
       aria-labelledby={title}
       fullScreen={fullScreen}
       TransitionComponent={Transition}

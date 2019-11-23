@@ -5,10 +5,10 @@ import { FormDialog } from '@app/components';
 import { FieldInfo, showNotification, FieldValueType, initApolloClient, getErrorMessage, catchError } from '@app/core';
 import { config } from '@app/config';
 import { Formik } from 'formik';
-import { gql } from 'apollo-boost';
 import { GraphQLError } from 'graphql';
 import { useImmer } from 'use-immer';
 import { PermissionsTable, AggregateConfig } from '../PermissionsTable';
+import { GET_ROLE_QUERY, CREATE_ROLE_MUTATION, UPDATE_ROLE_MUTATION } from '../../graphql';
 
 interface Props {
   id?: string;
@@ -16,7 +16,7 @@ interface Props {
   isBusy: boolean;
   setIsBusy: (f: (draft: boolean) => boolean | void) => void;
   open: boolean;
-  setOpen: (open: boolean) => void;
+  onClose: () => void;
   aggregateConfigs?: AggregateConfig[];
   refresh: () => void;
 }
@@ -43,105 +43,10 @@ const defaultRole: FormData = {
   isDefault: false,
 };
 
-const GET_ROLE_QUERY = gql`
-  query getRole($id: ID!) {
-    role(id: $id) {
-      id
-      name
-      description
-      isActive
-      isDefault
-      permissions
-    }
-  }
-`;
-
-const CREATE_ROLE_MUTATION = gql`
-  mutation CreateRole(
-    $name: String!
-    $description: String!
-    $isActive: Boolean!
-    $isDefault: Boolean!
-    $permissions: String!
-  ) {
-    roles {
-      create(
-        payload: {
-          name: $name
-          description: $description
-          isActive: $isActive
-          isDefault: $isDefault
-          permissions: $permissions
-        }
-      ) {
-        id
-      }
-    }
-  }
-`;
-
-const UPDATE_ROLE_MUTATION = gql`
-  mutation UpdateRole(
-    $id: ID!
-    $name: String
-    $description: String
-    $isActive: Boolean
-    $isDefault: Boolean
-    $permissions: String
-  ) {
-    roles {
-      update(
-        payload: {
-          id: $id
-          name: $name
-          description: $description
-          isActive: $isActive
-          isDefault: $isDefault
-          permissions: $permissions
-        }
-      ) {
-        id
-      }
-    }
-  }
-`;
-
 export const Detail = (props: Props): JSX.Element => {
-  const { id, t, isBusy, setIsBusy, open, setOpen, aggregateConfigs, refresh } = props;
+  /* --- variables & states - begin --- */
+  const { id, t, isBusy, setIsBusy, open, onClose, aggregateConfigs, refresh } = props;
   const [role, setRole] = useImmer(defaultRole);
-
-  useEffect(() => {
-    catchError(async () => {
-      if (!id || !open) {
-        return;
-      }
-      const { data, errors } = await initApolloClient().query({
-        query: GET_ROLE_QUERY,
-        variables: {
-          id,
-        },
-        fetchPolicy: 'network-only',
-      });
-      if (errors) {
-        showNotification({
-          type: 'ERROR',
-          message: getErrorMessage(errors),
-        });
-        return;
-      }
-      setRole(() => data.role);
-    }, setIsBusy)();
-  }, [id, open]);
-
-  const renderPermissionTable: RenderPermissionTable = ({ data, setFieldValue }) => (
-    <PermissionsTable
-      aggregateConfigs={aggregateConfigs}
-      t={t}
-      setFieldValue={setFieldValue}
-      data={JSON.parse(data.permissions)}
-      isBusy={isBusy}
-    />
-  );
   const fields: FieldInfo<FormData>[] = [
     {
       name: 'name',
@@ -169,7 +74,17 @@ export const Detail = (props: Props): JSX.Element => {
       name: 'permissions',
       label: t('permissions'),
       required: true,
-      customRender: renderPermissionTable,
+      customRender({ data, setFieldValue }) {
+        return (
+          <PermissionsTable
+            aggregateConfigs={aggregateConfigs}
+            t={t}
+            setFieldValue={setFieldValue}
+            data={data.permissions}
+            isBusy={isBusy}
+          />
+        );
+      },
     },
   ];
   const validationSchema = yup.object().shape<FormData>({
@@ -205,6 +120,17 @@ export const Detail = (props: Props): JSX.Element => {
     isDefault: yup.boolean(),
     permissions: yup.string(),
   });
+  let form: Formik<FormData>;
+  /* --- variables & states - end --- */
+
+  /* --- actions & events - begin --- */
+  const setForm = (ref: Formik<FormData>): void => {
+    form = ref;
+  };
+
+  const submitForm = (): void => {
+    form.submitForm();
+  };
 
   const onSubmit = catchError(async (input: FormData) => {
     let errors: readonly GraphQLError[] | undefined;
@@ -239,22 +165,41 @@ export const Detail = (props: Props): JSX.Element => {
         message: t('common:dataSaved'),
       });
       refresh();
-      setOpen(false);
+      onClose();
     }
   }, setIsBusy);
+  /* --- actions & events - end --- */
 
-  const handleClose = (): void => setOpen(false);
-
-  let form: Formik<FormData>;
-  const submitForm = (): void => {
-    form.submitForm();
-  };
+  /* --- effects - start --- */
+  useEffect(() => {
+    catchError(async () => {
+      if (!id || !open) {
+        return;
+      }
+      const { data, errors } = await initApolloClient().query({
+        query: GET_ROLE_QUERY,
+        variables: {
+          id,
+        },
+        fetchPolicy: 'network-only',
+      });
+      if (errors) {
+        showNotification({
+          type: 'ERROR',
+          message: getErrorMessage(errors),
+        });
+        return;
+      }
+      setRole(() => data.role);
+    }, setIsBusy)();
+  }, [id, open]);
+  /* --- effects - end --- */
 
   return (
     <FormDialog
       title={`${id ? t('common:create') : t('common:update')} ${t('roles')}`}
       open={open}
-      setOpen={handleClose}
+      onClose={onClose}
       initialValues={role}
       fields={fields}
       validationSchema={validationSchema}
@@ -268,12 +213,10 @@ export const Detail = (props: Props): JSX.Element => {
         },
         {
           title: t('common:back'),
-          onClick: handleClose,
+          onClick: onClose,
         },
       ]}
-      setForm={(ref) => {
-        form = ref;
-      }}
+      setForm={setForm}
       fullScreen
     />
   );

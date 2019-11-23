@@ -16,11 +16,11 @@ import {
 } from '@app/core';
 import { config } from '@app/config';
 import debounce from 'lodash/fp/debounce';
-import { gql } from 'apollo-boost';
 import { withAuth } from '@app/hoc/WithAuth';
 import red from '@material-ui/core/colors/red';
 import { useImmer } from 'use-immer';
 import { Detail, AggregateConfig } from './components';
+import { GET_ROLES_QUERY, GET_AGGREGATE_CONFIGS_QUERY, DELETE_ROLE_MUTATION } from './graphql';
 
 type Props = WithTranslation;
 
@@ -32,71 +32,28 @@ const defaultFilter: FormData = {
   filter: '',
 };
 
-const GET_AGGREGATE_CONFIGS_QUERY = gql`
-  query getAggregateConfigs {
-    aggregateConfigs {
-      id
-      name
-      viewFields
-      updateFields
-      customActions
-      excludedActions
-    }
-  }
-`;
-
-const GET_ROLES_QUERY = gql`
-  query getUsers($filter: String, $pageIndex: Int!, $itemsPerPage: Int!) {
-    roles(payload: { filter_textSearch: $filter, pageIndex: $pageIndex, itemsPerPage: $itemsPerPage }) {
-      data {
-        id
-        name
-        description
-        isActive
-        isDefault
-        createdAt
-        createdBy
-        lastModifiedAt
-        lastModifiedBy
-      }
-      pagination {
-        type
-        total
-      }
-    }
-  }
-`;
-
-const DELETE_ROLE_MUTATION = gql`
-  mutation DeleteRole($id: ID!) {
-    roles {
-      delete(payload: { id: $id }) {
-        id
-      }
-    }
-  }
-`;
-
 const Screen = (props: Props): JSX.Element => {
+  /* --- variables & states - begin --- */
   const { t } = props;
   const [isBusy, setIsBusy] = useImmer<boolean>(false);
+  const [filter, setFilter] = useImmer<FilterWithOffsetPagination>({
+    pageIndex: 0,
+    itemsPerPage: config.rowsPerPageOptions[0],
+  });
+  const setFilterDebounce = debounce(config.debounceDelay, setFilter);
+  const [aggregateConfigs, setAggregateConfigs] = useImmer<AggregateConfig[]>([]);
   const [detailParams, setDetailParams] = useImmer<DialogParams>({
     open: false,
   });
   const [deleteParams, setDeleteParams] = useImmer<DialogParams>({
     open: false,
   });
-
-  const create = (): void =>
-    setDetailParams(() => ({
-      open: true,
-      id: undefined,
-    }));
-
-  const setOpenDetailDialog = (open: boolean): void =>
-    setDetailParams((draft) => {
-      draft.open = open;
-    });
+  const [searchResult, setSearchResult] = useImmer<SearchResult>({
+    data: [],
+    pagination: {
+      total: 0,
+    },
+  });
 
   const filterFields: FieldInfo<FormData>[] = [
     {
@@ -108,12 +65,6 @@ const Screen = (props: Props): JSX.Element => {
     },
   ];
 
-  const renderIsActive = (data: Record<string, FieldValueType>): JSX.Element => {
-    return <FormField value={!!data.isActive} label='' type='switch' />;
-  };
-  const renderIsDefault = (data: Record<string, FieldValueType>): JSX.Element => (
-    <FormField value={!!data.isDefault} label='' type='switch' />
-  );
   const columns: TableColumn[] = [
     {
       field: 'name',
@@ -129,13 +80,17 @@ const Screen = (props: Props): JSX.Element => {
       field: 'isActive',
       label: t('common:isActive'),
       minWidth: 100,
-      customRender: renderIsActive,
+      customRender(data) {
+        return <FormField value={!!data.isActive} label='' type='switch' />;
+      },
     },
     {
       field: 'isDefault',
       label: t('common:isDefault'),
       minWidth: 100,
-      customRender: renderIsDefault,
+      customRender(data) {
+        return <FormField value={!!data.isDefault} label='' type='switch' />;
+      },
     },
     {
       field: 'createdBy',
@@ -158,13 +113,9 @@ const Screen = (props: Props): JSX.Element => {
       minWidth: 100,
     },
   ];
+  /* --- variables & states - end --- */
 
-  const [filter, setFilter] = useImmer<FilterWithOffsetPagination>({
-    pageIndex: 0,
-    itemsPerPage: config.rowsPerPageOptions[0],
-  });
-  const setFilterDebounce = debounce(config.debounceDelay, setFilter);
-
+  /* --- actions & events - begin --- */
   const onFilterChange = (newFilter: FilterWithOffsetPagination, useDebounce: boolean): void => {
     if (useDebounce) {
       setFilterDebounce(() => newFilter);
@@ -179,47 +130,28 @@ const Screen = (props: Props): JSX.Element => {
     }));
   };
 
-  const [searchResult, setSearchResult] = useImmer<SearchResult>({
-    data: [],
-    pagination: {
-      total: 0,
-    },
-  });
-  useEffect(() => {
-    catchError(async () => {
-      const { data, errors } = await initApolloClient().query({
-        query: GET_ROLES_QUERY,
-        variables: filter,
-        fetchPolicy: 'network-only',
-      });
-      if (errors) {
-        showNotification({
-          type: 'ERROR',
-          message: getErrorMessage(errors),
-        });
-        return;
-      }
-      setSearchResult(() => data.roles);
-    }, setIsBusy)();
-  }, [filter]);
+  const create = (): void =>
+    setDetailParams(() => ({
+      open: true,
+      id: undefined,
+    }));
 
-  const [aggregateConfigs, setAggregateConfigs] = useImmer<AggregateConfig[]>([]);
-  useEffect(() => {
-    catchError(async () => {
-      const { data, errors } = await initApolloClient().query({
-        query: GET_AGGREGATE_CONFIGS_QUERY,
-        fetchPolicy: 'network-only',
-      });
-      if (errors) {
-        showNotification({
-          type: 'ERROR',
-          message: getErrorMessage(errors),
-        });
-        return;
-      }
-      setAggregateConfigs(() => data.aggregateConfigs);
-    }, setIsBusy)();
-  }, []);
+  const openDetailDialog = (data: Record<string, FieldValueType>): void =>
+    setDetailParams(() => ({
+      open: true,
+      id: data.id as string,
+    }));
+
+  const closeDetailDialog = (): void =>
+    setDetailParams(() => ({
+      open: false,
+    }));
+
+  const openDeleteConfirmationDialog = (data: Record<string, FieldValueType>): void =>
+    setDeleteParams(() => ({
+      open: true,
+      id: data.id as string,
+    }));
 
   const closeDeleteConfirmationDialog = (): void =>
     setDeleteParams(() => ({
@@ -248,6 +180,44 @@ const Screen = (props: Props): JSX.Element => {
       closeDeleteConfirmationDialog();
     }
   }, setIsBusy);
+  /* --- actions & events - end --- */
+
+  /* --- effects - start --- */
+  useEffect(() => {
+    catchError(async () => {
+      const { data, errors } = await initApolloClient().query({
+        query: GET_ROLES_QUERY,
+        variables: filter,
+        fetchPolicy: 'network-only',
+      });
+      if (errors) {
+        showNotification({
+          type: 'ERROR',
+          message: getErrorMessage(errors),
+        });
+        return;
+      }
+      setSearchResult(() => data.roles);
+    }, setIsBusy)();
+  }, [filter]);
+
+  useEffect(() => {
+    catchError(async () => {
+      const { data, errors } = await initApolloClient().query({
+        query: GET_AGGREGATE_CONFIGS_QUERY,
+        fetchPolicy: 'network-only',
+      });
+      if (errors) {
+        showNotification({
+          type: 'ERROR',
+          message: getErrorMessage(errors),
+        });
+        return;
+      }
+      setAggregateConfigs(() => data.aggregateConfigs);
+    }, setIsBusy)();
+  }, []);
+  /* --- effects - end --- */
 
   return (
     <AdminLayout title={t('roles')}>
@@ -271,22 +241,12 @@ const Screen = (props: Props): JSX.Element => {
           {
             title: t('common:update'),
             icon: 'Edit',
-            onClick: (data) => {
-              setDetailParams(() => ({
-                open: true,
-                id: data.id,
-              }));
-            },
+            onClick: openDetailDialog,
           },
           {
             title: t('common:delete'),
             icon: 'Delete',
-            onClick: (data) => {
-              setDeleteParams(() => ({
-                open: true,
-                id: data.id,
-              }));
-            },
+            onClick: openDeleteConfirmationDialog,
             color: red.A400,
           },
         ]}
@@ -302,7 +262,7 @@ const Screen = (props: Props): JSX.Element => {
           isBusy={isBusy}
           setIsBusy={setIsBusy}
           open={detailParams.open}
-          setOpen={setOpenDetailDialog}
+          onClose={closeDetailDialog}
           aggregateConfigs={aggregateConfigs}
           refresh={refresh}
         />
@@ -312,11 +272,7 @@ const Screen = (props: Props): JSX.Element => {
           title={t('common:deleteConfirmationTitle')}
           message={t('common:deleteConfirmationMessage')}
           open={deleteParams.open}
-          setOpen={(open) =>
-            setDeleteParams(() => ({
-              open,
-            }))
-          }
+          onClose={closeDeleteConfirmationDialog}
           buttons={[
             {
               color: 'primary',

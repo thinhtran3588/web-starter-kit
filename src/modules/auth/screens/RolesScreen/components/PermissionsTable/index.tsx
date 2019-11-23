@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { TFunction } from 'next-i18next';
 import { RawTable, TableRow, TableBody, TableCell, Typography, TableHead, FormField } from '@app/components';
 import { PermissionTree, FieldValueType } from '@app/core';
@@ -16,18 +16,21 @@ interface Props {
   t: TFunction;
   aggregateConfigs?: AggregateConfig[];
   setFieldValue: (field: string, value: FieldValueType) => void;
-  data: PermissionTree;
+  data: string;
   isBusy: boolean;
 }
 
 const baseActions = ['create', 'viewAny', 'viewOwn', 'updateAny', 'updateOwn', 'deleteAny', 'deleteOwn'];
 const actionsWithFields = ['viewAny', 'viewOwn', 'updateAny', 'updateOwn'];
 
-export const PermissionsTable = (props: Props): JSX.Element => {
+const BasePermissionsTable = (props: Props): JSX.Element => {
+  /* --- variables & states - begin --- */
   const { aggregateConfigs, t, setFieldValue, data, isBusy } = props;
   const classes = useStyles();
-  const permissionTree: PermissionTree = JSON.parse(JSON.stringify(data));
+  const permissionTree: PermissionTree = JSON.parse(data);
+  /* --- variables & states - end --- */
 
+  /* --- actions & events - begin --- */
   const updateActionPermission = (aggregateConfig: AggregateConfig, action: string): (() => void) => () => {
     if (permissionTree[aggregateConfig.name] && permissionTree[aggregateConfig.name][action]) {
       delete permissionTree[aggregateConfig.name][action];
@@ -74,7 +77,9 @@ export const PermissionsTable = (props: Props): JSX.Element => {
     }
     setFieldValue('permissions', JSON.stringify(permissionTree));
   };
+  /* --- actions & events - end --- */
 
+  /* --- renders - begin --- */
   const renderAggregatePermissions = (aggregateConfig: AggregateConfig): JSX.Element => {
     let actions = baseActions.filter(
       (action) => !(aggregateConfig.excludedActions && aggregateConfig.excludedActions.includes(action)),
@@ -123,6 +128,8 @@ export const PermissionsTable = (props: Props): JSX.Element => {
       </React.Fragment>
     );
   };
+  /* --- renders - end --- */
+
   return (
     <div>
       <Typography variant='subtitle1'>{t('permissions')}</Typography>
@@ -139,3 +146,7 @@ export const PermissionsTable = (props: Props): JSX.Element => {
     </div>
   );
 };
+
+export const PermissionsTable = memo(BasePermissionsTable, (prevProps, nextProps) => {
+  return prevProps.data === nextProps.data && prevProps.isBusy === nextProps.isBusy;
+});

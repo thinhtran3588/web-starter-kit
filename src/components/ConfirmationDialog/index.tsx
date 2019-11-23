@@ -14,7 +14,7 @@ interface Props {
   title: string;
   message: string;
   open: boolean;
-  setOpen: (open: boolean) => void;
+  onClose: () => void;
   buttons?: {
     key?: string;
     disabled?: boolean;
@@ -33,9 +33,8 @@ const Transition = React.forwardRef<unknown, TransitionProps>(function Transitio
 });
 
 export const ConfirmationDialog: (props: Props) => JSX.Element = (props) => {
-  const { title, open, setOpen, buttons, fullScreen, message } = props;
+  const { title, open, onClose, buttons, fullScreen, message } = props;
   const classes = useStyles();
-  const handleClose = (): void => setOpen(false);
   const theme = useTheme<Theme>();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -44,7 +43,7 @@ export const ConfirmationDialog: (props: Props) => JSX.Element = (props) => {
   return (
     <Dialog
       open={open}
-      onClose={handleClose}
+      onClose={onClose}
       aria-labelledby={title}
       fullScreen={fullScreen}
       TransitionComponent={Transition}
