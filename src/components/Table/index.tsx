@@ -113,8 +113,9 @@ export const Table = (props: Props): JSX.Element => {
               {!!commands && (
                 <TableCell
                   style={{
-                    minWidth: commands.length * 60,
+                    minWidth: commands.length * 50,
                   }}
+                  className={classes.commandCell}
                 />
               )}
               {columns.map((column) => (
@@ -135,7 +136,7 @@ export const Table = (props: Props): JSX.Element => {
               return (
                 <TableRow hover tabIndex={-1} key={index}>
                   {!!commands && (
-                    <TableCell>
+                    <TableCell className={classes.commandCell}>
                       {commands.map((command) => (
                         <Tooltip key={command.title} title={command.title}>
                           <span className={classes.commandButton}>

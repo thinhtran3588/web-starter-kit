@@ -9,6 +9,9 @@ export const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
   },
   commandButton: {
-    marginRight: theme.spacing(0.5),
+    marginRight: theme.spacing(1.5),
+  },
+  commandCell: {
+    padding: theme.spacing(1.5, 1),
   },
 }));
