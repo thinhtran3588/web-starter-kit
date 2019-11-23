@@ -6,5 +6,5 @@ export const formatDateTime = (value: FieldValueType): string => {
   if (!value) {
     return '';
   }
-  return dayjs(value as string | number).format(config.dateTimeFormat);
+  return dayjs.unix(parseFloat((value as string).substring(0, 10))).format(config.dateTimeFormat);
 };
