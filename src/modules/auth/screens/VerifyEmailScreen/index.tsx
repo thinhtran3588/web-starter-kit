@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { WithTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { config } from '@app/config';
 import { AuthLayout, Button, Link, Typography } from '@app/components';
-import { withTranslation, showNotification, handleError, User, GET_CURRENT_USER_QUERY } from '@app/core';
+import {
+  withTranslation,
+  showNotification,
+  handleError,
+  User,
+  GET_CURRENT_USER_QUERY,
+  WithTranslation,
+} from '@app/core';
 import { authService, navigationService } from '@app/services';
 import { useStyles } from './styles';
 

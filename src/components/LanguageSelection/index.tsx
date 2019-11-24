@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { WithTranslation } from 'react-i18next';
-import { i18n, withTranslation } from '@app/core';
+import { i18n, withTranslation, WithTranslation } from '@app/core';
 import { config } from '@app/config';
 import { useStyles } from './styles';
 import { IconButton } from '../IconButton';

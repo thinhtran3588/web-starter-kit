@@ -1,12 +1,11 @@
 import React from 'react';
-import { withTranslation } from '@app/core';
-import { WithTranslation } from 'react-i18next';
-import { config } from '@app/config';
 import clsx from 'clsx';
-import { useStyles } from './styles';
+import { withTranslation, WithTranslation } from '@app/core';
+import { config } from '@app/config';
 import { Grid } from '../Grid';
 import { Link } from '../Link';
 import { Typography } from '../Typography';
+import { useStyles } from './styles';
 
 type Props = WithTranslation;
 

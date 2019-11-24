@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import NextHead from 'next/head';
-import { WithTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { config } from '@app/config';
-import { NavItem, GET_CURRENT_USER_QUERY, User, withTranslation } from '@app/core';
+import { NavItem, GET_CURRENT_USER_QUERY, User, withTranslation, WithTranslation } from '@app/core';
 import { Header } from '../Header';
 import { Sidebar } from '../Sidebar';
 import { Footer } from '../Footer';

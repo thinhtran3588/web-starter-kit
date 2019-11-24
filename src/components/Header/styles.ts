@@ -21,7 +21,7 @@ export const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
   },
   menuItemButton: {
-    padding: theme.spacing(1),
+    padding: theme.spacing(2.5),
   },
   displayName: {
     whiteSpace: 'nowrap',

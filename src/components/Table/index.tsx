@@ -9,14 +9,14 @@ import {
   TableRow as MuiTableRow,
 } from '@material-ui/core';
 import red from '@material-ui/core/colors/red';
-import { OffsetPagination, TableColumn, FieldValueType, RowCommand } from '@app/core';
+import { OffsetPagination, TableColumn, FieldValueType, RowCommand, withTranslation, WithTranslation } from '@app/core';
 import { config } from '@app/config';
 import { useStyles } from './styles';
 import { IconButton } from '../IconButton';
 import { Icon } from '../Icon';
 import { Tooltip } from '../Tooltip';
 
-interface Props {
+interface Props extends WithTranslation {
   commands?: RowCommand[];
   columns: TableColumn[];
   rows: { [id: string]: FieldValueType }[];
@@ -38,7 +38,7 @@ export const TablePagination = MuiTablePagination;
 export const TableRow = MuiTableRow;
 export const RawTable = MuiTable;
 
-export const Table = (props: Props): JSX.Element => {
+export const BaseTable = (props: Props): JSX.Element => {
   const {
     columns,
     rows,
@@ -52,6 +52,7 @@ export const Table = (props: Props): JSX.Element => {
     size,
     commands,
     isBusy,
+    t,
   } = props;
   const classes = useStyles();
 
@@ -176,14 +177,25 @@ export const Table = (props: Props): JSX.Element => {
         rowsPerPage={itemsPerPage}
         page={pageIndex}
         backIconButtonProps={{
-          'aria-label': 'previous page',
+          'aria-label': t('common:previousPage'),
         }}
         nextIconButtonProps={{
-          'aria-label': 'next page',
+          'aria-label': t('common:nextPage'),
         }}
         onChangePage={handleChangePage}
         onChangeRowsPerPage={handleChangeRowsPerPage}
+        // backIconButtonText={t('common:previousPage')}
+        // nextIconButtonText={t('common:nextPage')}
+        labelRowsPerPage={t('common:rowsPerPage')}
+        labelDisplayedRows={({ from, to, count: rowCount }) =>
+          t('common:displayedRows', {
+            from,
+            to: to === -1 ? rowCount : to,
+            count: rowCount,
+          })
+        }
       />
     </div>
   );
 };
+export const Table = withTranslation('common')(BaseTable);

@@ -637,7 +637,7 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                 <p
                   class="MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit"
                 >
-                  Rows per page:
+                  common.common:rowsPerPage
                 </p>
                 <div
                   class="MuiInputBase-root MuiTablePagination-input MuiTablePagination-selectRoot"
@@ -669,13 +669,13 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                 <p
                   class="MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit"
                 >
-                  0-0 of 0
+                  common.common:displayedRows
                 </p>
                 <div
                   class="MuiTablePagination-actions"
                 >
                   <button
-                    aria-label="previous page"
+                    aria-label="common.common:previousPage"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit Mui-disabled Mui-disabled"
                     disabled=""
                     tabindex="-1"
@@ -698,7 +698,7 @@ exports[`@app/modules/auth/screens/Users renders successfully 1`] = `
                     </span>
                   </button>
                   <button
-                    aria-label="next page"
+                    aria-label="common.common:nextPage"
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit Mui-disabled Mui-disabled"
                     disabled=""
                     tabindex="-1"

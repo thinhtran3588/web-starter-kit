@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { AuthLayout, Form, Button, Link } from '@app/components';
 import * as yup from 'yup';
-import { withTranslation, FieldInfo, writeDataModel, showNotification, handleError } from '@app/core';
-import { WithTranslation } from 'react-i18next';
+import { withTranslation, WithTranslation, FieldInfo, writeDataModel, showNotification, handleError } from '@app/core';
 import { config } from '@app/config';
 import { authService, navigationService } from '@app/services';
 import { useStyles } from './styles';

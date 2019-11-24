@@ -43,7 +43,7 @@ const BaseHeader = (props: Props): JSX.Element => {
   const notifications = [{}, {}];
 
   const renderNavItem = (navItem: NavItem): JSX.Element => (
-    <Button color='inherit' className={classes.menuItemButton} key={`${navItem.link}${navItem.text}`}>
+    <Button color='inherit' variant='text' className={classes.menuItemButton} key={`${navItem.link}${navItem.text}`}>
       {navItem.icon && <Icon name={navItem.icon} />}
       <span className={classes.menuItemText}>{navItem.text}</span>
     </Button>
@@ -109,7 +109,7 @@ const BaseHeader = (props: Props): JSX.Element => {
         </IconButton>
         {user && (
           <NoSsr>
-            <Button onClick={openUserMenu}>
+            <Button onClick={openUserMenu} variant='text'>
               <Typography variant='subtitle2' className={classes.displayName}>
                 {user.displayName}
               </Typography>

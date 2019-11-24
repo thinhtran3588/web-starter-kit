@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { WithTranslation } from 'react-i18next';
-import debounce from 'lodash/fp/debounce';
 import { gql } from 'apollo-boost';
+import debounce from 'lodash/fp/debounce';
 import { useQuery } from '@apollo/react-hooks';
 import { AdminLayout, FormSearch } from '@app/components';
 import {
@@ -13,6 +12,7 @@ import {
   SearchRecord,
   formatWithLookup,
   formatDateTime,
+  WithTranslation,
 } from '@app/core';
 import { config } from '@app/config';
 import { withApollo } from '@app/hoc';
