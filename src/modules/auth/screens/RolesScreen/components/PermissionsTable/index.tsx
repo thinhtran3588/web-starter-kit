@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
-import { TFunction } from 'next-i18next';
 import { RawTable, TableRow, TableBody, TableCell, Typography, TableHead, FormField } from '@app/components';
-import { PermissionTree, FieldValueType } from '@app/core';
+import { PermissionTree, FieldValueType, TFunction } from '@app/core';
 import { useStyles } from './styles';
 
 export interface AggregateConfig {

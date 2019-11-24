@@ -1,4 +1,7 @@
-import NextI18Next, { WithTranslation as NextI18NextWithTranslation } from 'next-i18next';
+import NextI18Next, {
+  WithTranslation as NextI18NextWithTranslation,
+  TFunction as NextI18NexTFunction,
+} from 'next-i18next';
 import { config } from '@app/config';
 
 const otherLanguages = config.i18n.languages
@@ -17,3 +20,4 @@ export const nextI18next = new NextI18Next({
 /* Optionally, export class methods as named exports */
 export const { appWithTranslation, withTranslation, i18n } = nextI18next;
 export type WithTranslation = NextI18NextWithTranslation;
+export type TFunction = NextI18NexTFunction;

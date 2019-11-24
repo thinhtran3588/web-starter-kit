@@ -1,9 +1,8 @@
 import React from 'react';
 import * as yup from 'yup';
-import { TFunction } from 'next-i18next';
 import { Formik } from 'formik';
 import { Form, Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@app/components';
-import { handleError, FieldInfo, showNotification } from '@app/core';
+import { handleError, FieldInfo, showNotification, TFunction } from '@app/core';
 import { authService } from '@app/services';
 import { config } from '@app/config';
 

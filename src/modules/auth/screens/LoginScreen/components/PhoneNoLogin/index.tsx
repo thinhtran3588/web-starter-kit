@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
-import { TFunction } from 'next-i18next';
+import { Formik } from 'formik';
 import { useQuery } from '@apollo/react-hooks';
 import { auth } from 'firebase/app';
 import { Form, Button } from '@app/components';
@@ -12,10 +12,10 @@ import {
   Country,
   PickerDataItem,
   showNotification,
+  TFunction,
 } from '@app/core';
 import { config } from '@app/config';
 import { navigationService, authService } from '@app/services';
-import { Formik } from 'formik';
 import { useStyles } from './styles';
 
 import('firebase/auth');

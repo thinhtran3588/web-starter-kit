@@ -1,10 +1,9 @@
 import React from 'react';
 import * as yup from 'yup';
 import { Form, Button } from '@app/components';
-import { handleError, FieldInfo, writeDataModel } from '@app/core';
+import { handleError, FieldInfo, writeDataModel, TFunction } from '@app/core';
 import { config } from '@app/config';
 import { navigationService, authService } from '@app/services';
-import { TFunction } from 'next-i18next';
 import { useStyles } from './styles';
 
 interface Props {
