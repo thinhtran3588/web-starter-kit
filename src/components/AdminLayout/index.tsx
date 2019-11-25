@@ -4,7 +4,7 @@ import { useTheme } from '@material-ui/styles';
 import { useMediaQuery, Theme } from '@material-ui/core';
 import { useQuery } from '@apollo/react-hooks';
 import { config } from '@app/config';
-import { NavItem, GET_CURRENT_USER_QUERY, User } from '@app/core';
+import { NavItem, GET_CURRENT_USER_QUERY, AuthUser } from '@app/core';
 import { AdminFooter } from '../AdminFooter';
 import { SidebarMenu } from '../SidebarMenu';
 import { Sidebar } from '../Sidebar';
@@ -63,7 +63,7 @@ export const AdminLayout = ({ children, title = config.siteName, description = '
   const [openSidebar, setOpenSidebar] = useState(false);
 
   const { data } = useQuery(GET_CURRENT_USER_QUERY);
-  const user = data ? (data.currentUser as User) : undefined;
+  const user = data ? (data.currentUser as AuthUser) : undefined;
 
   const handleSidebarOpen = (): void => {
     setOpenSidebar(true);

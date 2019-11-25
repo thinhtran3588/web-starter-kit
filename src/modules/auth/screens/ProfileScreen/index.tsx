@@ -1,27 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import * as yup from 'yup';
-import { gql } from 'apollo-boost';
-import { useQuery } from '@apollo/react-hooks';
+import { useImmer } from 'use-immer';
 import { Layout, Form } from '@app/components';
 import {
   WithTranslation,
   withTranslation,
   FieldInfo,
   PickerDataItem,
-  GET_CURRENT_USER_QUERY,
-  User,
   showNotification,
-  sanitizeFormData,
   getErrorMessage,
-  handleError,
   initApolloClient,
+  catchError,
+  AuthProps,
 } from '@app/core';
 import { navigationService } from '@app/services';
 import { config } from '@app/config';
 import { withAuth } from '@app/hoc/WithAuth';
 import { ChangePassword } from './components';
+import { UPDATE_PROFILE_MUTATION, GET_PROFILE_QUERY } from './graphql';
 
-type Props = WithTranslation;
+type Props = WithTranslation & AuthProps;
 
 interface FormData {
   username?: string;
@@ -35,99 +33,14 @@ interface FormData {
   gender?: string;
 }
 
-const GET_PROFILE_QUERY = gql`
-  query GetProfile($id: ID!) {
-    user(id: $id) {
-      username
-      firstName
-      middleName
-      lastName
-      email
-      phoneNo
-      address
-      dob
-      gender
-    }
-    genders {
-      label
-      value
-    }
-  }
-`;
-
-const UPDATE_PROFILE_MUTATION = gql`
-  mutation UpdateProfile(
-    $id: ID!
-    $username: String
-    $firstName: String
-    $middleName: String
-    $lastName: String
-    $email: String
-    $phoneNo: String
-    $address: String
-    $dob: String
-    $gender: String
-  ) {
-    users {
-      update(
-        payload: {
-          id: $id
-          username: $username
-          firstName: $firstName
-          middleName: $middleName
-          lastName: $lastName
-          email: $email
-          phoneNo: $phoneNo
-          address: $address
-          dob: $dob
-          gender: $gender
-        }
-      ) {
-        id
-      }
-    }
-  }
-`;
-
-const defaultUser: User = {
-  id: '',
-  loginType: 'EMAIL',
-};
-
 const Screen = (props: Props): JSX.Element => {
-  const { t } = props;
-  const [isBusy, setIsBusy] = useState<boolean>(false);
-  const [openChangePassword, setOpenChangePassword] = useState<boolean>(false);
-  const [usernameDisabled, setUsernameDisabled] = useState(false);
-  const { data: userData } = useQuery(GET_CURRENT_USER_QUERY);
-  const user = userData ? (userData.currentUser as User) : defaultUser;
-  if (!user.id) {
-    navigationService.navigateTo({
-      url: '/',
-    });
-  }
-  const { data, error: queryError } = useQuery(GET_PROFILE_QUERY, {
-    variables: {
-      id: user.id,
-    },
-    fetchPolicy: 'no-cache',
-  });
-
-  if (queryError) {
-    showNotification({
-      type: 'ERROR',
-      message: queryError.graphQLErrors.length > 0 ? getErrorMessage(queryError.graphQLErrors, {}) : queryError.message,
-    });
-  }
-
-  const profile = data ? sanitizeFormData(data.user as FormData) : undefined;
-  const genders = [
-    {
-      value: '',
-      label: t('common:none'),
-    },
-    ...(data ? (data.genders as PickerDataItem<string>[]) : []),
-  ];
+  /* --- variables & states - begin --- */
+  const { t, authUser } = props;
+  const [isBusy, setIsBusy] = useImmer<boolean>(false);
+  const [openChangePassword, setOpenChangePassword] = useImmer<boolean>(false);
+  const [usernameDisabled, setUsernameDisabled] = useImmer(false);
+  const [profile, setProfile] = useImmer<FormData | undefined>(undefined);
+  const [genders, setGenders] = useImmer<PickerDataItem<string>[]>([]);
 
   const validationSchema = yup.object().shape<FormData>({
     username: yup
@@ -160,50 +73,77 @@ const Screen = (props: Props): JSX.Element => {
       }),
     ),
   });
+  /* --- variables & states - end --- */
 
-  const onSubmit = async (input: FormData): Promise<void> => {
-    try {
-      setIsBusy(true);
-      const apolloClient = initApolloClient();
-      const { errors } = await apolloClient.mutate({
+  /* --- actions & events - begin --- */
+  const onSubmit = catchError(async (input: FormData): Promise<void> => {
+    const { errors } = await initApolloClient().mutate({
+      variables: {
+        id: authUser.id,
+        input,
+      },
+      mutation: UPDATE_PROFILE_MUTATION,
+    });
+    if (errors) {
+      showNotification({
+        type: 'ERROR',
+        message: getErrorMessage(errors, {
+          AUTH_PHONE_NUMBER_ALREADY_EXISTS: t('common:uniqueError', {
+            field: t('phoneNo'),
+          }),
+          INVALID_PAYLOAD_UNIQUE_USERNAME: t('common:uniqueError', {
+            field: t('username'),
+          }),
+        }),
+      });
+      return;
+    }
+    if (input.username) {
+      setUsernameDisabled(() => true);
+    }
+    showNotification({
+      type: 'SUCCESS',
+      message: t('common:dataSaved'),
+    });
+  }, setIsBusy);
+
+  const openChangePasswordDialog = (): void => setOpenChangePassword(() => true);
+  const closeChangePasswordDialog = (): void => setOpenChangePassword(() => false);
+
+  const goBack = (): void => navigationService.goBack();
+  /* --- actions & events - end --- */
+
+  /* --- effects - begin --- */
+  useEffect(() => {
+    catchError(async () => {
+      const { data, errors } = await initApolloClient().query({
         variables: {
-          id: user.id,
-          ...input,
+          id: authUser.id,
         },
-        mutation: UPDATE_PROFILE_MUTATION,
+        query: GET_PROFILE_QUERY,
+        fetchPolicy: 'network-only',
+        errorPolicy: 'all',
       });
       if (errors) {
         showNotification({
           type: 'ERROR',
-          message: getErrorMessage(errors, {
-            AUTH_PHONE_NUMBER_ALREADY_EXISTS: t('common:uniqueError', {
-              field: t('phoneNo'),
-            }),
-            INVALID_PAYLOAD_UNIQUE_USERNAME: t('common:uniqueError', {
-              field: t('username'),
-            }),
-          }),
+          message: getErrorMessage(errors),
         });
         return;
       }
-      if (input.username) {
-        setUsernameDisabled(true);
-      }
-      showNotification({
-        type: 'SUCCESS',
-        message: t('common:dataSaved'),
-      });
-    } catch (error) {
-      handleError(error, {});
-    } finally {
-      setIsBusy(false);
-    }
-  };
+      setProfile(() => data.user);
+      setGenders(() => [
+        {
+          value: '',
+          label: t('common:none'),
+        },
+        ...(data ? (data.genders as PickerDataItem<string>[]) : []),
+      ]);
+    }, setIsBusy)();
+  }, []);
+  /* --- effects - end --- */
 
-  const openChangePasswordModal = (): void => setOpenChangePassword(true);
-
-  const goBack = (): void => navigationService.goBack();
-
+  /* --- renders - begin --- */
   const fields: FieldInfo<FormData>[] = [
     {
       name: 'username',
@@ -229,12 +169,12 @@ const Screen = (props: Props): JSX.Element => {
     {
       name: 'email',
       label: t('email'),
-      disabled: user.loginType === 'EMAIL' || user.loginType === 'GOOGLE',
+      disabled: authUser.loginType === 'EMAIL' || authUser.loginType === 'GOOGLE',
     },
     {
       name: 'phoneNo',
       label: t('phoneNo'),
-      disabled: user.loginType === 'PHONE_NO',
+      disabled: authUser.loginType === 'PHONE_NO',
     },
     {
       name: 'address',
@@ -252,6 +192,8 @@ const Screen = (props: Props): JSX.Element => {
       pickerDataSources: genders,
     },
   ];
+  /* --- renders - end --- */
+
   return (
     <Layout title={t('profile')}>
       {profile && (
@@ -268,12 +210,12 @@ const Screen = (props: Props): JSX.Element => {
               title: t('common:save'),
             },
             {
-              color: 'primary',
               title: t('changePassword'),
-              onClick: openChangePasswordModal,
-              hidden: user.loginType !== 'EMAIL',
+              onClick: openChangePasswordDialog,
+              hidden: authUser.loginType !== 'EMAIL',
             },
             {
+              color: 'default',
               title: t('common:back'),
               onClick: goBack,
             },
@@ -282,13 +224,13 @@ const Screen = (props: Props): JSX.Element => {
           md={6}
         />
       )}
-      {user.loginType === 'EMAIL' && (
+      {authUser.loginType === 'EMAIL' && (
         <ChangePassword
           t={t}
           isBusy={isBusy}
           setIsBusy={setIsBusy}
           open={openChangePassword}
-          setOpen={setOpenChangePassword}
+          onClose={closeChangePasswordDialog}
         />
       )}
     </Layout>

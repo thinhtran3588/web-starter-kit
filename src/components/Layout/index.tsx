@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NextHead from 'next/head';
 import { useQuery } from '@apollo/react-hooks';
 import { config } from '@app/config';
-import { NavItem, GET_CURRENT_USER_QUERY, User, withTranslation, WithTranslation } from '@app/core';
+import { NavItem, GET_CURRENT_USER_QUERY, AuthUser, withTranslation, WithTranslation } from '@app/core';
 import { Header } from '../Header';
 import { Sidebar } from '../Sidebar';
 import { Footer } from '../Footer';
@@ -57,7 +57,7 @@ const BaseLayout = (props: Props): JSX.Element => {
   const [openSidebar, setOpenSidebar] = useState(false);
 
   const { data } = useQuery(GET_CURRENT_USER_QUERY);
-  const user = data ? (data.currentUser as User) : undefined;
+  const user = data ? (data.currentUser as AuthUser) : undefined;
 
   const handleSidebarOpen = (): void => {
     setOpenSidebar(true);

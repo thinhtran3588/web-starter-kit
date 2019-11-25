@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { NavItem, User } from '@app/core';
+import { NavItem, AuthUser } from '@app/core';
 import { TreeView, TreeItem, TreeItemProps } from '../TreeView';
 import { Icon } from '../Icon';
 import { Link } from '../Link';
@@ -9,7 +9,7 @@ import { NoSsr } from '../NoSsr';
 import { useStyles } from './styles';
 
 interface Props {
-  user?: User;
+  user?: AuthUser;
   navItems: NavItem[];
   loginNavItems?: NavItem[];
 }

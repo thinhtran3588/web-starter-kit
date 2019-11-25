@@ -1,5 +1,5 @@
 import firebase, { auth } from 'firebase/app';
-import { User, LoginType, AppError, initApolloClient, sleep } from '@app/core';
+import { AuthUser, LoginType, AppError, initApolloClient, sleep } from '@app/core';
 import { config } from '@app/config';
 import { gql } from 'apollo-boost';
 
@@ -36,7 +36,7 @@ const verifyRegistration = async (user: firebase.User): Promise<string> => {
   return tokenResult.claims.id;
 };
 
-const getUser = async (user: firebase.User): Promise<User> => {
+const getUser = async (user: firebase.User): Promise<AuthUser> => {
   const id = await verifyRegistration(user);
   const avatarUrl =
     user.photoURL && user.photoURL.indexOf('facebook') > -1 ? `${user.photoURL}?height=500` : user.photoURL;
@@ -73,7 +73,7 @@ const getUser = async (user: firebase.User): Promise<User> => {
 const login = async (
   provider: firebase.auth.AuthProvider,
   language: string = config.i18n.defaultLang,
-): Promise<User> => {
+): Promise<AuthUser> => {
   firebase.auth().languageCode = language;
   const { user } = await auth().signInWithPopup(provider);
   if (!user) {
@@ -82,7 +82,7 @@ const login = async (
   return getUser(user);
 };
 
-const loginFacebook = async (language: string = config.i18n.defaultLang): Promise<User> => {
+const loginFacebook = async (language: string = config.i18n.defaultLang): Promise<AuthUser> => {
   const provider = new firebase.auth.FacebookAuthProvider();
   provider.addScope('public_profile');
   provider.addScope('email');
@@ -94,7 +94,7 @@ const loginFacebook = async (language: string = config.i18n.defaultLang): Promis
   return login(provider, language);
 };
 
-const loginGoogle = async (language: string = config.i18n.defaultLang): Promise<User> => {
+const loginGoogle = async (language: string = config.i18n.defaultLang): Promise<AuthUser> => {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('profile');
   provider.addScope('email');
@@ -108,7 +108,7 @@ const createUserWithEmailAndPassword = async (
   email: string,
   password: string,
   language: string = config.i18n.defaultLang,
-): Promise<User> => {
+): Promise<AuthUser> => {
   auth().languageCode = language;
   const { user } = await auth().createUserWithEmailAndPassword(email, password);
   if (!user) {
@@ -118,7 +118,7 @@ const createUserWithEmailAndPassword = async (
   return getUser(user);
 };
 
-const signInWithEmailAndPassword = async (email: string, password: string): Promise<User> => {
+const signInWithEmailAndPassword = async (email: string, password: string): Promise<AuthUser> => {
   const { user } = await auth().signInWithEmailAndPassword(email, password);
   if (!user) {
     throw new AppError('auth/user-not-found', 'User not found');
@@ -149,7 +149,7 @@ const isEmailVerified = async (): Promise<boolean> => {
   return currentUser.emailVerified;
 };
 
-const getCurrentUser = async (): Promise<User | undefined> => {
+const getCurrentUser = async (): Promise<AuthUser | undefined> => {
   const { currentUser } = auth();
   return currentUser ? getUser(currentUser) : undefined;
 };
@@ -185,7 +185,7 @@ const sendSmsVerification = async (
   return auth().signInWithPhoneNumber(phoneNo, appVerifier);
 };
 
-const verifySmsCode = async (confirmationResult: auth.ConfirmationResult, code: string): Promise<User> => {
+const verifySmsCode = async (confirmationResult: auth.ConfirmationResult, code: string): Promise<AuthUser> => {
   const credential = await confirmationResult.confirm(code);
   if (!credential.user) {
     throw new AppError('auth/user-not-found', 'User not found');

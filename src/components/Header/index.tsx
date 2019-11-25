@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { NavItem, User, resetStore, withTranslation, WithTranslation } from '@app/core';
+import { NavItem, AuthUser, resetStore, withTranslation, WithTranslation } from '@app/core';
 import { config } from '@app/config';
 import { authService, navigationService } from '@app/services';
 import { Icon } from '../Icon';
@@ -31,7 +31,7 @@ typeof document !== 'undefined' &&
   });
 
 interface Props extends WithTranslation {
-  user?: User;
+  user?: AuthUser;
   navItems: NavItem[];
   loginNavItems?: NavItem[];
   onSidebarOpen: () => void;

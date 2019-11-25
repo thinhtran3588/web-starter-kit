@@ -1,16 +1,19 @@
 {
   "address": "Address",
   "changePassword": "Change Password",
+  "confirmPassword": "Confirm Password",
+  "confirmPasswordNotMatch": "Confirm Password does not match",
   "dob": "DoB",
   "email": "Email",
   "firstName": "First Name",
   "gender": "Gender",
   "lastName": "Last Name",
   "middleName": "Middle Name",
+  "newPassword": "New Password",
   "phoneNo": "Phone No",
   "phoneNoAlreadyExists": "Phone No Already Exists",
   "profile": "Profile",
   "username": "Username",
   "usernameUpdateOnlyOne": "Username can only be updated once",
-  "newPassword": "New Password"
+  "requireRecentLogin": "This operation is sensitive and requires recent authentication. Log in again before retrying this request."
 }

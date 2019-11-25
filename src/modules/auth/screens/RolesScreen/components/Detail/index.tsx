@@ -54,46 +54,6 @@ export const Detail = (props: Props): JSX.Element => {
   /* --- variables & states - begin --- */
   const { id, t, isBusy, setIsBusy, open, onClose, aggregateConfigs, refresh } = props;
   const [role, setRole] = useImmer(defaultRole);
-  const fields: FieldInfo<FormData>[] = [
-    {
-      name: 'name',
-      label: t('name'),
-      required: true,
-    },
-    {
-      name: 'description',
-      label: t('description'),
-      required: true,
-    },
-    {
-      name: 'isActive',
-      label: t('common:isActive'),
-      required: true,
-      type: 'switch',
-    },
-    {
-      name: 'isDefault',
-      label: t('common:isDefault'),
-      required: true,
-      type: 'switch',
-    },
-    {
-      name: 'permissions',
-      label: t('permissions'),
-      required: true,
-      customRender({ data, setFieldValue }) {
-        return (
-          <PermissionsTable
-            aggregateConfigs={aggregateConfigs}
-            t={t}
-            setFieldValue={setFieldValue}
-            data={data.permissions}
-            isBusy={isBusy}
-          />
-        );
-      },
-    },
-  ];
   const validationSchema = yup.object().shape<FormData>({
     name: yup
       .string()
@@ -136,7 +96,7 @@ export const Detail = (props: Props): JSX.Element => {
   };
 
   const submitForm = (): void => {
-    form.submitForm();
+    form && form.submitForm();
   };
 
   const onSubmit = catchError(async (input: FormData) => {
@@ -177,7 +137,7 @@ export const Detail = (props: Props): JSX.Element => {
   }, setIsBusy);
   /* --- actions & events - end --- */
 
-  /* --- effects - start --- */
+  /* --- effects - begin --- */
   useEffect(() => {
     catchError(async () => {
       if (!id || !open) {
@@ -201,6 +161,49 @@ export const Detail = (props: Props): JSX.Element => {
     }, setIsBusy)();
   }, [id, open]);
   /* --- effects - end --- */
+
+  /* --- renders - begin --- */
+  const fields: FieldInfo<FormData>[] = [
+    {
+      name: 'name',
+      label: t('name'),
+      required: true,
+    },
+    {
+      name: 'description',
+      label: t('description'),
+      required: true,
+    },
+    {
+      name: 'isActive',
+      label: t('common:isActive'),
+      required: true,
+      type: 'switch',
+    },
+    {
+      name: 'isDefault',
+      label: t('common:isDefault'),
+      required: true,
+      type: 'switch',
+    },
+    {
+      name: 'permissions',
+      label: t('permissions'),
+      required: true,
+      customRender({ data, setFieldValue }) {
+        return (
+          <PermissionsTable
+            aggregateConfigs={aggregateConfigs}
+            t={t}
+            setFieldValue={setFieldValue}
+            data={data.permissions}
+            isBusy={isBusy}
+          />
+        );
+      },
+    },
+  ];
+  /* --- renders - end --- */
 
   return (
     <FormDialog

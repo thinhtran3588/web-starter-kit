@@ -1,6 +1,6 @@
 import { LoginType } from './login_type';
 
-export interface User {
+export interface AuthUser {
   id: string;
   displayName?: string;
   avatarUrl?: string;

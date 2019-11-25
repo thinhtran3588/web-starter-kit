@@ -40,6 +40,12 @@ const Screen = (props: Props): JSX.Element => {
     pageIndex: 0,
     itemsPerPage: config.rowsPerPageOptions[0],
   });
+  const [searchResult, setSearchResult] = useImmer<SearchResult>({
+    data: [],
+    pagination: {
+      total: 0,
+    },
+  });
   const setFilterDebounce = debounce(config.debounceDelay, setFilter);
   const [aggregateConfigs, setAggregateConfigs] = useImmer<AggregateConfig[]>([]);
   const [detailParams, setDetailParams] = useImmer<DialogParams>({
@@ -48,118 +54,6 @@ const Screen = (props: Props): JSX.Element => {
   const [deleteParams, setDeleteParams] = useImmer<DialogParams>({
     open: false,
   });
-  const [searchResult, setSearchResult] = useImmer<SearchResult>({
-    data: [],
-    pagination: {
-      total: 0,
-    },
-  });
-
-  const filterFields: FieldInfo<FormData>[] = [
-    {
-      name: 'filter',
-      label: t('filter'),
-      md: 12,
-      lg: 12,
-      xl: 12,
-    },
-  ];
-
-  const updateSearchResult = catchError(async (field: string, id: string, value: FieldValueType) => {
-    const variables = {
-      id,
-      [field]: value,
-    };
-    const { errors } = await initApolloClient().mutate({
-      variables,
-      mutation: UPDATE_ROLE_MUTATION,
-      errorPolicy: 'all',
-    });
-    if (errors) {
-      showNotification({
-        type: 'ERROR',
-        message: getErrorMessage(errors),
-      });
-    } else {
-      showNotification({
-        type: 'SUCCESS',
-        message: t('common:dataSaved'),
-      });
-    }
-    setSearchResult((draft) => {
-      const record = draft.data.find((m) => m.id === id);
-      if (record) {
-        record[field] = value;
-      }
-    });
-  }, setIsBusy);
-
-  const columns: TableColumn[] = [
-    {
-      field: 'name',
-      label: t('name'),
-      minWidth: 150,
-    },
-    {
-      field: 'description',
-      label: t('description'),
-      minWidth: 300,
-    },
-    {
-      field: 'isActive',
-      label: t('common:isActive'),
-      minWidth: 100,
-      customRender(data) {
-        return (
-          <FormField
-            value={!!data.isActive}
-            label=''
-            type='switch'
-            disabled={isBusy}
-            onValueChange={(value) => updateSearchResult('isActive', data.id, value)}
-          />
-        );
-      },
-    },
-    {
-      field: 'isDefault',
-      label: t('common:isDefault'),
-      minWidth: 100,
-      customRender(data) {
-        return (
-          <FormField
-            value={!!data.isDefault}
-            label=''
-            type='switch'
-            disabled={isBusy}
-            onValueChange={(value) => updateSearchResult('isDefault', data.id, value)}
-          />
-        );
-      },
-    },
-    {
-      field: 'createdByName',
-      label: t('common:createdBy'),
-      minWidth: 100,
-    },
-    {
-      field: 'createdAt',
-      label: t('common:createdAt'),
-      minWidth: 100,
-      format: formatDateTime,
-    },
-    {
-      field: 'lastModifiedByName',
-      label: t('common:lastModifiedBy'),
-      minWidth: 100,
-    },
-    {
-      field: 'lastModifiedAt',
-      label: t('common:lastModifiedAt'),
-      minWidth: 100,
-      format: formatDateTime,
-    },
-  ];
   /* --- variables & states - end --- */
 
   /* --- actions & events - begin --- */
@@ -227,9 +121,38 @@ const Screen = (props: Props): JSX.Element => {
       closeDeleteConfirmationDialog();
     }
   }, setIsBusy);
+
+  const updateSearchResult = catchError(async (field: string, id: string, value: FieldValueType) => {
+    const variables = {
+      id,
+      [field]: value,
+    };
+    const { errors } = await initApolloClient().mutate({
+      variables,
+      mutation: UPDATE_ROLE_MUTATION,
+      errorPolicy: 'all',
+    });
+    if (errors) {
+      showNotification({
+        type: 'ERROR',
+        message: getErrorMessage(errors),
+      });
+    } else {
+      showNotification({
+        type: 'SUCCESS',
+        message: t('common:dataSaved'),
+      });
+    }
+    setSearchResult((draft) => {
+      const record = draft.data.find((m) => m.id === id);
+      if (record) {
+        record[field] = value;
+      }
+    });
+  }, setIsBusy);
   /* --- actions & events - end --- */
 
-  /* --- effects - start --- */
+  /* --- effects - begin --- */
   useEffect(() => {
     catchError(async () => {
       const { data, errors } = await initApolloClient().query({
@@ -265,6 +188,85 @@ const Screen = (props: Props): JSX.Element => {
     }, setIsBusy)();
   }, []);
   /* --- effects - end --- */
+
+  /* --- renders - begin */
+  const filterFields: FieldInfo<FormData>[] = [
+    {
+      name: 'filter',
+      label: t('filter'),
+      md: 12,
+      lg: 12,
+      xl: 12,
+    },
+  ];
+
+  const columns: TableColumn[] = [
+    {
+      field: 'name',
+      label: t('name'),
+      minWidth: 150,
+    },
+    {
+      field: 'description',
+      label: t('description'),
+      minWidth: 300,
+    },
+    {
+      field: 'isActive',
+      label: t('common:isActive'),
+      minWidth: 100,
+      customRender(data) {
+        return (
+          <FormField
+            value={!!data.isActive}
+            label=''
+            type='switch'
+            disabled={isBusy}
+            onValueChange={(value) => updateSearchResult('isActive', data.id, value)}
+          />
+        );
+      },
+    },
+    {
+      field: 'isDefault',
+      label: t('common:isDefault'),
+      minWidth: 100,
+      customRender(data) {
+        return (
+          <FormField
+            value={!!data.isDefault}
+            label=''
+            type='switch'
+            disabled={isBusy}
+            onValueChange={(value) => updateSearchResult('isDefault', data.id, value)}
+          />
+        );
+      },
+    },
+    {
+      field: 'createdByName',
+      label: t('common:createdBy'),
+      minWidth: 100,
+    },
+    {
+      field: 'createdAt',
+      label: t('common:createdAt'),
+      minWidth: 100,
+      format: formatDateTime,
+    },
+    {
+      field: 'lastModifiedByName',
+      label: t('common:lastModifiedBy'),
+      minWidth: 100,
+    },
+    {
+      field: 'lastModifiedAt',
+      label: t('common:lastModifiedAt'),
+      minWidth: 100,
+      format: formatDateTime,
+    },
+  ];
+  /* --- renders --- end */
 
   return (
     <AdminLayout title={t('roles')}>

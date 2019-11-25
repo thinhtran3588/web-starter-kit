@@ -6,7 +6,7 @@ import {
   withTranslation,
   showNotification,
   handleError,
-  User,
+  AuthUser,
   GET_CURRENT_USER_QUERY,
   WithTranslation,
 } from '@app/core';
@@ -85,7 +85,7 @@ const Screen = (props: Props): JSX.Element => {
   };
 
   const { data } = useQuery(GET_CURRENT_USER_QUERY);
-  const user = data ? (data.currentUser as User) : undefined;
+  const user = data ? (data.currentUser as AuthUser) : undefined;
 
   return (
     <AuthLayout title={t('verifyEmail')}>

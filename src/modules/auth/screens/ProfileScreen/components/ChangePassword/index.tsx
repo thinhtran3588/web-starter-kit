@@ -1,37 +1,34 @@
 import React from 'react';
 import * as yup from 'yup';
 import { Formik } from 'formik';
-import { Form, Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@app/components';
-import { handleError, FieldInfo, showNotification, TFunction } from '@app/core';
+import { FormDialog } from '@app/components';
+import { FieldInfo, showNotification, TFunction, catchError } from '@app/core';
 import { authService } from '@app/services';
 import { config } from '@app/config';
 
 interface Props {
   t: TFunction;
   isBusy: boolean;
-  setIsBusy: (isBusy: boolean) => void;
+  setIsBusy: (f: (draft: boolean) => boolean | void) => void;
   open: boolean;
-  setOpen: (open: boolean) => void;
+  onClose: () => void;
 }
 
 interface FormData {
   password: string;
+  confirmPassword: string;
 }
 
-const initialValues: FormData = {
+const formData: FormData = {
   password: '',
+  confirmPassword: '',
 };
 
 export const ChangePassword = (props: Props): JSX.Element => {
-  const { t, isBusy, setIsBusy, open, setOpen } = props;
-  const fields: FieldInfo<FormData>[] = [
-    {
-      name: 'password',
-      label: t('newPassword'),
-      required: true,
-      isPassword: true,
-    },
-  ];
+  /* --- variables & states - begin --- */
+  const { t, isBusy, setIsBusy, open, onClose } = props;
+  let form: Formik<FormData>;
+
   const validationSchema = yup.object().shape<FormData>({
     password: yup
       .string()
@@ -41,54 +38,89 @@ export const ChangePassword = (props: Props): JSX.Element => {
         }),
       )
       .matches(config.regex.password, t('common:invalidPassword')),
+    confirmPassword: yup.string().when('password', {
+      is: (password) => Boolean(password),
+      then: yup
+        .string()
+        .required(
+          t('common:requiredError', {
+            field: t('confirmPassword'),
+          }),
+        )
+        .oneOf([yup.ref('password')], t('confirmPasswordNotMatch')),
+      otherwise: yup.string().required(
+        t('common:requiredError', {
+          field: t('confirmPassword'),
+        }),
+      ),
+    }),
   });
+  /* --- variables & states - end --- */
 
-  const onSubmit = async (input: FormData): Promise<void> => {
-    try {
-      setIsBusy(true);
+  /* --- actions & events - begin --- */
+  const onSubmit = catchError(
+    async (input: FormData): Promise<void> => {
       await authService.changePassword(input.password);
       showNotification({
         type: 'SUCCESS',
         message: t('common:dataSaved'),
       });
-      setOpen(false);
-    } catch (error) {
-      handleError(error, {});
-    } finally {
-      setIsBusy(false);
-    }
+      onClose();
+    },
+    setIsBusy,
+    {
+      'auth/requires-recent-login': t('requireRecentLogin'),
+    },
+  );
+
+  const setForm = (ref: Formik<FormData>): void => {
+    form = ref;
   };
 
-  let form: Formik<FormData>;
-  const save = (): void => {
+  const submitForm = (): void => {
     form && form.submitForm();
   };
+  /* --- actions & events - end --- */
 
-  const handleClose = (): void => setOpen(false);
-
+  /* --- renders - begin --- */
+  const fields: FieldInfo<FormData>[] = [
+    {
+      name: 'password',
+      label: t('newPassword'),
+      required: true,
+      isPassword: true,
+    },
+    {
+      name: 'confirmPassword',
+      label: t('confirmPassword'),
+      required: true,
+      isPassword: true,
+    },
+  ];
+  /* --- renders - end --- */
   return (
-    <Dialog open={open} onClose={handleClose} aria-labelledby={t('changePassword')} fullWidth={true}>
-      <DialogTitle>{t('changePassword')}</DialogTitle>
-      <DialogContent>
-        <Form
-          initialValues={initialValues}
-          fields={fields}
-          validationSchema={validationSchema}
-          onSubmit={onSubmit}
-          isBusy={isBusy}
-          setForm={(ref) => {
-            form = ref;
-          }}
-        ></Form>
-      </DialogContent>
-      <DialogActions>
-        <Button disabled={isBusy} variant='contained' color='primary' onClick={save}>
-          {props.t('common:save')}
-        </Button>
-        <Button disabled={isBusy} variant='contained' onClick={handleClose}>
-          {props.t('common:back')}
-        </Button>
-      </DialogActions>
-    </Dialog>
+    <FormDialog
+      title={t('changePassword')}
+      open={open}
+      onClose={onClose}
+      initialValues={formData}
+      fields={fields}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+      isBusy={isBusy}
+      buttons={[
+        {
+          color: 'primary',
+          title: t('common:save'),
+          onClick: submitForm,
+        },
+        {
+          title: t('common:back'),
+          onClick: onClose,
+          color: 'default',
+        },
+      ]}
+      setForm={setForm}
+    />
   );
 };

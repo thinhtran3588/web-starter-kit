@@ -1,16 +1,19 @@
 {
   "address": "Địa chỉ",
   "changePassword": "Đổi mật khẩu",
+  "confirmPassword": "Xác thực mật khẩu",
+  "confirmPasswordNotMatch": "Xác thực mật khẩu không trùng khớp",
   "dob": "Ngày sinh",
   "email": "Email",
   "firstName": "Tên",
   "gender": "Giới tính",
   "lastName": "Họ",
   "middleName": "Tên đệm",
+  "newPassword": "Mật khẩu mới",
   "phoneNo": "Số điện thoại",
   "phoneNoAlreadyExists": "Số điện thoại đã tồn tại",
   "profile": "Hồ sơ cá nhân",
   "username": "Tên người dùng",
   "usernameUpdateOnlyOne": "Tên người dùng chỉ được phép cập nhật 1 lần",
-  "newPassword": "Mật khẩu mới"
+  "requireRecentLogin": "Vui lòng đăng nhập lại và thử lại"
 }

@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useEffect } from 'react';
-import { Loading, Typography } from '@app/components';
-import makeStyles from '@material-ui/core/styles/makeStyles';
+import React, { useEffect } from 'react';
 import firebase from 'firebase/app';
-import { getPermissionTree, PermissionTree } from '@app/core';
+import { useImmer } from 'use-immer';
+import makeStyles from '@material-ui/core/styles/makeStyles';
+import { Loading, Typography } from '@app/components';
+import { PermissionTree, GET_CURRENT_USER_QUERY, catchError, initApolloClient, AuthUser } from '@app/core';
 import { navigationService } from '@app/services';
 
 export const useStyles = makeStyles(() => ({
@@ -15,7 +16,8 @@ export const useStyles = makeStyles(() => ({
   },
 }));
 
-interface AuthStatus {
+interface AuthData {
+  authUser: AuthUser;
   validating: boolean;
   isValid: boolean;
 }
@@ -24,36 +26,46 @@ export const withAuth = (PageComponent: any, validate?: (permissionsTree: Permis
   const WithAuth = (props: any): any => {
     const { t } = props;
     const classes = useStyles();
-    const [status, setStatus] = useState<AuthStatus>({
+    const [authData, setAuthData] = useImmer<AuthData>({
+      authUser: {
+        id: '',
+        loginType: 'EMAIL',
+      },
       validating: true,
       isValid: false,
     });
     useEffect(() => {
-      const unsubscribe = firebase.auth().onAuthStateChanged(async (authUser) => {
-        if (!authUser) {
-          navigationService.navigateTo({
-            url: '/login',
+      const unsubscribe = firebase.auth().onAuthStateChanged(async () => {
+        catchError(async () => {
+          const { data, errors } = await initApolloClient().query({
+            query: GET_CURRENT_USER_QUERY,
           });
-          return;
-        }
-        const permissionsTree = await getPermissionTree();
-        setStatus({
-          validating: false,
-          isValid: !validate || validate(permissionsTree),
-        });
+          if (errors || !data || !data.currentUser || !data.currentUser.id) {
+            navigationService.navigateTo({
+              url: '/login',
+            });
+            return;
+          }
+          // const permissionsTree = await getPermissionTree();
+          setAuthData(() => ({
+            authUser: data.currentUser,
+            validating: false,
+            isValid: !validate, // || validate(permissionsTree),
+          }));
+        })();
       });
       return () => {
         unsubscribe();
       };
     }, []);
-    if (status.validating) {
+    if (authData.validating) {
       return (
         <div className={classes.container}>
           <Loading />
         </div>
       );
     }
-    if (!status.isValid) {
+    if (!authData.isValid) {
       return (
         <div className={classes.container}>
           <Typography variant='h6' component='p'>
@@ -62,7 +74,7 @@ export const withAuth = (PageComponent: any, validate?: (permissionsTree: Permis
         </div>
       );
     }
-    return <PageComponent {...props} />;
+    return <PageComponent {...props} authUser={authData.authUser} />;
   };
   return WithAuth;
 };

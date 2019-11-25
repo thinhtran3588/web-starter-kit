@@ -23,6 +23,7 @@ type Props<T> = FormikConfig<T> & {
   setForm?: (ref: Formik<T>) => void;
   isBusy: boolean;
   fullScreen?: boolean;
+  fullWidth?: boolean;
 } & Partial<Record<Breakpoint, boolean | GridSize>>;
 
 const Transition = React.forwardRef<unknown, TransitionProps>(function Transition(props, ref) {
@@ -30,7 +31,7 @@ const Transition = React.forwardRef<unknown, TransitionProps>(function Transitio
 });
 
 export const FormDialog: <T>(props: Props<T>) => JSX.Element = (props) => {
-  const { title, open, onClose, isBusy, buttons, fullScreen, ...other } = props;
+  const { title, open, onClose, isBusy, buttons, fullScreen, fullWidth, ...other } = props;
   const classes = useStyles();
   const theme = useTheme<Theme>();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'), {
@@ -43,6 +44,7 @@ export const FormDialog: <T>(props: Props<T>) => JSX.Element = (props) => {
       onClose={onClose}
       aria-labelledby={title}
       fullScreen={fullScreen}
+      fullWidth={fullWidth !== false}
       TransitionComponent={Transition}
     >
       <AppBar className={classes.appBar}>
