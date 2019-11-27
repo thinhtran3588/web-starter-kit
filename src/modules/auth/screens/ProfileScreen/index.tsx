@@ -204,7 +204,6 @@ const Screen = (props: Props): JSX.Element => {
           buttons={[
             {
               type: 'submit',
-              color: 'primary',
               title: t('common:save'),
             },
             {

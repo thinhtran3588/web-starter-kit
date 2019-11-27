@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import * as yup from 'yup';
-import { Formik } from 'formik';
 import { GraphQLError } from 'graphql';
 import { useImmer } from 'use-immer';
 import { FormDialog } from '@app/components';
@@ -87,18 +86,9 @@ export const Detail = (props: Props): JSX.Element => {
     isDefault: yup.boolean(),
     permissions: yup.string(),
   });
-  let form: Formik<FormData>;
   /* --- variables & states - end --- */
 
   /* --- actions & events - begin --- */
-  const setForm = (ref: Formik<FormData>): void => {
-    form = ref;
-  };
-
-  const submitForm = (): void => {
-    form && form.submitForm();
-  };
-
   const onSubmit = catchError(async (input: FormData) => {
     let errors: readonly GraphQLError[] | undefined;
     if (!id) {
@@ -214,9 +204,8 @@ export const Detail = (props: Props): JSX.Element => {
       isBusy={isBusy}
       buttons={[
         {
-          color: 'primary',
+          type: 'submit',
           title: t('common:save'),
-          onClick: submitForm,
         },
         {
           title: t('common:back'),
@@ -224,7 +213,6 @@ export const Detail = (props: Props): JSX.Element => {
           color: 'default',
         },
       ]}
-      setForm={setForm}
       fullScreen
     />
   );

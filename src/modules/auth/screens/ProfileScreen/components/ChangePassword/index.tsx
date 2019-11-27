@@ -1,6 +1,5 @@
 import React from 'react';
 import * as yup from 'yup';
-import { Formik } from 'formik';
 import { FormDialog } from '@app/components';
 import { FieldInfo, showNotification, TFunction, catchError } from '@app/core';
 import { authService } from '@app/services';
@@ -27,7 +26,6 @@ const formData: FormData = {
 export const ChangePassword = (props: Props): JSX.Element => {
   /* --- variables & states - begin --- */
   const { t, isBusy, setIsBusy, open, onClose } = props;
-  let form: Formik<FormData>;
 
   const validationSchema = yup.object().shape<FormData>({
     password: yup
@@ -72,14 +70,6 @@ export const ChangePassword = (props: Props): JSX.Element => {
       'auth/requires-recent-login': t('requireRecentLogin'),
     },
   );
-
-  const setForm = (ref: Formik<FormData>): void => {
-    form = ref;
-  };
-
-  const submitForm = (): void => {
-    form && form.submitForm();
-  };
   /* --- actions & events - end --- */
 
   /* --- renders - begin --- */
@@ -110,9 +100,8 @@ export const ChangePassword = (props: Props): JSX.Element => {
       isBusy={isBusy}
       buttons={[
         {
-          color: 'primary',
+          type: 'submit',
           title: t('common:save'),
-          onClick: submitForm,
         },
         {
           title: t('common:back'),
@@ -120,7 +109,6 @@ export const ChangePassword = (props: Props): JSX.Element => {
           color: 'default',
         },
       ]}
-      setForm={setForm}
     />
   );
 };
