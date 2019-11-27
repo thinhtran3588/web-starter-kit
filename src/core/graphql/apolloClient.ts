@@ -1,4 +1,4 @@
-import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost';
+import { ApolloClient, HttpLink, InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-boost';
 import { setContext } from 'apollo-link-context';
 import { config } from '@app/config';
 import { persistCache } from 'apollo-cache-persist';
@@ -8,7 +8,34 @@ import firebase from 'firebase/app';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type CacheShape = any;
 let apolloClient: ApolloClient<CacheShape> | undefined;
-const cache = new InMemoryCache();
+const cache = new InMemoryCache({
+  fragmentMatcher: new IntrospectionFragmentMatcher({
+    introspectionQueryResultData: {
+      __schema: {
+        types: [
+          {
+            kind: 'UNION',
+            name: 'ExternalLogin',
+            possibleTypes: [
+              {
+                name: 'FacebookLogin',
+              },
+              {
+                name: 'GoogleLogin',
+              },
+              {
+                name: 'EmailLogin',
+              },
+              {
+                name: 'PhoneNoLogin',
+              },
+            ],
+          },
+        ],
+      },
+    },
+  }),
+});
 
 // await before instantiating ApolloClient, else queries might run before the cache is persisted
 if (typeof window !== 'undefined') {
@@ -48,6 +75,15 @@ const createApolloClient = () => {
     link: authLink.concat(httpLink),
     cache,
     resolvers: {},
+    defaultOptions: {
+      mutate: {
+        errorPolicy: 'all',
+      },
+      query: {
+        errorPolicy: 'all',
+        fetchPolicy: 'network-only',
+      },
+    },
   });
   client.writeData({
     data: {

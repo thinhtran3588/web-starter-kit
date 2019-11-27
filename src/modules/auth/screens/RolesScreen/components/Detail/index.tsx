@@ -105,7 +105,6 @@ export const Detail = (props: Props): JSX.Element => {
       errors = (await initApolloClient().mutate({
         variables: input,
         mutation: CREATE_ROLE_MUTATION,
-        errorPolicy: 'all',
       })).errors;
     } else {
       errors = (await initApolloClient().mutate({
@@ -114,7 +113,6 @@ export const Detail = (props: Props): JSX.Element => {
           ...input,
         },
         mutation: UPDATE_ROLE_MUTATION,
-        errorPolicy: 'all',
       })).errors;
     }
     if (errors) {
@@ -148,7 +146,6 @@ export const Detail = (props: Props): JSX.Element => {
         variables: {
           id,
         },
-        fetchPolicy: 'network-only',
       });
       if (errors) {
         showNotification({

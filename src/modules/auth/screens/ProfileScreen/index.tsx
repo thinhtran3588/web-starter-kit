@@ -121,8 +121,6 @@ const Screen = (props: Props): JSX.Element => {
           id: authUser.id,
         },
         query: GET_PROFILE_QUERY,
-        fetchPolicy: 'network-only',
-        errorPolicy: 'all',
       });
       if (errors) {
         showNotification({

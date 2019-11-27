@@ -105,7 +105,6 @@ const Screen = (props: Props): JSX.Element => {
         id: deleteParams.id,
       },
       mutation: DELETE_ROLE_MUTATION,
-      errorPolicy: 'all',
     });
     if (errors) {
       showNotification({
@@ -130,7 +129,6 @@ const Screen = (props: Props): JSX.Element => {
     const { errors } = await initApolloClient().mutate({
       variables,
       mutation: UPDATE_ROLE_MUTATION,
-      errorPolicy: 'all',
     });
     if (errors) {
       showNotification({
@@ -158,7 +156,6 @@ const Screen = (props: Props): JSX.Element => {
       const { data, errors } = await initApolloClient().query({
         query: GET_ROLES_QUERY,
         variables: filter,
-        fetchPolicy: 'network-only',
       });
       if (errors) {
         showNotification({
@@ -175,7 +172,6 @@ const Screen = (props: Props): JSX.Element => {
     catchError(async () => {
       const { data, errors } = await initApolloClient().query({
         query: GET_AGGREGATE_CONFIGS_QUERY,
-        fetchPolicy: 'network-only',
       });
       if (errors) {
         showNotification({
