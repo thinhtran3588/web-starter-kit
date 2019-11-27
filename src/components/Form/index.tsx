@@ -59,6 +59,13 @@ export const renderFormField = (field: FieldInfo<any>, context: FormikProps<any>
   </Grid>
 );
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const renderFormFields = (fields: FieldInfo<any>[], context: FormikProps<any>, isBusy: boolean): JSX.Element => (
+  <Grid container spacing={1}>
+    {fields && fields.filter((m) => !m.hidden).map((field) => renderFormField(field, context, isBusy))}
+  </Grid>
+);
+
 export const Form: <T>(props: Props<T>) => JSX.Element = (props) => {
   const { fields, children, setForm, initialValues, isBusy, buttons, xs, sm, md, lg, xl, ...other } = props;
   const classes = useStyles();

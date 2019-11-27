@@ -1,5 +1,6 @@
 {
   "aboutUs": "About Us",
+  "all": "All",
   "back": "Back",
   "blogs": "Blogs",
   "changeLanguage": "Change language",
@@ -17,6 +18,7 @@
   "home": "Home",
   "invalidError": "{{field}} is invalid",
   "invalidPassword": "Password must be at least 6 characters and at most 20 characters and must include at least one upper case letter, one lower case letter, one numeric digit and one special letter (!, @, #, $, %, ^, &, *)",
+  "invalidUsername": "Password must be at least 5 characters and at most 15 characters and only contain lowercase characters and numbers",
   "isActive": "Is Active",
   "isDefault": "Is Default",
   "lastModifiedAt": "Last Modified At",

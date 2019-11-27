@@ -30,4 +30,7 @@ export const useStyles = makeStyles((theme) => ({
     position: 'relative',
     padding: theme.spacing(2, 3),
   },
+  noPadding: {
+    padding: 0,
+  },
 }));

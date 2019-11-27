@@ -1,1 +1,1 @@
-export type FieldType = 'text' | 'picker' | 'datepicker' | 'timepicker' | 'switch' | 'checkbox';
+export type FieldType = 'text' | 'picker' | 'multipicker' | 'datepicker' | 'timepicker' | 'switch' | 'checkbox';

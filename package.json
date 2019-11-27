@@ -37,6 +37,7 @@
     "react-i18next": "^10.13.1",
     "react-redux": "^7.1.1",
     "react-select": "^3.0.8",
+    "react-swipeable-views": "^0.13.3",
     "serverless-http": "^2.3.0",
     "use-immer": "^0.3.5",
     "yup": "^0.27.0"

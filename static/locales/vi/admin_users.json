@@ -1,15 +1,26 @@
 {
   "active": "Hoạt động",
+  "address": "Địa chỉ",
   "all": "Tất cả",
+  "displayName": "Tên hiển thị",
+  "dob": "Ngày sinh",
   "email": "Email",
   "filter": "Tìm kiếm",
-  "fullName": "Tên đầy đủ",
+  "firstName": "Tên",
+  "gender": "Giới tính",
   "inactive": "Ngừng hoạt động",
   "isActive": "Trạng thái hoạt động",
   "lastLoggedInAt": "Đăng nhập lần cuối lúc",
+  "lastName": "Họ",
   "loginType": "Loại đăng nhập",
+  "middleName": "Tên đệm",
+  "password": "Mật khẩu",
   "phoneNo": "Số điện thoại",
   "registeredAt": "Đăng kí lúc",
   "role": "Chức vụ",
-  "username": "Tên đăng nhập"
+  "roles": "Chức vụ",
+  "username": "Tên đăng nhập",
+  "users": "Người dùng",
+  "info": "Thông tin",
+  "rolesAndPermissions": "Chức vụ và quyền"
 }

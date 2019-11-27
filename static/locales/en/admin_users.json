@@ -1,15 +1,26 @@
 {
   "active": "Active",
+  "address": "Address",
   "all": "All",
+  "displayName": "Display Name",
+  "dob": "DOB",
   "email": "Email",
   "filter": "Filter",
-  "fullName": "Full name",
+  "firstName": "First Name",
+  "gender": "Gender",
   "inactive": "Inactive",
+  "info": "Info",
   "isActive": "Active Status",
   "lastLoggedInAt": "Last Logged In At",
+  "lastName": "Last Name",
   "loginType": "Login Type",
+  "middleName": "Middle Name",
+  "password": "Password",
   "phoneNo": "Phone No",
   "registeredAt": "Created At",
   "role": "Role",
-  "username": "Username"
+  "roles": "Roles",
+  "rolesAndPermissions": "rolesAndPermissions",
+  "username": "Username",
+  "users": "Users"
 }

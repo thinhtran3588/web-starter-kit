@@ -127,10 +127,10 @@ export const Detail = (props: Props): JSX.Element => {
 
   /* --- effects - begin --- */
   useEffect(() => {
+    if (!id || !open) {
+      return;
+    }
     catchError(async () => {
-      if (!id || !open) {
-        return;
-      }
       const { data, errors } = await initApolloClient().query({
         query: GET_ROLE_QUERY,
         variables: {

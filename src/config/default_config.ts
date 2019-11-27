@@ -1,4 +1,7 @@
 export default {
+  admin: {
+    username: 'admin',
+  },
   apiEndpoint: 'http://localhost:3001',
   author: 'Thinh Tran',
   contactEmail: 'contact@webstarterkit.com',

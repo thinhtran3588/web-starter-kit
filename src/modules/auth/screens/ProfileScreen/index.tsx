@@ -50,12 +50,7 @@ const Screen = (props: Props): JSX.Element => {
           field: t('username'),
         }),
       )
-      .matches(
-        config.regex.username,
-        t('common:invalidError', {
-          field: t('username'),
-        }),
-      ),
+      .matches(config.regex.username, t('common:invalidUsername')),
     firstName: yup.string().required(
       t('common:requiredError', {
         field: t('firstName'),

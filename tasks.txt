@@ -2,9 +2,10 @@
 - theme
 - (done) graphql
 - (done) formik
-- (done) upload to s3
+- (done) upload resources to s3
 - update file directly to s3 from client\
 - SEO auth layout
 - avatar update with s3
-- i18n to firebase
+- (done) i18n to firebase
 - login with username
+- (done) error policy apollo (default)

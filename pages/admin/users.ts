@@ -1,3 +1,3 @@
-import { Users } from '@app/modules/auth/screens/Users';
+import { UsersScreen } from '@app/modules/auth/screens/UsersScreen';
 
-export default Users;
+export default UsersScreen;

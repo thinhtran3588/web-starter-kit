@@ -145,11 +145,11 @@ interface Props<T extends FieldValueType> {
   disabled?: boolean;
   placeholder?: string;
   onChange?: (value: T) => void;
+  isMulti?: boolean;
 }
 
 const Autocomplete: <T extends FieldValueType>(props: Props<T>) => JSX.Element = (props) => {
-  const { id, label, value, onChange, pickerDataSources, error, disabled, placeholder } = props;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { id, label, value, onChange, pickerDataSources, error, disabled, placeholder, isMulti } = props;
   let inputValue: ValueType<OptionType>;
   let options: OptionType[] = [];
   if (pickerDataSources) {
@@ -157,13 +157,18 @@ const Autocomplete: <T extends FieldValueType>(props: Props<T>) => JSX.Element =
       value: m.value ? m.value.toString() : '',
       label: m.label,
     }));
-    inputValue = options.find((m) => (value ? value.toString() : '') === m.value);
+    if (!Array.isArray(value)) {
+      inputValue = options.find((m) => (value ? value.toString() : '') === m.value);
+    } else {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const items = (value as any[]).map((item) => item.toString());
+      inputValue = options.filter((m) => items.includes(m.value));
+    }
   }
   const classes = useStyles();
   const theme = useTheme();
 
-  const handleChangeSingle = (newValue: ValueType<OptionType>): void => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleChange = (newValue: ValueType<OptionType>): void => {
     let chosenValue: FieldValueType;
     if (newValue && pickerDataSources) {
       if (!Array.isArray(newValue)) {
@@ -172,6 +177,12 @@ const Autocomplete: <T extends FieldValueType>(props: Props<T>) => JSX.Element =
           (m) => (m.value ? m.value.toString() : undefined) === (newValue as any).value,
         );
         chosenValue = chosenItem ? chosenItem.value : undefined;
+      } else {
+        chosenValue = newValue.map((item) => {
+          const chosenItem = pickerDataSources.find((m) => (m.value ? m.value.toString() : undefined) === item.value);
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          return (chosenItem ? chosenItem.value : undefined) as any;
+        });
       }
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -205,9 +216,10 @@ const Autocomplete: <T extends FieldValueType>(props: Props<T>) => JSX.Element =
         options={options}
         components={components}
         value={inputValue}
-        onChange={handleChangeSingle}
+        onChange={handleChange}
         error={error}
         isDisabled={disabled}
+        isMulti={isMulti}
       />
     </div>
   );

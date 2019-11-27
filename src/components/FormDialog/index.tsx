@@ -23,6 +23,7 @@ type Props<T> = FormikConfig<T> & {
   isBusy: boolean;
   fullScreen?: boolean;
   fullWidth?: boolean;
+  noPadding?: boolean;
 } & Partial<Record<Breakpoint, boolean | GridSize>>;
 
 const Transition = React.forwardRef<unknown, TransitionProps>(function Transition(props, ref) {
@@ -42,6 +43,7 @@ export const FormDialog: <T>(props: Props<T>) => JSX.Element = (props) => {
     setForm,
     fields,
     children,
+    noPadding,
     ...other
   } = props;
   const classes = useStyles();
@@ -76,7 +78,7 @@ export const FormDialog: <T>(props: Props<T>) => JSX.Element = (props) => {
               <AppBar className={classes.appBar}>
                 <Typography variant='h6'>{title}</Typography>
               </AppBar>
-              <DialogContent className={classes.content}>
+              <DialogContent className={clsx(classes.content, noPadding && classes.noPadding)}>
                 <Grid container spacing={1}>
                   {fields &&
                     fields

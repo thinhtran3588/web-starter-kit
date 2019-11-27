@@ -34,6 +34,8 @@ interface Props<T extends FieldValueType> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onBlur?: (e: React.ChangeEvent<any>) => void;
   className?: string;
+  /** default is a blank string '' */
+  defaultValue?: string;
 }
 
 type FormField = <T extends FieldValueType>(props: Props<T>) => JSX.Element;
@@ -54,6 +56,7 @@ export const FormField: FormField = (props) => {
     onBlur,
     placeholder,
     className,
+    defaultValue,
     ...other
   } = props;
   const classes = useStyles();
@@ -102,7 +105,7 @@ export const FormField: FormField = (props) => {
         <TextField
           id={id}
           label={label}
-          value={value}
+          value={value || defaultValue || ''}
           onChange={onChange || onTextValueChange}
           onBlur={onBlur}
           margin='dense'
@@ -124,6 +127,19 @@ export const FormField: FormField = (props) => {
           error={error}
           disabled={disabled}
           placeholder={placeholder}
+        />
+      )}
+      {type === 'multipicker' && (
+        <Autocomplete
+          id={id}
+          label={label}
+          value={value}
+          onChange={onFieldValueChange}
+          pickerDataSources={pickerDataSources}
+          error={error}
+          disabled={disabled}
+          placeholder={placeholder}
+          isMulti
         />
       )}
       {type === 'datepicker' && (
