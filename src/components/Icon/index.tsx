@@ -20,6 +20,7 @@ import Warning from '@material-ui/icons/Warning';
 import Error from '@material-ui/icons/Error';
 import Edit from '@material-ui/icons/Edit';
 import Delete from '@material-ui/icons/Delete';
+import Lock from '@material-ui/icons/Lock';
 
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
 
@@ -72,6 +73,8 @@ export const Icon = (props: Props): JSX.Element => {
       return <Edit {...other} />;
     case 'Delete':
       return <Delete {...other} />;
+    case 'Lock':
+      return <Lock {...other} />;
     default:
       return <></>;
   }

@@ -22,7 +22,7 @@ import { config } from '@app/config';
 import debounce from 'lodash/fp/debounce';
 import { withAuth } from '@app/hoc/WithAuth';
 import { useImmer } from 'use-immer';
-import { Detail, Role } from './components';
+import { Detail, Role, ChangePassword } from './components';
 import { UPDATE_USER_MUTATION, GET_USERS_QUERY, GET_USERS_LOOKUPS_QUERY } from './graphql';
 
 type Props = WithTranslation & AuthProps;
@@ -58,6 +58,9 @@ const Screen = (props: Props): JSX.Element => {
   const [roleLookups, setRoleLookups] = useImmer<PickerDataItem<string>[]>([]);
   const [genders, setGenders] = useImmer<PickerDataItem<string>[]>([]);
   const [detailParams, setDetailParams] = useImmer<DialogParams>({
+    open: false,
+  });
+  const [changePasswordParams, setChangePasswordParams] = useImmer<DialogParams>({
     open: false,
   });
   const loginTypes: PickerDataItem<string>[] = [
@@ -113,6 +116,17 @@ const Screen = (props: Props): JSX.Element => {
 
   const closeDetailDialog = (): void =>
     setDetailParams(() => ({
+      open: false,
+    }));
+
+  const openChangePasswordDialog = (data: Record<string, FieldValueType>): void =>
+    setChangePasswordParams(() => ({
+      open: true,
+      id: data.id as string,
+    }));
+
+  const closeChangePasswordDialog = (): void =>
+    setChangePasswordParams(() => ({
       open: false,
     }));
 
@@ -304,6 +318,11 @@ const Screen = (props: Props): JSX.Element => {
             icon: 'Edit',
             onClick: openDetailDialog,
           },
+          {
+            title: t('changePassword'),
+            icon: 'Lock',
+            onClick: openChangePasswordDialog,
+          },
         ]}
         columns={columns}
         rows={searchResult ? searchResult.data : []}
@@ -321,6 +340,16 @@ const Screen = (props: Props): JSX.Element => {
           refresh={refresh}
           roles={roles}
           genders={genders}
+        />
+      )}
+      {changePasswordParams.open && changePasswordParams.id && (
+        <ChangePassword
+          t={t}
+          id={changePasswordParams.id}
+          isBusy={isBusy}
+          setIsBusy={setIsBusy}
+          open={changePasswordParams.open}
+          onClose={closeChangePasswordDialog}
         />
       )}
     </AdminLayout>
