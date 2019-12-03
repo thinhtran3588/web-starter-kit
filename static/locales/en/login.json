@@ -14,6 +14,7 @@
   "resendVerificationCode": "Resend Verification Code",
   "sendVerificationCode": "Send Verification Code",
   "userDisabled": "User has been disabled",
+  "usernameOrEmail": "Username/Email",
   "verificationCode": "Verification Code",
   "wrongLoginCredentials": "Wrong login credentials"
 }

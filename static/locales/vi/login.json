@@ -14,6 +14,7 @@
   "resendVerificationCode": "Gửi lại mã xác nhận",
   "sendVerificationCode": "Gửi mã xác nhận",
   "userDisabled": "Người dùng đã bị khoá",
+  "usernameOrEmail": "Tên người dùng/Email",
   "verificationCode": "Mã xác nhận",
   "wrongLoginCredentials": "Sai thông tin đăng nhập"
 }

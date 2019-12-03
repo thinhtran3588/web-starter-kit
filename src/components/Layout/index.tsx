@@ -1,15 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import NextHead from 'next/head';
 import { config } from '@app/config';
-import {
-  NavItem,
-  GET_CURRENT_USER_QUERY,
-  AuthUser,
-  withTranslation,
-  WithTranslation,
-  initApolloClient,
-} from '@app/core';
+import { NavItem, GET_CURRENT_USER_QUERY, AuthUser, withTranslation, WithTranslation } from '@app/core';
 import { useImmer } from 'use-immer';
+import { useQuery } from '@apollo/react-hooks';
 import { Header } from '../Header';
 import { Sidebar } from '../Sidebar';
 import { Footer } from '../Footer';
@@ -62,7 +56,8 @@ const BaseLayout = (props: Props): JSX.Element => {
 
   const classes = useStyles();
   const [openSidebar, setOpenSidebar] = useImmer(false);
-  const [user, setUser] = useImmer<AuthUser | undefined>(undefined);
+  const { data: userData } = useQuery(GET_CURRENT_USER_QUERY);
+  const user: AuthUser | undefined = userData ? userData.currentUser : undefined;
 
   const handleSidebarOpen = (): void => {
     setOpenSidebar(() => true);
@@ -71,18 +66,6 @@ const BaseLayout = (props: Props): JSX.Element => {
   const handleSidebarClose = (): void => {
     setOpenSidebar(() => false);
   };
-
-  useEffect(() => {
-    (async () => {
-      const { data, errors } = await initApolloClient().query({
-        query: GET_CURRENT_USER_QUERY,
-      });
-      if (errors || !data || !data.currentUser || !data.currentUser.id) {
-        return;
-      }
-      setUser(() => data.currentUser);
-    })();
-  }, []);
 
   return (
     <>

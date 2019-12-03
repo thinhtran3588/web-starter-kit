@@ -13,12 +13,12 @@ interface Props {
 }
 
 interface FormData {
-  email: string;
+  usernameOrEmail: string;
   password: string;
 }
 
 const initialValues: FormData = {
-  email: '',
+  usernameOrEmail: '',
   password: '',
 };
 
@@ -28,8 +28,8 @@ export const EmailLogin = (props: Props): JSX.Element => {
   const classes = useStyles();
   const fields: FieldInfo<FormData>[] = [
     {
-      name: 'email',
-      label: t('email'),
+      name: 'usernameOrEmail',
+      label: t('usernameOrEmail'),
       required: true,
     },
     {
@@ -40,18 +40,21 @@ export const EmailLogin = (props: Props): JSX.Element => {
     },
   ];
   const validationSchema = yup.object().shape<FormData>({
-    email: yup
+    usernameOrEmail: yup
       .string()
       .required(
         t('common:requiredError', {
-          field: t('email'),
+          field: t('usernameOrEmail'),
         }),
       )
-      .matches(
-        config.regex.email,
+      .test(
+        '',
         t('common:invalidError', {
-          field: t('email'),
+          field: t('usernameOrEmail'),
         }),
+        (usernameOrEmail: string) => {
+          return config.regex.username.test(usernameOrEmail) || config.regex.email.test(usernameOrEmail);
+        },
       ),
     password: yup
       .string()
@@ -67,7 +70,9 @@ export const EmailLogin = (props: Props): JSX.Element => {
   /* --- actions & events - begin --- */
   const onSubmit = catchError(
     async (input: FormData): Promise<void> => {
-      const currentUser = await authService.signInWithEmailAndPassword(input.email, input.password);
+      const currentUser = config.regex.email.test(input.usernameOrEmail)
+        ? await authService.signInWithEmailAndPassword(input.usernameOrEmail, input.password)
+        : await authService.signInWithUsernameAndPassword(input.usernameOrEmail, input.password);
       writeDataModel(currentUser, 'currentUser');
       navigationService.navigateTo({
         url: currentUser.emailVerified ? '/' : '/verifyEmail',

@@ -11,8 +11,7 @@ const verifyRegistration = async (user: firebase.User): Promise<string> => {
   let tokenResult = await user.getIdTokenResult(true);
   if (!tokenResult.claims.id) {
     const token = await user.getIdToken();
-    const apolloClient = initApolloClient();
-    await apolloClient.mutate({
+    await initApolloClient().mutate({
       variables: {
         token,
       },
@@ -30,7 +29,7 @@ const verifyRegistration = async (user: firebase.User): Promise<string> => {
       // eslint-disable-next-line no-await-in-loop
       tokenResult = await user.getIdTokenResult(true);
       // eslint-disable-next-line no-await-in-loop
-      await sleep(500);
+      await sleep(1000);
     } while (!tokenResult.claims.id);
   }
   return tokenResult.claims.id;
@@ -126,6 +125,33 @@ const signInWithEmailAndPassword = async (email: string, password: string): Prom
   return getUser(user);
 };
 
+const signInWithUsernameAndPassword = async (username: string, password: string): Promise<AuthUser> => {
+  const { data, errors } = await initApolloClient().mutate({
+    variables: {
+      username,
+      password,
+    },
+    mutation: gql`
+      mutation loginWithUsername($username: String!, $password: String!) {
+        users {
+          loginWithUsername(payload: { username: $username, password: $password }) {
+            customToken
+          }
+        }
+      }
+    `,
+  });
+  if (errors) {
+    throw new AppError('auth/user-not-found', 'User not found');
+  }
+  const { customToken } = data.users.loginWithUsername;
+  const { user } = await auth().signInWithCustomToken(customToken);
+  if (!user) {
+    throw new AppError('auth/user-not-found', 'User not found');
+  }
+  return getUser(user);
+};
+
 const isEmailRegistered = async (email: string): Promise<boolean> => {
   try {
     await auth().signInWithEmailAndPassword(email, ' ');
@@ -203,6 +229,7 @@ export const authService = {
   loginGoogle,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithUsernameAndPassword,
   isEmailRegistered,
   isEmailVerified,
   getCurrentUser,
