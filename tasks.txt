@@ -9,3 +9,5 @@
 - (done) i18n to firebase
 - login with username
 - (done) error policy apollo (default)
+- logging
+- fix permission order in user detail
