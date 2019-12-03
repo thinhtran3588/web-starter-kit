@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import NextHead from 'next/head';
-import { useQuery } from '@apollo/react-hooks';
 import { config } from '@app/config';
-import { NavItem, GET_CURRENT_USER_QUERY, AuthUser, withTranslation, WithTranslation } from '@app/core';
+import {
+  NavItem,
+  GET_CURRENT_USER_QUERY,
+  AuthUser,
+  withTranslation,
+  WithTranslation,
+  initApolloClient,
+} from '@app/core';
+import { useImmer } from 'use-immer';
 import { Header } from '../Header';
 import { Sidebar } from '../Sidebar';
 import { Footer } from '../Footer';
@@ -54,18 +61,28 @@ const BaseLayout = (props: Props): JSX.Element => {
   ];
 
   const classes = useStyles();
-  const [openSidebar, setOpenSidebar] = useState(false);
-
-  const { data } = useQuery(GET_CURRENT_USER_QUERY);
-  const user = data ? (data.currentUser as AuthUser) : undefined;
+  const [openSidebar, setOpenSidebar] = useImmer(false);
+  const [user, setUser] = useImmer<AuthUser | undefined>(undefined);
 
   const handleSidebarOpen = (): void => {
-    setOpenSidebar(true);
+    setOpenSidebar(() => true);
   };
 
   const handleSidebarClose = (): void => {
-    setOpenSidebar(false);
+    setOpenSidebar(() => false);
   };
+
+  useEffect(() => {
+    (async () => {
+      const { data, errors } = await initApolloClient().query({
+        query: GET_CURRENT_USER_QUERY,
+      });
+      if (errors || !data || !data.currentUser || !data.currentUser.id) {
+        return;
+      }
+      setUser(() => data.currentUser);
+    })();
+  }, []);
 
   return (
     <>

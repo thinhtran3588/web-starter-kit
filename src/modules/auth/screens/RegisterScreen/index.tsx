@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AuthLayout, Form, Button, Link } from '@app/components';
 import * as yup from 'yup';
-import { withTranslation, WithTranslation, FieldInfo, writeDataModel, showNotification, handleError } from '@app/core';
+import { withTranslation, WithTranslation, FieldInfo, writeDataModel, showNotification, catchError } from '@app/core';
 import { config } from '@app/config';
 import { authService, navigationService } from '@app/services';
+import { useImmer } from 'use-immer';
 import { useStyles } from './styles';
 
 type Props = WithTranslation;
@@ -21,8 +22,9 @@ const initialValues: FormData = {
 };
 
 const Screen = (props: Props): JSX.Element => {
+  /* --- variables & states - begin --- */
   const { t } = props;
-  const [isBusy, setIsBusy] = useState<boolean>(false);
+  const [isBusy, setIsBusy] = useImmer<boolean>(false);
   const classes = useStyles();
 
   const fields: FieldInfo<FormData>[] = [
@@ -79,10 +81,11 @@ const Screen = (props: Props): JSX.Element => {
       ),
     }),
   });
+  /* --- variables & states - end --- */
 
-  const onSubmit = async (input: FormData): Promise<void> => {
-    try {
-      setIsBusy(true);
+  /* --- actions & events - begin --- */
+  const onSubmit = catchError(
+    async (input: FormData): Promise<void> => {
       const currentUser = await authService.createUserWithEmailAndPassword(input.email, input.password);
       writeDataModel(currentUser, 'currentUser');
       showNotification({
@@ -94,14 +97,13 @@ const Screen = (props: Props): JSX.Element => {
           url: '/verifyEmail',
         });
       }, 2000);
-    } catch (error) {
-      handleError(error, {
-        'auth/email-already-in-use': t('emailAlreadyInUse'),
-      });
-    } finally {
-      setIsBusy(false);
-    }
-  };
+    },
+    setIsBusy,
+    {
+      'auth/email-already-in-use': t('emailAlreadyInUse'),
+    },
+  );
+  /* --- actions & events - end --- */
 
   return (
     <AuthLayout title={t('register')}>

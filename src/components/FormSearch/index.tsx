@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
-import produce from 'immer';
+import { useImmer } from 'use-immer';
 import { useTheme, useMediaQuery } from '@material-ui/core';
 import {
   OffsetPagination,
@@ -63,7 +63,7 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
   const classes = useStyles();
 
   // handle layout change
-  const [bodyMaxHeight, setBodyMaxHeight] = useState<string | number | undefined>('calc(100vh - 265px)');
+  const [bodyMaxHeight, setBodyMaxHeight] = useImmer<string | number | undefined>('calc(100vh - 265px)');
   const theme = useTheme();
   const isSx = useMediaQuery(theme.breakpoints.only('xs'));
   const isSm = useMediaQuery(theme.breakpoints.only('sm'));
@@ -83,11 +83,11 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
     const rowCount = Math.ceil((1.0 * fieldCount) / fieldPerRow);
     const headerHeight = isSx ? 84 : 52;
     const reduceHeight = 148 + headerHeight + rowCount * 65;
-    setBodyMaxHeight(`calc(100vh - ${reduceHeight}px)`);
+    setBodyMaxHeight(() => `calc(100vh - ${reduceHeight}px)`);
   }, [isSx, isSm, isMd]);
 
   // handle filter, pagination change
-  const [state, setState] = useState<State>({
+  const [state, setState] = useImmer<State>({
     filter: defaultFilter || {},
     useDebounce: false,
     pagination: {
@@ -97,20 +97,16 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
   });
 
   const handleChange = (fieldName: string) => (value: FieldValueType, useDebounce: boolean) =>
-    setState(
-      produce((draft: State) => {
-        draft.filter[fieldName] = value;
-        draft.useDebounce = useDebounce === true;
-      }),
-    );
+    setState((draft: State) => {
+      draft.filter[fieldName] = value;
+      draft.useDebounce = useDebounce === true;
+    });
   const handlePaginationChange = (newPagination: OffsetPagination): void =>
-    setState(
-      produce((draft: State) => {
-        draft.pagination.pageIndex = newPagination.pageIndex;
-        draft.pagination.itemsPerPage = newPagination.itemsPerPage;
-        draft.useDebounce = false;
-      }),
-    );
+    setState((draft: State) => {
+      draft.pagination.pageIndex = newPagination.pageIndex;
+      draft.pagination.itemsPerPage = newPagination.itemsPerPage;
+      draft.useDebounce = false;
+    });
   useEffect(() => {
     onFilterChange &&
       onFilterChange(

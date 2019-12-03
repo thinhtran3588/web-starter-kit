@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as yup from 'yup';
 import { AuthLayout, Link, Button, Form } from '@app/components';
-import { WithTranslation, withTranslation, handleError, FieldInfo, showNotification } from '@app/core';
+import { WithTranslation, withTranslation, FieldInfo, showNotification, catchError } from '@app/core';
 import { navigationService, authService } from '@app/services';
 import { config } from '@app/config';
+import { useImmer } from 'use-immer';
 import { useStyles } from './styles';
 
 type Props = WithTranslation;
@@ -17,8 +18,9 @@ const initialValues: FormData = {
 };
 
 const Screen = (props: Props): JSX.Element => {
+  /* --- variables & states - begin --- */
   const { t } = props;
-  const [isBusy, setIsBusy] = useState<boolean>(false);
+  const [isBusy, setIsBusy] = useImmer<boolean>(false);
   const classes = useStyles();
 
   const fields: FieldInfo<FormData>[] = [
@@ -43,28 +45,19 @@ const Screen = (props: Props): JSX.Element => {
         }),
       ),
   });
+  /* --- variables & states - end --- */
 
-  const onSubmit = async (input: FormData): Promise<void> => {
-    try {
-      setIsBusy(true);
+  /* --- actions & events - begin --- */
+  const onSubmit = catchError(
+    async (input: FormData): Promise<void> => {
       await authService.sendPasswordResetEmail(input.email);
-      showNotification({
-        type: 'SUCCESS',
-        message: t('recoverPassword'),
-      });
-      setTimeout(() => {
-        navigationService.navigateTo({
-          url: '/login',
-        });
-      }, 2000);
-    } catch (error) {
-      handleError(
-        error,
-        {},
-        {
-          'auth/user-not-found': true,
-        },
-      );
+    },
+    setIsBusy,
+    {},
+    {
+      'auth/user-not-found': true,
+    },
+    () => {
       showNotification({
         type: 'SUCCESS',
         message: t('requestSent'),
@@ -74,10 +67,9 @@ const Screen = (props: Props): JSX.Element => {
           url: '/login',
         });
       }, 2000);
-    } finally {
-      setIsBusy(false);
-    }
-  };
+    },
+  );
+  /* --- actions & events - end --- */
 
   return (
     <AuthLayout title={t('forgotPassword')}>

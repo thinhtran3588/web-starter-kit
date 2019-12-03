@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import NextHead from 'next/head';
 import { useTheme } from '@material-ui/styles';
 import { useMediaQuery, Theme } from '@material-ui/core';
-import { useQuery } from '@apollo/react-hooks';
 import { config } from '@app/config';
-import { NavItem, GET_CURRENT_USER_QUERY, AuthUser } from '@app/core';
+import { NavItem, GET_CURRENT_USER_QUERY, AuthUser, initApolloClient } from '@app/core';
+import { useImmer } from 'use-immer';
 import { AdminFooter } from '../AdminFooter';
 import { SidebarMenu } from '../SidebarMenu';
 import { Sidebar } from '../Sidebar';
@@ -60,18 +60,28 @@ export const AdminLayout = ({ children, title = config.siteName, description = '
     defaultMatches: true,
   });
 
-  const [openSidebar, setOpenSidebar] = useState(false);
-
-  const { data } = useQuery(GET_CURRENT_USER_QUERY);
-  const user = data ? (data.currentUser as AuthUser) : undefined;
+  const [openSidebar, setOpenSidebar] = useImmer(false);
+  const [user, setUser] = useImmer<AuthUser | undefined>(undefined);
 
   const handleSidebarOpen = (): void => {
-    setOpenSidebar(true);
+    setOpenSidebar(() => true);
   };
 
   const handleSidebarClose = (): void => {
-    setOpenSidebar(false);
+    setOpenSidebar(() => false);
   };
+
+  useEffect(() => {
+    (async () => {
+      const { data, errors } = await initApolloClient().query({
+        query: GET_CURRENT_USER_QUERY,
+      });
+      if (errors || !data || !data.currentUser || !data.currentUser.id) {
+        return;
+      }
+      setUser(() => data.currentUser);
+    })();
+  }, []);
 
   return (
     <>

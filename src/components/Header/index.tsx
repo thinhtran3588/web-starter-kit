@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { useImmer } from 'use-immer';
 import { NavItem, AuthUser, resetStore, withTranslation, WithTranslation } from '@app/core';
 import { config } from '@app/config';
 import { authService, navigationService } from '@app/services';
@@ -60,14 +61,14 @@ const BaseHeader = (props: Props): JSX.Element => {
     return renderNavItem(navItem);
   };
 
-  const [anchorEl, setAnchorEl] = React.useState<undefined | HTMLElement>(undefined);
+  const [anchorEl, setAnchorEl] = useImmer<undefined | HTMLElement>(undefined);
 
   const openUserMenu = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    setAnchorEl(event.currentTarget);
+    setAnchorEl(() => event.currentTarget);
   };
 
   const closeUserMenu = (): void => {
-    setAnchorEl(undefined);
+    setAnchorEl(() => undefined);
   };
 
   const logout = (): void => {

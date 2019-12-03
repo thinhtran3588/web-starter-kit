@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import { AuthLayout, Link, LanguageSelection, Button } from '@app/components';
-import { WithTranslation, withTranslation, handleError, LoginType, writeDataModel } from '@app/core';
+import { WithTranslation, withTranslation, LoginType, writeDataModel, catchError } from '@app/core';
 import { navigationService, authService } from '@app/services';
+import { useImmer } from 'use-immer';
 import { useStyles } from './styles';
 import { EmailLogin, PhoneNoLogin } from './components';
 
@@ -14,33 +15,31 @@ interface InputFormData {
 }
 
 const Screen = (props: Props): JSX.Element => {
+  /* --- variables & states - begin --- */
   const { t } = props;
-  const [isBusy, setIsBusy] = useState<boolean>(false);
-  const [showingEmailLogin, setShowingEmailLogin] = useState<boolean>(true);
+  const [isBusy, setIsBusy] = useImmer<boolean>(false);
+  const [showingEmailLogin, setShowingEmailLogin] = useImmer<boolean>(true);
   const classes = useStyles();
+  /* --- variables & states - end --- */
 
-  const loginExternal = async (loginType: LoginType): Promise<void> => {
-    try {
-      setIsBusy(true);
+  /* --- actions & events - begin --- */
+  const loginExternal = catchError(
+    async (loginType: LoginType): Promise<void> => {
       const currentUser =
         loginType === 'FACEBOOK' ? await authService.loginFacebook() : await authService.loginGoogle();
       writeDataModel(currentUser, 'currentUser');
       navigationService.navigateTo({
         url: '/',
       });
-    } catch (error) {
-      handleError(
-        error,
-        {},
-        {
-          'auth/user-cancelled': true,
-          'auth/popup-closed-by-user': true,
-        },
-      );
-    } finally {
-      setIsBusy(false);
-    }
-  };
+    },
+    setIsBusy,
+    {},
+    {
+      'auth/user-cancelled': true,
+      'auth/popup-closed-by-user': true,
+    },
+  );
+  /* --- actions & events - end --- */
 
   return (
     <AuthLayout title={t('login')}>
@@ -71,7 +70,7 @@ const Screen = (props: Props): JSX.Element => {
             variant='contained'
             color='primary'
             className={classes.button}
-            onClick={() => setShowingEmailLogin(!showingEmailLogin)}
+            onClick={() => setShowingEmailLogin(() => !showingEmailLogin)}
           >
             {props.t(showingEmailLogin ? 'continueWithPhoneNo' : 'loginWithEmail')}
           </Button>

@@ -88,6 +88,7 @@ export const ChangePassword = (props: Props): JSX.Element => {
     },
   ];
   /* --- renders - end --- */
+
   return (
     <FormDialog
       title={t('changePassword')}

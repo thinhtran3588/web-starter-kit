@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { i18n, withTranslation, WithTranslation } from '@app/core';
 import { config } from '@app/config';
+import { useImmer } from 'use-immer';
 import { useStyles } from './styles';
 import { IconButton } from '../IconButton';
 import { Menu } from '../Menu';
@@ -15,28 +16,28 @@ interface Props extends WithTranslation {
 export const BaseLanguageSelection = (props: Props): JSX.Element => {
   const { useFab, className, t } = props;
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(undefined);
-  const [lang, setLang] = useState<string>('');
+  const [anchorEl, setAnchorEl] = useImmer<undefined | HTMLElement>(undefined);
+  const [lang, setLang] = useImmer<string>('');
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    setAnchorEl(event.currentTarget);
+    setAnchorEl(() => event.currentTarget);
   };
 
   const handleClose = (): void => {
-    setAnchorEl(undefined);
+    setAnchorEl(() => undefined);
   };
 
   const changeLanguage = (newLang: string) => () => {
-    setAnchorEl(undefined);
+    setAnchorEl(() => undefined);
     i18n.changeLanguage(newLang);
-    setLang(newLang);
+    setLang(() => newLang);
   };
 
   useEffect(() => {
     const currentLanguage = config.i18n.languages.find(
       (language) => window.location.pathname.indexOf(`/${language.code}`) === 0,
     );
-    setLang(currentLanguage ? currentLanguage.code : config.i18n.defaultLang);
+    setLang(() => (currentLanguage ? currentLanguage.code : config.i18n.defaultLang));
   });
 
   return (

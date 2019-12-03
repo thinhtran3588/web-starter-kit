@@ -6,6 +6,7 @@ export const catchError = <T>(
   setIsBusy?: (f: (draft: boolean) => boolean | void) => void,
   matchedCodes?: { [code: string]: string },
   ignoreCodes?: { [code: string]: true },
+  finallyAction?: () => void,
 ): T => {
   return ((async (...params: any[]): Promise<any> => {
     try {
@@ -15,6 +16,9 @@ export const catchError = <T>(
       handleError(error, matchedCodes, ignoreCodes);
     } finally {
       setIsBusy && setIsBusy(() => false);
+      if (finallyAction) {
+        finallyAction();
+      }
     }
     return undefined;
   }) as unknown) as T;

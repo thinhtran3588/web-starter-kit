@@ -1,7 +1,7 @@
 import React from 'react';
 import * as yup from 'yup';
 import { Form, Button } from '@app/components';
-import { handleError, FieldInfo, writeDataModel, TFunction } from '@app/core';
+import { FieldInfo, writeDataModel, TFunction, catchError } from '@app/core';
 import { config } from '@app/config';
 import { navigationService, authService } from '@app/services';
 import { useStyles } from './styles';
@@ -9,7 +9,7 @@ import { useStyles } from './styles';
 interface Props {
   t: TFunction;
   isBusy: boolean;
-  setIsBusy: (isBusy: boolean) => void;
+  setIsBusy: (f: (draft: boolean) => boolean | void) => void;
 }
 
 interface FormData {
@@ -23,6 +23,7 @@ const initialValues: FormData = {
 };
 
 export const EmailLogin = (props: Props): JSX.Element => {
+  /* --- variables & states - begin --- */
   const { t, isBusy, setIsBusy } = props;
   const classes = useStyles();
   const fields: FieldInfo<FormData>[] = [
@@ -61,26 +62,26 @@ export const EmailLogin = (props: Props): JSX.Element => {
       )
       .matches(config.regex.password, t('common:invalidPassword')),
   });
+  /* --- variables & states - end --- */
 
-  const onSubmit = async (input: FormData): Promise<void> => {
-    try {
-      setIsBusy(true);
+  /* --- actions & events - begin --- */
+  const onSubmit = catchError(
+    async (input: FormData): Promise<void> => {
       const currentUser = await authService.signInWithEmailAndPassword(input.email, input.password);
       writeDataModel(currentUser, 'currentUser');
       navigationService.navigateTo({
         url: currentUser.emailVerified ? '/' : '/verifyEmail',
       });
-    } catch (error) {
-      handleError(error, {
-        'auth/invalid-email': t('wrongLoginCredentials'),
-        'auth/user-disabled': t('userDisabled'),
-        'auth/user-not-found': t('wrongLoginCredentials'),
-        'auth/wrong-password': t('wrongLoginCredentials'),
-      });
-    } finally {
-      setIsBusy(false);
-    }
-  };
+    },
+    setIsBusy,
+    {
+      'auth/invalid-email': t('wrongLoginCredentials'),
+      'auth/user-disabled': t('userDisabled'),
+      'auth/user-not-found': t('wrongLoginCredentials'),
+      'auth/wrong-password': t('wrongLoginCredentials'),
+    },
+  );
+  /* --- actions & events - end --- */
 
   return (
     <Form

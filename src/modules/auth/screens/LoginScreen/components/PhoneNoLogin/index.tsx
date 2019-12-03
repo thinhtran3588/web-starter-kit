@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import * as yup from 'yup';
 import { Formik } from 'formik';
-import { useQuery } from '@apollo/react-hooks';
 import { auth } from 'firebase/app';
 import { Form, Button } from '@app/components';
 import {
-  handleError,
   FieldInfo,
   writeDataModel,
   GET_COUNTRIES_QUERY,
@@ -13,9 +11,13 @@ import {
   PickerDataItem,
   showNotification,
   TFunction,
+  catchError,
+  initApolloClient,
+  getErrorMessage,
 } from '@app/core';
 import { config } from '@app/config';
 import { navigationService, authService } from '@app/services';
+import { useImmer } from 'use-immer';
 import { useStyles } from './styles';
 
 import('firebase/auth');
@@ -23,7 +25,7 @@ import('firebase/auth');
 interface Props {
   t: TFunction;
   isBusy: boolean;
-  setIsBusy: (isBusy: boolean) => void;
+  setIsBusy: (f: (draft: boolean) => boolean | void) => void;
 }
 
 interface FormData {
@@ -39,20 +41,16 @@ const initialValues: FormData = {
 };
 
 export const PhoneNoLogin = (props: Props): JSX.Element => {
+  /* --- variables & states - begin --- */
   const { t, isBusy, setIsBusy } = props;
   const classes = useStyles();
-  const { data } = useQuery(GET_COUNTRIES_QUERY);
-  let countries: PickerDataItem<string>[] = [];
-  if (data && data.countries) {
-    countries = (data.countries as Country[]).map((m) => ({
-      value: m.dialCode,
-      label: `${m.name}(${m.dialCode})`,
-    }));
-  }
+  const [showVerificationCode, setShowVerificationCode] = useImmer(false);
+  const [verificationCodeSent, setVerificationCodeSent] = useImmer(false);
+  const [waitToResend, setWaitToResend] = useImmer(0);
+  const [confirmationResult, setConfirmationResult] = useImmer<auth.ConfirmationResult | undefined>(undefined);
+  const [countries, setCountries] = useImmer<PickerDataItem<string>[]>([]);
+  let form: Formik<FormData>;
 
-  const [showVerificationCode, setShowVerificationCode] = useState(false);
-  const [verificationCodeSent, setVerificationCodeSent] = useState(false);
-  const [waitToResend, setWaitToResend] = useState(0);
   const fields: FieldInfo<FormData>[] = [
     {
       name: 'countryCode',
@@ -88,10 +86,11 @@ export const PhoneNoLogin = (props: Props): JSX.Element => {
     ),
   });
 
-  const [confirmationResult, setConfirmationResult] = useState<auth.ConfirmationResult | undefined>(undefined);
-  const onSubmit = async (input: FormData): Promise<void> => {
-    try {
-      setIsBusy(true);
+  /* --- variables & states - end --- */
+
+  /* --- actions & events - begin --- */
+  const onSubmit = catchError(
+    async (input: FormData): Promise<void> => {
       if (verificationCodeSent) {
         if (!input.verificationCode) {
           showNotification({
@@ -115,25 +114,46 @@ export const PhoneNoLogin = (props: Props): JSX.Element => {
         return;
       }
 
-      setConfirmationResult(await authService.sendSmsVerification(`${input.countryCode}${input.phoneNo.toString()}`));
-      setVerificationCodeSent(true);
-      setShowVerificationCode(true);
-    } catch (error) {
-      handleError(error, {
-        'auth/invalid-phone-number': t('common:invalidError', {
-          field: t('phoneNo'),
-        }),
-        'auth/user-disabled': t('userDisabled'),
-        'auth/invalid-verification-code': t('common:invalidError', {
-          field: t('verificationCode'),
-        }),
-      });
-    } finally {
-      setIsBusy(false);
-    }
-  };
+      const result = await authService.sendSmsVerification(`${input.countryCode}${input.phoneNo.toString()}`);
+      setConfirmationResult(() => result);
+      setVerificationCodeSent(() => true);
+      setShowVerificationCode(() => true);
+    },
+    setIsBusy,
+    {
+      'auth/invalid-phone-number': t('common:invalidError', {
+        field: t('phoneNo'),
+      }),
+      'auth/user-disabled': t('userDisabled'),
+      'auth/invalid-verification-code': t('common:invalidError', {
+        field: t('verificationCode'),
+      }),
+    },
+  );
+  /* --- actions & events - end --- */
 
-  let form: Formik<FormData>;
+  /* --- effects - begin --- */
+  useEffect(() => {
+    catchError(async () => {
+      const { data, errors } = await initApolloClient().query({
+        query: GET_COUNTRIES_QUERY,
+      });
+      if (errors) {
+        showNotification({
+          type: 'ERROR',
+          message: getErrorMessage(errors),
+        });
+        return;
+      }
+      setCountries(() =>
+        (data.countries as Country[]).map((m) => ({
+          value: m.dialCode,
+          label: `${m.name}(${m.dialCode})`,
+        })),
+      );
+    }, setIsBusy)();
+  }, []);
+
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).recaptchaVerifier = new auth.RecaptchaVerifier('reCAPTCHA', {
@@ -146,7 +166,7 @@ export const PhoneNoLogin = (props: Props): JSX.Element => {
     let intervalId: NodeJS.Timeout | undefined;
     if (verificationCodeSent) {
       if (waitToResend === 0) {
-        setWaitToResend(config.defaultWaitToResend - 1);
+        setWaitToResend(() => config.defaultWaitToResend - 1);
       }
       intervalId = setInterval(() => {
         setWaitToResend((value) => {
@@ -154,7 +174,7 @@ export const PhoneNoLogin = (props: Props): JSX.Element => {
           if (newWaitToSend === 0 && intervalId) {
             clearInterval(intervalId);
             intervalId = undefined;
-            setVerificationCodeSent(false);
+            setVerificationCodeSent(() => false);
           }
           return newWaitToSend;
         });
@@ -166,6 +186,8 @@ export const PhoneNoLogin = (props: Props): JSX.Element => {
       }
     };
   }, [verificationCodeSent]);
+  /* --- effects - end --- */
+
   return (
     <Form
       initialValues={initialValues}
