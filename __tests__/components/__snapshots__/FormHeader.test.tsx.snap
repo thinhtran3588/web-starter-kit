@@ -12,13 +12,13 @@ exports[`components/FormHeader renders successfully 1`] = `
         title
       </h6>
       <div
-        class="makeStyles-separator-2"
+        class="makeStyles-separator-3"
       />
       <div
-        class="makeStyles-commands-3"
+        class=""
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-4 MuiButton-containedPrimary"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-5 MuiButton-containedPrimary"
           tabindex="0"
           text="Create"
           type="button"
