@@ -23,13 +23,13 @@ interface Props<T> {
   defaultFilter?: T;
   filterFields: FieldInfo<T>[];
   onFilterChange?: (filter: FilterWithOffsetPagination, useDebounce: boolean) => void;
-  rowCommands?: RowCommand[];
-  columns: TableColumn[];
+  rowCommands?: (RowCommand | false)[];
+  columns: (TableColumn | false)[];
   rows: { [id: string]: FieldValueType }[];
   count: number;
   classes?: { [className: string]: string };
   title: string;
-  commandButtons?: ButtonProps[];
+  commandButtons?: (ButtonProps | false)[];
   size?: 'small' | 'medium';
   isBusy?: boolean;
 }

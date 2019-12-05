@@ -11,6 +11,8 @@ import {
   getErrorMessage,
   catchError,
   TFunction,
+  ValidatePermissions,
+  getUpdatedData,
 } from '@app/core';
 import { config } from '@app/config';
 import { PermissionsTable, AggregateConfig } from '../PermissionsTable';
@@ -25,6 +27,7 @@ interface Props {
   onClose: () => void;
   aggregateConfigs?: AggregateConfig[];
   refresh: () => void;
+  validatePermissions: ValidatePermissions;
 }
 
 interface FormData {
@@ -51,40 +54,46 @@ const defaultRole: FormData = {
 
 export const Detail = (props: Props): JSX.Element => {
   /* --- variables & states - begin --- */
-  const { id, t, isBusy, setIsBusy, open, onClose, aggregateConfigs, refresh } = props;
+  const { id, t, isBusy, setIsBusy, open, onClose, aggregateConfigs, refresh, validatePermissions } = props;
   const [role, setRole] = useImmer(defaultRole);
-  const validationSchema = yup.object().shape<FormData>({
-    name: yup
-      .string()
-      .required(
-        t('common:requiredError', {
-          field: t('name'),
-        }),
-      )
-      .max(
-        config.validation.string.maxLength,
-        t('common:maxLengthError', {
-          field: t('name'),
-          maxCharacters: config.validation.string.maxLength,
-        }),
-      ),
-    description: yup
-      .string()
-      .required(
-        t('common:requiredError', {
-          field: t('description'),
-        }),
-      )
-      .max(
-        config.validation.string.descriptionMaxLength,
-        t('common:maxLengthError', {
-          field: t('description'),
-          maxCharacters: config.validation.string.descriptionMaxLength,
-        }),
-      ),
-    isActive: yup.boolean(),
-    isDefault: yup.boolean(),
-    permissions: yup.string(),
+  const validationSchema = yup.object().shape<Partial<FormData>>({
+    name:
+      !!id && !validatePermissions('roles', 'updateAny', 'name')
+        ? undefined
+        : yup
+            .string()
+            .required(
+              t('common:requiredError', {
+                field: t('name'),
+              }),
+            )
+            .max(
+              config.validation.string.maxLength,
+              t('common:maxLengthError', {
+                field: t('name'),
+                maxCharacters: config.validation.string.maxLength,
+              }),
+            ),
+    description:
+      !!id && !validatePermissions('roles', 'updateAny', 'description')
+        ? undefined
+        : yup
+            .string()
+            .required(
+              t('common:requiredError', {
+                field: t('description'),
+              }),
+            )
+            .max(
+              config.validation.string.descriptionMaxLength,
+              t('common:maxLengthError', {
+                field: t('description'),
+                maxCharacters: config.validation.string.descriptionMaxLength,
+              }),
+            ),
+    isActive: !!id && !validatePermissions('roles', 'updateAny', 'isActive') ? undefined : yup.boolean(),
+    isDefault: !!id && !validatePermissions('roles', 'updateAny', 'isDefault') ? undefined : yup.boolean(),
+    permissions: !!id && !validatePermissions('roles', 'updateAny', 'permissions') ? undefined : yup.string(),
   });
   /* --- variables & states - end --- */
 
@@ -97,10 +106,18 @@ export const Detail = (props: Props): JSX.Element => {
         mutation: CREATE_ROLE_MUTATION,
       })).errors;
     } else {
+      const updatedData = getUpdatedData(role, input, validatePermissions, 'roles', 'updateAny');
+      if (!updatedData) {
+        showNotification({
+          type: 'WARNING',
+          message: t('common:pleaseUpdateData'),
+        });
+        return;
+      }
       errors = (await initApolloClient().mutate({
         variables: {
           id,
-          ...input,
+          ...updatedData,
         },
         mutation: UPDATE_ROLE_MUTATION,
       })).errors;
@@ -155,23 +172,31 @@ export const Detail = (props: Props): JSX.Element => {
       name: 'name',
       label: t('name'),
       required: true,
+      disabled: !!id && !validatePermissions('roles', 'updateAny', 'name'),
+      hidden: !!id && !validatePermissions('roles', 'viewAny', 'name'),
     },
     {
       name: 'description',
       label: t('description'),
       required: true,
+      disabled: !!id && !validatePermissions('roles', 'updateAny', 'description'),
+      hidden: !!id && !validatePermissions('roles', 'viewAny', 'description'),
     },
     {
       name: 'isActive',
       label: t('common:isActive'),
       required: true,
       type: 'switch',
+      disabled: !!id && !validatePermissions('roles', 'updateAny', 'isActive'),
+      hidden: !!id && !validatePermissions('roles', 'viewAny', 'isActive'),
     },
     {
       name: 'isDefault',
       label: t('common:isDefault'),
       required: true,
       type: 'switch',
+      disabled: !!id && !validatePermissions('roles', 'updateAny', 'isDefault'),
+      hidden: !!id && !validatePermissions('roles', 'viewAny', 'isDefault'),
     },
     {
       name: 'permissions',
@@ -185,9 +210,11 @@ export const Detail = (props: Props): JSX.Element => {
             setFieldValue={setFieldValue}
             data={data.permissions}
             isBusy={isBusy}
+            disabled={!!id && !validatePermissions('roles', 'updateAny', 'permissions')}
           />
         );
       },
+      hidden: !!id && !validatePermissions('roles', 'viewAny', 'permissions'),
     },
   ];
   /* --- renders - end --- */
@@ -203,7 +230,7 @@ export const Detail = (props: Props): JSX.Element => {
       onSubmit={onSubmit}
       isBusy={isBusy}
       buttons={[
-        {
+        validatePermissions('roles', 'updateAny') && {
           type: 'submit',
           title: t('common:save'),
         },

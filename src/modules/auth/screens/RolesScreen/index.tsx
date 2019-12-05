@@ -14,6 +14,7 @@ import {
   SearchResult,
   catchError,
   formatDateTime,
+  AuthProps,
 } from '@app/core';
 import { config } from '@app/config';
 import debounce from 'lodash/fp/debounce';
@@ -22,7 +23,7 @@ import { useImmer } from 'use-immer';
 import { Detail, AggregateConfig } from './components';
 import { GET_ROLES_QUERY, GET_AGGREGATE_CONFIGS_QUERY, DELETE_ROLE_MUTATION, UPDATE_ROLE_MUTATION } from './graphql';
 
-type Props = WithTranslation;
+type Props = WithTranslation & AuthProps;
 
 interface FormData {
   filter: string;
@@ -34,7 +35,7 @@ const defaultFilter: FormData = {
 
 const Screen = (props: Props): JSX.Element => {
   /* --- variables & states - begin --- */
-  const { t } = props;
+  const { t, validatePermissions } = props;
   const [isBusy, setIsBusy] = useImmer<boolean>(false);
   const [filter, setFilter] = useImmer<FilterWithOffsetPagination>({
     pageIndex: 0,
@@ -196,18 +197,18 @@ const Screen = (props: Props): JSX.Element => {
     },
   ];
 
-  const columns: TableColumn[] = [
-    {
+  const columns: (TableColumn | false)[] = [
+    validatePermissions('roles', 'viewAny', 'name') && {
       field: 'name',
       label: t('name'),
       minWidth: 150,
     },
-    {
+    validatePermissions('roles', 'viewAny', 'description') && {
       field: 'description',
       label: t('description'),
       minWidth: 300,
     },
-    {
+    validatePermissions('roles', 'viewAny', 'isActive') && {
       field: 'isActive',
       label: t('common:isActive'),
       minWidth: 100,
@@ -217,13 +218,13 @@ const Screen = (props: Props): JSX.Element => {
             value={!!data.isActive}
             label=''
             type='switch'
-            disabled={isBusy}
+            disabled={isBusy || !validatePermissions('roles', 'updateAny', 'isActive')}
             onValueChange={(value) => updateSearchResult('isActive', data.id, value)}
           />
         );
       },
     },
-    {
+    validatePermissions('roles', 'viewAny', 'isDefault') && {
       field: 'isDefault',
       label: t('common:isDefault'),
       minWidth: 100,
@@ -233,32 +234,32 @@ const Screen = (props: Props): JSX.Element => {
             value={!!data.isDefault}
             label=''
             type='switch'
-            disabled={isBusy}
+            disabled={isBusy || !validatePermissions('roles', 'updateAny', 'isDefault')}
             onValueChange={(value) => updateSearchResult('isDefault', data.id, value)}
           />
         );
       },
     },
-    {
+    validatePermissions('roles', 'viewAny', 'createdBy') && {
       field: 'createdByName',
       label: t('common:createdBy'),
-      minWidth: 100,
+      minWidth: 200,
     },
-    {
+    validatePermissions('roles', 'viewAny', 'createdAt') && {
       field: 'createdAt',
       label: t('common:createdAt'),
-      minWidth: 100,
+      minWidth: 200,
       format: formatDateTime,
     },
-    {
+    validatePermissions('roles', 'viewAny', 'lastModifiedBy') && {
       field: 'lastModifiedByName',
       label: t('common:lastModifiedBy'),
-      minWidth: 100,
+      minWidth: 200,
     },
-    {
+    validatePermissions('roles', 'viewAny', 'lastModifiedAt') && {
       field: 'lastModifiedAt',
       label: t('common:lastModifiedAt'),
-      minWidth: 100,
+      minWidth: 200,
       format: formatDateTime,
     },
   ];
@@ -275,7 +276,7 @@ const Screen = (props: Props): JSX.Element => {
             disabled: isBusy,
             color: 'default',
           },
-          {
+          validatePermissions('roles', 'create') && {
             title: t('common:create'),
             onClick: create,
             disabled: isBusy,
@@ -285,12 +286,12 @@ const Screen = (props: Props): JSX.Element => {
         filterFields={filterFields}
         onFilterChange={onFilterChange}
         rowCommands={[
-          {
-            title: t('common:update'),
-            icon: 'Edit',
+          validatePermissions('roles', 'viewAny') && {
+            title: t('common:viewDetail'),
+            icon: 'FindInPage',
             onClick: openDetailDialog,
           },
-          {
+          validatePermissions('roles', 'deleteAny') && {
             title: t('common:delete'),
             icon: 'Delete',
             onClick: openDeleteConfirmationDialog,
@@ -312,6 +313,7 @@ const Screen = (props: Props): JSX.Element => {
           onClose={closeDetailDialog}
           aggregateConfigs={aggregateConfigs}
           refresh={refresh}
+          validatePermissions={validatePermissions}
         />
       )}
       {deleteParams.open && (
@@ -339,10 +341,7 @@ const Screen = (props: Props): JSX.Element => {
   );
 };
 
-const ScreenBeforeTranslation = withAuth(
-  Screen,
-  (permissionTree) => !!permissionTree.roles && (!!permissionTree.roles.viewAny || !!permissionTree.roles.viewOwn),
-);
+const ScreenBeforeTranslation = withAuth(Screen, (validatePermissions) => validatePermissions('roles', 'viewAny'));
 
 ScreenBeforeTranslation.getInitialProps = async () => {
   return {

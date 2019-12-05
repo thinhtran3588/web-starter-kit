@@ -8,7 +8,7 @@ import { useStyles } from './styles';
 
 interface Props {
   title: string;
-  commandButtons?: ButtonProps[];
+  commandButtons?: (ButtonProps | false)[];
 }
 
 export const FormHeader = (props: Props): JSX.Element => {
@@ -27,16 +27,19 @@ export const FormHeader = (props: Props): JSX.Element => {
       <div className={classes.separator}></div>
       <div className={clsx(!isDesktop && classes.mobileButtonContainer)}>
         {!!commandButtons &&
-          commandButtons.map((commandButton) => (
-            <Button
-              {...commandButton}
-              key={commandButton.title}
-              className={clsx(isDesktop ? classes.button : classes.mobileButton, commandButton.className)}
-              fullWidth={!isDesktop}
-            >
-              {commandButton.title}
-            </Button>
-          ))}
+          commandButtons
+            .filter((button) => !!button)
+            .map((button) => button as ButtonProps)
+            .map((commandButton: ButtonProps) => (
+              <Button
+                {...commandButton}
+                key={commandButton.title}
+                className={clsx(isDesktop ? classes.button : classes.mobileButton, commandButton.className)}
+                fullWidth={!isDesktop}
+              >
+                {commandButton.title}
+              </Button>
+            ))}
       </div>
     </Paper>
   );

@@ -14,6 +14,8 @@ import {
   PickerDataItem,
   PermissionTree,
   sanitizeFormData,
+  ValidatePermissions,
+  getUpdatedData,
 } from '@app/core';
 import { config } from '@app/config';
 import { PermissionsTable } from '../PermissionsTable';
@@ -29,6 +31,7 @@ interface Props {
   roles: Role[];
   genders: PickerDataItem<string>[];
   refresh: () => void;
+  validatePermissions: ValidatePermissions;
 }
 
 interface FormData {
@@ -77,7 +80,7 @@ const defaultUser: FormData = {
 
 export const Detail = (props: Props): JSX.Element => {
   /* --- variables & states - begin --- */
-  const { id, t, isBusy, setIsBusy, open, onClose, roles, genders, refresh } = props;
+  const { id, t, isBusy, setIsBusy, open, onClose, roles, genders, refresh, validatePermissions } = props;
   const roleLookups: PickerDataItem<string>[] = roles.map((role) => ({
     value: role.id,
     label: role.name,
@@ -86,93 +89,114 @@ export const Detail = (props: Props): JSX.Element => {
     ...defaultUser,
     roles: roles.filter((role) => role.isActive && role.isDefault).map((role) => role.id),
   });
-  const [validationSchema, setValidationSchema] = useImmer<yup.ObjectSchema<yup.Shape<object, FormData>> | undefined>(
-    yup.object().shape<FormData>({
-      username: yup
-        .string()
-        .required(
-          t('common:requiredError', {
-            field: t('username'),
-          }),
-        )
-        .matches(config.regex.username, t('common:invalidUsername')),
-      email: yup
-        .string()
-        .required(
-          t('common:requiredError', {
-            field: t('email'),
-          }),
-        )
-        .matches(
-          config.regex.email,
-          t('common:invalidError', {
-            field: t('email'),
-          }),
-        ),
-      password: yup
-        .string()
-        .required(
-          t('common:requiredError', {
-            field: t('password'),
-          }),
-        )
-        .matches(config.regex.password, t('common:invalidPassword')),
-      firstName: yup
-        .string()
-        .required(
-          t('common:requiredError', {
-            field: t('firstName'),
-          }),
-        )
-        .max(
-          config.validation.string.maxLength,
-          t('common:maxLengthError', {
-            field: t('firstName'),
-            maxCharacters: config.validation.string.maxLength,
-          }),
-        ),
-      middleName: yup.string().max(
-        config.validation.string.maxLength,
-        t('common:maxLengthError', {
-          field: t('middleName'),
-          maxCharacters: config.validation.string.maxLength,
-        }),
-      ),
-      lastName: yup
-        .string()
-        .required(
-          t('common:requiredError', {
-            field: t('lastName'),
-          }),
-        )
-        .max(
-          config.validation.string.maxLength,
-          t('common:maxLengthError', {
-            field: t('lastName'),
-            maxCharacters: config.validation.string.maxLength,
-          }),
-        ),
-      phoneNo: yup.string().max(
-        config.validation.string.maxLength,
-        t('common:maxLengthError', {
-          field: t('phoneNo'),
-          maxCharacters: config.validation.string.maxLength,
-        }),
-      ),
-      address: yup.string().max(
-        config.validation.string.maxLength,
-        t('common:maxLengthError', {
-          field: t('address'),
-          maxCharacters: config.validation.string.maxLength,
-        }),
-      ),
-      dob: yup.string(),
-      gender: yup.string(),
-      roles: yup.array(),
-      isActive: yup.boolean(),
-      loginDetail: yup.object(),
-    }),
-  );
+  const validationSchema = yup.object().shape<Partial<FormData>>({
+    username:
+      !!id && !validatePermissions('users', 'updateAny', 'username')
+        ? undefined
+        : yup
+            .string()
+            .required(
+              t('common:requiredError', {
+                field: t('username'),
+              }),
+            )
+            .matches(config.regex.username, t('common:invalidUsername')),
+    email:
+      !!id && !validatePermissions('users', 'updateAny', 'email')
+        ? undefined
+        : yup
+            .string()
+            .required(
+              t('common:requiredError', {
+                field: t('email'),
+              }),
+            )
+            .matches(
+              config.regex.email,
+              t('common:invalidError', {
+                field: t('email'),
+              }),
+            ),
+    password:
+      !!id && !validatePermissions('users', 'updateAny', 'password')
+        ? undefined
+        : yup
+            .string()
+            .required(
+              t('common:requiredError', {
+                field: t('password'),
+              }),
+            )
+            .matches(config.regex.password, t('common:invalidPassword')),
+    firstName:
+      !!id && !validatePermissions('users', 'updateAny', 'firstName')
+        ? undefined
+        : yup
+            .string()
+            .required(
+              t('common:requiredError', {
+                field: t('firstName'),
+              }),
+            )
+            .max(
+              config.validation.string.maxLength,
+              t('common:maxLengthError', {
+                field: t('firstName'),
+                maxCharacters: config.validation.string.maxLength,
+              }),
+            ),
+    middleName:
+      !!id && !validatePermissions('users', 'updateAny', 'middleName')
+        ? undefined
+        : yup.string().max(
+            config.validation.string.maxLength,
+            t('common:maxLengthError', {
+              field: t('middleName'),
+              maxCharacters: config.validation.string.maxLength,
+            }),
+          ),
+    lastName:
+      !!id && !validatePermissions('users', 'updateAny', 'lastName')
+        ? undefined
+        : yup
+            .string()
+            .required(
+              t('common:requiredError', {
+                field: t('lastName'),
+              }),
+            )
+            .max(
+              config.validation.string.maxLength,
+              t('common:maxLengthError', {
+                field: t('lastName'),
+                maxCharacters: config.validation.string.maxLength,
+              }),
+            ),
+    phoneNo:
+      !!id && !validatePermissions('users', 'updateAny', 'phoneNo')
+        ? undefined
+        : yup.string().max(
+            config.validation.string.maxLength,
+            t('common:maxLengthError', {
+              field: t('phoneNo'),
+              maxCharacters: config.validation.string.maxLength,
+            }),
+          ),
+    address:
+      !!id && !validatePermissions('users', 'updateAny', 'address')
+        ? undefined
+        : yup.string().max(
+            config.validation.string.maxLength,
+            t('common:maxLengthError', {
+              field: t('address'),
+              maxCharacters: config.validation.string.maxLength,
+            }),
+          ),
+    dob: !!id && !validatePermissions('users', 'updateAny', 'dob') ? undefined : yup.string(),
+    gender: !!id && !validatePermissions('users', 'updateAny', 'gender') ? undefined : yup.string(),
+    roles: !!id && !validatePermissions('users', 'updateAny', 'roles') ? undefined : yup.array(),
+    isActive: !!id && !validatePermissions('users', 'updateAny', 'isActive') ? undefined : yup.boolean(),
+  });
   /* --- variables & states - end --- */
 
   /* --- actions & events - begin --- */
@@ -187,10 +211,17 @@ export const Detail = (props: Props): JSX.Element => {
         mutation: CREATE_USER_MUTATION,
       })).errors;
     } else {
+      const updatedData = getUpdatedData(user, input, validatePermissions, 'users', 'updateAny');
+      if (!updatedData) {
+        showNotification({
+          type: 'WARNING',
+          message: t('common:pleaseUpdateData'),
+        });
+        return;
+      }
       const variables = {
         id,
         ...input,
-        roles: input.roles || [],
       };
       if (user.username || !input.username) {
         delete variables.username;
@@ -248,72 +279,6 @@ export const Detail = (props: Props): JSX.Element => {
         return;
       }
       setUser(() => sanitizeFormData(data.user));
-      setValidationSchema(() =>
-        yup.object().shape<FormData>({
-          username: yup.string().matches(config.regex.username, t('common:invalidUsername')),
-          email: yup.string().matches(
-            config.regex.email,
-            t('common:invalidError', {
-              field: t('email'),
-            }),
-          ),
-          password: yup.string(),
-          firstName: yup
-            .string()
-            .required(
-              t('common:requiredError', {
-                field: t('firstName'),
-              }),
-            )
-            .max(
-              config.validation.string.maxLength,
-              t('common:maxLengthError', {
-                field: t('firstName'),
-                maxCharacters: config.validation.string.maxLength,
-              }),
-            ),
-          middleName: yup.string().max(
-            config.validation.string.maxLength,
-            t('common:maxLengthError', {
-              field: t('middleName'),
-              maxCharacters: config.validation.string.maxLength,
-            }),
-          ),
-          lastName: yup
-            .string()
-            .required(
-              t('common:requiredError', {
-                field: t('lastName'),
-              }),
-            )
-            .max(
-              config.validation.string.maxLength,
-              t('common:maxLengthError', {
-                field: t('lastName'),
-                maxCharacters: config.validation.string.maxLength,
-              }),
-            ),
-          phoneNo: yup.string().max(
-            config.validation.string.maxLength,
-            t('common:maxLengthError', {
-              field: t('phoneNo'),
-              maxCharacters: config.validation.string.maxLength,
-            }),
-          ),
-          address: yup.string().max(
-            config.validation.string.maxLength,
-            t('common:maxLengthError', {
-              field: t('address'),
-              maxCharacters: config.validation.string.maxLength,
-            }),
-          ),
-          dob: yup.string(),
-          gender: yup.string(),
-          roles: yup.array(),
-          isActive: yup.boolean(),
-          loginDetail: yup.object(),
-        }),
-      );
     }, setIsBusy)();
   }, [id, open]);
   /* --- effects - end --- */
@@ -324,59 +289,82 @@ export const Detail = (props: Props): JSX.Element => {
       name: 'username',
       label: t('username'),
       required: true,
-      disabled: !!user.username,
+      disabled: !!id && (!!user.username || !validatePermissions('users', 'updateAny', 'username')),
+      hidden: !!id && !validatePermissions('users', 'viewAny', 'username'),
     },
     {
       name: 'password',
       label: t('password'),
       required: true,
-      hidden: !!id,
+      disabled: !!id && !validatePermissions('users', 'updateAny', 'password'),
+      hidden: !!id || !validatePermissions('users', 'viewAny', 'password'),
     },
     {
       name: 'email',
       label: t('email'),
       required: true,
-      disabled: user.loginDetail.loginType === 'EMAIL' || user.loginDetail.loginType === 'GOOGLE',
+      disabled:
+        !!id &&
+        (user.loginDetail.loginType === 'EMAIL' ||
+          user.loginDetail.loginType === 'GOOGLE' ||
+          !validatePermissions('users', 'updateAny', 'email')),
+      hidden: !!id && !validatePermissions('users', 'viewAny', 'email'),
     },
     {
       name: 'firstName',
       label: t('firstName'),
       required: true,
+      disabled: !!id && !validatePermissions('users', 'updateAny', 'firstName'),
+      hidden: !!id && !validatePermissions('users', 'viewAny', 'firstName'),
     },
     {
       name: 'middleName',
       label: t('middleName'),
+      disabled: !!id && !validatePermissions('users', 'updateAny', 'middleName'),
+      hidden: !!id && !validatePermissions('users', 'viewAny', 'middleName'),
     },
     {
       name: 'lastName',
       label: t('lastName'),
       required: true,
+      disabled: !!id && !validatePermissions('users', 'updateAny', 'lastName'),
+      hidden: !!id && !validatePermissions('users', 'viewAny', 'lastName'),
     },
     {
       name: 'phoneNo',
       label: t('phoneNo'),
-      disabled: user.loginDetail.loginType === 'PHONE_NO',
+      disabled:
+        !!id && (user.loginDetail.loginType === 'PHONE_NO' || !validatePermissions('users', 'updateAny', 'phoneNo')),
+      hidden: !!id && !validatePermissions('users', 'viewAny', 'phoneNo'),
     },
     {
       name: 'address',
       label: t('address'),
+      disabled: !!id && !validatePermissions('users', 'updateAny', 'address'),
+      hidden: !!id && !validatePermissions('users', 'viewAny', 'address'),
     },
     {
       name: 'dob',
       label: t('dob'),
       type: 'datepicker',
+      disabled: !!id && !validatePermissions('users', 'updateAny', 'dob'),
+      hidden: !!id && !validatePermissions('users', 'viewAny', 'dob'),
     },
     {
       name: 'gender',
       label: t('gender'),
       type: 'picker',
       pickerDataSources: genders,
+      disabled: !!id && !validatePermissions('users', 'updateAny', 'gender'),
+      hidden: !!id && !validatePermissions('users', 'viewAny', 'gender'),
     },
     {
       name: 'isActive',
       label: t('common:isActive'),
       required: true,
       type: 'switch',
+      disabled: !!id && !validatePermissions('users', 'updateAny', 'isActive'),
+      hidden: !!id && !validatePermissions('users', 'viewAny', 'isActive'),
     },
   ];
   const rolesAndPermissionsFields: FieldInfo<FormData>[] = [
@@ -386,6 +374,8 @@ export const Detail = (props: Props): JSX.Element => {
       required: true,
       type: 'multipicker',
       pickerDataSources: roleLookups,
+      disabled: !!id && !validatePermissions('users', 'updateAny', 'roles'),
+      hidden: !validatePermissions('users', 'viewAny', 'roles'),
     },
     {
       name: 'permissions',
@@ -401,6 +391,7 @@ export const Detail = (props: Props): JSX.Element => {
         });
         return <PermissionsTable data={JSON.stringify(permissionTree)} t={t} />;
       },
+      hidden: !validatePermissions('users', 'viewAny', 'roles'),
     },
   ];
   /* --- renders - end --- */
@@ -416,7 +407,7 @@ export const Detail = (props: Props): JSX.Element => {
       onSubmit={onSubmit}
       isBusy={isBusy}
       buttons={[
-        {
+        validatePermissions('users', 'updateAny') && {
           type: 'submit',
           color: 'primary',
           title: t('common:save'),

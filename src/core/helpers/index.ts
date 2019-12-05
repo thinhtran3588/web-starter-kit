@@ -9,3 +9,4 @@ export * from './sanitize_form_data';
 export * from './get_error_message';
 export * from './sleep';
 export * from './cache';
+export * from './get_updated_data';

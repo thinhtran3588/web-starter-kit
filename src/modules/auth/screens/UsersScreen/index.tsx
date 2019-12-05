@@ -41,7 +41,7 @@ const defaultFilter: FormData = {
 
 const Screen = (props: Props): JSX.Element => {
   /* --- variables & states - begin --- */
-  const { t, authUser } = props;
+  const { t, validatePermissions } = props;
   const [isBusy, setIsBusy] = useImmer<boolean>(false);
   const [filter, setFilter] = useImmer<FilterWithOffsetPagination>({
     pageIndex: 0,
@@ -233,34 +233,34 @@ const Screen = (props: Props): JSX.Element => {
     },
   ];
 
-  const columns: TableColumn[] = [
-    {
+  const columns: (TableColumn | false)[] = [
+    validatePermissions('users', 'viewAny', 'displayName') && {
       field: 'displayName',
       label: t('displayName'),
-      minWidth: 200,
+      minWidth: 250,
     },
-    {
+    validatePermissions('users', 'viewAny', 'username') && {
       field: 'username',
       label: t('username'),
-      minWidth: 100,
+      minWidth: 150,
     },
-    {
+    validatePermissions('users', 'viewAny', 'email') && {
       field: 'email',
       label: t('email'),
-      minWidth: 120,
+      minWidth: 150,
     },
-    {
+    validatePermissions('users', 'viewAny', 'phoneNo') && {
       field: 'phoneNo',
       label: t('phoneNo'),
-      minWidth: 90,
+      minWidth: 120,
     },
-    {
+    validatePermissions('users', 'viewAny', 'loginDetail') && {
       field: ['loginDetail', 'loginType'],
       label: t('loginType'),
-      minWidth: 90,
+      minWidth: 120,
       format: formatWithLookup(loginTypes),
     },
-    {
+    validatePermissions('users', 'viewAny', 'isActive') && {
       field: 'isActive',
       label: t('common:isActive'),
       minWidth: 100,
@@ -270,24 +270,39 @@ const Screen = (props: Props): JSX.Element => {
             value={!!data.isActive}
             label=''
             type='switch'
-            disabled={isBusy || data.id === authUser.id || data.username === config.admin.username}
+            disabled={isBusy || !validatePermissions('users', 'updateAny', 'isActive')}
             onValueChange={(value) => updateSearchResult('isActive', data.id, value)}
           />
         );
       },
     },
-    {
+    validatePermissions('users', 'viewAny', 'lastLoggedInAt') && {
       field: 'lastLoggedInAt',
       label: t('lastLoggedInAt'),
-      minWidth: 90,
+      minWidth: 200,
       align: 'center',
       format: formatDateTime,
     },
-    {
-      field: 'registeredAt',
-      label: t('registeredAt'),
-      minWidth: 90,
-      align: 'center',
+    validatePermissions('users', 'viewAny', 'createdBy') && {
+      field: 'createdByName',
+      label: t('common:createdBy'),
+      minWidth: 200,
+    },
+    validatePermissions('users', 'viewAny', 'createdAt') && {
+      field: 'createdAt',
+      label: t('common:createdAt'),
+      minWidth: 200,
+      format: formatDateTime,
+    },
+    validatePermissions('users', 'viewAny', 'lastModifiedBy') && {
+      field: 'lastModifiedByName',
+      label: t('common:lastModifiedBy'),
+      minWidth: 200,
+    },
+    validatePermissions('users', 'viewAny', 'lastModifiedAt') && {
+      field: 'lastModifiedAt',
+      label: t('common:lastModifiedAt'),
+      minWidth: 200,
       format: formatDateTime,
     },
   ];
@@ -303,7 +318,7 @@ const Screen = (props: Props): JSX.Element => {
             disabled: isBusy,
             color: 'default',
           },
-          {
+          validatePermissions('users', 'create') && {
             title: t('common:create'),
             onClick: create,
             disabled: isBusy,
@@ -313,12 +328,12 @@ const Screen = (props: Props): JSX.Element => {
         filterFields={filterFields}
         onFilterChange={onFilterChange}
         rowCommands={[
-          {
-            title: t('common:update'),
-            icon: 'Edit',
+          validatePermissions('users', 'viewAny') && {
+            title: t('common:viewDetail'),
+            icon: 'FindInPage',
             onClick: openDetailDialog,
           },
-          {
+          validatePermissions('users', 'updateAny', 'password') && {
             title: t('changePassword'),
             icon: 'Lock',
             onClick: openChangePasswordDialog,
@@ -340,6 +355,7 @@ const Screen = (props: Props): JSX.Element => {
           refresh={refresh}
           roles={roles}
           genders={genders}
+          validatePermissions={validatePermissions}
         />
       )}
       {changePasswordParams.open && changePasswordParams.id && (
@@ -356,10 +372,7 @@ const Screen = (props: Props): JSX.Element => {
   );
 };
 
-const ScreenBeforeTranslation = withAuth(
-  Screen,
-  (permissionTree) => !!permissionTree.users && (!!permissionTree.users.viewAny || !!permissionTree.users.viewOwn),
-);
+const ScreenBeforeTranslation = withAuth(Screen, (validatePermissions) => validatePermissions('users', 'viewAny'));
 
 ScreenBeforeTranslation.getInitialProps = async () => {
   return {

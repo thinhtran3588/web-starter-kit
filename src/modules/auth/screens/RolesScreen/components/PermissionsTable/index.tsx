@@ -17,6 +17,7 @@ interface Props {
   setFieldValue: (field: string, value: FieldValueType) => void;
   data: string;
   isBusy: boolean;
+  disabled: boolean;
 }
 
 const baseActions = ['create', 'viewAny', 'viewOwn', 'updateAny', 'updateOwn', 'deleteAny', 'deleteOwn'];
@@ -24,7 +25,7 @@ const actionsWithFields = ['viewAny', 'viewOwn', 'updateAny', 'updateOwn'];
 
 const BasePermissionsTable = (props: Props): JSX.Element => {
   /* --- variables & states - begin --- */
-  const { aggregateConfigs, t, setFieldValue, data, isBusy } = props;
+  const { aggregateConfigs, t, setFieldValue, data, isBusy, disabled } = props;
   const classes = useStyles();
   const permissionTree: PermissionTree = JSON.parse(data);
   /* --- variables & states - end --- */
@@ -97,7 +98,7 @@ const BasePermissionsTable = (props: Props): JSX.Element => {
                 value={!!permissionTree[aggregateConfig.name] && !!permissionTree[aggregateConfig.name][action]}
                 onValueChange={updateActionPermission(aggregateConfig, action)}
                 type='checkbox'
-                disabled={isBusy}
+                disabled={isBusy || disabled}
               />
             </TableCell>
             <TableCell>
@@ -116,7 +117,7 @@ const BasePermissionsTable = (props: Props): JSX.Element => {
                         onValueChange={updateFieldPermission(aggregateConfig, action, field)}
                         type='checkbox'
                         className={classes.field}
-                        disabled={isBusy}
+                        disabled={isBusy || disabled}
                       />
                     );
                   },

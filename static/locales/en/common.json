@@ -29,6 +29,7 @@
   "maxLengthError": "{{field}} should not exceed {{maxCharacters}} characters",
   "nextPage": "Next Page",
   "none": "(None)",
+  "pleaseUpdateData": "Please update data",
   "previousPage": "Previous Page",
   "profile": "Profile",
   "refresh": "Refresh",
@@ -38,5 +39,6 @@
   "save": "Save",
   "socialMedias": "Social Medias",
   "uniqueError": "{{field}} already exists",
-  "update": "Update"
+  "update": "Update",
+  "viewDetail": "View detail"
 }

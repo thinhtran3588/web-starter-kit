@@ -17,8 +17,8 @@ import { Icon } from '../Icon';
 import { Tooltip } from '../Tooltip';
 
 interface Props extends WithTranslation {
-  commands?: RowCommand[];
-  columns: TableColumn[];
+  commands?: (RowCommand | false)[];
+  columns: (TableColumn | false)[];
   rows: { [id: string]: FieldValueType }[];
   pageIndex: number;
   itemsPerPage: number;
@@ -100,6 +100,8 @@ export const BaseTable = (props: Props): JSX.Element => {
     );
   };
 
+  const rowCommands = commands ? commands.filter((command) => !!command).map((command) => command as RowCommand) : [];
+
   return (
     <div className={clsx(classes.root, className)}>
       <div
@@ -112,58 +114,64 @@ export const BaseTable = (props: Props): JSX.Element => {
         <MuiTable stickyHeader size={size}>
           <TableHead>
             <TableRow>
-              {!!commands && (
+              {!!rowCommands && rowCommands.length > 0 && (
                 <TableCell
                   style={{
-                    minWidth: commands.length * 50,
+                    minWidth: rowCommands.length * 50,
                   }}
                   className={classes.commandCell}
                 />
               )}
-              {columns.map((column) => (
-                <TableCell
-                  key={Array.isArray(column.field) ? column.field.join('_') : column.field}
-                  align='center'
-                  style={{
-                    minWidth: column.minWidth,
-                  }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
+              {columns.map(
+                (column) =>
+                  column && (
+                    <TableCell
+                      key={Array.isArray(column.field) ? column.field.join('_') : column.field}
+                      align='center'
+                      style={{
+                        minWidth: column.minWidth,
+                      }}
+                    >
+                      {column.label}
+                    </TableCell>
+                  ),
+              )}
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row, index) => {
               return (
                 <TableRow hover tabIndex={-1} key={index}>
-                  {!!commands && (
+                  {!!rowCommands && rowCommands.length > 0 && (
                     <TableCell className={classes.commandCell}>
-                      {commands.map((command) => (
-                        <Tooltip key={command.title} title={command.title}>
-                          <span className={classes.commandButton}>
-                            <IconButton
-                              color='primary'
-                              style={
-                                isBusy
-                                  ? {}
-                                  : {
-                                      color: command.color === 'error' ? red.A400 : command.color,
-                                    }
-                              }
-                              aria-label={command.title}
-                              onClick={() => command.onClick(row)}
-                              size='small'
-                              disabled={command.disabled || isBusy}
-                            >
-                              <Icon name={command.icon} />
-                            </IconButton>
-                          </span>
-                        </Tooltip>
-                      ))}
+                      {rowCommands
+                        .filter((command) => !command.hidden || !command.hidden(row))
+                        .map((command) => command as RowCommand)
+                        .map((command) => (
+                          <Tooltip key={command.title} title={command.title}>
+                            <span className={classes.commandButton}>
+                              <IconButton
+                                color='primary'
+                                style={
+                                  isBusy
+                                    ? {}
+                                    : {
+                                        color: command.color === 'error' ? red.A400 : command.color,
+                                      }
+                                }
+                                aria-label={command.title}
+                                onClick={() => command.onClick(row)}
+                                size='small'
+                                disabled={command.disabled || isBusy}
+                              >
+                                <Icon name={command.icon} />
+                              </IconButton>
+                            </span>
+                          </Tooltip>
+                        ))}
                     </TableCell>
                   )}
-                  {columns.map((column) => renderCell(row, column))}
+                  {columns.map((column) => column && renderCell(row, column))}
                 </TableRow>
               );
             })}

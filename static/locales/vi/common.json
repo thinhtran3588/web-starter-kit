@@ -29,6 +29,7 @@
   "maxLengthError": "{{field}} không vượt quá {{maxCharacters}} kí tự",
   "nextPage": "Trang sau",
   "none": "(Bỏ trống)",
+  "pleaseUpdateData": "Vui lòng cập nhật dữ liệu",
   "previousPage": "Trang trước",
   "profile": "Thông tin cá nhân",
   "refresh": "Làm mới",
@@ -38,5 +39,6 @@
   "save": "Lưu",
   "socialMedias": "Mạng xã hội",
   "uniqueError": "{{field}} đã tồn tại",
-  "update": "Cập nhật"
+  "update": "Cập nhật",
+  "viewDetail": "Xem chi tiết"
 }

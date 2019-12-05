@@ -18,7 +18,7 @@ type Props<T> = FormikConfig<T> & {
   open: boolean;
   onClose: () => void;
   fields?: FieldInfo<T>[];
-  buttons?: ButtonProps[];
+  buttons?: (ButtonProps | false)[];
   setForm?: (ref: Formik<T>) => void;
   isBusy: boolean;
   fullScreen?: boolean;
@@ -125,7 +125,8 @@ export const FormDialog: <T>(props: Props<T>) => JSX.Element = (props) => {
                   {!!buttons && (
                     <div className={clsx(isDesktop && classes.buttonContainer)}>
                       {buttons
-                        .filter((button) => !button.hidden)
+                        .filter((button) => button && !button.hidden)
+                        .map((button) => button as ButtonProps)
                         .map((button) => (
                           <Button
                             {...button}

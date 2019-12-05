@@ -1,26 +1,17 @@
 import React from 'react';
 import { useTheme } from '@material-ui/styles';
-import { useMediaQuery, Theme, PropTypes } from '@material-ui/core';
+import { useMediaQuery, Theme } from '@material-ui/core';
 import { FieldInfo, FieldValueType, FieldType } from '@app/core';
 import { Formik, FormikConfig, FormikProps } from 'formik';
 import clsx from 'clsx';
 import { FormField } from '../FormField';
 import { Grid, GridSize, Breakpoint } from '../Grid';
-import { Button } from '../Button';
+import { Button, ButtonProps } from '../Button';
 import { useStyles } from './styles';
 
 type Props<T> = FormikConfig<T> & {
   fields?: FieldInfo<T>[];
-  buttons?: {
-    key?: string;
-    disabled?: boolean;
-    hidden?: boolean;
-    type?: 'submit' | 'reset' | 'button';
-    variant?: 'text' | 'outlined' | 'contained';
-    color?: PropTypes.Color;
-    title?: string;
-    onClick?: () => void;
-  }[];
+  buttons?: (ButtonProps | false)[];
   setForm?: (ref: Formik<T>) => void;
   isBusy: boolean;
 } & Partial<Record<Breakpoint, boolean | GridSize>>;
@@ -92,17 +83,15 @@ export const Form: <T>(props: Props<T>) => JSX.Element = (props) => {
                   {!!buttons && (
                     <div className={clsx(isDesktop && classes.buttonContainer)}>
                       {buttons
-                        .filter((button) => !button.hidden)
+                        .filter((button) => button && !button.hidden)
+                        .map((button) => button as ButtonProps)
                         .map((button) => (
                           <Button
+                            {...button}
                             key={button.key || button.title}
                             disabled={button.disabled || isBusy}
-                            type={button.type}
-                            variant={button.variant || 'contained'}
-                            color={button.color}
                             className={isDesktop ? classes.button : classes.mobileButton}
                             fullWidth={!isDesktop}
-                            onClick={button.onClick}
                           >
                             {button.title}
                           </Button>
