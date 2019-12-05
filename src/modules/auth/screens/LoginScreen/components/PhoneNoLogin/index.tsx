@@ -6,7 +6,6 @@ import { Form, Button } from '@app/components';
 import {
   FieldInfo,
   writeDataModel,
-  GET_COUNTRIES_QUERY,
   Country,
   PickerDataItem,
   showNotification,
@@ -19,6 +18,7 @@ import { config } from '@app/config';
 import { navigationService, authService } from '@app/services';
 import { useImmer } from 'use-immer';
 import { useStyles } from './styles';
+import { GET_COUNTRIES_QUERY } from '../../graphql';
 
 import('firebase/auth');
 
@@ -146,7 +146,7 @@ export const PhoneNoLogin = (props: Props): JSX.Element => {
         return;
       }
       setCountries(() =>
-        (data.countries as Country[]).map((m) => ({
+        (data.countries.data as Country[]).map((m) => ({
           value: m.dialCode,
           label: `${m.name}(${m.dialCode})`,
         })),

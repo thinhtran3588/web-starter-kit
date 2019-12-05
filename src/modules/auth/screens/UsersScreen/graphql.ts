@@ -12,8 +12,10 @@ export const GET_USERS_LOOKUPS_QUERY = gql`
       }
     }
     genders {
-      label
-      value
+      data {
+        label
+        value
+      }
     }
   }
 `;

@@ -14,8 +14,10 @@ export const GET_PROFILE_QUERY = gql`
       gender
     }
     genders {
-      label
-      value
+      data {
+        label
+        value
+      }
     }
   }
 `;
