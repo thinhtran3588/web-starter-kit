@@ -4,8 +4,9 @@ import firebase from 'firebase/app';
 import { useImmer } from 'use-immer';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Loading, Typography } from '@app/components';
-import { PermissionTree, GET_CURRENT_USER_QUERY, catchError, initApolloClient, AuthUser } from '@app/core';
+import { PermissionTree, GET_CURRENT_USER_QUERY, catchError, initApolloClient, AuthUser, cache } from '@app/core';
 import { navigationService } from '@app/services';
+import { gql } from 'apollo-boost';
 
 export const useStyles = makeStyles(() => ({
   container: {
@@ -20,7 +21,11 @@ interface AuthData {
   authUser: AuthUser;
   validating: boolean;
   isValid: boolean;
+  permissions: PermissionTree;
 }
+
+const PERMISSIONS_KEY = 'PERMISSIONS_KEY';
+const IS_ADMIN_KEY = 'IS_ADMIN_KEY';
 
 export const withAuth = (PageComponent: any, validate?: (permissionsTree: PermissionTree) => boolean): any => {
   const WithAuth = (props: any): any => {
@@ -33,9 +38,10 @@ export const withAuth = (PageComponent: any, validate?: (permissionsTree: Permis
       },
       validating: true,
       isValid: false,
+      permissions: {},
     });
     useEffect(() => {
-      const unsubscribe = firebase.auth().onAuthStateChanged(async () => {
+      const unsubscribe = firebase.auth().onAuthStateChanged(
         catchError(async () => {
           const { data, errors } = await initApolloClient().query({
             query: GET_CURRENT_USER_QUERY,
@@ -46,14 +52,40 @@ export const withAuth = (PageComponent: any, validate?: (permissionsTree: Permis
             });
             return;
           }
-          // const permissionsTree = await getPermissionTree();
+
+          let permissions: PermissionTree = cache.get(PERMISSIONS_KEY);
+          let isAdmin: boolean = cache.get(IS_ADMIN_KEY);
+          if (!permissions) {
+            const { data: permissionsData, errors: permissionsErrors } = await initApolloClient().query({
+              query: gql`
+                query GetUserPermissions {
+                  userPermissions(payload: {}) {
+                    permissions
+                    isAdmin
+                  }
+                }
+              `,
+            });
+            if (permissionsErrors || !permissionsData || !permissionsData.userPermissions) {
+              navigationService.navigateTo({
+                url: '/login',
+              });
+              return;
+            }
+            permissions = JSON.parse(permissionsData.userPermissions.permissions);
+            isAdmin = permissionsData.isAdmin;
+            cache.set(PERMISSIONS_KEY, permissions);
+            cache.set(IS_ADMIN_KEY, isAdmin);
+          }
+
           setAuthData(() => ({
             authUser: data.currentUser,
             validating: false,
-            isValid: !validate, // || validate(permissionsTree),
+            isValid: isAdmin || !validate || validate(permissions),
+            permissions,
           }));
-        })();
-      });
+        }),
+      );
       return () => {
         unsubscribe();
       };
@@ -74,7 +106,7 @@ export const withAuth = (PageComponent: any, validate?: (permissionsTree: Permis
         </div>
       );
     }
-    return <PageComponent {...props} authUser={authData.authUser} />;
+    return <PageComponent {...props} authUser={authData.authUser} permissions={authData.permissions} />;
   };
   return WithAuth;
 };

@@ -15,6 +15,7 @@
   "deleteConfirmationMessage": "Are you sure to delete this data?",
   "deleteConfirmationTitle": "Delete Confirmation",
   "displayedRows": "{{from}}-{{to}} of {{count}}",
+  "forbidden": "Forbidden",
   "home": "Home",
   "invalidError": "{{field}} is invalid",
   "invalidPassword": "Password must be at least 6 characters and at most 20 characters and must include at least one upper case letter, one lower case letter, one numeric digit and one special letter (!, @, #, $, %, ^, &, *)",

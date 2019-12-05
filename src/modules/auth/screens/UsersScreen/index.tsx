@@ -356,7 +356,10 @@ const Screen = (props: Props): JSX.Element => {
   );
 };
 
-const ScreenBeforeTranslation = withAuth(Screen);
+const ScreenBeforeTranslation = withAuth(
+  Screen,
+  (permissionTree) => !!permissionTree.users && (!!permissionTree.users.viewAny || !!permissionTree.users.viewOwn),
+);
 
 ScreenBeforeTranslation.getInitialProps = async () => {
   return {

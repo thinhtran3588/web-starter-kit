@@ -8,3 +8,4 @@ export * from './app_error';
 export * from './sanitize_form_data';
 export * from './get_error_message';
 export * from './sleep';
+export * from './cache';
