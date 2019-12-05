@@ -20,6 +20,7 @@ const Autocomplete = dynamic(() => import('@app/components/Autocomplete'));
 interface Props<T extends FieldValueType> {
   id?: string;
   label: string;
+  required?: boolean;
   value: T;
   isPassword?: boolean;
   type?: FieldType;
@@ -42,7 +43,7 @@ type FormField = <T extends FieldValueType>(props: Props<T>) => JSX.Element;
 
 export const FormField: FormField = (props) => {
   const {
-    label,
+    label: fieldLabel,
     value,
     type = 'text',
     id,
@@ -57,8 +58,10 @@ export const FormField: FormField = (props) => {
     placeholder,
     className,
     defaultValue,
+    required,
     ...other
   } = props;
+  const label = `${fieldLabel}${required ? '(*)' : ''}`;
   const classes = useStyles();
 
   const onFieldValueChange = (newValue: FieldValueType, useDebounce?: boolean): void => {

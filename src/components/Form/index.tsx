@@ -40,6 +40,7 @@ export const renderFormField = (field: FieldInfo<any>, context: FormikProps<any>
         isPassword={field.isPassword}
         disabled={field.disabled || isBusy}
         placeholder={field.placeholder}
+        required={field.required}
       />
     )}
     {!!field.customRender &&

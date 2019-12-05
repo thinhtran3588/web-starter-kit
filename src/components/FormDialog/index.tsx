@@ -108,6 +108,7 @@ export const FormDialog: <T>(props: Props<T>) => JSX.Element = (props) => {
                               isPassword={field.isPassword}
                               disabled={field.disabled || isBusy}
                               placeholder={field.placeholder}
+                              required={field.required}
                             />
                           )}
                           {!!field.customRender &&
