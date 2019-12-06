@@ -117,17 +117,16 @@ export const Detail = (props: Props): JSX.Element => {
                 field: t('email'),
               }),
             ),
-    password:
-      !!id && !validatePermissions('users', 'updateAny', 'password')
-        ? undefined
-        : yup
-            .string()
-            .required(
-              t('common:requiredError', {
-                field: t('password'),
-              }),
-            )
-            .matches(config.regex.password, t('common:invalidPassword')),
+    password: id
+      ? undefined
+      : yup
+          .string()
+          .required(
+            t('common:requiredError', {
+              field: t('password'),
+            }),
+          )
+          .matches(config.regex.password, t('common:invalidPassword')),
     firstName:
       !!id && !validatePermissions('users', 'updateAny', 'firstName')
         ? undefined
@@ -296,13 +295,14 @@ export const Detail = (props: Props): JSX.Element => {
       name: 'password',
       label: t('password'),
       required: true,
+      isPassword: true,
       disabled: !!id && !validatePermissions('users', 'updateAny', 'password'),
       hidden: !!id || !validatePermissions('users', 'viewAny', 'password'),
     },
     {
       name: 'email',
       label: t('email'),
-      required: true,
+      required: !id || user.loginDetail.loginType === 'EMAIL' || user.loginDetail.loginType === 'GOOGLE',
       disabled:
         !!id &&
         (user.loginDetail.loginType === 'EMAIL' ||
@@ -333,6 +333,7 @@ export const Detail = (props: Props): JSX.Element => {
     {
       name: 'phoneNo',
       label: t('phoneNo'),
+      required: user.loginDetail.loginType === 'PHONE_NO',
       disabled:
         !!id && (user.loginDetail.loginType === 'PHONE_NO' || !validatePermissions('users', 'updateAny', 'phoneNo')),
       hidden: !!id && !validatePermissions('users', 'viewAny', 'phoneNo'),
@@ -371,7 +372,6 @@ export const Detail = (props: Props): JSX.Element => {
     {
       name: 'roles',
       label: t('roles'),
-      required: true,
       type: 'multipicker',
       pickerDataSources: roleLookups,
       disabled: !!id && !validatePermissions('users', 'updateAny', 'roles'),
@@ -380,7 +380,6 @@ export const Detail = (props: Props): JSX.Element => {
     {
       name: 'permissions',
       label: t('permissions'),
-      required: true,
       customRender({ data }) {
         let permissionTree: PermissionTree = {};
         ((data.roles as string[]) || []).forEach((roleId) => {

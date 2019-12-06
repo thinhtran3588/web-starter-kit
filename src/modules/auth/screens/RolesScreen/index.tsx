@@ -181,7 +181,7 @@ const Screen = (props: Props): JSX.Element => {
         });
         return;
       }
-      setAggregateConfigs(() => data.aggregateConfigs);
+      setAggregateConfigs(() => data.aggregateConfigs.data);
     }, setIsBusy)();
   }, []);
   /* --- effects - end --- */

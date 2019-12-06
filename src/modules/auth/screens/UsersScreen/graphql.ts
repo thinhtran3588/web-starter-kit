@@ -21,12 +21,12 @@ export const GET_USERS_LOOKUPS_QUERY = gql`
 `;
 
 export const GET_USERS_QUERY = gql`
-  query getUsers($filter: String, $pageIndex: Int!, $itemsPerPage: Int!) {
+  query getUsers($filter: String, $loginType: String, $role: String, $pageIndex: Int!, $itemsPerPage: Int!) {
     users(
       payload: {
         filter_textSearch: $filter
-        # role: $role
-        # loginType: $loginType
+        roles_contains: $role
+        loginDetail_loginType_eq: $loginType
         pageIndex: $pageIndex
         itemsPerPage: $itemsPerPage
       }
@@ -51,6 +51,7 @@ export const GET_USERS_QUERY = gql`
             loginType
           }
         }
+        roles
         isActive
         lastLoggedInAt
         createdAt

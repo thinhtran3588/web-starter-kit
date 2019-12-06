@@ -21,6 +21,7 @@
   "middleName": "Middle Name",
   "newPassword": "New Password",
   "password": "Password",
+  "permissions": "Permissions",
   "phoneNo": "Phone No",
   "registeredAt": "Created At",
   "role": "Role",

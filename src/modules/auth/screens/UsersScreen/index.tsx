@@ -36,7 +36,7 @@ interface FormData {
 const defaultFilter: FormData = {
   filter: '',
   loginType: '',
-  role: 'role',
+  role: '',
 };
 
 const Screen = (props: Props): JSX.Element => {
@@ -274,6 +274,16 @@ const Screen = (props: Props): JSX.Element => {
             onValueChange={(value) => updateSearchResult('isActive', data.id, value)}
           />
         );
+      },
+    },
+    validatePermissions('users', 'viewAny', 'roles') && {
+      field: 'roles',
+      label: t('roles'),
+      minWidth: 150,
+      customRender(data) {
+        return (data.roles || [])
+          .map((roleId: string) => (roles.find((role) => role.id === roleId) || {}).name)
+          .join(', ');
       },
     },
     validatePermissions('users', 'viewAny', 'lastLoggedInAt') && {
