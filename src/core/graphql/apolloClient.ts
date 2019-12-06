@@ -4,6 +4,7 @@ import { config } from '@app/config';
 import { persistCache } from 'apollo-cache-persist';
 import fetch from 'isomorphic-unfetch';
 import firebase from 'firebase/app';
+import { i18n } from '../i18n';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type CacheShape = any;
@@ -54,11 +55,13 @@ const httpLink = new HttpLink({
 const authLink = setContext(async (_, { headers }) => {
   const user = firebase.auth().currentUser;
   const token = user ? await user.getIdToken() : '';
+  const lang = i18n.language;
   // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
       authorization: token,
+      lang,
     },
   };
 });
