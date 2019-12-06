@@ -3,12 +3,14 @@ import { gql } from 'apollo-boost';
 export const GET_AGGREGATE_CONFIGS_QUERY = gql`
   query getAggregateConfigs {
     aggregateConfigs {
-      id
-      name
-      viewFields
-      updateFields
-      customActions
-      excludedActions
+      data {
+        id
+        name
+        viewFields
+        updateFields
+        customActions
+        excludedActions
+      }
     }
   }
 `;
