@@ -255,7 +255,7 @@ const Screen = (props: Props): JSX.Element => {
       minWidth: 120,
     },
     validatePermissions('users', 'viewAny', 'loginDetail') && {
-      field: ['loginDetail', 'loginType'],
+      field: 'loginDetail.loginType',
       label: t('loginType'),
       minWidth: 120,
       format: formatWithLookup(loginTypes),
@@ -275,6 +275,7 @@ const Screen = (props: Props): JSX.Element => {
           />
         );
       },
+      sortable: false,
     },
     validatePermissions('users', 'viewAny', 'roles') && {
       field: 'roles',
@@ -285,6 +286,7 @@ const Screen = (props: Props): JSX.Element => {
           .map((roleId: string) => (roles.find((role) => role.id === roleId) || {}).name)
           .join(', ');
       },
+      sortable: false,
     },
     validatePermissions('users', 'viewAny', 'lastLoggedInAt') && {
       field: 'lastLoggedInAt',
@@ -297,6 +299,7 @@ const Screen = (props: Props): JSX.Element => {
       field: 'createdByName',
       label: t('common:createdBy'),
       minWidth: 200,
+      sortable: false,
     },
     validatePermissions('users', 'viewAny', 'createdAt') && {
       field: 'createdAt',
@@ -308,6 +311,7 @@ const Screen = (props: Props): JSX.Element => {
       field: 'lastModifiedByName',
       label: t('common:lastModifiedBy'),
       minWidth: 200,
+      sortable: false,
     },
     validatePermissions('users', 'viewAny', 'lastModifiedAt') && {
       field: 'lastModifiedAt',
@@ -353,6 +357,11 @@ const Screen = (props: Props): JSX.Element => {
         rows={searchResult ? searchResult.data : []}
         count={searchResult ? searchResult.pagination.total : 0}
         isBusy={isBusy}
+        sortable
+        orderBy={{
+          field: 'displayName',
+          direction: 'asc',
+        }}
       />
       {detailParams.open && (
         <Detail

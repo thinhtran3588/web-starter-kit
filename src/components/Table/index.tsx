@@ -7,9 +7,18 @@ import {
   TableHead as MuiTableHead,
   TablePagination as MuiTablePagination,
   TableRow as MuiTableRow,
+  TableSortLabel as MuiTableSortLabel,
 } from '@material-ui/core';
 import red from '@material-ui/core/colors/red';
-import { OffsetPagination, TableColumn, FieldValueType, RowCommand, withTranslation, WithTranslation } from '@app/core';
+import {
+  OffsetPagination,
+  TableColumn,
+  FieldValueType,
+  RowCommand,
+  withTranslation,
+  WithTranslation,
+  OrderBy,
+} from '@app/core';
 import { config } from '@app/config';
 import { useStyles } from './styles';
 import { IconButton } from '../IconButton';
@@ -29,6 +38,9 @@ interface Props extends WithTranslation {
   bodyMinHeight?: string | number;
   size?: 'small' | 'medium';
   isBusy?: boolean;
+  orderBy: OrderBy;
+  onOrderByChange?: (orderBy: OrderBy) => void;
+  sortable?: boolean;
 }
 
 export const TableBody = MuiTableBody;
@@ -36,6 +48,7 @@ export const TableCell = MuiTableCell;
 export const TableHead = MuiTableHead;
 export const TablePagination = MuiTablePagination;
 export const TableRow = MuiTableRow;
+export const TableSortLabel = MuiTableSortLabel;
 export const RawTable = MuiTable;
 
 export const BaseTable = (props: Props): JSX.Element => {
@@ -52,6 +65,9 @@ export const BaseTable = (props: Props): JSX.Element => {
     size,
     commands,
     isBusy,
+    orderBy,
+    onOrderByChange,
+    sortable,
     t,
   } = props;
   const classes = useStyles();
@@ -77,15 +93,13 @@ export const BaseTable = (props: Props): JSX.Element => {
   const renderCell = (row: { [id: string]: FieldValueType }, column: TableColumn): JSX.Element => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let value: any = row;
-    let key = '';
-    if (!Array.isArray(column.field)) {
-      key = column.field;
-      value = row[column.field];
+    const properties = column.field.split('.');
+    if (properties.length === 1) {
+      value = row[properties[0]];
     } else {
-      key = column.field.join('_');
-      for (let i = 0; i < column.field.length; i += 1) {
-        if (value[column.field[i]] !== undefined) {
-          value = value[column.field[i]];
+      for (let i = 0; i < properties.length; i += 1) {
+        if (value[properties[i]] !== undefined) {
+          value = value[properties[i]];
         }
       }
     }
@@ -93,7 +107,7 @@ export const BaseTable = (props: Props): JSX.Element => {
     value = value === undefined || value === null ? '' : value;
 
     return (
-      <TableCell key={key} align={column.align}>
+      <TableCell key={column.field} align={column.align}>
         {!!column.customRender && column.customRender(row)}
         {!column.customRender && <>{column.format ? column.format(value) : value.toString()}</>}
       </TableCell>
@@ -101,6 +115,13 @@ export const BaseTable = (props: Props): JSX.Element => {
   };
 
   const rowCommands = commands ? commands.filter((command) => !!command).map((command) => command as RowCommand) : [];
+  const createSortHandler = (field: string) => (_event: React.MouseEvent<unknown>) => {
+    onOrderByChange &&
+      onOrderByChange({
+        field,
+        direction: orderBy.field === field && orderBy.direction === 'asc' ? 'desc' : 'asc',
+      });
+  };
 
   return (
     <div className={clsx(classes.root, className)}>
@@ -108,7 +129,7 @@ export const BaseTable = (props: Props): JSX.Element => {
         className={classes.tableWrapper}
         style={{
           maxHeight: bodyMaxHeight,
-          minHeight: bodyMinHeight, // shows minimum 5 columns
+          minHeight: bodyMinHeight,
         }}
       >
         <MuiTable stickyHeader size={size}>
@@ -122,8 +143,8 @@ export const BaseTable = (props: Props): JSX.Element => {
                   className={classes.commandCell}
                 />
               )}
-              {columns.map(
-                (column) =>
+              {columns.map((column) => {
+                return (
                   column && (
                     <TableCell
                       key={Array.isArray(column.field) ? column.field.join('_') : column.field}
@@ -131,11 +152,30 @@ export const BaseTable = (props: Props): JSX.Element => {
                       style={{
                         minWidth: column.minWidth,
                       }}
+                      sortDirection={orderBy.field === column.field ? orderBy.direction : false}
                     >
-                      {column.label}
+                      {sortable && column.sortable !== false ? (
+                        <TableSortLabel
+                          active={orderBy.field === column.field}
+                          direction={orderBy.direction}
+                          onClick={createSortHandler(column.field)}
+                        >
+                          {column.label}
+                          {orderBy.field === column.field ? (
+                            <span className={classes.visuallyHidden}>
+                              {orderBy.direction === 'desc' ? 'sorted descending' : 'sorted ascending'}
+                            </span>
+                          ) : (
+                            <></>
+                          )}
+                        </TableSortLabel>
+                      ) : (
+                        <>{column.label}</>
+                      )}
                     </TableCell>
-                  ),
-              )}
+                  )
+                );
+              })}
             </TableRow>
           </TableHead>
           <TableBody>

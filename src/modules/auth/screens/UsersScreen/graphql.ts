@@ -21,7 +21,14 @@ export const GET_USERS_LOOKUPS_QUERY = gql`
 `;
 
 export const GET_USERS_QUERY = gql`
-  query getUsers($filter: String, $loginType: String, $role: String, $pageIndex: Int!, $itemsPerPage: Int!) {
+  query getUsers(
+    $filter: String
+    $loginType: String
+    $role: String
+    $pageIndex: Int!
+    $itemsPerPage: Int!
+    $orderBy: String
+  ) {
     users(
       payload: {
         filter_textSearch: $filter
@@ -29,6 +36,7 @@ export const GET_USERS_QUERY = gql`
         loginDetail_loginType_eq: $loginType
         pageIndex: $pageIndex
         itemsPerPage: $itemsPerPage
+        orderBy: $orderBy
       }
     ) {
       data {

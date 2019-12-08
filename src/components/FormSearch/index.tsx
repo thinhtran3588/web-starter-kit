@@ -9,6 +9,7 @@ import {
   TableColumn,
   FilterWithOffsetPagination,
   RowCommand,
+  OrderBy,
 } from '@app/core';
 import { config } from '@app/config';
 import { Table } from '../Table';
@@ -32,6 +33,8 @@ interface Props<T> {
   commandButtons?: (ButtonProps | false)[];
   size?: 'small' | 'medium';
   isBusy?: boolean;
+  sortable?: boolean;
+  orderBy?: OrderBy;
 }
 
 interface State {
@@ -42,6 +45,7 @@ interface State {
     pageIndex: number;
     itemsPerPage: number;
   };
+  orderBy: OrderBy;
 }
 
 export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
@@ -59,6 +63,7 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
     size,
     rowCommands,
     isBusy,
+    sortable,
   } = props;
   const classes = useStyles();
 
@@ -87,12 +92,19 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
   }, [isSx, isSm, isMd]);
 
   // handle filter, pagination change
+  const tableColumns = columns
+    .filter((column) => column && column.sortable !== false)
+    .map((column) => column as TableColumn);
   const [state, setState] = useImmer<State>({
     filter: defaultFilter || {},
     useDebounce: false,
     pagination: {
       pageIndex: 0,
       itemsPerPage: config.rowsPerPageOptions[0],
+    },
+    orderBy: {
+      field: tableColumns.length > 0 ? tableColumns[0].field : '',
+      direction: 'asc',
     },
   });
 
@@ -107,12 +119,18 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
       draft.pagination.itemsPerPage = newPagination.itemsPerPage;
       draft.useDebounce = false;
     });
+  const handleOrderByChange = (newOrder: OrderBy): void => {
+    setState((draft: State) => {
+      draft.orderBy = newOrder;
+    });
+  };
   useEffect(() => {
     onFilterChange &&
       onFilterChange(
         {
           ...state.filter,
           ...state.pagination,
+          orderBy: `${state.orderBy.field}_${state.orderBy.direction}`,
         },
         state.useDebounce,
       );
@@ -140,6 +158,9 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
         bodyMaxHeight={bodyMaxHeight}
         size={size || 'small'}
         isBusy={isBusy}
+        orderBy={state.orderBy}
+        onOrderByChange={handleOrderByChange}
+        sortable={sortable}
       />
       {children}
     </Paper>

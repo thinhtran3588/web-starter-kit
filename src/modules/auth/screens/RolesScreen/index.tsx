@@ -207,6 +207,7 @@ const Screen = (props: Props): JSX.Element => {
       field: 'description',
       label: t('description'),
       minWidth: 300,
+      sortable: false,
     },
     validatePermissions('roles', 'viewAny', 'isActive') && {
       field: 'isActive',
@@ -223,6 +224,7 @@ const Screen = (props: Props): JSX.Element => {
           />
         );
       },
+      sortable: false,
     },
     validatePermissions('roles', 'viewAny', 'isDefault') && {
       field: 'isDefault',
@@ -239,11 +241,13 @@ const Screen = (props: Props): JSX.Element => {
           />
         );
       },
+      sortable: false,
     },
     validatePermissions('roles', 'viewAny', 'createdBy') && {
       field: 'createdByName',
       label: t('common:createdBy'),
       minWidth: 200,
+      sortable: false,
     },
     validatePermissions('roles', 'viewAny', 'createdAt') && {
       field: 'createdAt',
@@ -255,6 +259,7 @@ const Screen = (props: Props): JSX.Element => {
       field: 'lastModifiedByName',
       label: t('common:lastModifiedBy'),
       minWidth: 200,
+      sortable: false,
     },
     validatePermissions('roles', 'viewAny', 'lastModifiedAt') && {
       field: 'lastModifiedAt',
@@ -302,6 +307,11 @@ const Screen = (props: Props): JSX.Element => {
         rows={searchResult ? searchResult.data : []}
         count={searchResult ? searchResult.pagination.total : 0}
         isBusy={isBusy}
+        sortable
+        orderBy={{
+          field: 'name',
+          direction: 'asc',
+        }}
       />
       {detailParams.open && (
         <Detail
