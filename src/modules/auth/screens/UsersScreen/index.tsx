@@ -207,7 +207,7 @@ const Screen = (props: Props): JSX.Element => {
           value: '',
           label: t('common:none'),
         },
-        ...(data ? (data.genders.data as PickerDataItem<string>[]) : []),
+        ...(data ? (data.authLookups.genders as PickerDataItem<string>[]) : []),
       ]);
     }, setIsBusy)();
   }, []);

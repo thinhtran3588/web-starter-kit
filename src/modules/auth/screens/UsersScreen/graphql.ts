@@ -11,8 +11,8 @@ export const GET_USERS_LOOKUPS_QUERY = gql`
         isDefault
       }
     }
-    genders {
-      data {
+    authLookups {
+      genders {
         label
         value
       }

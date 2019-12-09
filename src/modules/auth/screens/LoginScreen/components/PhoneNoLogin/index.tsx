@@ -146,7 +146,7 @@ export const PhoneNoLogin = (props: Props): JSX.Element => {
         return;
       }
       setCountries(() =>
-        (data.countries.data as Country[]).map((m) => ({
+        (data.authLookups.countries as Country[]).map((m) => ({
           value: m.dialCode,
           label: `${m.name}(${m.dialCode})`,
         })),

@@ -13,8 +13,8 @@ export const GET_PROFILE_QUERY = gql`
       dob
       gender
     }
-    genders {
-      data {
+    authLookups {
+      genders {
         label
         value
       }
