@@ -220,7 +220,7 @@ export const Detail = (props: Props): JSX.Element => {
       }
       const variables = {
         id,
-        ...input,
+        ...updatedData,
       };
       if (user.username || !input.username) {
         delete variables.username;
