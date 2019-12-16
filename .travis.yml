@@ -1,9 +1,15 @@
+dist: trusty
 # only build develop, master & production branch
 branches:
   only:
     - master
     - develop
     - production
+addons:
+  sonarcloud:
+    organization: 'thinhtran3588'
+    token:
+      secure: 'aLdTsiMIHizAZ8oyFCrZ1nO75LkWLtmPk3L+NX6oNm3BPGEmi7A0orL9N0zOuMHgIxUUJEaPdcsSfZcAYnfb0D+xI6cNHGrcX8IM3qmKstFwU+jlMWd3pKtL10zAK7745z3w7Rg5TTa1eOQv4mpnD0X4j/Wn/gmtGRDzcCTOCt8sijQdMMylvsCgscuHJd92Oneg6nT3Rcvp2EYn4MLDFURCOfW1jayivCU+xVr6Cte7G8DC9Of2NbFsHBuSzRxf0+ca71PFBUINmMZFrw/X0+NdRkgzFvyknWMxfrPY8Cowx7UfVzQlO7z/eZkK44z3msAeEb25js0yGiEoL+EOeNrkNwn/GN04aZkuI95iuGnqPgyq+yvDDRHhGx4TnWMDP4AXDn8zJCebQ2tfeSRYlgl9XkAw/7goS1RoaP2V6uHLVi+or9+inV3APZv4m9XINvy3W2EkBp4RAa86gdejfJVCLuh89/DWFjwbfcYmJ2ZJ1AWS82wfWI5oqarTXXOf/IH0F4ehqSaqIHruf/dFo+GMsQuEB12ZxkNor6PYVWbhu2ojmZlXkK5oFkzALmYd+b51MmGi3RO3sMwu+vKyTLN3W9clB4GXIQICHiHIo03gBKM9uPklWXGjgQ5GFDfbBE2C0eRqOWsB1tSP7LmC03OH/tDdWq3r1FQA46h2caY='
 language: node_js
 node_js: 10.16.0
 before_install:
@@ -17,9 +23,10 @@ jobs:
   include:
     - stage: Validate
       script: yarn validate &&
-        yarn coveralls
-    - stage: Publish develop
-      if: branch = develop
+        yarn coveralls &&
+        sonar-scanner
+    - stage: Publish production
+      if: branch = production
       script: pip install --user awscli &&
         npm install -g serverless &&
         curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash &&
