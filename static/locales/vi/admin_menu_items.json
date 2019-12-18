@@ -1,0 +1,13 @@
+{
+  "icon": "Icon",
+  "id": "Id",
+  "isActive": "Đang hoạt động",
+  "lang": "Ngôn ngữ",
+  "menuItems": "Danh mục",
+  "name": "Tên",
+  "order": "Thứ tự",
+  "parentId": "Id cha",
+  "permissions": "Quyền",
+  "type": "Loại",
+  "url": "Url"
+}

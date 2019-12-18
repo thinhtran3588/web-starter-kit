@@ -1,0 +1,13 @@
+{
+  "icon": "Icon",
+  "id": "Id",
+  "isActive": "Is Active",
+  "lang": "Language",
+  "menuItems": "Menu Items",
+  "name": "Name",
+  "order": "Order",
+  "parentId": "Parent Id",
+  "permissions": "Permissions",
+  "type": "Type",
+  "url": "Url"
+}
