@@ -64,6 +64,7 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
     rowCommands,
     isBusy,
     sortable,
+    orderBy,
   } = props;
   const classes = useStyles();
 
@@ -102,7 +103,7 @@ export const FormSearch: <T>(props: Props<T>) => JSX.Element = (props) => {
       pageIndex: 0,
       itemsPerPage: config.rowsPerPageOptions[0],
     },
-    orderBy: {
+    orderBy: orderBy || {
       field: tableColumns.length > 0 ? tableColumns[0].field : '',
       direction: 'asc',
     },
