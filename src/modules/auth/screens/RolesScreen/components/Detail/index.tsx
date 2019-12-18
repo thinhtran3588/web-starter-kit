@@ -13,6 +13,8 @@ import {
   TFunction,
   ValidatePermissions,
   getUpdatedData,
+  getStringValidationSchema,
+  getBooleanValidationSchema,
 } from '@app/core';
 import { config } from '@app/config';
 import { PermissionsTable, AggregateConfig } from '../PermissionsTable';
@@ -56,44 +58,38 @@ export const Detail = (props: Props): JSX.Element => {
   /* --- variables & states - begin --- */
   const { id, t, isBusy, setIsBusy, open, onClose, aggregateConfigs, refresh, validatePermissions } = props;
   const [role, setRole] = useImmer(defaultRole);
+  const validationParams = {
+    id,
+    t,
+    validatePermissions,
+    aggregateName: 'users',
+  };
   const validationSchema = yup.object().shape<Partial<FormData>>({
-    name:
-      !!id && !validatePermissions('roles', 'updateAny', 'name')
-        ? undefined
-        : yup
-            .string()
-            .required(
-              t('common:requiredError', {
-                field: t('name'),
-              }),
-            )
-            .max(
-              config.validation.string.maxLength,
-              t('common:maxLengthError', {
-                field: t('name'),
-                maxCharacters: config.validation.string.maxLength,
-              }),
-            ),
-    description:
-      !!id && !validatePermissions('roles', 'updateAny', 'description')
-        ? undefined
-        : yup
-            .string()
-            .required(
-              t('common:requiredError', {
-                field: t('description'),
-              }),
-            )
-            .max(
-              config.validation.string.descriptionMaxLength,
-              t('common:maxLengthError', {
-                field: t('description'),
-                maxCharacters: config.validation.string.descriptionMaxLength,
-              }),
-            ),
-    isActive: !!id && !validatePermissions('roles', 'updateAny', 'isActive') ? undefined : yup.boolean(),
-    isDefault: !!id && !validatePermissions('roles', 'updateAny', 'isDefault') ? undefined : yup.boolean(),
-    permissions: !!id && !validatePermissions('roles', 'updateAny', 'permissions') ? undefined : yup.string(),
+    name: getStringValidationSchema({
+      ...validationParams,
+      field: 'name',
+      required: true,
+    }),
+    description: getStringValidationSchema({
+      ...validationParams,
+      field: 'description',
+      required: true,
+      max: config.validation.string.descriptionMaxLength,
+    }),
+    isActive: getBooleanValidationSchema({
+      ...validationParams,
+      field: 'isActive',
+      required: true,
+    }),
+    isDefault: getBooleanValidationSchema({
+      ...validationParams,
+      field: 'isDefault',
+      required: true,
+    }),
+    permissions: getStringValidationSchema({
+      ...validationParams,
+      field: 'permissions',
+    }),
   });
   /* --- variables & states - end --- */
 

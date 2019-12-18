@@ -13,3 +13,4 @@ export * from './get_updated_data';
 export * from './get_string_validation_schema';
 export * from './get_boolean_validation_schema';
 export * from './get_number_validation_schema';
+export * from './get_array_validation_schema';

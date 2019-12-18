@@ -16,6 +16,9 @@ import {
   sanitizeFormData,
   ValidatePermissions,
   getUpdatedData,
+  getStringValidationSchema,
+  getArrayValidationSchema,
+  getBooleanValidationSchema,
 } from '@app/core';
 import { config } from '@app/config';
 import { PermissionsTable } from '../PermissionsTable';
@@ -89,112 +92,72 @@ export const Detail = (props: Props): JSX.Element => {
     ...defaultUser,
     roles: roles.filter((role) => role.isActive && role.isDefault).map((role) => role.id),
   });
+  const validationParams = {
+    id,
+    t,
+    validatePermissions,
+    aggregateName: 'users',
+  };
   const validationSchema = yup.object().shape<Partial<FormData>>({
-    username:
-      !!id && !validatePermissions('users', 'updateAny', 'username')
-        ? undefined
-        : yup
-            .string()
-            .required(
-              t('common:requiredError', {
-                field: t('username'),
-              }),
-            )
-            .matches(config.regex.username, t('common:invalidUsername')),
-    email:
-      !!id && !validatePermissions('users', 'updateAny', 'email')
-        ? undefined
-        : yup
-            .string()
-            .required(
-              t('common:requiredError', {
-                field: t('email'),
-              }),
-            )
-            .matches(
-              config.regex.email,
-              t('common:invalidError', {
-                field: t('email'),
-              }),
-            ),
-    password: id
-      ? undefined
-      : yup
-          .string()
-          .required(
-            t('common:requiredError', {
-              field: t('password'),
-            }),
-          )
-          .matches(config.regex.password, t('common:invalidPassword')),
-    firstName:
-      !!id && !validatePermissions('users', 'updateAny', 'firstName')
-        ? undefined
-        : yup
-            .string()
-            .required(
-              t('common:requiredError', {
-                field: t('firstName'),
-              }),
-            )
-            .max(
-              config.validation.string.maxLength,
-              t('common:maxLengthError', {
-                field: t('firstName'),
-                maxCharacters: config.validation.string.maxLength,
-              }),
-            ),
-    middleName:
-      !!id && !validatePermissions('users', 'updateAny', 'middleName')
-        ? undefined
-        : yup.string().max(
-            config.validation.string.maxLength,
-            t('common:maxLengthError', {
-              field: t('middleName'),
-              maxCharacters: config.validation.string.maxLength,
-            }),
-          ),
-    lastName:
-      !!id && !validatePermissions('users', 'updateAny', 'lastName')
-        ? undefined
-        : yup
-            .string()
-            .required(
-              t('common:requiredError', {
-                field: t('lastName'),
-              }),
-            )
-            .max(
-              config.validation.string.maxLength,
-              t('common:maxLengthError', {
-                field: t('lastName'),
-                maxCharacters: config.validation.string.maxLength,
-              }),
-            ),
-    phoneNo:
-      !!id && !validatePermissions('users', 'updateAny', 'phoneNo')
-        ? undefined
-        : yup.string().max(
-            config.validation.string.maxLength,
-            t('common:maxLengthError', {
-              field: t('phoneNo'),
-              maxCharacters: config.validation.string.maxLength,
-            }),
-          ),
-    address:
-      !!id && !validatePermissions('users', 'updateAny', 'address')
-        ? undefined
-        : yup.string().max(
-            config.validation.string.maxLength,
-            t('common:maxLengthError', {
-              field: t('address'),
-              maxCharacters: config.validation.string.maxLength,
-            }),
-          ),
-    dob: !!id && !validatePermissions('users', 'updateAny', 'dob') ? undefined : yup.string(),
-    gender: !!id && !validatePermissions('users', 'updateAny', 'gender') ? undefined : yup.string(),
-    roles: !!id && !validatePermissions('users', 'updateAny', 'roles') ? undefined : yup.array(),
-    isActive: !!id && !validatePermissions('users', 'updateAny', 'isActive') ? undefined : yup.boolean(),
+    username: getStringValidationSchema({
+      ...validationParams,
+      field: 'username',
+      required: true,
+      regex: config.regex.username,
+      regexErrorMessage: t('common:invalidUsername'),
+    }),
+    email: getStringValidationSchema({
+      ...validationParams,
+      field: 'email',
+      required: true,
+      regex: config.regex.email,
+    }),
+    password: getStringValidationSchema({
+      ...validationParams,
+      field: 'password',
+      required: true,
+      regex: config.regex.password,
+      regexErrorMessage: t('common:invalidPassword'),
+    }),
+    firstName: getStringValidationSchema({
+      ...validationParams,
+      field: 'firstName',
+      required: true,
+    }),
+    middleName: getStringValidationSchema({
+      ...validationParams,
+      field: 'middleName',
+    }),
+    lastName: getStringValidationSchema({
+      ...validationParams,
+      field: 'lastName',
+      required: true,
+    }),
+    phoneNo: getStringValidationSchema({
+      ...validationParams,
+      field: 'phoneNo',
+    }),
+    address: getStringValidationSchema({
+      ...validationParams,
+      field: 'address',
+    }),
+    dob: getStringValidationSchema({
+      ...validationParams,
+      field: 'dob',
+    }),
+    gender: getStringValidationSchema({
+      ...validationParams,
+      field: 'gender',
+    }),
+    roles: getArrayValidationSchema({
+      ...validationParams,
+      field: 'roles',
+    }),
+    isActive: getBooleanValidationSchema({
+      ...validationParams,
+      field: 'isActive',
+      required: true,
+    }),
   });
   /* --- variables & states - end --- */
 

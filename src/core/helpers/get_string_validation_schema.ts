@@ -11,19 +11,33 @@ interface StringValidationSchemaParams {
   field: string;
   t: TFunction;
   required?: boolean;
+  regex?: RegExp;
+  regexErrorMessage?: string;
+  max?: number;
 }
 
 export const getStringValidationSchema = (params: StringValidationSchemaParams): yup.StringSchema | undefined => {
-  const { id, validatePermissions, t, aggregateName, action = 'updateAny', field, required = false } = params;
+  const {
+    id,
+    validatePermissions,
+    t,
+    aggregateName,
+    action = 'updateAny',
+    field,
+    required = false,
+    regex,
+    regexErrorMessage,
+    max,
+  } = params;
   if (!!id && !validatePermissions(aggregateName, action, field)) {
     return undefined;
   }
 
   let schema = yup.string().max(
-    config.validation.string.maxLength,
+    max || config.validation.string.maxLength,
     t('common:maxLengthError', {
       field: t(field),
-      maxCharacters: config.validation.string.maxLength,
+      maxCharacters: max || config.validation.string.maxLength,
     }),
   );
   if (required) {
@@ -31,6 +45,15 @@ export const getStringValidationSchema = (params: StringValidationSchemaParams):
       t('common:requiredError', {
         field: t(field),
       }),
+    );
+  }
+  if (regex) {
+    schema = schema.matches(
+      regex,
+      regexErrorMessage ||
+        t('common:invalidError', {
+          field: t(field),
+        }),
     );
   }
   return schema;
