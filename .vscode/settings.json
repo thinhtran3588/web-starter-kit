@@ -1,11 +1,4 @@
 {
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    { "language": "typescript", "autoFix": true },
-    { "language": "typescriptreact", "autoFix": true }
-  ],
   "editor.formatOnSave": true,
   "[javascript]": {
     "editor.formatOnSave": false
@@ -22,5 +15,8 @@
   "plantuml.includepaths": ["docs/diagrams/style", "docs/diagrams/src"],
   "plantuml.diagramsRoot": "docs/diagrams/src",
   "plantuml.exportOutDir": "docs/diagrams/out",
-  "colorize.languages": ["javascript", "typescript"]
+  "colorize.languages": ["javascript", "typescript"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
