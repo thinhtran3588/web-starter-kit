@@ -61,7 +61,7 @@ const authLink = setContext(async (_, { headers }) => {
     headers: {
       ...headers,
       authorization: token,
-      lang,
+      'Content-Language': lang,
     },
   };
 });
