@@ -16,7 +16,7 @@ export const GET_AGGREGATE_CONFIGS_QUERY = gql`
 `;
 
 export const GET_ROLES_QUERY = gql`
-  query getUsers($filter: String, $pageIndex: Int!, $itemsPerPage: Int!, $orderBy: String) {
+  query getRoles($filter: String, $pageIndex: Int!, $itemsPerPage: Int!, $orderBy: String) {
     roles(
       payload: { filter_textSearch: $filter, pageIndex: $pageIndex, itemsPerPage: $itemsPerPage, orderBy: $orderBy }
     ) {
