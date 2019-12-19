@@ -13,7 +13,7 @@ export const GET_MENU_ITEMS_QUERY = gql`
         permissions
         isActive
         parentId
-        order
+        sortOrder
         icon
         type
         createdAt
@@ -49,7 +49,7 @@ export const GET_MENU_ITEM_QUERY = gql`
       permissions
       isActive
       parentId
-      order
+      sortOrder
       icon
       type
     }
@@ -60,12 +60,13 @@ export const CREATE_MENU_ITEM_MUTATION = gql`
   mutation CreateMenuItem(
     $lang: String!
     $name: String!
-    $url: String!
-    $permissions: String!
     $isActive: Boolean!
-    $parentId: String
-    $order: Int!
+    $sortOrder: Int!
     $type: MenuItemType!
+    $permissions: String
+    $url: String
+    $parentId: String
+    $icon: String
   ) {
     menuItems {
       create(
@@ -76,8 +77,9 @@ export const CREATE_MENU_ITEM_MUTATION = gql`
           permissions: $permissions
           isActive: $isActive
           parentId: $parentId
-          order: $order
+          sortOrder: $sortOrder
           type: $type
+          icon: $icon
         }
       ) {
         id
@@ -91,12 +93,13 @@ export const UPDATE_MENU_ITEM_MUTATION = gql`
     $id: ID!
     $lang: String
     $name: String
-    $url: String
-    $permissions: String
     $isActive: Boolean
-    $parentId: String
-    $order: Int
+    $sortOrder: Int
     $type: MenuItemType
+    $permissions: String
+    $url: String
+    $parentId: String
+    $icon: String
   ) {
     menuItems {
       update(
@@ -108,8 +111,9 @@ export const UPDATE_MENU_ITEM_MUTATION = gql`
           permissions: $permissions
           isActive: $isActive
           parentId: $parentId
-          order: $order
+          sortOrder: $sortOrder
           type: $type
+          icon: $icon
         }
       ) {
         id

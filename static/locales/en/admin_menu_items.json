@@ -5,9 +5,9 @@
   "lang": "Language",
   "menuItems": "Menu Items",
   "name": "Name",
-  "order": "Order",
   "parentId": "Parent Id",
   "permissions": "Permissions",
+  "sortOrder": "Sort Order",
   "type": "Type",
   "url": "Url"
 }

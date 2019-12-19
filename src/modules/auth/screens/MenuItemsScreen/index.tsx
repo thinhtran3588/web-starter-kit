@@ -219,7 +219,7 @@ const Screen = (props: Props): JSX.Element => {
     validatePermissions('menuItems', 'viewAny', 'lang') && {
       field: 'lang',
       label: t('lang'),
-      minWidth: 100,
+      minWidth: 150,
       sortable: false,
       format: formatWithLookup(lookupLangs),
     },
@@ -267,11 +267,10 @@ const Screen = (props: Props): JSX.Element => {
       minWidth: 100,
       sortable: false,
     },
-    validatePermissions('menuItems', 'viewAny', 'order') && {
-      field: 'order',
-      label: t('order'),
+    validatePermissions('menuItems', 'viewAny', 'sortOrder') && {
+      field: 'sortOrder',
+      label: t('sortOrder'),
       minWidth: 80,
-      sortable: false,
     },
     validatePermissions('menuItems', 'viewAny', 'type') && {
       field: 'type',
@@ -345,7 +344,7 @@ const Screen = (props: Props): JSX.Element => {
         isBusy={isBusy}
         sortable
         orderBy={{
-          field: 'name',
+          field: 'sortOrder',
           direction: 'asc',
         }}
       />

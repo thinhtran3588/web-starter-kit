@@ -5,9 +5,9 @@
   "lang": "Ngôn ngữ",
   "menuItems": "Danh mục",
   "name": "Tên",
-  "order": "Thứ tự",
   "parentId": "Id cha",
   "permissions": "Quyền",
+  "sortOrder": "Thứ tự",
   "type": "Loại",
   "url": "Url"
 }

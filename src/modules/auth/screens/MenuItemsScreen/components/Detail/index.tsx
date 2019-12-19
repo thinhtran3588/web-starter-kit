@@ -41,7 +41,7 @@ interface FormData {
   icon: string;
   permissions: string;
   isActive: boolean;
-  order: number | string;
+  sortOrder: number | string;
   type: MenuItemType;
   parentId?: string;
 }
@@ -53,7 +53,7 @@ const defaultMenuItem: FormData = {
   icon: '',
   permissions: '',
   isActive: true,
-  order: '0',
+  sortOrder: '0',
   type: 'ADMIN',
   parentId: '',
 };
@@ -121,9 +121,9 @@ export const Detail = (props: Props): JSX.Element => {
       field: 'parentId',
       required: true,
     }) as yup.Schema<MenuItemType>,
-    order: getNumberValidationSchema({
+    sortOrder: getNumberValidationSchema({
       ...validationParams,
-      field: 'order',
+      field: 'sortOrder',
       required: true,
       integer: true,
       min: 0,
@@ -138,14 +138,14 @@ export const Detail = (props: Props): JSX.Element => {
       errors = (await initApolloClient().mutate({
         variables: {
           ...input,
-          order: parseInt(input.order as string, 10),
+          sortOrder: parseInt(input.sortOrder as string, 10),
         },
         mutation: CREATE_MENU_ITEM_MUTATION,
       })).errors;
     } else {
       const updatedData = getUpdatedData(menuItem, input, validatePermissions, 'menuItems', 'updateAny');
-      if (updatedData && updatedData.order !== undefined) {
-        updatedData.order = parseInt(updatedData.order as string, 10);
+      if (updatedData && updatedData.sortOrder !== undefined) {
+        updatedData.sortOrder = parseInt(updatedData.sortOrder as string, 10);
       }
       if (!updatedData) {
         showNotification({
@@ -253,11 +253,11 @@ export const Detail = (props: Props): JSX.Element => {
       pickerDataSources: langs,
     },
     {
-      name: 'order',
-      label: t('order'),
+      name: 'sortOrder',
+      label: t('sortOrder'),
       required: true,
-      disabled: !!id && !validatePermissions('menuItems', 'updateAny', 'order'),
-      hidden: !!id && !validatePermissions('menuItems', 'viewAny', 'order'),
+      disabled: !!id && !validatePermissions('menuItems', 'updateAny', 'sortOrder'),
+      hidden: !!id && !validatePermissions('menuItems', 'viewAny', 'sortOrder'),
     },
     {
       name: 'url',
