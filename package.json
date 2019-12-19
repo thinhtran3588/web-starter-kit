@@ -105,7 +105,7 @@
     "build-serverless": "yarn build-server && rm -r -f .next && NEXT_TARGET=serverless next build",
     "build-server": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "dev": "yarn build-server && nodemon --watch ./dist --watch ./static --nolazy ./dist/server.js",
+    "dev": "yarn job development && yarn build-server && nodemon --watch ./dist --watch ./static --nolazy ./dist/server.js",
     "dev-client": "node ./dist/server.js",
     "gen-schema-query": "node ./dist/schema_query.js",
     "job": "ts-node -O '{\"module\": \"commonjs\"}' job.ts",
