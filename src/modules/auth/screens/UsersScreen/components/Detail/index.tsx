@@ -109,13 +109,13 @@ export const Detail = (props: Props): JSX.Element => {
     email: getStringValidationSchema({
       ...validationParams,
       field: 'email',
-      required: true,
+      required: !id,
       regex: config.regex.email,
     }),
     password: getStringValidationSchema({
       ...validationParams,
       field: 'password',
-      required: true,
+      required: !id,
       regex: config.regex.password,
       regexErrorMessage: t('common:invalidPassword'),
     }),
@@ -240,7 +240,7 @@ export const Detail = (props: Props): JSX.Element => {
         });
         return;
       }
-      setUser(() => sanitizeFormData(data.user));
+      setUser(() => sanitizeFormData(data.usersById));
     }, setIsBusy)();
   }, [id, open]);
   /* --- effects - end --- */
@@ -360,7 +360,7 @@ export const Detail = (props: Props): JSX.Element => {
 
   return (
     <FormDialog
-      title={`${id ? t('common:create') : t('common:update')} ${t('users')}`}
+      title={`${!id ? t('common:create') : t('common:update')} ${t('users')}`}
       open={open}
       onClose={onClose}
       initialValues={user}

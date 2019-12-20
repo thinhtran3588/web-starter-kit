@@ -12,6 +12,7 @@ import {
   initApolloClient,
   catchError,
   AuthProps,
+  getUpdatedData,
 } from '@app/core';
 import { navigationService } from '@app/services';
 import { config } from '@app/config';
@@ -72,10 +73,31 @@ const Screen = (props: Props): JSX.Element => {
 
   /* --- actions & events - begin --- */
   const onSubmit = catchError(async (input: FormData): Promise<void> => {
+    const updatedData = getUpdatedData(profile, input, () => true, 'users', 'updateOwn');
+    if (!updatedData) {
+      showNotification({
+        type: 'WARNING',
+        message: t('common:pleaseUpdateData'),
+      });
+      return;
+    }
+    const variables = {
+      id: authUser.id,
+      ...updatedData,
+    };
+    if ((profile && profile.username) || !input.username) {
+      delete variables.username;
+    }
+    if (authUser.loginType === 'EMAIL' || authUser.loginType === 'GOOGLE') {
+      delete variables.email;
+    } else if (authUser.loginType === 'PHONE_NO') {
+      delete variables.phoneNo;
+    }
+
     const { errors } = await initApolloClient().mutate({
       variables: {
         id: authUser.id,
-        input,
+        ...input,
       },
       mutation: UPDATE_PROFILE_MUTATION,
     });
@@ -124,7 +146,7 @@ const Screen = (props: Props): JSX.Element => {
         });
         return;
       }
-      setProfile(() => data.user);
+      setProfile(() => data.usersById);
       setGenders(() => [
         {
           value: '',

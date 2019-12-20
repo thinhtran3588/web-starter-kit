@@ -89,6 +89,7 @@ export const Detail = (props: Props): JSX.Element => {
     permissions: getStringValidationSchema({
       ...validationParams,
       field: 'permissions',
+      max: config.validation.string.descriptionMaxLength,
     }),
   });
   /* --- variables & states - end --- */
@@ -157,7 +158,7 @@ export const Detail = (props: Props): JSX.Element => {
         });
         return;
       }
-      setRole(() => data.role);
+      setRole(() => data.rolesById);
     }, setIsBusy)();
   }, [id, open]);
   /* --- effects - end --- */
@@ -217,7 +218,7 @@ export const Detail = (props: Props): JSX.Element => {
 
   return (
     <FormDialog
-      title={`${id ? t('common:create') : t('common:update')} ${t('roles')}`}
+      title={`${!id ? t('common:create') : t('common:update')} ${t('roles')}`}
       open={open}
       onClose={onClose}
       initialValues={role}

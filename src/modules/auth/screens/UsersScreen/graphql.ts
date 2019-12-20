@@ -77,7 +77,7 @@ export const GET_USERS_QUERY = gql`
 
 export const GET_USER_QUERY = gql`
   query getUser($id: ID!) {
-    user(id: $id) {
+    usersById(id: $id) {
       username
       firstName
       middleName

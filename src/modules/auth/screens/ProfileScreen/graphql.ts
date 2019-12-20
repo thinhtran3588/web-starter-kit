@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 
 export const GET_PROFILE_QUERY = gql`
   query GetProfile($id: ID!) {
-    user(id: $id) {
+    usersById(id: $id) {
       username
       firstName
       middleName

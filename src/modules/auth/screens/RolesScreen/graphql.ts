@@ -51,7 +51,7 @@ export const DELETE_ROLE_MUTATION = gql`
 
 export const GET_ROLE_QUERY = gql`
   query getRole($id: ID!) {
-    role(id: $id) {
+    rolesById(id: $id) {
       id
       name
       description

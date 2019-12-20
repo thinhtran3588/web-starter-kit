@@ -202,11 +202,11 @@ export const Detail = (props: Props): JSX.Element => {
         return;
       }
       setMenuItem(() => ({
-        ...data.menuItem,
-        url: data.menuItem.url || '',
-        icon: data.menuItem.icon || '',
-        permissions: data.menuItem.permissions || '',
-        parentId: data.menuItem.parentId || '',
+        ...data.menuItemsById,
+        url: data.menuItemsById.url || '',
+        icon: data.menuItemsById.icon || '',
+        permissions: data.menuItemsById.permissions || '',
+        parentId: data.menuItemsById.parentId || '',
       }));
     }, setIsBusy)();
   }, [id, open]);
@@ -288,7 +288,7 @@ export const Detail = (props: Props): JSX.Element => {
 
   return (
     <FormDialog
-      title={`${id ? t('common:create') : t('common:update')} ${t('menuItems')}`}
+      title={`${!id ? t('common:create') : t('common:update')} ${t('menuItems')}`}
       open={open}
       onClose={onClose}
       initialValues={menuItem}

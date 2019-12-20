@@ -41,7 +41,7 @@ export const DELETE_MENU_ITEM_MUTATION = gql`
 
 export const GET_MENU_ITEM_QUERY = gql`
   query getMenuItem($id: ID!) {
-    menuItem(id: $id) {
+    menuItemsById(id: $id) {
       id
       lang
       name
