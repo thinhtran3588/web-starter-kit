@@ -1,15 +1,15 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { AdminBlogs } from '@app/modules/blogs/screens/AdminBlogs';
 import { TestBaseComponent } from '@test/helpers/TestBaseComponent';
+import { DashboardScreen } from '@app/modules/admin/screens/DashboardScreen';
 
-describe('@app/modules/AdminBlogs/screens/AdminBlogs', () => {
+describe('@app/modules/admin/screens/Dashboard', () => {
   beforeEach(() => {});
 
   it('renders successfully', async () => {
     const { baseElement } = render(
       <TestBaseComponent>
-        <AdminBlogs />
+        <DashboardScreen />
       </TestBaseComponent>,
     );
     expect(baseElement).toMatchSnapshot();

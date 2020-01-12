@@ -10,7 +10,7 @@ describe('components/AdminLayout', () => {
   it('renders successfully', async () => {
     const { baseElement } = render(
       <TestBaseComponent>
-        <AdminLayout />
+        <AdminLayout userMenuItems={[]} />
       </TestBaseComponent>,
     );
 
@@ -20,7 +20,7 @@ describe('components/AdminLayout', () => {
   it('renders successfully with title', async () => {
     const { baseElement } = render(
       <TestBaseComponent>
-        <AdminLayout title='Title' />
+        <AdminLayout title='Title' userMenuItems={[]} />
       </TestBaseComponent>,
     );
 
@@ -30,7 +30,7 @@ describe('components/AdminLayout', () => {
   it('opens sidebar when clicking Menu icon', async () => {
     const { getByTestId } = render(
       <TestBaseComponent>
-        <AdminLayout title='Title' />
+        <AdminLayout title='Title' userMenuItems={[]} />
       </TestBaseComponent>,
     );
     fireEvent.click(getByTestId('menu-icon'));
@@ -42,7 +42,7 @@ describe('components/AdminLayout', () => {
   it('closes sidebar when clicking sidebar backdrop', async () => {
     const { getByTestId } = render(
       <TestBaseComponent>
-        <AdminLayout title='Title' />
+        <AdminLayout title='Title' userMenuItems={[]} />
       </TestBaseComponent>,
     );
     fireEvent.click(getByTestId('menu-icon'));

@@ -11,17 +11,17 @@ describe('components/Header', () => {
     const navItems: NavItem[] = [
       {
         id: 'home',
-        link: '/',
-        text: 'Home',
+        url: '/',
+        name: 'Home',
       },
       {
         id: 'about',
-        link: '/about',
-        text: 'About',
+        url: '/about',
+        name: 'About',
       },
       {
         id: 'noLink',
-        text: 'No Link',
+        name: 'No Link',
       },
     ];
 

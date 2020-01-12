@@ -12,6 +12,7 @@ import {
   AuthUser,
   cache,
   ValidatePermissions,
+  UserMenuItem,
 } from '@app/core';
 import { navigationService } from '@app/services';
 import { gql } from 'apollo-boost';
@@ -31,10 +32,12 @@ interface AuthData {
   isAdmin: boolean;
   isValid: boolean;
   permissions: PermissionTree;
+  userMenuItems: UserMenuItem[];
 }
 
 const PERMISSIONS_KEY = 'PERMISSIONS_KEY';
 const IS_ADMIN_KEY = 'IS_ADMIN_KEY';
+const USER_MENU_ITEMS = 'ADMIN_USER_MENU_ITEMS';
 
 export const withAuth = (PageComponent: any, validate?: (validatePermissions: ValidatePermissions) => boolean): any => {
   const WithAuth = (props: any): any => {
@@ -49,6 +52,7 @@ export const withAuth = (PageComponent: any, validate?: (validatePermissions: Va
       validating: true,
       isValid: false,
       permissions: {},
+      userMenuItems: [],
     });
 
     const validateWithPermissions = (permissions: PermissionTree, isAdmin: boolean): ValidatePermissions => {
@@ -76,27 +80,47 @@ export const withAuth = (PageComponent: any, validate?: (validatePermissions: Va
 
           let permissions: PermissionTree = cache.get(PERMISSIONS_KEY);
           let isAdmin: boolean = cache.get(IS_ADMIN_KEY);
+          let userMenuItems: UserMenuItem[] = cache.get(USER_MENU_ITEMS);
           if (!permissions) {
-            const { data: permissionsData, errors: permissionsErrors } = await initApolloClient().query({
+            const { data: usersData, errors: usersErrors } = await initApolloClient().query({
               query: gql`
-                query GetUserPermissions {
+                query GetUserPermissionsAndMenuItems {
                   userPermissions(payload: {}) {
                     permissions
                     isAdmin
                   }
+                  userMenuItems(payload: { type: ADMIN }) {
+                    id
+                    name
+                    url
+                    icon
+                    children {
+                      id
+                      name
+                      url
+                      icon
+                      children {
+                        name
+                        url
+                        icon
+                      }
+                    }
+                  }
                 }
               `,
             });
-            if (permissionsErrors || !permissionsData || !permissionsData.userPermissions) {
+            if (usersErrors || !usersData || !usersData.userPermissions) {
               navigationService.navigateTo({
                 url: '/login',
               });
               return;
             }
-            permissions = JSON.parse(permissionsData.userPermissions.permissions);
-            isAdmin = permissionsData.userPermissions.isAdmin;
+            permissions = JSON.parse(usersData.userPermissions.permissions);
+            isAdmin = usersData.userPermissions.isAdmin;
+            userMenuItems = usersData.userMenuItems;
             cache.set(PERMISSIONS_KEY, permissions);
             cache.set(IS_ADMIN_KEY, isAdmin);
+            cache.set(USER_MENU_ITEMS, userMenuItems);
           }
           setAuthData((draft) => {
             draft.authUser = data.currentUser;
@@ -104,6 +128,7 @@ export const withAuth = (PageComponent: any, validate?: (validatePermissions: Va
             draft.validating = false;
             draft.isValid = isAdmin || !validate || validate(validateWithPermissions(permissions, isAdmin));
             draft.permissions = permissions;
+            draft.userMenuItems = userMenuItems;
           });
         }),
       );
@@ -127,7 +152,14 @@ export const withAuth = (PageComponent: any, validate?: (validatePermissions: Va
         </div>
       );
     }
-    return <PageComponent {...props} authUser={authData.authUser} validatePermissions={validatePermissions} />;
+    return (
+      <PageComponent
+        {...props}
+        authUser={authData.authUser}
+        validatePermissions={validatePermissions}
+        userMenuItems={authData.userMenuItems}
+      />
+    );
   };
   return WithAuth;
 };

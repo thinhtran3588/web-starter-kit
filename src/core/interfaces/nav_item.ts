@@ -1,11 +1,10 @@
 export interface NavItem {
   id: string;
-  link?: string;
-  text: string;
+  url?: string;
+  name: string;
   icon?: string;
-  requestPermission?: string;
   children?: NavItem[];
   color?: string;
   bgColor?: string;
-  expanded?: true;
+  expanded?: boolean;
 }

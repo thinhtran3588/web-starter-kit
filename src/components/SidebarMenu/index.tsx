@@ -69,20 +69,24 @@ const StyledTreeItem = (props: StyledTreeItemProps): JSX.Element => {
   );
 };
 
-const renderMenuItems = (navItems: NavItem[]): JSX.Element => {
+const renderMenuItems = (navItems: NavItem[] | undefined): JSX.Element | null => {
+  if (!navItems || navItems.length === 0) {
+    // eslint-disable-next-line no-null/no-null
+    return null;
+  }
   return (
     <>
       {navItems.map((navItem) => (
         <StyledTreeItem
           key={navItem.id}
           nodeId={navItem.id}
-          labelText={navItem.text}
+          labelText={navItem.name}
           labelIcon={navItem.icon}
           color={navItem.color || '#1a73e8'}
           bgColor={navItem.bgColor || '#e8f0fe'}
-          link={navItem.link}
+          link={navItem.url}
         >
-          {navItem.children && renderMenuItems(navItem.children)}
+          {renderMenuItems(navItem.children)}
         </StyledTreeItem>
       ))}
     </>

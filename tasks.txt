@@ -7,7 +7,10 @@
 - SEO auth layout
 - avatar update with s3
 - (done) i18n to firebase
-- login with username
+- (done) login with username
 - (done) error policy apollo (default)
 - logging
 - fix permission order in user detail
+- preact
+- refactor to reduce bundle size
+- documents components

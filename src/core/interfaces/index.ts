@@ -27,3 +27,4 @@ export * from './color';
 export * from './auth_props';
 export * from './validate_permissions';
 export * from './order_by';
+export * from './user_menu_item';

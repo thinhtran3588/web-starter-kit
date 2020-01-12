@@ -21,20 +21,20 @@ const BaseLayout = (props: Props): JSX.Element => {
   const navItems: NavItem[] = [
     {
       id: 'home',
-      link: '/',
-      text: t('home'),
+      url: '/',
+      name: t('home'),
       icon: 'Home',
     },
     {
       id: 'blogs',
-      link: '/blogs',
-      text: t('blogs'),
+      url: '/blogs',
+      name: t('blogs'),
       icon: 'MenuBook',
     },
     {
       id: 'aboutUs',
-      link: '/aboutUs',
-      text: t('aboutUs'),
+      url: '/aboutUs',
+      name: t('aboutUs'),
       icon: 'Info',
     },
   ];
@@ -42,14 +42,14 @@ const BaseLayout = (props: Props): JSX.Element => {
   const loginNavItems: NavItem[] = [
     {
       id: 'login',
-      link: '/login',
-      text: t('login'),
+      url: '/login',
+      name: t('login'),
       icon: 'Login',
     },
     {
       id: 'register',
-      link: '/register',
-      text: t('register'),
+      url: '/register',
+      name: t('register'),
       icon: 'Register',
     },
   ];

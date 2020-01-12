@@ -1,3 +1,3 @@
-import { AdminBlogs } from '@app/modules/blogs/screens/AdminBlogs';
+import { AdminBlogsScreen } from '@app/modules/blogs/screens/AdminBlogsScreen';
 
-export default AdminBlogs;
+export default AdminBlogsScreen;

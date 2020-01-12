@@ -3,7 +3,7 @@ import NextHead from 'next/head';
 import { useTheme } from '@material-ui/styles';
 import { useMediaQuery, Theme } from '@material-ui/core';
 import { config } from '@app/config';
-import { NavItem, GET_CURRENT_USER_QUERY, AuthUser } from '@app/core';
+import { NavItem, GET_CURRENT_USER_QUERY, AuthUser, UserMenuItem } from '@app/core';
 import { useImmer } from 'use-immer';
 import { useQuery } from '@apollo/react-hooks';
 import { AdminFooter } from '../AdminFooter';
@@ -16,45 +16,18 @@ interface Props {
   children?: React.ReactNode;
   title?: string;
   description?: string;
+  userMenuItems: UserMenuItem[];
 }
 
-export const AdminLayout = ({ children, title = config.siteName, description = '' }: Props): JSX.Element => {
-  const navItems: NavItem[] = [
-    {
-      id: 'auth',
-      text: 'Auth',
-      icon: 'Security',
-      children: [
-        {
-          id: 'users',
-          text: 'Users',
-          link: '/admin/users',
-          icon: 'Person',
-        },
-        {
-          id: 'roles',
-          text: 'Roles',
-          link: '/admin/roles',
-          icon: 'Group',
-        },
-      ],
-      expanded: true,
-    },
-    {
-      id: 'publicWebsite',
-      text: 'Public Website',
-      icon: 'Language',
-      children: [
-        {
-          id: 'blogs',
-          text: 'Blogs',
-          link: '/admin/blogs',
-          icon: 'MenuBook',
-        },
-      ],
-      expanded: true,
-    },
-  ];
+export const AdminLayout = (props: Props): JSX.Element => {
+  const { children, title = config.siteName, description = '', userMenuItems } = props;
+  const navItems: NavItem[] = userMenuItems.map(
+    (item) =>
+      ({
+        ...item,
+        expanded: true,
+      } as NavItem),
+  );
   const classes = useStyles();
   const theme = useTheme<Theme>();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'), {

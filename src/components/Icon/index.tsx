@@ -22,6 +22,7 @@ import Edit from '@material-ui/icons/Edit';
 import Delete from '@material-ui/icons/Delete';
 import Lock from '@material-ui/icons/Lock';
 import FindInPage from '@material-ui/icons/FindInPage';
+import List from '@material-ui/icons/List';
 
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
 
@@ -78,6 +79,8 @@ export const Icon = (props: Props): JSX.Element => {
       return <Lock {...other} />;
     case 'FindInPage':
       return <FindInPage {...other} />;
+    case 'List':
+      return <List {...other} />;
     default:
       return <></>;
   }

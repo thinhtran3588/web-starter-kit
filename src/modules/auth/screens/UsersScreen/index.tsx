@@ -41,7 +41,7 @@ const defaultFilter: FormData = {
 
 const Screen = (props: Props): JSX.Element => {
   /* --- variables & states - begin --- */
-  const { t, validatePermissions } = props;
+  const { t, validatePermissions, userMenuItems } = props;
   const [isBusy, setIsBusy] = useImmer<boolean>(false);
   const [filter, setFilter] = useImmer<FilterWithOffsetPagination>({
     pageIndex: 0,
@@ -322,7 +322,7 @@ const Screen = (props: Props): JSX.Element => {
   ];
   /* --- renders --- end */
   return (
-    <AdminLayout title={t('users')}>
+    <AdminLayout title={t('users')} userMenuItems={userMenuItems}>
       <FormSearch
         title={t('users')}
         commandButtons={[

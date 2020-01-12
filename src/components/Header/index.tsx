@@ -44,16 +44,16 @@ const BaseHeader = (props: Props): JSX.Element => {
   const notifications = [{}, {}];
 
   const renderNavItem = (navItem: NavItem): JSX.Element => (
-    <Button color='inherit' variant='text' className={classes.menuItemButton} key={`${navItem.link}${navItem.text}`}>
+    <Button color='inherit' variant='text' className={classes.menuItemButton} key={`${navItem.url}${navItem.name}`}>
       {navItem.icon && <Icon name={navItem.icon} />}
-      <span className={classes.menuItemText}>{navItem.text}</span>
+      <span className={classes.menuItemText}>{navItem.name}</span>
     </Button>
   );
 
   const renderLinkNavItem = (navItem: NavItem): JSX.Element => {
-    if (navItem.link) {
+    if (navItem.url) {
       return (
-        <Link href={navItem.link} key={`${navItem.link}${navItem.text}`} className={classes.menuItem}>
+        <Link href={navItem.url} key={`${navItem.url}${navItem.name}`} className={classes.menuItem}>
           {renderNavItem(navItem)}
         </Link>
       );
